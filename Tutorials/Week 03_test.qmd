@@ -1,0 +1,83 @@
+---
+title: "Week 3 – Interactivity & Visualisation"
+format: html
+---
+
+## 🖼️ Inserted Image
+
+Here's a sample bar chart image (you can replace this with your own):
+
+![Example Bar Chart](images/barchart_example.png){fig-align="center"}
+
+## 📊 Interactive Plot (Plotly)
+
+```{r}
+library(plotly)
+
+plot_ly(data = mtcars, x = ~mpg, y = ~hp,
+        type = "scatter", mode = "markers",
+        marker = list(size = 10)) %>%
+  layout(title = "MPG vs Horsepower")
+```
+
+## 🧮 Embedded Calculator (iframe)
+
+Try a calculation using an embedded Desmos calculator:
+
+\<iframe src="https://www.desmos.com/scientific" width="100%" height="400"\>\</iframe\>
+
+## 📋 Copy-pasteable Code Snippet
+
+You can copy and paste this line into your R console:
+
+```{r}
+summary(iris)
+```
+
+🗂️ Tabbed Code Blocks: Mean Calculation
+
+::: panel-tabset
+### Base R
+
+```{r}
+mean(mtcars$mpg)
+```
+
+### Tidyverse
+
+```{r}
+library(dplyr)
+mtcars %>% summarise(mean_mpg = mean(mpg))
+```
+:::
+
+## Reflection
+
+-   What’s the benefit of using an interactive plot vs static visualisation?
+
+-   Which coding approach do you prefer: Base R or Tidyverse?
+
+## **1. Hyperlink to External Websites**
+
+To direct students to download R and RStudio:
+
+## 🧩 Software Setup
+
+Before starting this course, please install the following:
+
+-   [Download R](https://cran.r-project.org/)
+
+-   [Download RStudio](https://posit.co/download/rstudio-desktop/)
+
+2\. **Link to Download a File (e.g., `.Rmd`, `.csv`)**
+
+Place your file (e.g., `template_report.Rmd` or `data_week1.csv`) inside a folder in your Quarto project — typically a `downloads/` or `files/` folder.
+
+## 📁 Download Files
+
+-   [Download data file (CSV)](downloads/data_week1.csv)
+-   [Download RMarkdown template](downloads/template_report.Rmd)
+
+✅ Quarto copies the `downloads/` folder into the final website build, so these links will work once rendered.
+
+![](images/Screenshot%202025-05-02%20at%2020.33.42.png)

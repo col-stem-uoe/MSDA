@@ -1,0 +1,71 @@
+---
+title: "Welcome"
+format: html
+---
+
+# Mathematics, Statistics & Data Analysis
+
+Welcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.
+
+You will build confidence in working with quantitative evidence, and gain practical experience using **Excel** and **R** to manipulate, summarise, and interpret data.
+
+------------------------------------------------------------------------
+
+## 🧭 Course Overview
+
+-   **Lectures** introduce mathematical, statistical, and data analysis concepts\
+-   **Tutorials** provide guided practice, discussion, and group activities\
+-   **MathsHub** offers additional supported study (optional)
+
+You’ll engage in regular **formative quizzes** and complete a final **data analysis project**, where you’ll formulate a research question, summarise a dataset, and report your findings clearly using appropriate methods.
+
+------------------------------------------------------------------------
+
+## 📚 Weekly Structure
+
+Each week includes:
+
+-   🔍 **Content** – clear explanations and examples\
+-   💻 **Tutorials** – hands-on R and Excel activities\
+-   📁 **Downloadable templates and datasets**
+
+Access all materials using the menu above or from Learn Ultra.
+
+------------------------------------------------------------------------
+
+## 🛠 Required Software
+
+To complete this course, you will need:
+
+-   [R](https://cran.r-project.org/)\
+-   [RStudio](https://posit.co/download/rstudio-desktop/)\
+-   A laptop (not a Chromebook or iPad)\
+-   Access to Microsoft Excel\
+-   Your coursebook website (this one!) and Learn Ultra
+
+If you do not have access to a laptop, please contact the COL Laptop Loan service.
+
+------------------------------------------------------------------------
+
+## 📈 Learning Outcomes
+
+By the end of the course, you will be able to:
+
+-   Apply mathematical and statistical concepts to summarise and interpret data\
+-   Use R and Excel to manipulate and visualise datasets\
+-   Conduct hypothesis testing and choose appropriate methods\
+-   Communicate your findings clearly in written reports and visual formats
+
+------------------------------------------------------------------------
+
+## 🔗 Quick Links
+
+-   [Learn Ultra Course Page](https://learn.ultra.ed.ac.uk/...) ← *replace with your course link*
+-   [OpenIntro Statistics (recommended)](https://www.openintro.org/book/os/)
+-   [Big Book of R](https://www.bigbookofr.com/)
+-   [R for Data Science](https://r4ds.had.co.nz/)
+
+------------------------------------------------------------------------
+
+<footer>© 2025 University of Edinburgh \| Centre for Open Learning\
+Mathematics, Statistics & Data Analysis for CHASS</footer>

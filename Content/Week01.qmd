@@ -1,0 +1,16 @@
+---
+title: "Week 1 – Getting Started with R"
+format: html
+---
+
+## 🎯 Objectives
+
+-   Learn how to open RStudio and run code\
+-   Load and view a dataset\
+-   Describe variables in the dataset
+
+## 🧪 Example Code
+
+```{r}
+summary(mtcars)
+```

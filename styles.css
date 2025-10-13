@@ -1,0 +1,116 @@
+/* --------------------------------------
+   UoE Styling: MSDA Coursebook (Final)
+----------------------------------------- */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+/* Base body font and colours */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: 'Crimson Pro', serif;
+  color: #487A7B;  /* Jade */
+  font-weight: 700;
+  margin-top: 1.5em;
+}
+
+/* Navbar base */
+.navbar {
+  background-color: #004F71 !important;  /* Muted Blue */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* MSDA title (as a link/text element in navbar) */
+.navbar .navbar-brand,
+.navbar .navbar-logo,
+.navbar .menu-text {
+  font-size: 1.6rem !important;  /* ≈ 25.6px */
+  font-weight: 700 !important;
+  color: white !important;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  letter-spacing: 0.4px;
+  margin-right: 40px;
+}
+
+/* Logo styling (new logo: round_logo_blue.png) */
+.navbar .navbar-brand img {
+  height: 48px !important;
+  max-height: 48px !important;
+  width: auto !important;
+  margin-right: 16px;
+  padding-left: 8px;
+}
+
+/* Navbar menu items */
+.navbar-nav > li > a {
+  font-size: 1.15rem !important;  /* ≈ 18.4px */
+  font-weight: 600 !important;
+  color: white !important;
+}
+
+.navbar-nav > li > a:hover {
+  color: #c5eff7 !important;  /* Bright hover */
+}
+
+/* Regular links inside content */
+a {
+  color: #007288;
+}
+a:hover {
+  color: #c5eff7;
+}
+
+/* Dropdown menu container */
+.dropdown-menu {
+  background-color: #041E42 !important;  /* University Blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+/* Dropdown items */
+.dropdown-menu a,
+.dropdown-header {
+  color: white !important;
+  padding: 8px 20px;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background-color: #004F71 !important;
+  color: #c5eff7 !important;
+}
+
+/* Block headers inside dropdown (non-clickable) */
+.dropdown-menu li > a[href="#"] {
+  font-weight: 700;
+  color: white !important;
+  background-color: #041E42 !important;
+  text-transform: uppercase;
+  pointer-events: none;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  border-top: 1px solid #004F71;
+}
+
+.dropdown-menu li + li a[href="#"] {
+  margin-top: 10px;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 2.5em;
+}
+
+/* Navbar item spacing */
+.navbar-nav {
+  gap: 20px;
+}
