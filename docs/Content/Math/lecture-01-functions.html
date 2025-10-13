@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Algebra &amp; Functions – MSDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-078f5be260b122ac6dcea7ea886f5ae9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../edtheme.scss">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MSDA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Course Overview</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-math-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Math Content</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-math-content">    
+        <li>
+    <a class="dropdown-item" href="../../Content/Math/lecture-01-functions.html">
+ <span class="dropdown-text">Week 01 – Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Math/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Exponential and Logarithmic Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Math/lecture-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Sequences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Math/lecture-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Differentiation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Math/lecture-05-integration.html">
+ <span class="dropdown-text">Week 05 – Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Math/lecture-06-probability.html">
+ <span class="dropdown-text">Week 06 – Probability</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-math-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Math Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-math-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Math/workshop-01-functions.html">
+ <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Math/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: Exponential and Logarithmic Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Math/workshop-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Math/workshop-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Math/workshop-05-integration.html">
+ <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Math/workshop-06-probability.html">
+ <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stats-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Stats Content</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
+ <span class="dropdown-text">Week 08 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-9-content-stats.qmd">
+ <span class="dropdown-text">Week 09 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
+ <span class="dropdown-text">Week 10 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
+ <span class="dropdown-text">Week 11 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-12-content-stats.html">
+ <span class="dropdown-text">Week 12 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-13-content-stats.html">
+ <span class="dropdown-text">Week 13 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-14-content-stats.html">
+ <span class="dropdown-text">Week 14 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-15-content-stats.html">
+ <span class="dropdown-text">Week 15 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-16-content-stats.html">
+ <span class="dropdown-text">Week 16 – Stats Content</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stats-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Stats Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
+ <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
+ <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
+ <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
+ <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
+ <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
+ <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
+ <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
+ <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
+ <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Algebra &amp; Functions</h1>
+<p class="subtitle lead">Lecture 1 - FNDN07012</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="logistics" class="level1 center" data-background-color="#041E42" style="color: #d6d6d6; text-align: center;">
+<h1 class="center" data-background-color="#041E42" style="color: #d6d6d6; text-align: center;">Logistics</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Welcome to FNDN07012,</p>
+<blockquote class="blockquote">
+<p>Mathematics, Statistics and Data Analysis for Arts, Humanities and Social Sciences</p>
+</blockquote>
+<p>or <strong>MSDA</strong> for short.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/learn.png" class="img-fluid figure-img" style="width:90.0%" alt="Screenshot of MSDA's Learn page."></p>
+<figcaption>Learn Page</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/website.png" class="img-fluid figure-img" style="width:85.0%" alt="Screenshot of MSDA's webpage."></p>
+<figcaption>Course Website</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="notes">
+<p>This course equips you with the maths and stats necessary for undergraduate study in subjects including Architecture, Business, Finance, Economics, Psychology, Sociology.</p>
+</div>
+</section>
+<section id="teaching-team" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-team">Teaching Team</h2>
+<p>This course is taught by <strong>Josh</strong> (7 weeks of maths) and <strong>Javiera</strong> (9 weeks of stats).</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/josh.jpg" class="img-fluid figure-img" style="width:50.0%" alt="Photo of Josh"></p>
+<figcaption>Josh Fogg (Teacher)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/javiera.jpg" class="img-fluid figure-img" style="width:50.0%" alt="Photo of Javiera"></p>
+<figcaption>Javiera Alfaro Chat (Course Organiser)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/course-timeline-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Visual breakdown of the course structure: 4 weeks of maths, 1 week break, then another 3 weeks of maths followed by 3 weeks of stats, then a 2 week break, folowed by 6 weeks of stats."></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="class-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="class-assessment">Class &amp; Assessment</h2>
+<div class="{image}">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Stundenplan.PNG" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Full timetable for MSDA.</figcaption>
+</figure>
+</div>
+</div>
+<p>The assessment is 40% an in-class test on maths skills and 60% on a data analysis project.</p>
+<div class="notes">
+<p>More information on DRPS and Learn page.</p>
+</div>
+</section>
+</section>
+<section id="algebra-recap" class="level1 center" data-background-color="#041E42" style="color: #d6d6d6; text-align: center;">
+<h1 class="center" data-background-color="#041E42" style="color: #d6d6d6; text-align: center;">Algebra Recap</h1>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+<section id="linear-equations" class="level2">
+<h2 class="anchored" data-anchor-id="linear-equations">Linear Equations</h2>
+<p>An equation in a variable <span class="math inline">\(x\)</span> is <strong>linear</strong> it has the algebraic form <span class="math inline">\(y = mx + c\)</span>, where <span class="math inline">\(m\)</span> is the gradient of the line and <span class="math inline">\(c\)</span> is the <span class="math inline">\(y\)</span>-intercept.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/linear-plot-1.svg" class="img-fluid figure-img" style="width:60.0%" alt="Plot of a straight line that has gradient 2 and intercepts the y-axis at y = 3."></p>
+<figcaption>Plot of the line <span class="math inline">\(y = 2x + 3\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A linear equation <span class="math inline">\(mx + c = 0\)</span> only has one <strong>solution</strong>: <span class="math inline">\(x = -\frac{c}{m}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The equation <span class="math inline">\(2x + 3 = 0\)</span> has the solution <span class="math inline">\(x = -\frac{3}{2} = -1.5\)</span>.</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="quadratic-equations" class="level2">
+<h2 class="anchored" data-anchor-id="quadratic-equations">Quadratic Equations</h2>
+<p>An equation in a variable <span class="math inline">\(x\)</span> is <strong>quadratic</strong> it has the algebraic form <span class="math inline">\(y = ax^2 + bx + c\)</span>, where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> are some numbers and <span class="math inline">\(a\neq0\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/quadratic-plot-1.svg" class="img-fluid figure-img" alt="Plot of a quadratic curve with roots at 2 and -2.5 and intercepts the y-axis at y = -10." width="480"></p>
+<figcaption>Plot of the line <span class="math inline">\(y = 2x^2 + x - 10\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A quadratic <span class="math inline">\(ax^2 + bx = 0\)</span> has no, one, or two solutions, given by <span class="math inline">\(x = -\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The quadratic <span class="math inline">\(y = 2x^2 + x - 10\)</span> has solutions <span class="math inline">\(x = \frac{-1 \pm 9}{4}\)</span>. That is, the solution is <span class="math inline">\(x = \frac{8}{4} = 2\)</span> or <span class="math inline">\(x = -\frac{10}{4} = -2.5\)</span>.</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="negative-exponents" class="level2">
+<h2 class="anchored" data-anchor-id="negative-exponents">Negative Exponents</h2>
+<p>Raising a variable to a negative power is the same as taking the <strong>reciprocal</strong> of the positive power (<em>e.g.</em> <span class="math inline">\(x^{-3} = \frac{1}{x^3}\)</span>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/singularity-plot-1.svg" class="img-fluid figure-img" alt="Plot of a curve with no roots and a singularity as x = 0." width="480"></p>
+<figcaption>Plot of the line <span class="math inline">\(y = 3x^{-2}\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Care is needed with negative exponents because we want to avoid <strong>dividing by zero</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The curve <span class="math inline">\(y = 3x^{-2} = \frac{3}{x^2}\)</span> has a <strong>singularity</strong> at <span class="math inline">\(x = 0\)</span>, since it is undefined for that value.</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="combined-example" class="level2">
+<h2 class="anchored" data-anchor-id="combined-example">Combined Example</h2>
+<p>Real graphs are often messier though, with multiple solutions and singularities.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/messy-plot-1.svg" class="img-fluid figure-img" alt="Plot of a curve with multiple roots and singularities." width="960"></p>
+<figcaption>Plot of the line <span class="math inline">\(y = \frac{3(2x+3)(2x^2 + x - 10)}{x^2(5x+1)}\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To make it easier to work with these, we turn to a concept called <strong>functions</strong>.</p>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+</section>
+<section id="functions" class="level1 center" data-background-color="#041E42" style="color: #d6d6d6; text-align: center;">
+<h1 class="center" data-background-color="#041E42" style="color: #d6d6d6; text-align: center;">Functions</h1>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+<section id="function-machines" class="level2">
+<h2 class="anchored" data-anchor-id="function-machines">Function Machines</h2>
+<p>You might remember the idea of a “function machine” from school.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Function_machine.png" class="img-fluid figure-img" style="width:20.0%" alt="Depiction of a function machine as having some input transformed by the machine into an output."></p>
+<figcaption><a href="https://commons.wikimedia.org/wiki/File:Function_machine2.svg">Function machine</a>, Bill Bailey (2009), <a href="https://en.wikipedia.org/wiki/Public_domain">🅮</a>.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we define our function machine as <span class="math inline">\(x+1\)</span>, then for any input <span class="math inline">\(x\)</span> we put into the machine we will get one more as the output. For example, we might have ‘INPUT 3 <span class="math inline">\(\rightarrow \boxed{x+1} \rightarrow\)</span> OUTPUT 4’.</p>
+</div>
+</div>
+<p>This is a simplified version of our formal <strong>mathematical functions</strong>.</p>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="example-function" class="level2">
+<h2 class="anchored" data-anchor-id="example-function">Example Function</h2>
+<p>We can take the previous example</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we define our function machine as <span class="math inline">\(x+1\)</span>, then for any input <span class="math inline">\(x\)</span> we put into the machine we will get one more as the output. For example, we might have ‘INPUT 3 <span class="math inline">\(\rightarrow \boxed{x+1} \rightarrow\)</span> OUTPUT 4’.</p>
+</div>
+</div>
+<p>and formally define this as a mathematical function</p>
+<p><span class="math display">\[\begin{equation}
+  f(x) = x+1.
+\end{equation}\]</span></p>
+<p>Here <span class="math inline">\(f(x)\)</span> represents what we get as the function output when we use ‘<span class="math inline">\(x\)</span>’ as input. Using this notation we could replace ‘INPUT 3 <span class="math inline">\(\rightarrow \boxed{x+1} \rightarrow\)</span> OUTPUT 4’ with</p>
+<p><span class="math display">\[\begin{equation}
+  f(3) = 3 + 1 = 4.
+\end{equation}\]</span></p>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="inputs-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="inputs-outputs">Inputs &amp; Outputs</h2>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><br> We previously looked at quadratics like <span class="math inline">\(y = x^2\)</span>. We could define this curve via a function, <span class="math inline">\(y = f(x) = x^2\)</span>. From the plot, see how <span class="math inline">\(x\)</span> and be any real number <span class="math inline">\(\mathbb{R}\)</span>, but <span class="math inline">\(x^2\)</span> can only be positive numbers <span class="math inline">\(\mathbb{R}^{\geq0}\)</span>.</p>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/base-quadratic-plot-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Plot of a quadratic curve y = x^2." width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>To specify these, we may then amend our definition to</p>
+<p><span class="math display">\[\begin{equation}
+  f(x) = x^2,\ f:\mathbb{R}\rightarrow\mathbb{R}^{\geq0}.
+\end{equation}\]</span></p>
+<p>Our set of all possible input values are more formally called the <strong>domain</strong> of <span class="math inline">\(f\)</span>, and the set of possible outputs is the <strong>range</strong> of <span class="math inline">\(f\)</span>.</p>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="full-examples" class="level2">
+<h2 class="anchored" data-anchor-id="full-examples">Full Examples</h2>
+<p>We can use this notation for the other examples used previously.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/singularity-function-plot-1.svg" class="img-fluid figure-img" alt="Plot of a curve with no roots and a singularity as x = 0." width="480"></p>
+<figcaption>Plot of <span class="math inline">\(f(x) = 3x^{-2}, f:\mathbb{R}\backslash \lbrace0\rbrace\rightarrow\mathbb{R}^{&gt;0}\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/messy-function-redux-1.svg" class="img-fluid figure-img" alt="Plot of a curve with multiple roots and singularities." width="480"></p>
+<figcaption>Plot of <span class="math inline">\(f(x) = \frac{3(2x+3)(2x^2 + x - 10)}{x^2(5x+1)}, f:\mathbb{R}\backslash \lbrace -2, 0\rbrace\rightarrow\mathbb{R}\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In maths, you will often come across equivalent notations that are all shorthand for the same idea.</p>
+<p>As an example, the notation <span class="math inline">\(\mathbb{R}\backslash\lbrace0\rbrace\)</span> above means the set of real numbers excluding 0. This could equivalently be written as <span class="math inline">\(\lbrace x\in\mathbb{R}~:~x\neq0 \rbrace\)</span>, which as read would be ‘<span class="math inline">\(x\)</span> in the real numbers such that <span class="math inline">\(x\)</span> is not equal to zero’. Using either is correct!</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="inverses" class="level2">
+<h2 class="anchored" data-anchor-id="inverses">Inverses</h2>
+<p>When functions model real world process, it’s useful to know how to reverse them. In the language of function machines, how do we find the input that produced some output?</p>
+<p>Mathematically, we want to find the function <span class="math inline">\(f^{-1}\)</span> such that <span class="math inline">\(x = f^{-1}(y)\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For simple cases we can do this by eye: <span class="math inline">\(f(x) = x+1\)</span> is “reversed” by the function that subtracts one: <span class="math inline">\(f^{-1}(x) = x - 1\)</span>.</p>
+</div>
+</div>
+<p>It isn’t <del>always</del> usually possible to just ‘see’ what <span class="math inline">\(f^{-1}\)</span> will be though, so for that we need other methods we can use to reliably find the answer.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While inverses use the same notation as reciprocals, <span class="math inline">\(f^{-1}\)</span> is not <span class="math inline">\(\frac{1}{f}\)</span>. For example <span class="math inline">\(f(x) = x+1\)</span> isn’t reversed by <span class="math inline">\(g(x) = \frac{1}{x+1}\)</span>.</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="finding-the-inverse" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-inverse">Finding the Inverse</h2>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The method for finding the inverse of <span class="math inline">\(f\)</span> is:</p>
+<ol type="1">
+<li>Write <span class="math inline">\(y = f(x)\)</span>,</li>
+<li>Swap all appearances of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>,</li>
+<li>Rearrange the subject to <span class="math inline">\(y\)</span> again,</li>
+<li>Replace the <span class="math inline">\(y\)</span> with <span class="math inline">\(f^{-1}(x)\)</span>.</li>
+</ol>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 81 rows containing missing values or values outside the scale range
+(`geom_function()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture-01-functions_files/figure-html/plotting-inverses-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Plot of y = 5x - 7 and its inverse y = x/5 + 7/5." width="240"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>This works because the <b style="color:#FF8C00;">inverse</b> is the ‘mirror’ of the original <b style="color:#87CEFA;">function</b> in the line <span class="math inline">\(y = x\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To find the inverse of <span class="math inline">\(f(x) = 5x - 7\)</span>, we first write <span class="math inline">\(y = 5x - 7\)</span>. After swapping <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> we have <span class="math inline">\(x = 5x - 7\)</span>. Rearranging to make <span class="math inline">\(y\)</span> the subject gives <span class="math inline">\(y = \frac{1}{5}x + \frac{7}{5}\)</span>, and so <span class="math inline">\(f^{-1}(x) = \frac{1}{5}x + \frac{7}{5}\)</span>.</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="compositions" class="level2">
+<h2 class="anchored" data-anchor-id="compositions">Compositions</h2>
+<p>We can also combine functions. In the language of function machines, this means taking the output of one function and immediately using it as input for another function.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the functions <span class="math inline">\(f(x) = x+1\)</span> and <span class="math inline">\(g(x) = 2x\)</span>. The <strong>composition</strong> <span class="math inline">\(f\circ{}g\)</span> is defined as <span class="math display">\[\begin{equation}
+  f(g(x)) = f(2x) = 2x + 1.
+\end{equation}\]</span> <em>i.e.</em> we took the output of <span class="math inline">\(\boxed{2x}\)</span> and used it as the input of <span class="math inline">\(\boxed{x+1}\)</span>.</p>
+</div>
+</div>
+<p>This introduces ‘<span class="math inline">\(\circ\)</span>’ as notation for function compositions. Note that <span class="math inline">\(f\circ{}g \neq g\circ{}f\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>composition</strong> <span class="math inline">\(g\circ{}f\)</span> is defined as <span class="math display">\[\begin{equation}
+  g(f(x)) = g(x+1) = 2(x + 1) = 2x + 2.
+\end{equation}\]</span></p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="decompositions" class="level2">
+<h2 class="anchored" data-anchor-id="decompositions">Decompositions</h2>
+<p>Just as compositions combine functions, <strong>decompositions</strong> can break them apart.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider <span class="math inline">\((5x+8)^2\)</span>. Here the expression ‘<span class="math inline">\(5x+8\)</span>’ is nested within another function. We can think of it as the ‘inside’ function. The outside function is <span class="math inline">\(x^2\)</span>.</p>
+<!-- Original work by previous teacher, Lillian Hueber -->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/decompose.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Visual explanation of function composition and decomposition.</figcaption>
+</figure>
+</div>
+<p>A possible decomposition of this function would be <span class="math inline">\(f(x) = 5x + 8\)</span>, <span class="math inline">\(g(x) = x^2\)</span>.</p>
+</div>
+</div>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

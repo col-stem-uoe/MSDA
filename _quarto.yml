@@ -4,54 +4,45 @@ project:
 
 website:
   title: "MSDA"
-
   navbar:
-    logo: images/white_logo.png
-    pinned: true
     background: "#003366"
-
     left:
       - text: "Course Overview"
         href: index.qmd
-
       - text: "Math Content"
         menu:
-          - text: "Week 01 – Math Content"
-            href: Content/Math/week-01-content-math.qmd
-          - text: "Week 02 – Math Content"
-            href: Content/Math/week-02-content-math.qmd
-          - text: "Week 03 – Math Content"
-            href: Content/Math/week-03-content-math.qmd
-          - text: "Week 04 – Math Content"
-            href: Content/Math/week-04-content-math.qmd
-          - text: "Week 05 – Math Content"
-            href: Content/Math/week-05-content-math.qmd
-          - text: "Week 06 – Math Content"
-            href: Content/Math/week-06-content-math.qmd
-
+          - text: "Week 01 – Functions"
+            href: Content/Math/lecture-01-functions.qmd
+          - text: "Week 02 – Exponential and Logarithmic Functions"
+            href: Content/Math/lecture-02-exp-n-log.qmd
+          - text: "Week 03 – Sequences"
+            href: Content/Math/lecture-03-sequences.qmd
+          - text: "Week 04 – Differentiation"
+            href: Content/Math/lecture-04-differentiation.qmd
+          - text: "Week 05 – Integration"
+            href: Content/Math/lecture-05-integration.qmd
+          - text: "Week 06 – Probability"
+            href: Content/Math/lecture-06-probability.qmd
       - text: "Math Tutorials"
         menu:
-          - text: "Week 01 – Tutorial (Math)"
-            href: Tutorials/Math/week-01-tutorial-math.qmd
-          - text: "Week 02 – Tutorial (Math)"
-            href: Tutorials/Math/week-02-tutorial-math.qmd
-          - text: "Week 03 – Tutorial (Math)"
-            href: Tutorials/Math/week-03-tutorial-math.qmd
-          - text: "Week 04 – Tutorial (Math)"
-            href: Tutorials/Math/week-04-tutorial-math.qmd
-          - text: "Week 05 – Tutorial (Math)"
-            href: Tutorials/Math/week-05-tutorial-math.qmd
-          - text: "Week 06 – Tutorial (Math)"
-            href: Tutorials/Math/week-06-tutorial-math.qmd
-
+          - text: "Week 01 – Tutorial: Functions"
+            href: Tutorials/Math/workshop-01-functions.qmd
+          - text: "Week 02 – Tutorial: Exponential and Logarithmic Functions"
+            href: Tutorials/Math/workshop-02-exp-n-log.qmd
+          - text: "Week 03 – Tutorial: Sequences"
+            href: Tutorials/Math/workshop-03-sequences.qmd
+          - text: "Week 04 – Tutorial: Differentiation"
+            href: Tutorials/Math/workshop-04-differentiation.qmd
+          - text: "Week 05 – Tutorial: Integration"
+            href: Tutorials/Math/workshop-05-integration.qmd
+          - text: "Week 06 – Tutorial: Probability"
+            href: Tutorials/Math/workshop-06-probability.qmd
       - text: "Stats Content"
         menu:
-          - text: "Week 07 – Stats Content"
-            href: Content/Stats/week-07-content-stats.qmd
           - text: "Week 08 – Stats Content"
             href: Content/Stats/week-08-content-stats.qmd
           - text: "Week 09 – Stats Content"
-            href: Content/Stats/week-09-content-stats.qmd
+            href: Content/Stats/week-9-content-stats.qmd
           - text: "Week 10 – Stats Content"
             href: Content/Stats/week-10-content-stats.qmd
           - text: "Week 11 – Stats Content"
@@ -66,11 +57,8 @@ website:
             href: Content/Stats/week-15-content-stats.qmd
           - text: "Week 16 – Stats Content"
             href: Content/Stats/week-16-content-stats.qmd
-
       - text: "Stats Tutorials"
         menu:
-          - text: "Week 07 – Tutorial (Stats)"
-            href: Tutorials/Stats/week-07/week-07-tutorial-stats.qmd
           - text: "Week 08 – Tutorial (Stats)"
             href: Tutorials/Stats/week-08/week-08-tutorial-stats.qmd
           - text: "Week 09 – Tutorial (Stats)"
@@ -93,4 +81,6 @@ website:
 format:
   html:
     theme: default
-    css: styles.css
+
+execute:
+  fig-dev: ragg_png

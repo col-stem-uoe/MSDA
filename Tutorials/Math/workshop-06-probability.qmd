@@ -1,0 +1,324 @@
+---
+title: "Probability"
+answers: false  # toggle true/false to show solutions
+---
+
+After a couple of theory questions that are related to this week's content, this workshop has a few different more 'practical' exercises. When you get to these, you're welcome to work with other people to explore the problems, working toward a solution collaboratively.
+
+## The 52 Card Pickup
+
+A standard 52 card deck is split into four suits (spades ♠, hearts <span style="color: red">♥</span>, clubs ♣, and diamonds <span style="color: red">♦</span>), with 13 cards for each suit (an **A**ce, nine numbered $2$-$10$, plus three face cards: **J**ack, **Q**ueen, and **K**ing).
+
+![[_Piatnik Cards_](https://commons.wikimedia.org/wiki/File:Piatnikcards.jpg), Trainler (2009), [CC BY 3.0 Unported](https://creativecommons.org/licenses/by/3.0/deed.en).](img/Piatnikcards.jpg){width=95% fig-alt="The standard deck laid out into suits, with numbers in ascending order and ace high." }
+
+Sometimes aces are treated as a $1$. At other times they're treated as the most valuable card (known as 'ace high'), as suggested in the photo above.
+
+To 'draw' a card means to choose one at random. From this deck,
+
+1. What's the probability of drawing 🂡, the ace of spaces? 
+2. What's the probability of drawing a red card? (_i.e._ <span style="color: red">♦</span> or <span style="color: red">♥</span>)
+3. What's the probability of drawing a Jack? (_i.e._ <span style="color: red">🂫</span>, 🂻, <span style="color: red">🃛</span>, or 🃋)
+4. What's the probability of drawing a face card?
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-tip title=Solution}
+Of the 52 cards,
+
+1. only one is the ace of spaces. Therefore the probability is $\frac{1}{52} \approx 1.92\%$.
+2. twenty six are red. Therefore the probability is $\frac{26}{52} = \frac{1}{2} = 50\%$.
+3. only four are Jacks. Therefore the probability is $\frac{4}{52} = \frac{1}{13} = 7.69\%$.
+4. twelve are face cards. Therefore the probability is $\frac{12}{52} = \frac{3}{13} = 23.1\%$.
+:::
+::::
+
+Sometimes, we might have _some_ information about the card we've drawn. This changes things! From the 52 card deck,
+
+5. What's the probability of drawing an ace, given I know the card is red?
+6. What's the probability that the face card I just drew is a Jack?
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-tip title=Solution}
+5. This is conditional probability! From a previous question, we know that the probability of a card being red is $\frac{26}{52}$. Therefore,
+  $$
+    \mathbb{P}(\text{A}~|~\text{red}) = \frac{\mathbb{P}(\text{A} \cap \text{red})}{\mathbb{P}(\text{red})} = \frac{\frac{2}{52}}{\frac{26}{52}} = \frac{2}{26} = \frac{1}{13}.
+  $$
+6. This is phrased differently, but is still conditional; we're asking for the probability that the card is a Jack, given we know it's a face. We find
+  $$
+    \mathbb{P}(\text{J}~|~\text{face}) = \frac{\mathbb{P}(\text{J} \cap \text{face})}{\mathbb{P}(\text{face})} = \frac{\mathbb{P}(\text{J})}{\mathbb{P}(\text{face})} = \frac{\frac{1}{13}}{\frac{3}{13}} = \frac{1}{3} \approx 33\%.
+  $$
+  Note that a card being "a Jack and a face" is the same as being a Jack, since all Jacks are faces.
+:::
+::::
+
+## Sans Remplacement
+
+In a game, cards are usually drawn continuously rather than putting them back between each draw. For example, if I draw 2 cards from a 52 card deck these cards cannot be the same: they are **drawn without replacement**.[^dice] Starting each time from a full 52 card deck,
+
+1. If I draw an ace, what's the probability that the next draw is an ace?
+2. If I draw a Jack card, what's the chance of the next being a face?
+3. If I draw red (<span style="color: red">♦</span> or <span style="color: red">♥</span>), what's the probability the next is black (♠ or ♣)?
+
+[^dice]: This is in contrast to dice: if I roll two dice, they _can_ have the same outcome. We say that the outcomes are **drawn with replacement**.
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-tip title=Solution}
+1. After drawing an ace, there are only 3 aces left in the 51 cards remaining. That means the probability of drawing another ace is $\frac{3}{51} = 5.88\%$.
+2. After drawing a Jack, there are only 11 faces in the 51 cards remaining. That means the probability is $\frac{11}{51} = 21.6\%$.
+3. After drawing red, there are still 26 black cards but only 51 cards remaining. That means the probability is $\frac{26}{51} = 51.0\%$.
+:::
+::::
+
+There's a whole family of card games (including [Blackjack](https://en.wikipedia.org/wiki/Blackjack), [Pontoon](https://en.wikipedia.org/wiki/Pontoon_(card_game)), and [Vingt-Un](https://en.wikipedia.org/wiki/Twenty-one_(card_game))) where players aim to obtain a hand that adds up to 21. In these games, any face card is usually treated as a '10' and an ace may count as a '1' or an '11' as the player desires.
+
+Starting from a clean deck, what is the probability tree for getting 21 in just two cards?
+
+## Dice Games
+
+Each of these exercises includes an experimental aspect. There's a wee bit of theory involved in each, but you'll need a set of the dice described to have a proper go!
+
+```{r}
+#| label: dice-setup
+#| warning: false
+#| echo: false
+
+# TEACHER NOTE
+# In the lecture I noted how `sample` in R can be used to simulate dice rolls.
+# Often when writing code though, we are able to reuse code written by someone
+# else for a similar purpose. As an example of this, in the workshop solutions
+#  I've use `dice` and `plot.dice` from the package `TeachingDemos`.
+
+library(TeachingDemos)
+```
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-note}
+While in later weeks you'll explore how to do experiments like this in R, if you can't wait and want to give the computational bits a go now take a look at [AnyDice](https://anydice.com/)!
+:::
+::::
+
+### Standard dice... twice!
+
+You'll need at least three or four standard six-sided dice - abbreviated to D6. Generally, we abbreviate rolling $n$ many $m$-sided dice by **nDm**.
+
+![[_Würfel_](https://commons.wikimedia.org/wiki/File:W%C3%BCrfel_--_2021_--_4262.jpg), Dietmar Rabich (2021), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed).](img/Würfel_--_2021_--_4262.jpg){width=40% fig-alt="Collection of many 6-sided dice."}
+
+1. Roll 1D6. How likely was the outcome?
+2. Roll 2D6, taking the sum as the outcome. How likely was this?
+3. What does the probability tree look like for summing 2D6?
+4. What happens as the number of D6 increase to 3D6, 4D6, or beyond?
+
+:::::{.content-hidden unless-meta=answers}
+::::{.callout-tip title=Solution}
+Each of these can be explored algebraically or experimentally. Rolling 1D6, there are six possible outcomes:
+
+:::{style="font-size: 250%;"}
+> ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
+:::
+
+These are equally likely, each having probability $\frac{1}{6} \approx 17\%$. Experimentally, this plays out in practice too!
+
+```{r}
+#| label: 1d6-rolls
+#| warning: false
+#| fig-alt: "Density histogram of 1000 1D6 results."
+#| echo: false
+
+outcomes <- dice(rolls=1000, ndice=1)$Red
+hist(outcomes, breaks=0:6, probability=TRUE)
+abline(h=1/6, col='red', lty='dashed')
+```
+
+If we're rolling 2D6 there are 36 possible results.
+
+```{r}
+#| label: 2d6-outcomes
+#| fig-alt: "Every possible result from 2D6 laid out in a grid."
+#| echo: false
+
+plot.dice(expand.grid(1:6,1:6), layout=c(6,6))
+```
+
+However the _outcomes_ were the sum of these two results. Looking at the possible results, we see that 2 and 12 are jointly the least likely outcomes (possible only through <span style="color: red">⚀</span><span style="color: green">⚀</span> and <span style="color: red">⚅</span><span style="color: green">⚅</span> respectively). This gives them a probability of $\frac{1}{36} \approx 2.8\%$ each.
+
+On the other hand, 7 is the most likely outcome, possible through six possible results: <span style="color: red">⚀</span><span style="color: green">⚅</span>, <span style="color: red">⚁</span><span style="color: green">⚄</span>, <span style="color: red">⚂</span><span style="color: green">⚃</span>, 
+<span style="color: red">⚃</span><span style="color: green">⚂</span>, <span style="color: red">⚄</span><span style="color: green">⚁</span>, and <span style="color: red">⚅</span><span style="color: green">⚀</span>. This gives 7 a probability of $\frac{6}{36} = \frac{1}{6} = 17\%$ each. We could continue this for every possible outcome from 2 to 12.
+
+```{r}
+#| label: 2d6-rolls
+#| fig-alt: "Density histogram of 1000 2D6 results."
+#| echo: false
+
+results <- dice(rolls=1e4, ndice=2)
+outcomes <- results$Red + results$Green
+hist(outcomes, breaks=1:12, probability=TRUE)
+abline(h=1/6, col='red', lty='dashed')
+abline(h=1/36, col='red', lty='dashed')
+```
+
+Looking at this experimentally, for a very large number of rolls, we find it's a symmetric distribution. We also verify that 2 and 12 are the least likely outcomes and 7 the most likely outcome and their probabilities.
+
+```{r}
+#| label: 3d6-rolls
+#| fig-alt: "Density histograms for 1000 3D6, 6D6, and 12D6 results."
+#| echo: false
+#| layout-ncol: 3
+
+for (n in c(3,6,12)) {
+  hist(
+    rowSums(dice(rolls=1e4, ndice=n)),
+    breaks=n:(n*6), probability=TRUE,
+    main=paste0("Histogram of rolling ", n, "D6"),
+    xlab="outcomes"
+  )
+}
+```
+
+As the number of dice increase, we get closer and closer to what is called a 'bell curve'. This is an idea that will be explore more in the statistics half of the course.
+::::
+:::::
+
+### The house always wins
+
+Probabilities can sometimes behave in unintuitive ways, _e.g._ the [gambler's fallacy](https://en.wikipedia.org/wiki/Gambler's_fallacy#Coin_toss). For this exercise you'll need a set of three nontransitive dice.
+
+![[_Nontransitive dice_](https://commons.wikimedia.org/wiki/File:Intransitive_dice_2.svg), Chris Martin (2008), [🅮](https://en.wikipedia.org/wiki/Public_domain).](img/Intransitive_dice_2.svg){fig-alt="Decorative: example of nontransitive dice."}
+
+1. If rolling the three dice, which is the highest?
+2. In pairs, try the following game:
+    i. Player 1 picks their dice,
+    ii. Player 2 picks their dice,
+    iii. Both roll and the highest wins.
+3. What's the winning strategy for player 2?
+4. How does this change if instead it's two dice and the results are added?
+
+:::::{.content-hidden unless-meta=answers}
+::::{.callout-tip title=Solution}
+After a bit of playing around, you might notice that the winning strategy depends on the dice player 1 picked and forms a loop, similar to 'rock-paper-scissors'.
+
+![[_One Rowlett Dice_](https://singingbanana.com/dice/article.htm), James Grime (2011) ©.](img/rowlettonedicediagram.png){width=40% fig-alt="Loop that shows which Rowlett dice beats which."}
+
+Blue beats green, green beats, red, and red beats blue. We can verify this by drawing up three different probability trees for player 2's chance of winning, one for each of the choices player 1 might have made.  
+
+There are lots of examples of nontransitive dice, but the examples we're using were introduced by Tim Rowett (2002). They have an interesting additional property which becomes apparent when rolling two dice.
+
+![[_Two Rowlett Dice_](https://singingbanana.com/dice/article.htm), James Grime (2011) ©.](img/rowletttwodicediagram.png){width=40% fig-alt="Loop that shows which Rowlett dice beats which when taking the sum of two rolls."}
+
+The direction of winning strategies have flipped! Again, we can work out why this is true by looking at probability trees that follow each possible choice player 1 might have made.
+
+There are versions of this game that offer players different numbers of dice to pick between, as well as variant for three and four players. For example, the three players could use Efron Dice or Grime Dice.
+
+:::{layout-ncol=2}
+![[_Efron Dice_](https://singingbanana.com/dice/article.htm), James Grime (2011) ©.](img/efrondicelabelled.png){fig-alt="Net of the four Efron dice: blue has faces [3,3,3,3,3,3]; pink is [6,6,2,2,2,2]; olive is [5,5,5,1,1,1]; red is [4,4,4,4,0,0]."}
+
+![[_Grime Dice_](https://singingbanana.com/dice/article.htm), James Grime (2011) ©.](img/grimedicelabelled2.png){fig-alt="Net of the five Grime dice: blue has faces [7,7,7,2,2,2]; pink is [6,6,6,6,1,1]; olive is [5,5,5,5,5,0]; red is [9,4,4,4,4,4]; yellow is [8,8,3,3,3,3]."}
+:::
+
+Based of the net of the dice alone, what might you expect for these variants?
+::::
+:::::
+
+### DIY D6
+
+Many highstreet clothing chains attach 'size cubes' to hangers so that shoppers don't have to find the label to check the size. However, these aren't widely reused and generate a lot of plastic waste.
+
+![[_Clothing store downtown Boston_](https://commons.wikimedia.org/wiki/File:Clothing_store_downtown_Boston.jpg), Kurt Kaiser (2018), [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en).](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Clothing_store_downtown_Boston.jpg/960px-Clothing_store_downtown_Boston.jpg){width=60% fig-alt="Decorative: photograph of hangers in a clothing store."}
+
+Growing up, I had the idea that these could be reused as D6 using the top as the 1, the bottom as the 6, and the four sides as 2-5. Was I correct? Could these be reused as fair D6?
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-tip title=Solution}
+Before starting, you'll probably have a 'gut' idea of whether size cubes make fair dice or not, possibly even a justification based of geometry or physics. How can we test that though?
+
+If we roll a fair D6 a large number of times, say $n = 1370$, we'd expect roughly this distribution of results:
+
+| Outcome     | ⚀ | ⚁ | ⚂ | ⚃ | ⚄ | ⚅ |
+| :---------- | :-: | :-: | :-: | :-: | :-: | :-: |
+| Probability | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ |
+| Frequency   | 228 | 228 | 228 | 228 | 228 | 228 |
+
+In other words, every outcome is equally likely and in 1370 rolls will happen roughly 228 times (17% overall). We could test this experimentally using a simulation in R fairly easily.
+
+```{r}
+#| label: 1d6-rolls-frequency
+#| fig-alt: "Frequency plot of 1370 1D6 rolls, with the expected frequency in red."
+#| fig-align: center
+#| width: 60%
+
+outcomes <- dice(rolls=1370, ndice=1)$Red
+hist(outcomes, breaks=0:6, main="Frequency for 1D6")
+abline(h=228, col='red', lty='dashed')
+```
+
+But this simulation only works because we already have a way to simulate the dice roll! We don't yet know how to model the size cube, so we have to do a **physical** experiment.
+
+To simplify our experiment a little bit, and save finding some way to distinguish the size cube sides, we're going to make the assumption that the four sides are all equally likely to occur. For comparison, the equivalent on a fair D6 would be
+
+| Outcome     | ⚀ | ⚁,⚂,⚃,⚄ | ⚅ |
+| :---------- | --: | --: | --: |
+| Probability | 17% | 67% | 17% |
+| Frequency   | 228 | 913 | 228 |
+
+```{r}
+#| label: 1d6-rolls-grouped
+#| fig-alt: "Frequency plot of 1370 1D6 rolls, with the results between 2-5 groups. The expected frequencies are shown in red."
+#| warning: false
+#| echo: false
+#| fig-align: center
+#| width: 60%
+
+hist(outcomes, breaks=c(0,1,5,6), freq = TRUE, main="Frequency for grouped 1D6")
+abline(h=913, col='red', lty='dashed')
+abline(h=228, col='red', lty='dashed')
+```
+
+Off the back of this, after rolling size cubes 1370 times, we get the following results:
+
+| Outcome     | Top | Sides | Bottom |
+| :---------- | --: | ----: | -----: |
+| Frequency   | 186 |   924 |    260 |
+| Probability | 14% |   67% |    19% |
+
+So looking at the results to two significant figures, the probability of rolling a 'one' (top) has gone down from 17% to 14% while the probability of rolling a 'six' (bottom) has gone up from 17% to 19%. This suggests the size cube would not make a fair dice.
+
+Is this a significant difference though? To answer that scientifically we use a **hypothesis test**, a tool we'll teach you over the weeks to come.
+:::
+::::
+
+<!--
+
+### Ranking dice
+
+So far we've talked about standard six-sided dice (D6) and, if we imagine $\text{H} = 1$ and $\text{T} = 2$, two-sided dice (D2) by way of coins. However, it's possible to create fair dice that have any arbitrary number of sides. Their behaviour isn't any different; for a fair $n$-sided dice, each outcome has a probability $\frac{1}{n}$ of being rolled.
+
+![[_Go First Dice_](http://www.ericharshbarger.org/dice/go_first_dice.html), Eric Harshbarger (2015) ©.](img/gfd_01.png){width=50% fig-alt="Decorative: example of Harshbarger's ranking dice."}
+
+The 'ranking dice' we'll use for this experiment are a particular kind of fair D12s.
+
+1. Examining the dice, what do you notice about the faces?
+2. Roll any two dice. Which is more likely to be highest?
+3. What happens if you add a third dice? Or a fourth?
+4. If we wanted to keep the properties you've found, but only needed two dice, what's the lowest number of sides we could have?
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-tip title=Solution}
+Looking at the dice faces, there are three properties[^unlikely] you might notice:
+
+1. Across the 48 faces on the 4D12, the numbers 1, 2, ..., 48 all appear exactly once: there's no overlap!
+2. On each D12, the twelve faces sum to 294.
+3. On any D12, any two opposite faces sum to 49.
+
+The first and the second, along with a couple other neat properties, mean that for any two dice in the set, both are equally likely to be highest when rolled. Furthermore, that's still true for any three or all four! In summary, the following will be true:
+
+> 1. There will never be ties.
+> 2. Each possible ordering of the [dice] has a mathematically equal chance of occurring.
+> 3. The above conditions hold for every subset of the whole set.
+
+To find a set of two dice that have these properties will require a bit of playing around, depending how many of the previous properties you discovered. To satisfy property \#1, we'll need the numbers 1, 2, 3, 4, with two going to each dice. This also tells us it's a set of 2D2. From there, to satisfy property \#2, we choose one having faces [1,4] and the other having faces [2,3].
+
+Can you find a set of three dice that work similarly?
+:::
+::::
+
+[^unlikely]: in descending order of likeliness
+
+-->

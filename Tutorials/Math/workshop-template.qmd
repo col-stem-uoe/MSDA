@@ -1,0 +1,31 @@
+---
+title: "Workshop Template"
+answers: false  # toggle true/false to show solutions
+---
+
+Please attempt all exercises to the best of your ability.
+
+## Multiplication
+
+What is $3\times2$?
+
+::::{.content-hidden unless-meta=answers}
+:::{.callout-tip title=Solution}
+We can think of this asking for '3 lots of 2', so
+$$
+  3\times2 = 2 + 2 + 2 = 6.
+$$
+:::
+
+:::{.callout-note}
+Alternatively we could think of it as '3 added 2 times', so
+$$
+  3 \times 2 = 3 + 3 = 6.
+$$
+For this we can see that
+$$
+  3 \times 2 = 2 \times 3,
+$$
+which will be true for any number we try. This property of multiplication is called **commutativity**.
+:::
+::::

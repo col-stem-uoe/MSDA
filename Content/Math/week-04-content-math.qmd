@@ -1,6 +1,0 @@
----
-title: "Week 04 – Math"
-format: html
----
-
-Coming soon!

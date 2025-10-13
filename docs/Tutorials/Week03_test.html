@@ -59,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -112,7 +113,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -122,9 +122,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../images/white_logo.png" alt="" class="navbar-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">MSDA</span>
     </a>
@@ -145,28 +142,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-math-content">    
         <li>
-    <a class="dropdown-item" href="../Content/Math/week-01-content-math.html">
- <span class="dropdown-text">Week 01 – Math Content</span></a>
+    <a class="dropdown-item" href="../Content/Math/lecture-01-functions.html">
+ <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Content/Math/week-02-content-math.html">
- <span class="dropdown-text">Week 02 – Math Content</span></a>
+    <a class="dropdown-item" href="../Content/Math/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Exponential and Logarithmic Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Content/Math/week-03-content-math.html">
- <span class="dropdown-text">Week 03 – Math Content</span></a>
+    <a class="dropdown-item" href="../Content/Math/lecture-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Content/Math/week-04-content-math.html">
- <span class="dropdown-text">Week 04 – Math Content</span></a>
+    <a class="dropdown-item" href="../Content/Math/lecture-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Content/Math/week-05-content-math.html">
- <span class="dropdown-text">Week 05 – Math Content</span></a>
+    <a class="dropdown-item" href="../Content/Math/lecture-05-integration.html">
+ <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Content/Math/week-06-content-math.html">
- <span class="dropdown-text">Week 06 – Math Content</span></a>
+    <a class="dropdown-item" href="../Content/Math/lecture-06-probability.html">
+ <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
   </li>
@@ -176,28 +173,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-math-tutorials">    
         <li>
-    <a class="dropdown-item" href="../Tutorials/Math/week-01-tutorial-math.qmd">
- <span class="dropdown-text">Week 01 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../Tutorials/Math/workshop-01-functions.html">
+ <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Tutorials/Math/week-02-tutorial-math.qmd">
- <span class="dropdown-text">Week 02 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../Tutorials/Math/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: Exponential and Logarithmic Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Tutorials/Math/week-03-tutorial-math.qmd">
- <span class="dropdown-text">Week 03 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../Tutorials/Math/workshop-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Tutorials/Math/week-04-tutorial-math.qmd">
- <span class="dropdown-text">Week 04 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../Tutorials/Math/workshop-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Tutorials/Math/week-05-tutorial-math.qmd">
- <span class="dropdown-text">Week 05 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../Tutorials/Math/workshop-05-integration.html">
+ <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Tutorials/Math/week-06-tutorial-math.qmd">
- <span class="dropdown-text">Week 06 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../Tutorials/Math/workshop-06-probability.html">
+ <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
   </li>
@@ -207,15 +204,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="../Content/Stats/week-07-content-stats.html">
- <span class="dropdown-text">Week 07 – Stats Content</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Content/Stats/week-08-content-stats.html">
  <span class="dropdown-text">Week 08 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Content/Stats/week-09-content-stats.html">
+    <a class="dropdown-item" href="../Content/Stats/week-9-content-stats.qmd">
  <span class="dropdown-text">Week 09 – Stats Content</span></a>
   </li>  
         <li>
@@ -253,10 +246,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Stats Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
-        <li>
-    <a class="dropdown-item" href="../Tutorials/Stats/week-07/week-07-tutorial-stats.qmd">
- <span class="dropdown-text">Week 07 – Tutorial (Stats)</span></a>
-  </li>  
         <li>
     <a class="dropdown-item" href="../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
  <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
@@ -370,8 +359,8 @@ Attaching package: 'plotly'</code></pre>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"MPG vs Horsepower"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-bb760820e95c0ee78bae" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-bb760820e95c0ee78bae">{"x":{"visdat":{"fbdc707d96ad":["function () ","plotlyVisDat"]},"cur_data":"fbdc707d96ad","attrs":{"fbdc707d96ad":{"x":{},"y":{},"mode":"markers","marker":{"size":10},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"MPG vs Horsepower","xaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"yaxis":{"domain":[0,1],"automargin":true,"title":"hp"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[21,21,22.800000000000001,21.399999999999999,18.699999999999999,18.100000000000001,14.300000000000001,24.399999999999999,22.800000000000001,19.199999999999999,17.800000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,32.399999999999999,30.399999999999999,33.899999999999999,21.5,15.5,15.199999999999999,13.300000000000001,19.199999999999999,27.300000000000001,26,30.399999999999999,15.800000000000001,19.699999999999999,15,21.399999999999999],"y":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"mode":"markers","marker":{"color":"rgba(31,119,180,1)","size":10,"line":{"color":"rgba(31,119,180,1)"}},"type":"scatter","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-2377511d0b4089ea6171" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2377511d0b4089ea6171">{"x":{"visdat":{"10bb21065079f":["function () ","plotlyVisDat"]},"cur_data":"10bb21065079f","attrs":{"10bb21065079f":{"x":{},"y":{},"mode":"markers","marker":{"size":10},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"MPG vs Horsepower","xaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"yaxis":{"domain":[0,1],"automargin":true,"title":"hp"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[21,21,22.800000000000001,21.399999999999999,18.699999999999999,18.100000000000001,14.300000000000001,24.399999999999999,22.800000000000001,19.199999999999999,17.800000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,32.399999999999999,30.399999999999999,33.899999999999999,21.5,15.5,15.199999999999999,13.300000000000001,19.199999999999999,27.300000000000001,26,30.399999999999999,15.800000000000001,19.699999999999999,15,21.399999999999999],"y":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"mode":"markers","marker":{"color":"rgba(31,119,180,1)","size":10,"line":{"color":"rgba(31,119,180,1)"}},"type":"scatter","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
@@ -68,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../edtheme.scss">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -78,9 +79,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../images/white_logo.png" alt="" class="navbar-logo">
-    </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">MSDA</span>
     </a>
@@ -101,28 +99,28 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-math-content">    
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/week-01-content-math.html">
- <span class="dropdown-text">Week 01 – Math Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Math/lecture-01-functions.html">
+ <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/week-02-content-math.html">
- <span class="dropdown-text">Week 02 – Math Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Math/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Exponential and Logarithmic Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/week-03-content-math.html">
- <span class="dropdown-text">Week 03 – Math Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Math/lecture-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/week-04-content-math.html">
- <span class="dropdown-text">Week 04 – Math Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Math/lecture-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/week-05-content-math.html">
- <span class="dropdown-text">Week 05 – Math Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Math/lecture-05-integration.html">
+ <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/week-06-content-math.html">
- <span class="dropdown-text">Week 06 – Math Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Math/lecture-06-probability.html">
+ <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
   </li>
@@ -132,28 +130,28 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-math-tutorials">    
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/week-01-tutorial-math.qmd">
- <span class="dropdown-text">Week 01 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-01-functions.html">
+ <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/week-02-tutorial-math.qmd">
- <span class="dropdown-text">Week 02 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: Exponential and Logarithmic Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/week-03-tutorial-math.qmd">
- <span class="dropdown-text">Week 03 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/week-04-tutorial-math.qmd">
- <span class="dropdown-text">Week 04 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/week-05-tutorial-math.qmd">
- <span class="dropdown-text">Week 05 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-05-integration.html">
+ <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/week-06-tutorial-math.qmd">
- <span class="dropdown-text">Week 06 – Tutorial (Math)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-06-probability.html">
+ <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
   </li>
@@ -163,15 +161,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-07-content-stats.html">
- <span class="dropdown-text">Week 07 – Stats Content</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../../Content/Stats/week-08-content-stats.html">
  <span class="dropdown-text">Week 08 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-09-content-stats.html">
+    <a class="dropdown-item" href="../../../Content/Stats/week-9-content-stats.qmd">
  <span class="dropdown-text">Week 09 – Stats Content</span></a>
   </li>  
         <li>
@@ -209,10 +203,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Stats Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
-        <li>
-    <a class="dropdown-item" href="../../../Tutorials/Stats/week-07/week-07-tutorial-stats.qmd">
- <span class="dropdown-text">Week 07 – Tutorial (Stats)</span></a>
-  </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
  <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>

@@ -1,6 +1,0 @@
----
-title: "Week 02 – Math"
-format: html
----
-
-Coming soon!
