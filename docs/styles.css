@@ -1,8 +1,8 @@
 /* --------------------------------------
-   UoE Modern Styling: MSDA Coursebook
+   UoE Styling: MSDA Coursebook (Final)
 ----------------------------------------- */
 
-/* Google Fonts for clean, accessible design */
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
 /* Base body font and colours */
@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
   margin-top: 1.5em;
 }
 
-/* Navbar */
+/* Navbar base */
 .navbar {
   background-color: #004F71 !important;  /* Muted Blue */
   color: white;
@@ -29,62 +29,54 @@ h1, h2, h3, h4 {
   align-items: center;
 }
 
-/* Navbar title */
-.navbar .navbar-brand .navbar-title {
-  font-size: 1.5rem !important;  /* 24px */
-  font-weight: 700;
-  color: white;
-  font-family: 'Source Sans Pro', sans-serif;
+/* MSDA title (as a link/text element in navbar) */
+.navbar .navbar-brand,
+.navbar .navbar-logo,
+.navbar .menu-text {
+  font-size: 1.6rem !important;  /* ≈ 25.6px */
+  font-weight: 700 !important;
+  color: white !important;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  letter-spacing: 0.4px;
   margin-right: 40px;
 }
 
-/* Logo */
+/* Logo styling (new logo: round_logo_blue.png) */
 .navbar .navbar-brand img {
   height: 48px !important;
-  max-height: 60px !important;
+  max-height: 48px !important;
   width: auto !important;
-  margin-right: 20px;
-  padding-left: 10px;
+  margin-right: 16px;
+  padding-left: 8px;
 }
 
-/* Navbar links */
-.navbar a,
-.navbar-brand {
+/* Navbar menu items */
+.navbar-nav > li > a {
+  font-size: 1.15rem !important;  /* ≈ 18.4px */
+  font-weight: 600 !important;
   color: white !important;
-  font-weight: 600;
 }
 
-.navbar a:hover {
-  color: #c5eff7 !important;  /* Bright Blue hover */
+.navbar-nav > li > a:hover {
+  color: #c5eff7 !important;  /* Bright hover */
 }
 
-/* Regular links in content */
+/* Regular links inside content */
 a {
-  color: #007288;  /* Bright Blue */
+  color: #007288;
 }
-
 a:hover {
   color: #c5eff7;
 }
 
-/* Section spacing */
-section {
-  margin-bottom: 2.5em;
-}
-
-/* Navbar item spacing */
-.navbar-nav {
-  gap: 20px;
-}
-
-/* Dropdown menu styling */
+/* Dropdown menu container */
 .dropdown-menu {
-  background-color: #041E42 !important;  /* UoE dark blue */
-  border: none;
+  background-color: #041E42 !important;  /* University Blue */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: none;
 }
 
-/* Dropdown links */
+/* Dropdown items */
 .dropdown-menu a,
 .dropdown-header {
   color: white !important;
@@ -97,14 +89,13 @@ section {
   color: #c5eff7 !important;
 }
 
-/* Block headers inside dropdowns (non-clickable) */
+/* Block headers inside dropdown (non-clickable) */
 .dropdown-menu li > a[href="#"] {
   font-weight: 700;
   color: white !important;
   background-color: #041E42 !important;
   text-transform: uppercase;
   pointer-events: none;
-  opacity: 1 !important;
   padding: 10px 20px;
   font-size: 0.85rem;
   border-top: 1px solid #004F71;
@@ -114,43 +105,12 @@ section {
   margin-top: 10px;
 }
 
-/* Logo size fine-tuning */
-.navbar .navbar-brand img {
-  height: 48px !important;
-  max-height: 48px !important;
-  width: auto !important;
-  margin-right: 20px;
-  padding-left: 10px;
+/* Section spacing */
+section {
+  margin-bottom: 2.5em;
 }
 
-/* MSDA title size */
-.navbar .navbar-brand .navbar-title {
-  font-size: 1.5rem !important;  /* ≈ 24px */
-  font-weight: 700;
-  margin-right: 40px;
-}
-
-/* Navbar menu items */
-.navbar-nav > li > a {
-  font-size: 1.3rem !important;  /* ≈ 20px */
-  font-weight: 600;
-}
-
-/* Force MSDA title (navbar text) to be larger and distinct */
-.navbar .navbar-brand .navbar-title {
-  font-size: 1.6rem !important;  /* ≈ 25.6px */
-  font-weight: 700 !important;
-  letter-spacing: 0.5px;
-  margin-right: 40px !important;
-  color: white !important;
-  font-family: 'Source Sans Pro', sans-serif !important;
-}
-
-/* FINAL OVERRIDE for MSDA navbar title */
-.navbar .navbar-brand {
-  font-size: 1.6rem !important;   /* ~25.6px */
-  font-weight: 700 !important;
-  color: white !important;
-  letter-spacing: 0.5px;
-  font-family: 'Source Sans Pro', sans-serif !important;
+/* Navbar item spacing */
+.navbar-nav {
+  gap: 20px;
 }
