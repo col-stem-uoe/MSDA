@@ -9,6 +9,7 @@ website:
     left:
       - text: "Course Overview"
         href: index.qmd
+        
       - text: "Math Content"
         menu:
           - text: "Week 01 – Functions"
@@ -23,6 +24,8 @@ website:
             href: Content/Math/lecture-05-integration.qmd
           - text: "Week 06 – Probability"
             href: Content/Math/lecture-06-probability.qmd
+            
+            
       - text: "Math Tutorials"
         menu:
           - text: "Week 01 – Tutorial: Functions"
@@ -37,6 +40,8 @@ website:
             href: Tutorials/Math/workshop-05-integration.qmd
           - text: "Week 06 – Tutorial: Probability"
             href: Tutorials/Math/workshop-06-probability.qmd
+            
+            
       - text: "Stats Content"
         menu:
           - text: "Week 08 – Stats Content"
@@ -57,6 +62,7 @@ website:
             href: Content/Stats/week-15-content-stats.qmd
           - text: "Week 16 – Stats Content"
             href: Content/Stats/week-16-content-stats.qmd
+            
       - text: "Stats Tutorials"
         menu:
           - text: "Week 08 – Tutorial (Stats)"
