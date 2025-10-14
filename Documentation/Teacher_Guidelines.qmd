@@ -1,0 +1,194 @@
+---
+title: "Teacher Guidelines – MSDA Course Website"
+author: "Course Coordination Team"
+format:
+  html:
+    toc: true
+    theme: cosmo
+    number-sections: true
+    code-fold: false
+    code-tools: true
+    code-block-bg: true
+    code-block-border-left: "#003366"
+execute:
+  eval: false       # do not execute any code in this document
+  echo: true
+---
+
+## Overview
+
+The MSDA course website is collaboratively developed by the teaching team using **Quarto** and **GitHub Desktop**.\
+Each instructor is responsible for maintaining their own content section, while the course coordinator publishes the overall site to GitHub Pages.
+
+Teachers may freely **edit and render locally**, but only the coordinator handles the **final public build**.
+
+## Folder Structure
+
+Below is the structure of the shared repository:
+
+```txt
+MSDA-course/ 
+
+├── Content/ 
+│     ├── Math/             ← Maths lectures (Josh) 
+│     └── Stats/            ← Statistics lectures (Javiera) 
+│
+├── Tutorials/ 
+│     ├── Math/             ← Maths tutorials
+│     └── Stats/            ← Stats tutorials
+│
+├── assets/                 ← shared images, datasets, CSS 
+├── docs/                   ← published site output (auto-generated) 
+├── styles.css
+├── edtheme.scss 
+└──_quarto.yml
+```
+
+-   Do **not** edit the `docs/` folder manually; it’s created by Quarto.
+
+-   Shared styles (`styles.css`, `edtheme.scss`) live at the project root.
+
+## Working Locally
+
+1.  Clone the repository in GitHub Desktop → *File → Clone Repository*.
+
+2.  Open the project in RStudio by double-clicking the `.Rproj` file.
+
+3.  Edit only your section:
+
+    -   Josh → `Content/Math/`, `Tutorials/Math/`
+
+    -   Javiera → `Content/Stats/`, `Tutorials/Stats/`
+
+4.  Preview locally using:
+
+```bash
+quarto preview
+```
+
+…or press the **Render** button in RStudio. This builds a local preview only (not the live site).
+
+## Keep Pages Hidden with `draft`
+
+When a page is in progress, add the YAML header below at the top of the `.qmd`:
+
+```yaml
+---
+title: "Week X – Title"
+draft: true
+---
+```
+
+Draft pages render locally but are **not** published.
+
+\
+When ready to release, switch to:
+
+```{yaml}
+
+---
+title: "Week X – Title"
+draft: false
+---
+
+```
+
+(or remove `draft:` entirely).
+
+## Weekly Release Workflow
+
+We publish **one week at a time**:
+
+1.  Finalise the week’s `.qmd` files; remove `draft: true`.
+
+2.  Notify the **course coordinator** (currently Javiera).
+
+3.  Coordinator updates `_quarto.yml` if using selective rendering and runs:
+
+```bash
+    quarto render
+```
+
+4.  Coordinator commits and pushes the updated `docs/` folder so GitHub Pages updates.
+
+## Version Control (GitHub Desktop)
+
+-   **Before editing:** *Fetch origin → Pull*.
+
+-   **After editing:**
+
+    1.  Review changed files.
+
+    2.  Write a clear message (e.g., `Add Week 3 tutorial draft`).
+
+    3.  **Commit to main**.
+
+    4.  **Push origin**.
+
+## Roles & Permissions
+
+-   Teachers have **write access** and may edit and render locally **only** in their area.
+
+-   The **course coordinator** performs the project-wide render and publishes the site (pushes `docs/`).
+
+-   Avoid editing others’ folders to reduce merge conflicts.
+
+## Selective Rendering (publish only chosen weeks)
+
+Coordinator whitelists what gets built in `_quarto.yml`:
+
+```yaml
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - Content/Math/week-01.qmd
+    - Tutorials/Math/week-01.qmd
+    - Content/Stats/week-01.qmd
+    - Tutorials/Stats/week-01.qmd
+    # Add further weeks here as they are approved
+```
+
+Anything **not** listed under `render:` is skipped, even if it is not a draft.
+
+## Section Styling (Math vs Stats)
+
+Use folder-level `_metadata.yml` files so each area can have its own CSS.
+
+**Content/Math/\_metadata.yml**
+
+```yaml
+format:
+  html:
+    css: [styles.css, edtheme.scss]   # site base + Maths overrides
+```
+
+**Tutorials/Math/\_metadata.yml**
+
+```yaml
+
+format:
+  html:
+    css: [styles.css, edtheme.scss]   # site base + Maths overrides
+```
+
+**Content/Stats/\_metadata.yml**
+
+```yaml
+
+format:
+  html:
+    css: styles.css
+```
+
+**Tutorials/Stats/\_metadata.yml**
+
+```yaml
+
+format:
+  html:
+    css: styles.css
+```
+
+Keep `styles.css` and `edtheme.scss` at the **project root**.

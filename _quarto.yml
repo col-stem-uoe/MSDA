@@ -1,6 +1,11 @@
 project:
   type: website
   output-dir: docs
+  render:
+   - index.qmd
+   - Content/**
+   - Tutorials/**
+   - "!Documentation/**"
 
 website:
   title: "MSDA"
@@ -91,3 +96,6 @@ format:
 
 execute:
   fig-dev: ragg_png
+  
+
+
