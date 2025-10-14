@@ -87,6 +87,7 @@ website:
 format:
   html:
     theme: default
+    css: styles.css
 
 execute:
   fig-dev: ragg_png
