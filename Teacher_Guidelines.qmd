@@ -10,6 +10,9 @@ format:
     code-tools: true
     code-block-bg: true
     code-block-border-left: "#003366"
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
 execute:
   eval: false       # do not execute any code in this document
   echo: true
@@ -26,7 +29,7 @@ Teachers may freely **edit and render locally**, but only the coordinator handle
 
 Below is the structure of the shared repository:
 
-```txt
+``` txt
 MSDA-course/ 
 
 ├── Content/ 
@@ -62,7 +65,7 @@ MSDA-course/
 
 4.  Preview locally using:
 
-```bash
+``` bash
 quarto preview
 ```
 
@@ -72,7 +75,7 @@ quarto preview
 
 When a page is in progress, add the YAML header below at the top of the `.qmd`:
 
-```yaml
+``` yaml
 ---
 title: "Week X – Title"
 draft: true
@@ -105,7 +108,7 @@ We publish **one week at a time**:
 
 3.  Coordinator updates `_quarto.yml` if using selective rendering and runs:
 
-```bash
+``` bash
     quarto render
 ```
 
@@ -137,7 +140,7 @@ We publish **one week at a time**:
 
 Coordinator whitelists what gets built in `_quarto.yml`:
 
-```yaml
+``` yaml
 project:
   type: website
   output-dir: docs
@@ -158,7 +161,7 @@ Use folder-level `_metadata.yml` files so each area can have its own CSS.
 
 **Content/Math/\_metadata.yml**
 
-```yaml
+``` yaml
 format:
   html:
     css: [styles.css, edtheme.scss]   # site base + Maths overrides
@@ -166,7 +169,7 @@ format:
 
 **Tutorials/Math/\_metadata.yml**
 
-```yaml
+``` yaml
 
 format:
   html:
@@ -175,7 +178,7 @@ format:
 
 **Content/Stats/\_metadata.yml**
 
-```yaml
+``` yaml
 
 format:
   html:
@@ -184,7 +187,7 @@ format:
 
 **Tutorials/Stats/\_metadata.yml**
 
-```yaml
+``` yaml
 
 format:
   html:

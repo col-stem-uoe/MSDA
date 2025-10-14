@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
    - index.qmd
+   - Teacher_Guidelines.qmd
    - Content/**
    - Tutorials/**
    - "!Documentation/**"
