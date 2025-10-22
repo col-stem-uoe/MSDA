@@ -20,7 +20,7 @@ website:
         menu:
           - text: "Week 01 – Functions"
             href: Content/Maths/lecture-01-functions.qmd
-          - text: "Week 02 – Exponential and Logarithmic Functions"
+          - text: "Week 02 – exp(x) and log(x)"
             href: Content/Maths/lecture-02-exp-n-log.qmd
           - text: "Week 03 – Sequences"
             href: Content/Maths/lecture-03-sequences.qmd
