@@ -1,6 +1,0 @@
----
-title: "Week 06 – Tutorial"
-format: html
----
-
-Coming soon!
