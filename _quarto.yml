@@ -16,36 +16,36 @@ website:
       - text: "Course Overview"
         href: index.qmd
         
-      - text: "Math Content"
+      - text: "Maths Content"
         menu:
           - text: "Week 01 – Functions"
-            href: Content/Math/lecture-01-functions.qmd
+            href: Content/Maths/lecture-01-functions.qmd
           - text: "Week 02 – Exponential and Logarithmic Functions"
-            href: Content/Math/lecture-02-exp-n-log.qmd
+            href: Content/Maths/lecture-02-exp-n-log.qmd
           - text: "Week 03 – Sequences"
-            href: Content/Math/lecture-03-sequences.qmd
+            href: Content/Maths/lecture-03-sequences.qmd
           - text: "Week 04 – Differentiation"
-            href: Content/Math/lecture-04-differentiation.qmd
+            href: Content/Maths/lecture-04-differentiation.qmd
           - text: "Week 05 – Integration"
-            href: Content/Math/lecture-05-integration.qmd
+            href: Content/Maths/lecture-05-integration.qmd
           - text: "Week 06 – Probability"
-            href: Content/Math/lecture-06-probability.qmd
+            href: Content/Maths/lecture-06-probability.qmd
             
             
       - text: "Math Tutorials"
         menu:
           - text: "Week 01 – Tutorial: Functions"
-            href: Tutorials/Math/workshop-01-functions.qmd
+            href: Tutorials/Maths/workshop-01-functions.qmd
           - text: "Week 02 – Tutorial: Exponential and Logarithmic Functions"
-            href: Tutorials/Math/workshop-02-exp-n-log.qmd
+            href: Tutorials/Maths/workshop-02-exp-n-log.qmd
           - text: "Week 03 – Tutorial: Sequences"
-            href: Tutorials/Math/workshop-03-sequences.qmd
+            href: Tutorials/Maths/workshop-03-sequences.qmd
           - text: "Week 04 – Tutorial: Differentiation"
-            href: Tutorials/Math/workshop-04-differentiation.qmd
+            href: Tutorials/Maths/workshop-04-differentiation.qmd
           - text: "Week 05 – Tutorial: Integration"
-            href: Tutorials/Math/workshop-05-integration.qmd
+            href: Tutorials/Maths/workshop-05-integration.qmd
           - text: "Week 06 – Tutorial: Probability"
-            href: Tutorials/Math/workshop-06-probability.qmd
+            href: Tutorials/Maths/workshop-06-probability.qmd
             
             
       - text: "Stats Content"
@@ -97,6 +97,3 @@ format:
 
 execute:
   fig-dev: ragg_png
-  
-
-
