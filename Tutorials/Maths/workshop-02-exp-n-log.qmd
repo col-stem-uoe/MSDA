@@ -1,0 +1,79 @@
+---
+title: "Exponentials & Logs"
+answers: false  # toggle true/false to show solutions
+number-sections: true
+---
+ 
+These problems look at exponentials and logs, exploring how they're used to model various real-world phenomena. You'll need a scientific calculator and a graphing tool like [Geogebra](https://www.geogebra.org/calculator) or [Desmos](https://www.desmos.com/calculator).
+
+## Calculations
+
+These questions review how exponentials and logarithms are used in calculations and visualisations.
+
+1. Use a scientific calculator to find $2^{12}$ and $e^5$.
+
+2. Use a scientific calculator to find $\log_{2}(512)$, $\log_{10}(1000)$, and $\log_{e}(2.7)$.
+
+3. If $3^x + 19 = 100$, what's $x$?
+
+4. Using [Geogebra](https://www.geogebra.org/calculator) or [Desmos](https://www.desmos.com/calculator), plot the graphs of $y = e^x$ and $y = \ln(x)$. 
+
+## Modelling
+
+Within humanities and social sciences, our main interest in exponentials and logs is how they can be used to model complicated phenomena.
+
+### Continuous Interest
+
+Given an initial investment $Q$ with an interest rate of $r$, the amount of money at time $t$ can be found as
+$$
+  P(t) = Q e^{rt}.
+$$
+This is a type of [compound interest](https://en.wikipedia.org/wiki/Compound_interest#Continuous_compounding).
+
+
+1. If the initial investment was £100, with a continuous interest rate of 1.7% applied daily, how much money would there be after 365 days?
+
+2. Using a tool of your choice, plot $y = P(x)$. What is the meaning of the $y$-intercept?
+
+3. Plot $y = P(x)$ with a **logarithmic** $y$-axis. What's the gradient now?
+
+### Population Growth
+
+Given an initial population size $P_0$, a growth rate $r$ per day, and a maximum feasible population size $K$, the population on day $t$ is [modelled logistically](https://en.wikipedia.org/wiki/Population_growth#Logistic_equation) as
+
+$$
+  P(t) = \frac{P_0 \cdot K}{P_0 + (K - P_0)e^{-rt}}.
+$$
+
+```{r}
+#| label: population-growth-model
+#| echo: false
+P0 <- 10
+K <- 500
+rate <- 0.5
+
+growth_model <- function(x) {
+  (P0*K)/(P0 + (K-P0)*exp(-rate*x))
+}
+```
+
+1. Plot this model for $P_0 = `r P0`$, $K = `r K`$, and $r = `r rate`$.
+
+2. What is the range of this model for a domain $t\geq0$?
+
+3. What happens if we extend the domain to $t < 0$?
+
+### Sound
+
+You may have heard of [decibel](https://en.wikipedia.org/wiki/Decibel) as a measure of how 'loud' something is. You may even have seen a chart like the one below that compare different sounds.
+
+![[Generator Decibel Comparison Chart](https://commons.wikimedia.org/wiki/File:Generator-decibel-db-comparison_chart.png), Tom Holland (2022), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).](img/Generator-decibel-db-comparison_chart.png){width=40% fig-alt="Table measuring different real world sounds in decibels. Scale ranges from 0dBA to 110dBA, going up in intervals of 10."}
+
+What you might not known though is that decibels are a logarithmic scale, defined by the equation
+$$
+  d = 10\log\left(\frac{p}{p_{0}}\right).
+$$
+Here $p$ is the intensity or power of the sound (measured in Watts), $p_0$ is intensity of the faintest audible sound, and $d$ is volume in decibels.
+
+
+Using this equation with $p_0 = 1$ Watt, create a version of the graphic above that uses power, rather than decibels, to measure the sound.

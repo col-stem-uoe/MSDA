@@ -32,11 +32,11 @@ website:
             href: Content/Maths/lecture-06-probability.qmd
             
             
-      - text: "Math Tutorials"
+      - text: "Maths Tutorials"
         menu:
           - text: "Week 01 – Tutorial: Functions"
             href: Tutorials/Maths/workshop-01-functions.qmd
-          - text: "Week 02 – Tutorial: Exponential and Logarithmic Functions"
+          - text: "Week 02 – Tutorial: exp(x) and log(x)"
             href: Tutorials/Maths/workshop-02-exp-n-log.qmd
           - text: "Week 03 – Tutorial: Sequences"
             href: Tutorials/Maths/workshop-03-sequences.qmd

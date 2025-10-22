@@ -1,0 +1,78 @@
+---
+title: "Sequences & Series"
+answers: false  # toggle true/false to show solutions
+number-sections: true
+---
+
+A couple of these problems mention R, but no coding is required! They are mostly pen and paper exercises, though a few of them ask you to create plots or look something up online.
+
+## Decibel Sequence
+
+The solution to the decibel problem in last week's workshop used a little snippet of R code, 
+
+```{r}
+#| label: decibel-conversions
+#| echo: true
+10**(seq(from=0, to=110, by=10)/10)
+```
+
+In this is R's `seq` function which generates a sequence of values. It takes some starting value `from`, a final value `to`, and a common difference `by`, then uses those to create an arithmetic sequence.
+
+1. How would the sequence `seq(from=0, to=110, by=10)` be defined as $a_n$ mathematically?
+
+2. Code `seq(...)/10` divides this by ten. What's the definition $b_n$ of the divided sequence?
+
+3. Finally, in `10**(...)`, each term is used as a power of ten. What's this final sequence, $c_n$?
+
+## Sequence to Series
+
+A common pitfall is confusing the terms 'sequence' (a list) and 'series' (a sum). For example, the strictly positive integers $a_1 = 1$, $a_2 = 2$, _etc_ are a sequence $a_n = n$. On the other hand their sum, $1 + 2 + \ldots$, is a series.
+
+1. What is $\sum_{n=1}^{10} a_n$?
+
+2. What's the sum of the first $n$ strictly positive integers?
+
+3. After seeing a video online, Charlie is convinced $\sum_{n=1}^{\infty} n = -\frac{1}{12}$. Justify why this is not true.
+
+## Hui Shi's Stick
+
+Long before the advent of analytical methods for working with infinite series, ancient philosophers wrestled with their seemingly paradoxical nature. For example in the Chinese _Zhuangzi_ (~300 BCE), 
+
+> If from a stick a foot long you every day take the half of it, in a myriad ages it will not be exhausted.
+
+<!-- Zhuangzi, chapter 33 (Legge translation) -->
+
+Lets say that the length of the stick on day $d$ is denoted $L_d$.
+
+1. Find an expression for $L_d$ in terms of $L_{d-1}$ (_i.e._ the day before). 
+
+2. Find an expression for $L_d$ that only depends on $d$.
+
+Charlie argues that our formulation _can't_ be correct because the paradox says to 'take' half the stick away, so any correct formula must involve a subtraction. They present the following answer:
+$$
+  L_d = 1 - \sum_{n=1}^d \frac{1}{2^n}.
+$$
+
+3. Is Charlie's argument correct? How does their answer compare to yours?
+
+## Weird & Wonderful
+
+There are many weird and wonderful sequences and series. A common one you might have heard of is Fibonacci's sequence, defined
+$$
+  F_n = \begin{cases}
+    0 & \text{if}~n = 0, \\
+    1 & \text{if}~n = 1, \\
+    F_{n-1} + F_{n-2} & \text{if}~n \geq 2.
+  \end{cases}
+$$
+This gives 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on; this links into the [Golden Ratio](https://en.wikipedia.org/wiki/Fibonacci_sequence#Definition).
+
+![[Tiled squares](https://en.wikipedia.org/wiki/File:Fibonacci_Squares.svg) representing the Fibonacci sequence, Romain (2022), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).](img/Fibonacci_Squares.svg){width=50% fig-alt="Decorative: visual representation of the Fibonacci sequence as an outward spiral of squares in increasing area. The pattern follows the Golden Ratio."}
+
+The _Online Encyclopaedia of Integer Sequences_ (OEIS) tracks this as sequence [A000045](https://oeis.org/A000045) (along with 388839 others) and includes some more mathematical, historical, and usage information.
+
+1. Define a general sequence $a_n$ however you wish, and calculate its first eight terms are.
+
+2. Search those terms in [OEIS](https://oeis.org/) to see if it's a existing, named sequence.
+
+3. Is there a geometric interpretation of the sequence you've found?

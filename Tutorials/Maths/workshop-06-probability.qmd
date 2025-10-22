@@ -1,0 +1,78 @@
+---
+title: "Probability"
+answers: false  # toggle true/false to show solutions
+number-sections: true
+---
+
+After a couple of theory questions that are related to this week's content, this workshop has a few different more 'practical' exercises. When you get to these, you're welcome to work with other people to explore the problems, working toward a solution collaboratively.
+
+## The 52 Card Pickup
+
+A standard 52 card deck is split into four suits (spades ♠, hearts <span style="color: red">♥</span>, clubs ♣, and diamonds <span style="color: red">♦</span>), with 13 cards for each suit (an **A**ce, nine numbered $2$-$10$, plus three face cards: **J**ack, **Q**ueen, and **K**ing).
+
+![[_Piatnik Cards_](https://commons.wikimedia.org/wiki/File:Piatnikcards.jpg), Trainler (2009), [CC BY 3.0 Unported](https://creativecommons.org/licenses/by/3.0/deed.en).](img/Piatnikcards.jpg){width=95% fig-alt="The standard deck laid out into suits, with numbers in ascending order and ace high." }
+
+Sometimes aces are treated as a $1$. At other times they're treated as the most valuable card (known as 'ace high'), as suggested in the photo above.
+
+To 'draw' a card means to choose one at random. From this deck,
+
+1. What's the probability of drawing 🂡, the ace of spaces? 
+2. What's the probability of drawing a red card? (_i.e._ <span style="color: red">♦</span> or <span style="color: red">♥</span>)
+3. What's the probability of drawing a Jack? (_i.e._ <span style="color: red">🂫</span>, 🂻, <span style="color: red">🃛</span>, or 🃋)
+4. What's the probability of drawing a face card?
+
+Sometimes, we might have _some_ information about the card we've drawn. This changes things! From the 52 card deck,
+
+5. What's the probability of drawing an ace, given I know the card is red?
+6. What's the probability that the face card I just drew is a Jack?
+
+## Sans Remplacement
+
+In a game, cards are usually drawn continuously rather than putting them back between each draw. For example, if I draw 2 cards from a 52 card deck these cards cannot be the same: they are **drawn without replacement**.[^dice] Starting each time from a full 52 card deck,
+
+1. If I draw an ace, what's the probability that the next draw is an ace?
+2. If I draw a Jack card, what's the chance of the next being a face?
+3. If I draw red (<span style="color: red">♦</span> or <span style="color: red">♥</span>), what's the probability the next is black (♠ or ♣)?
+
+[^dice]: This is in contrast to dice: if I roll two dice, they _can_ have the same outcome. We say that the outcomes are **drawn with replacement**.
+
+There's a whole family of card games (including [Blackjack](https://en.wikipedia.org/wiki/Blackjack), [Pontoon](https://en.wikipedia.org/wiki/Pontoon_(card_game)), and [Vingt-Un](https://en.wikipedia.org/wiki/Twenty-one_(card_game))) where players aim to obtain a hand that adds up to 21. In these games, any face card is usually treated as a '10' and an ace may count as a '1' or an '11' as the player desires.
+
+4. Starting from a clean deck, what is the probability tree for getting 21 in just two cards?
+
+## Dice Games
+
+Each of these exercises includes an experimental aspect. There's a wee bit of theory involved in each, but you'll need a set of the dice described to have a proper go!
+
+### Standard dice... twice!
+
+You'll need at least three or four standard six-sided dice - abbreviated to D6. Generally, we abbreviate rolling $n$ many $m$-sided dice by **nDm**.
+
+![[_Würfel_](https://commons.wikimedia.org/wiki/File:W%C3%BCrfel_--_2021_--_4262.jpg), Dietmar Rabich (2021), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed).](img/Würfel_--_2021_--_4262.jpg){width=40% fig-alt="Collection of many 6-sided dice."}
+
+1. Roll 1D6. How likely was the outcome?
+2. Roll 2D6, taking the sum as the outcome. How likely was this?
+3. What does the probability tree look like for summing 2D6?
+4. What happens as the number of D6 increase to 3D6, 4D6, or beyond?
+
+### The house always wins
+
+Probabilities can sometimes behave in unintuitive ways, _e.g._ the [gambler's fallacy](https://en.wikipedia.org/wiki/Gambler's_fallacy#Coin_toss). For this exercise you'll need a set of three nontransitive dice.
+
+![[_Nontransitive dice_](https://commons.wikimedia.org/wiki/File:Intransitive_dice_2.svg), Chris Martin (2008), [🅮](https://en.wikipedia.org/wiki/Public_domain).](img/Intransitive_dice_2.svg){fig-alt="Decorative: example of nontransitive dice."}
+
+1. If rolling the three dice, which is the highest?
+2. In pairs, try the following game:
+    i. Player 1 picks their dice,
+    ii. Player 2 picks their dice,
+    iii. Both roll and the highest wins.
+3. What's the winning strategy for player 2?
+4. How does this change if instead it's two dice and the results are added?
+
+### DIY D6
+
+Many highstreet clothing chains attach 'size cubes' to hangers so that shoppers don't have to find the label to check the size. However, these aren't widely reused and generate a lot of plastic waste.
+
+![[_Clothing store downtown Boston_](https://commons.wikimedia.org/wiki/File:Clothing_store_downtown_Boston.jpg), Kurt Kaiser (2018), [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en).](img/Clothing_store_downtown_Boston.jpg){width=60% fig-alt="Decorative: photograph of hangers in a clothing store."}
+
+Growing up, I had the idea that these could be reused as D6 using the top as the 1, the bottom as the 6, and the four sides as 2-5. Was I correct? Could these be reused as fair D6?
