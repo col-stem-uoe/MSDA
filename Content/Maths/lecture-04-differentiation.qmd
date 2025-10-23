@@ -1,3 +1,8 @@
+---
+number-sections: true
+number-offset: 3
+---
+
 # Differentiation
 
 In the previous section we looked at how to model growth mathematically, either with exponential functions in a continuous setting or sequences in a discrete setting. It would be useful to have a way to quantify how fast something was growing, and for that we turn to calculus.
@@ -6,49 +11,39 @@ In the previous section we looked at how to model growth mathematically, either 
 
 Consider the following scenario. You are standing on a bridge, holding a stone that you then drop. You might not be able to picture it exactly, but you might have the intuition that although it starts by falling quite slowly, it accelerates and becomes faster and faster in its fall.
 
-```{r velocity-plot, out.width="35%", echo=FALSE, fig.align="center", fig.alt="Plot of the velocity over time, v(t) = 10t."}
-knitr::include_graphics("images/08/intro-distance-travelled.png")
-```
+![](images/08/intro-distance-travelled.png){width=35% fig-align="center" fig-alt="Plot of the velocity over time, v(t) = 10t."}
 
 The speed at which it falls increases because gravity pulls it towards the ground (centre of the mass of earth). Most of the time we consider the strength of the gravitational pull to be a constant, so the speed at which the stone is accelerating in a linear fashion, _i.e._ the amount that it speeds up is the same every second. This also means that the increasing speed can be modelled by a linear function (straight line with a positive gradient) and the acceleration by a constant function (a horizontal line). 
 
-```{r acceleration-plot, out.width="35%", echo=FALSE, fig.align="center", fig.alt="Plot of the acceleration over time, a(t) = 10."}
-knitr::include_graphics("images/08/intro-acceleration.png")
-```
+![](images/08/intro-acceleration.png){width=35% fig-align="center" fig-alt="Plot of the acceleration over time, a(t) = 10."}
 
 What about the distance that it travelled down from where you initially held it? This is clearly also increasing. And it is increasing by the speed that it has. So as the speed increases, the rate of that the displacement increases, increases.
     
-```{r displacement-plot, out.width="35%", echo=FALSE, fig.align="center", fig.alt="Plot of the distance over time, d(t) = 5t^2."}
-knitr::include_graphics("images/08/intro-distance-travelled.png")
-```
+![](images/08/intro-distance-travelled.png){width=35% fig-align="center" fig-alt="Plot of the distance over time, d(t) = 5t^2."}
 
 How are acceleration, velocity, and distance travelled related?
 
-```{r calc-motivation-summary, out.width="90%", echo=FALSE, fig.align="center", fig.alt="The previous three plots all shown side by side."}
-knitr::include_graphics("images/08/intro-summary.png")
-```
+![](images/08/intro-summary.png){width=90% fig-align="center" fig-alt="The previous three plots all shown side by side."}
 
 ### Intuition
 
-From our previous work, we have seen that the gradient of a straight line is a constant. In fact, the definition of a straight line is that the \(y\) value increases in a constant fashion. That's what makes it linear.
+We know that the gradient of a straight line is a constant; the very definition of a straight line is that the $y$ value increases in a constant fashion. That's what makes it linear!
 
 A quadratic is a function that increases, increasingly; its rate of change increases in a linear fashion. 
 
 Similarly, the arithmetic sequence of numbers 
-\[
+$$
   4, 7, 10, 13, 16, \ldots
-\]
-increases in a linear fashion by adding \(3\) each time. On the other hand, the sequence
-\[
+$$
+increases in a linear fashion by adding $3$ each time. On the other hand, the sequence
+$$
   2, 6, 13, 23, 36, 52, \ldots
-\]
-increases in a quadratic fashion because it increases first by \(4\), then by \(7\), then \(10\), \(13\), \(16\), and so on by the linear sequence that we just had before.
+$$
+increases in a quadratic fashion because it increases first by $4$, then by $7$, then $10$, $13$, $16$, and so on by the linear sequence that we just had before.
 
 The gradient (or rate of change) of a quadratic is a linear function.
 
-```{r calc-rate-of-change-summary, out.width="90%", echo=FALSE, fig.align="center", fig.alt="The previous three plots all shown side by side, but now highlighting the rate of change connection between them."}
-knitr::include_graphics("images/08/quad-gradient.png")
-```
+![](images/08/quad-gradient.png){width=90% fig-align="center" fig-alt="The previous three plots all shown side by side, but now highlighting the rate of change connection between them."}
 
 The rate of change of velocity is called acceleration. The rate of change of distance travelled (sometimes called displacement) is called velocity. 
 
@@ -56,21 +51,15 @@ The rate of change of velocity is called acceleration. The rate of change of dis
 
 Calculus is what we call the study of infinitesimal change. This includes differentiation and integration, both of which we will cover over the next couple of sections.
 
-<!-- ![What maths really looks like...](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Leibniz_Manuscript_of_integral_and_differential_notation.png/800px-Leibniz_Manuscript_of_integral_and_differential_notation.png) -->
-
 The subject has a really long history and, unfortunately for everyone, there was a historical spat between Gottfried Leibniz and Isaac Newton, two famous scientists of the 17th and 18th century, when calculus was developed.
 
-<!-- ```{r Isaac_Newton_and_Gottfried_Leibniz, out.width="70%", echo=FALSE, fig.align="center", fig.alt="Stone statues of Newton and Leibniz."} -->
-<!-- knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Statues_of_Isaac_Newton_and_Gottfried_Leibniz.jpg/1280px-Statues_of_Isaac_Newton_and_Gottfried_Leibniz.jpg") -->
-<!-- ``` -->
+They both invented (or discovered depending on your philosophy) calculus around the same time and came up with different notations. To top it off, Joseph-Louis Lagrange, another scientist from that era invented yet more notation for the same ideas:
 
-They both invented (or discovered depending on your philosophy) calculus around the same time and came up with different notations. To top it off, Joseph-Louis Lagrange, another scientist from that era invented yet more notation for the same ideas.
+- Leibniz' notation: $\frac{\text{d}}{\text{d}x}y$,
+- Newton's notation: $\dot{y}$,
+- Lagrange's notation: $y'$.
 
-- Leibniz' notation: \(\frac{\text{d}}{\text{d}x}y\),
-- Newton's notation: \(\dot{y}\),
-- Lagrange's notation: \(y'\).
-
-In this course we will use \(y'\) or \(f'(x)\) to denote the derivative of a curve \(y\) or a function \(f\), though if you look at other resources Leibniz' notation is fairly common too.
+All three are reasonably common, so it's good to be aware of them.
 
 ### Gradient Function
 
@@ -80,7 +69,7 @@ We considered the gradient of a straight line. Now let us generalise this to oth
 knitr::include_url('https://www.geogebra.org/material/iframe/id/y9drqz3c/width/1000/height/567/border/888888/sri/true/sdz/true')
 ```
 
-In a weird twist of events, the value of the gradient/derivative can also be considered as a function in its own right and we call that function, the "gradient function" and denote it \(f'(x)\).
+In a weird twist of events, the value of the gradient/derivative can also be considered as a function in its own right and we call that function, the "gradient function" and denote it $f'(x)$.
 
 Let us consider this: **the gradient of a graph can itself be represented by a graph.** Consider again the parabola: 
 
@@ -88,9 +77,9 @@ Let us consider this: **the gradient of a graph can itself be represented by a g
 knitr::include_url('https://www.geogebra.org/material/iframe/id/ynkg7frs/width/1200/height/567/border/888888/sri/true/sdz/true')
 ```
 
-You can see how the gradient function of the parabola is described by a straight line graph. When the gradient of the parabola at its vertex has the value \(0\), its gradient function has the \(y\) value \(0\) (i.e. it intercepts the x-axis). When the parabola is moving up, the straight line has positive \(y-\)coordinates (i.e. it's above the \(x-\)axis. When the graph moves down (the basketball is falling), then the rate of change of its height is negative, so the gradient function is below the \(x-\)axis.
+You can see how the gradient function of the parabola is described by a straight line graph. When the gradient of the parabola at its vertex has the value $0$, its gradient function has the $y$ value $0$ (i.e. it intercepts the x-axis). When the parabola is moving up, the straight line has positive $y-$coordinates (i.e. it's above the $x-$axis. When the graph moves down (the basketball is falling), then the rate of change of its height is negative, so the gradient function is below the $x-$axis.
 
-Now we can consider the graph of a cubic and it's gradient function (derivative). Move the slider to move point A the cubic graph \(f(x)\) to see the corresponding value of the gradient/rate of change/derivative at that point and the corresponding \(y\) value of the quadratic gradient/derivative function \(f'(x)\).
+Now we can consider the graph of a cubic and it's gradient function (derivative). Move the slider to move point A the cubic graph $f(x)$ to see the corresponding value of the gradient/rate of change/derivative at that point and the corresponding $y$ value of the quadratic gradient/derivative function $f'(x)$.
 
 ```{r geogebra_gradient_point, echo=FALSE, fig.alt="Exploring the gradient in GeoGebra.", dev="png", cache=TRUE}
 knitr::include_url('https://www.geogebra.org/material/iframe/id/hkpepg2a/width/900/height/600/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false')
@@ -98,89 +87,97 @@ knitr::include_url('https://www.geogebra.org/material/iframe/id/hkpepg2a/width/9
 
 ### Straight Lines
 
-You should be able to see that the gradient of the line \(f(x) = x\) has a gradient of 1 as each time it goes "1 across" is also "goes one up". Note that the graph of \(f'(x)\) is \(f'(x)=1/).
+You should be able to see that the gradient of the line $f(x) = x$ has a gradient of 1 as each time it goes "1 across" is also "goes one up". Note that the graph of $f'(x)$ is $f'(x)=1$.
 
 ```{r geogebra_straight-line, echo=FALSE, fig.alt="Exploring the gradient in GeoGebra.", dev="png", cache=TRUE}
 knitr::include_url('https://www.geogebra.org/material/iframe/id/uuhtkkuc/width/800/height/600/border/888888')
 ```
 
-In fact, consider the gradients of the following straight lines. Use the slider to change how steep the lines are and observe the graph and value of \(f'(x)\)
+In fact, consider the gradients of the following straight lines. Use the slider to change how steep the lines are and observe the graph and value of $f'(x)$
 
 ```{r geogebra_straight-line_explorable, echo=FALSE, fig.alt="Exploring the gradient in GeoGebra.", dev="png", cache=TRUE}
 knitr::include_url('https://www.geogebra.org/material/iframe/id/pqqfrmjs/width/800/height/600/border/888888')
 ```
 
-From this you can see that the gradient of \(f(x)=cx\) is going to be \(c\). In fact, you already know this fact if you remember \(y=mx+c\) where \(m\) stands for the gradient and \(c\) stands for the y-intercept, the point on the y-axis where the straight line crosses. Since in our example above this is always at the origin, i.e. c=0, this means that the gradient function \(f'(x)=m\) for all \(f(x)=mx\).
+From this you can see that the gradient of $f(x)=cx$ is going to be $c$. In fact, you already know this fact if you remember $y=mx+c$ where $m$ stands for the gradient and $c$ stands for the y-intercept, the point on the y-axis where the straight line crosses. Since in our example above this is always at the origin, _i.e._ $c = 0$, this means that the gradient function $f'(x)=m$ for all $f(x)=mx$.
 
-> Suppose \(f(x) = mx+c\). Then \(f'(x) = m\) for all \(x\).
+:::{.callout-note title="Derivative of a line"}
+Suppose $f(x) = mx+c$. Then $f'(x) = m$ for all $x$.
+:::
 
-#### Examples {-}
+:::{.callout-tip title="Examples"}
 
-If \(f(x)=5x\) then \(f'(x)=5\).
+If $f(x)=5x$ then $f'(x)=5$.
 
-If \(f(x)=9x\) then \(f'(x)=9\). 
+If $f(x)=9x$ then $f'(x)=9$. 
 
-If \(f(x)=x+91\) then \(f'(x)=1\). 
+If $f(x)=x+91$ then $f'(x)=1$. 
 
-If \(f(x)=-x\) then \(f'(x)=-1\). 
+If $f(x)=-x$ then $f'(x)=-1$. 
 
-If \(f(x)=\frac{2}{3}x\) then \(f'(x)=\frac{2}{3}\).
+If $f(x)=\frac{2}{3}x$ then $f'(x)=\frac{2}{3}$.
+:::
+
 
 ### Differentiating polynomials
 
-We saw that the gradient of a straight line is a constant (that we usually call "\(m\)") and which can be represented by a horizontal line \(y=m\). We also argued when talking about acceleration that the gradient of a parabola is given by a straight line (_i.e._ the gradient increases in a linear manner).
+We saw that the gradient of a straight line is a constant (that we usually call "$m$") and which can be represented by a horizontal line $y=m$. We also argued when talking about acceleration that the gradient of a parabola is given by a straight line (_i.e._ the gradient increases in a linear manner).
 
 This can be generalised further:
 
-> **Derivative of a general integer power**
-> 
-> Suppose we have a polynomial of degree \(n\) where \(n\) is a whole number, then its gradient function \(f'(x) = nx^{n-1}\), a polynomial of degree \(n-1\).
+:::{.callout-note title="Derivative of a general integer power."}
+Suppose we have a polynomial of degree $n$ where $n$ is a whole number, then its gradient function $f'(x) = nx^{n-1}$, a polynomial of degree $n-1$.
+:::
 
-Recall that \(x^0 = 1\) for all values of \(x\). From this and the above, we also have that a constant function, \(f(x) = c\) for all \(x\), the gradient is \(f'(x) = {(c\times x^{0})}' = c\times0x^{-1} = 0\) for all \(x\). In other words, the constant function has no gradient.
+Recall that $x^0 = 1$ for all values of $x$. From this and the above, we also have that a constant function, $f(x) = c$ for all $x$, the gradient is $f'(x) = {(c\times x^{0})}' = c\times0x^{-1} = 0$ for all $x$. In other words, the constant function has no gradient.
 
 ```{r geogebra_constant_gradient, echo=FALSE, fig.alt="Exploring the gradient in GeoGebra.", dev="png", cache=TRUE}
 knitr::include_url('https://www.geogebra.org/material/iframe/id/qq8u6w2f/width/1000/height/750/border/888888')
 ```
 
-#### Example A {-}
+:::{.callout-tip title="Example A"}
 
-> If \(f(x)=5x^7\), what is \(f'(x)\)?
+> If $f(x)=5x^7$, what is $f'(x)$?
 
-By the above, the gradient of \(x^7\) is \(7x^{7-1} = 7x^6\). Multiplying this by \(5\) gives that \(f'(x)=35x^6\).
+By the above, the gradient of $x^7$ is $7x^{7-1} = 7x^6$. Multiplying this by $5$ gives that $f'(x)=35x^6$.
+:::
 
-#### Example B {-}
+:::{.callout-tip title="Example B"}
 
-> What is the gradient of \(f(x) = 4x^5 + 7x^2 - 8x + 10\)? 
+> What is the gradient of $f(x) = 4x^5 + 7x^2 - 8x + 10$? 
 
-We can either apply the above rule to each individual term of the polynomial (e.g. \({(7x^2)}' = 7\times2x^{2-1}=14x\)) or computational software. For example, in Wolfram Alpha the command `derivative of f(x) = 4x^5 + 7x^2 - 8x + 10`{.mathematica} returns \(f'(x) = 20x^4 + 14x - 8\). So the gradient of a polynomial of degree 5 is a polynomial function of power 4.   
+We can either apply the above rule to each individual term of the polynomial (e.g. ${(7x^2)}' = 7\times2x^{2-1}=14x$) or computational software. For example, in Wolfram Alpha the command `derivative of f(x) = 4x^5 + 7x^2 - 8x + 10`{.mathematica} returns $f'(x) = 20x^4 + 14x - 8$. So the gradient of a polynomial of degree 5 is a polynomial function of power 4.   
+:::
 
 ### Generalisation
 
-And this can be further generalised to include cases where \(n\) is not an integer (a whole number, either positive or negative).
+And this can be further generalised to include cases where $n$ is not an integer (a whole number, either positive or negative).
 
-> **Derivative of arbitrary powers**
->
-> \((x^{a})' = ax^{a-1}\) for any \(x>0\) and any \(a\) 
+:::{.callout-note title="Derivative of arbitrary powers"}
+$(x^{a})' = ax^{a-1}$ for any $x>0$ and any $a$ 
+:::
 
-#### Example A {-}
+:::{.callout-tip title="Example A"}
 
-> What is the gradient of \(y=5x-\sqrt{x}\)?
+> What is the gradient of $y=5x-\sqrt{x}$?
 
-Since \(\sqrt{x} = x^{0.5}\), it follows from our rules for powers that
-\[
+Since $\sqrt{x} = x^{0.5}$, it follows from our rules for powers that
+$$
   {(\sqrt{x})}' = x^{0.5-1} = x^{-0.5} = \frac{1}{x^{0.5}} = \frac{1}{\sqrt{x}}.
-\]
-Then we have that \(y'=5-\frac{1}{2\sqrt{x}}\).
+$$
+Then we have that $y'=5-\frac{1}{2\sqrt{x}}$.
+:::
 
-#### Example B {-}
+:::{.callout-tip title="Example B"}
 
-> What's the derivative of \(f(x) = 4\sqrt{x}+ \frac{7}{x} - \sqrt[3]{x}\)?
+> What's the derivative of $f(x) = 4\sqrt{x}+ \frac{7}{x} - \sqrt[3]{x}$?
 
-We note that this can be written as \(f(x) = 4x^{\frac{1}{2}} + 7x^{-1} - x^{\frac{1}{3}} \). Then by applying to above rule to each term,
-\[
+We note that this can be written as $f(x) = 4x^{\frac{1}{2}} + 7x^{-1} - x^{\frac{1}{3}} $. Then by applying to above rule to each term,
+$$
   f'(x) = 4\times\frac{1}{2} \times x^{-\frac{1}{2}} - 7x^{-2} - \frac{1}{3} \times x^{-\frac{2}{3}}.
-\]
-This can be simplified to \(f'(x)= \frac{2}{\sqrt{x}}-\frac{7}{x^2} - \frac{1}{3\sqrt[3]{x^2}} \).
+$$
+This can be simplified to $f'(x)= \frac{2}{\sqrt{x}}-\frac{7}{x^2} - \frac{1}{3\sqrt[3]{x^2}} $.
+:::
 
 ## Gradient at a point
 
@@ -188,15 +185,15 @@ Given some function that models the velocity of a aeroplane (or comet's orbit, a
 
 ### Speed Examples
 
-Let the velocity of a particle be described by the function \(v(t)=4t-t^2\) where \(v\) is the velocity measured in \([m/s]\)and \(t\) is the time in seconds.  
+Let the velocity of a particle be described by the function $v(t)=4t-t^2$ where $v$ is the velocity measured in $[m/s]$and $t$ is the time in seconds.  
 
 #### Example A {-}
 
 > What is the initial velocity?
 
-**Initial** means that \(t=0\). So you're looking for \(v(0)\), _i.e._ the value when substituting \(t=0\) into the function of \(v(t)\).
+**Initial** means that $t=0$. So you're looking for $v(0)$, _i.e._ the value when substituting $t=0$ into the function of $v(t)$.
 
-Here, \(v(0) = 4\times0-0^2 = 0\). We can also type `v(t)=4t-t^2 where t=0`{.mathematica} into Wolfram Alpha.
+Here, $v(0) = 4\times0-0^2 = 0$. We can also type `v(t)=4t-t^2 where t=0`{.mathematica} into Wolfram Alpha.
 
 ```{r initial_velocity, out.width="40%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
 knitr::include_graphics("images/08/initial-velocity.png")
@@ -208,19 +205,19 @@ The initial velocity (speed) is zero meaning that that particle is initially not
 
 > What is the initial acceleration?
 
-To find the initial acceleration, **\(a(0)=v'(0)\)**, we first find the derivative to see that \(v'(t)=4-2t\) and then substitute \(t=0\) into this. In Wolfram Alpha, this would be done using `v(t)=4t-t^2, find v'(t)`{.mathematica}
+To find the initial acceleration, **$a(0)=v'(0)$**, we first find the derivative to see that $v'(t)=4-2t$ and then substitute $t=0$ into this. In Wolfram Alpha, this would be done using `v(t)=4t-t^2, find v'(t)`{.mathematica}
 
 ```{r initial_acceleration, out.width="40%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
 knitr::include_graphics("images/08/init-acceleration.png")
 ```
 
-Then, evaluate the expression \(t-2t\) where \(t=0\). In Wolfram Alpha, you can do this by clicking on \(4-2t\) in the "input interpretation" box. This will copy the expression into the command line. Add `t=0`{.mathematica} so that you have this in the command line `4 - 2t where t=0`{.mathematica} and you should have the following:
+Then, evaluate the expression $t-2t$ where $t=0$. In Wolfram Alpha, you can do this by clicking on $4-2t$ in the "input interpretation" box. This will copy the expression into the command line. Add `t=0`{.mathematica} so that you have this in the command line `4 - 2t where t=0`{.mathematica} and you should have the following:
 
 ```{r initial_acceleration-wolfram, out.width="40%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
 knitr::include_graphics("images/08/init-acceleration-wolfram.png")
 ```
 
-So the acceleration is \(4 m/s^2\).
+So the acceleration is $4 m/s^2$.
 
 ```{r initial_acceleration-wolfram2, out.width="70%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
 knitr::include_graphics("images/08/init-acceleration-wolfram2.png")
@@ -232,7 +229,7 @@ The particle is being accelerated forward, the velocity is increasing.
 
 > What is the velocity of the particle after one second?
 
-Substitute \(t=1\) into the function of \(v(t)\) to obtain \(v(1)\). We can also do \(v(1)=4 \times 1 - (1)^2 = 3 m/s\). Through Wolfram Alpha, this would be `4t-t^2 at t=1`{.mathematica} (similar to point 1.) ( )\)
+Substitute $t=1$ into the function of $v(t)$ to obtain $v(1)$. We can also do $v(1)=4 \times 1 - (1)^2 = 3 m/s$. Through Wolfram Alpha, this would be `4t-t^2 at t=1`{.mathematica} (similar to point 1.) ( )$
 
 The particle now has a positive velocity, meaning that it is moving forward.
 
@@ -240,11 +237,11 @@ The particle now has a positive velocity, meaning that it is moving forward.
 
 > What is the acceleration after two seconds?</h5>
 
-Substitute \(t=2\) into the acceleration to obtain **\(a(2)=v'(2)\)**. We can do can do: \(v'(2)=4-2 \times 2 = 0\). On Wolfram Alpha, `find the derivative of v(t)=4t-t^2 at t=2`{.mathematica}
+Substitute $t=2$ into the acceleration to obtain **$a(2)=v'(2)$**. We can do can do: $v'(2)=4-2 \times 2 = 0$. On Wolfram Alpha, `find the derivative of v(t)=4t-t^2 at t=2`{.mathematica}
 
-After two seconds, the acceleration after two seconds is \(0 m/s^2\) meaning that it no longer accelerates the particle. This means that the velocity is no longer increasing.
+After two seconds, the acceleration after two seconds is $0 m/s^2$ meaning that it no longer accelerates the particle. This means that the velocity is no longer increasing.
 
-Putting this all together, here is a graph of the velocity. On the the horizontal axis we have \(t\), and then \(v(t)\) is the vertical axis.
+Putting this all together, here is a graph of the velocity. On the the horizontal axis we have $t$, and then $v(t)$ is the vertical axis.
 
 ```{r time-velocity-graph, out.width="70%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
 knitr::include_graphics("images/08/time-velocity-graph.png")
@@ -256,11 +253,11 @@ This idea of of the derivative giving the gradient can be extended to other func
 
 ### Chain Rule
 
-Given a composition of two functions, \(h(x) = f(g(x))\), then the derivative is given by \[h'(x) = f'(g(x))\times g'(x).\]
+Given a composition of two functions, $h(x) = f(g(x))$, then the derivative is given by $$h'(x) = f'(g(x))\times g'(x).$$
 
 ### Trigonometric functions
 
-Consider the gradient of the sine graph. Again, pay particular attention to the places where the gradient of \(\sin(x)\) is equal to zero. 
+Consider the gradient of the sine graph. Again, pay particular attention to the places where the gradient of $\sin(x)$ is equal to zero. 
 
 ```{r geogebra_trig_gradient, echo=FALSE, fig.alt="Exploring the gradient in GeoGebra.", dev="png", cache=TRUE}
 knitr::include_url('https://www.geogebra.org/material/iframe/id/uz9ntth8/width/1200/height/600/border/888888')
@@ -270,28 +267,28 @@ Notice how there are some places where the gradient is zero. What is special abo
 
 What graph or function do you know that has periodicity?  
 
-> \(y = \sin(x)\) has the derivative \(y' = \cos(x)\) 
+> $y = \sin(x)$ has the derivative $y' = \cos(x)$ 
 >
-> \(y = \cos(x)\) has the derivative \(y' = -\sin(x)\)
+> $y = \cos(x)$ has the derivative $y' = -\sin(x)$
 
 #### Example A {-}
 
-> Given that \(f(x)= 4x + sin(3x)\), find \(f'(x)\).
+> Given that $f(x)= 4x + sin(3x)$, find $f'(x)$.
 
-We know from the above that the derivative of \(\sin(x)\) is \(\cos(x)\), and the derivative of \(3x\) is \(3\). Letting \(f(x) = \sin(x)\) and \(g(x) = 3x\) gives the composition \(f(g(x)) = \sin(3x)\). Then, by the chain rule, the derivative of the composition is\[
+We know from the above that the derivative of $\sin(x)$ is $\cos(x)$, and the derivative of $3x$ is $3$. Letting $f(x) = \sin(x)$ and $g(x) = 3x$ gives the composition $f(g(x)) = \sin(3x)$. Then, by the chain rule, the derivative of the composition is$$
   f'(g(x))\times g'(x) = \cos(3x)\times 3 = 3\cos(3x).
-\]
+$$
 We can also find that  by typing in `differentiate f(x)=4x+sin(3x)`{.mathematica}.
 
 #### Example B {-}
 
-> The height of the tide in a harbour can be modelled by the graph \(H(t)=4.8 \sin(\frac{\pi}{6}(t+3)) + 5.1\) where \(H(t)\) is measured in metres and \(t\) is measured in hours after midnight. What is the curve that models the rate of change in the tide?
+> The height of the tide in a harbour can be modelled by the graph $H(t)=4.8 \sin(\frac{\pi}{6}(t+3)) + 5.1$ where $H(t)$ is measured in metres and $t$ is measured in hours after midnight. What is the curve that models the rate of change in the tide?
 
-The rate of change (_i.e._ how rapidly the tide comes in and flows out) is given by \[H'(t)= -2.5132\times\sin\left(\frac{\pi}{6}t\right).\]
+The rate of change (_i.e._ how rapidly the tide comes in and flows out) is given by $$H'(t)= -2.5132\times\sin\left(\frac{\pi}{6}t\right).$$
 
 ### Exponentials 
 
-Remember when we considered Douglas' coffee cooling down from a fictional \(100^oC\)?
+Remember when we considered Douglas' coffee cooling down from a fictional $100^oC$?
 
 Initially, the rate at which is was cooling down was quite rapid. This was because the difference between the temperature of the coffee and the surrounding air was great. 
 
@@ -301,10 +298,10 @@ knitr::include_graphics("images/08/douglas-coffee.png")
 
 As the difference between the temperature of the coffee and the surrounding air became smaller (decreased), the rate at which the coffee continued to cool down slowed down.
 
-As the coffee neared the temperature of the surrounding air, a fictional \(21^oC\), the coffee would stop cooling down as there was now very little difference between its temperature and the ambient temperature.
-Consider the following interactive graph. Move the point A. As time increases, the \(y\) "Temperature" value decreases as the temperature of the tea is decreasing. The gradient is therefore negative (you can see the value). 
+As the coffee neared the temperature of the surrounding air, a fictional $21^oC$, the coffee would stop cooling down as there was now very little difference between its temperature and the ambient temperature.
+Consider the following interactive graph. Move the point A. As time increases, the $y$ "Temperature" value decreases as the temperature of the tea is decreasing. The gradient is therefore negative (you can see the value). 
 
-The gradient function is represented by the blue graph. You can see that it remains below the \(x-\)axis even as it comes closer and closer to the \(x-\)axis. This represents the fact that although the tea (or coffee) keeps getting colder (as it approaches the ambient temperature),
+The gradient function is represented by the blue graph. You can see that it remains below the $x-$axis even as it comes closer and closer to the $x-$axis. This represents the fact that although the tea (or coffee) keeps getting colder (as it approaches the ambient temperature),
     the rate of decrease becomes more and more smaller. 
 
 <center><iframe width="800" height="467" src="https://www.geogebra.org/material/iframe/id/gumugum5/width/1000/height/567/border/888888/sri/true/sdz/true" scrolling="yes" style="border: 0px;" alt="As the tea cools, the rate of change in temperature decreases."> </iframe></center>
@@ -319,7 +316,7 @@ This is part of the difficulty of understanding exponential growth. Initially sm
     and faster. 
 Consider the following sequence of numbers:
 
- \(2, 4, 8, 16, 32, 64, 128, ...\). With each step, the increase is twice as large as the previous step. 
+ $2, 4, 8, 16, 32, 64, 128, ...$. With each step, the increase is twice as large as the previous step. 
 
 ```{r douglas-coffee-solution, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
 knitr::include_graphics("images/08/douglas-coffee-solution.png")
@@ -327,30 +324,30 @@ knitr::include_graphics("images/08/douglas-coffee-solution.png")
 
 #### Example A {-}
 
-Let \(y=2^x\). Use the command `differentiate y=2^x`{.mathematica} to obtain the answer: \(y'=2^x log(2)\) or if you use the approximate values: \(y' =0.693147 2^x\).
+Let $y=2^x$. Use the command `differentiate y=2^x`{.mathematica} to obtain the answer: $y'=2^x log(2)$ or if you use the approximate values: $y' =0.693147 2^x$.
 
 #### Example B {-}
 
-Let \(f(x)=18 \times 9.1x^{3x}+7x\). Use the command `differentiate f(x)=18  9.1^(3x) +7x`{.mathematica} to obtain \(f'(x) = 119.247 \times 9.1^{3x} + 7\).
+Let $f(x)=18 \times 9.1x^{3x}+7x$. Use the command `differentiate f(x)=18  9.1^(3x) +7x`{.mathematica} to obtain $f'(x) = 119.247 \times 9.1^{3x} + 7$.
 
 ### The natural exponential function
 
 There is one exponential functions which is particularly important in biology and other natural growth models. That is the **exponential** This is the function where the graph of the function is the same as its gradient function:
-\[
+$$
   y=e^x \text{ has the gradient function }y'=e^x
-\]
+$$
 
 #### Example A {-}
 
-Let \(y=e^x\). Use the command `differentiate y=e^x`{.mathematica} to obtain the answer: \(y'=e^x\). Weird right? The derivative is the same as the original function.
+Let $y=e^x$. Use the command `differentiate y=e^x`{.mathematica} to obtain the answer: $y'=e^x$. Weird right? The derivative is the same as the original function.
 
 #### Example B {-}
 
-Let \(f(x)=18 \times e^{3x}+11\). Use the command "differentiate f(x)= 18e^(3x) +11" to obtain \(f'(x)  = 54 e^{3x}\).
+Let $f(x)=18 \times e^{3x}+11$. Use the command "differentiate f(x)= 18e^(3x) +11" to obtain $f'(x)  = 54 e^{3x}$.
 
 #### Example C {-}
 
-Let \(y=4-5e^{\frac12x}\). Find the value of the gradient of this function when \(x=9\). Use the command `find the derivative of  4-5e^(1/2x) at x=9`{.mathematica} to obtain `-(5 e^(9/2))/2` or the approximate form: \(-225.043\).
+Let $y=4-5e^{\frac12x}$. Find the value of the gradient of this function when $x=9$. Use the command `find the derivative of  4-5e^(1/2x) at x=9`{.mathematica} to obtain `-(5 e^(9/2))/2` or the approximate form: $-225.043$.
 
 ## Optimization
 
@@ -372,13 +369,13 @@ Look again at the graph above. You can see that at the extrema (maximum or minim
 knitr::include_graphics("images/08/minima-maxima.png")
 ```
 
-These maxima and minima are the points where the gradient is zero, so can be found by solving \(f'(X) = 0\).
+These maxima and minima are the points where the gradient is zero, so can be found by solving $f'(X) = 0$.
 
 There are many ways that Wolfram Alpha will calculate the turning points (maxima/minima) partly because these points have so many different names. But here are some examples of what works:
 
 #### Example A {-}
 
-> Find the stationary points of the graph \(y=5x-x^2\) and "determine their nature".
+> Find the stationary points of the graph $y=5x-x^2$ and "determine their nature".
 
 In Wolfram Alpha use the command `stationary points y=5x-x^2`{.mathematica}. This will give you:
 
@@ -386,11 +383,11 @@ In Wolfram Alpha use the command `stationary points y=5x-x^2`{.mathematica}. Thi
 knitr::include_graphics("images/08/minima-maxima-soln1.png")
 ```
 
-The graph therefore has a **maximum** at \( (\frac52,\frac{25}{4}) \).   
+The graph therefore has a **maximum** at $ (\frac52,\frac{25}{4}) $.   
 
 #### Example B {-}
 
-> Find the maximum \(y\) value of the graph \( y= \frac{5x}{4x^2+1} \). 
+> Find the maximum $y$ value of the graph $ y= \frac{5x}{4x^2+1} $. 
 
 To solve this, we can use the command `maximum value of y=5x/(4x^2+1)`{.mathematica}. The website will give you:
 
@@ -402,11 +399,11 @@ knitr::include_graphics("images/08/minima-maxima-soln2.png")
 knitr::include_graphics("images/08/minima-maxima-soln3.png")
 ```
 
-This means that the maximum \(y\) value is \(\frac54\). Note that \(x=\frac12\) is the horizontal value of the maximum point. The \(y\) maximum value if the number after "max{...}=" in Wolfram Alpha's answer.
+This means that the maximum $y$ value is $\frac54$. Note that $x=\frac12$ is the horizontal value of the maximum point. The $y$ maximum value if the number after "max{...}=" in Wolfram Alpha's answer.
 
 #### Example C {-}
 
-> Find the turning point of the graph \(y=5 \sin(2x)+3\) in the domain \(0 \leq x \leq 2\pi\).
+> Find the turning point of the graph $y=5 \sin(2x)+3$ in the domain $0 \leq x \leq 2\pi$.
 
 Use the command `turning points y=5sin(2x)+3, 0<=x<=2pi`{.mathematica}. This will give you four turning points, two maxima and two minima.
 
@@ -414,88 +411,23 @@ Use the command `turning points y=5sin(2x)+3, 0<=x<=2pi`{.mathematica}. This wil
 knitr::include_graphics("images/08/minima-maxima-wolfram1.png")
 ```
 
-So the maxima are: \( (\frac{\pi}{4}, 8) \), \( (\frac{5\pi}{4}, 8) \), and the minima are: \( (\frac{3\pi}{4}, -2) \), \( (\frac{7\pi}{4}, -2) \).
+So the maxima are: $ (\frac{\pi}{4}, 8) $, $ (\frac{5\pi}{4}, 8) $, and the minima are: $ (\frac{3\pi}{4}, -2) $, $ (\frac{7\pi}{4}, -2) $.
 
 ### Higher Order Derivatives
 
-Think back to our example of acceleration \(a(t)\), velocity \(v(t)\), and distance \(d(t)\). There we talked about how velocity was the rate of change in distance with respect to time, and how acceleration was the change in velocity with respect to time. With this, can we connect acceleration and distance?
+Think back to our example of acceleration $a(t)$, velocity $v(t)$, and distance $d(t)$. There we talked about how velocity was the rate of change in distance with respect to time, and how acceleration was the change in velocity with respect to time. With this, can we connect acceleration and distance?
 
-Since \(v(t) = d'(t)\) and \(a(t) = v'(t)\), we could substitute the first equation into the second to get that \[
+Since $v(t) = d'(t)$ and $a(t) = v'(t)$, we could substitute the first equation into the second to get that $$
   a(t) = (v(t))' = (d'(t))' = (d(t))'.
-\]
+$$
 In other words, we define acceleration b as the derivative of the derivative of the distance with respect to time. This is what is called a **second derivative**.
 
 In the various notations discussed earlier these would be:
 
-- Leibniz' notation: \(\frac{\text{d}^2}{\text{d}x^2}y\),
-- Newton's notation: \(\ddot{y}\),
-- Lagrange's notation: \(y''\).
+- Leibniz' notation: $\frac{\text{d}^2}{\text{d}x^2}y$,
+- Newton's notation: $\ddot{y}$,
+- Lagrange's notation: $y''$.
 
-We can extend this idea to the **\(n^{\text{th}}\) derivative (_e.g._ what comes after taking the derivative of a function \(n\) times). This is usually denoted by \(f^{(n)}\) or \(\frac{\text{d}^n}{\text{d}x^n}y\) since the other two notations get complicated for \(n>3\).
+We can extend this idea to the **$n^{\text{th}}$ derivative (_e.g._ what comes after taking the derivative of a function $n$ times). This is usually denoted by $f^{(n)}$ or $\frac{\text{d}^n}{\text{d}x^n}y$ since the other two notations get complicated for $n>3$.
 
-The main use of higher derivatives is to find whether given extrema are maxima or minima without having to graph the function. If \(f''(x) > 0\), the point at \(x\) is a minimum. If \(f''(x) < 0\), the point is a maximum.
-
-<!-- ### Multiple Variables -->
-
-<!-- The trickiest part of optimization is often translating the problem into mathematics. We look at this here alongside what happens when there is more than one variable involved. -->
-
-<!-- <p style="text-align: center;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/700px-Max_paraboloid.svg.png?20150803091247" alt="File:Max paraboloid.svg" width="200" height="160" style="font-size: 0.9375rem;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Extrema_example.svg/225px-Extrema_example.svg.png" alt="File:Extrema example.svg" style="font-size: 0.9375rem;"> -->
-
-<!-- #### Example 1 - bunny enclosure -->
-
-<!-- <span style="font-size: 0.9375rem;">Imagine that you had a rabbit and needed to build an enclosure for it. You have \(60 m\) of fence and a large garden. Because you are a little conservative (and it's easiest to built) you want to design a rectangular enclosure. </span> -->
-<!-- ![](images/05/bunny-enclosure.png) -->
-<!--  -->
-<!-- The question is: What is the largest area that you can get for your bunny?Often it is helpful to think of **extreme (silly?) cases**. In this scenario, what would happen if we used all the fencing to make an enclosure that was as wide as possible? Since there is \(60~m\) of fencing, we could make a \(30~m\) enclosure but only if we made the length of it \(0~m\). Which would make any bunny unhappy as it would leave it with \(0~m^2\) worth of grass to graze on.  -->
-<!-- Step 1: We know that the fence of the enclosure will be \( 60 m \) long. Hence:  -->
-<!-- <div class="editor-indent" style="margin-left: 30px;"> -->
-<!--     \[ 2L + 2W = 60\] -->
-<!-- </div> -->
-<!-- Step 2: We also know that we want to maximise the area of the enclosure, a rectangle, therefore we need an expression for the area of the enclosure:  -->
-<!-- <div class="editor-indent" style="margin-left: 30px;"> -->
-<!--     \[ Area = L \times W \] -->
-<!-- </div> -->
-<!-- Step 3: Combine the two equations.  -->
-<!-- <div class="editor-indent" style="margin-left: 30px;"> -->
-<!--     From Step 1 we know that \[ W = 30 - L \]  -->
-<!-- </div> -->
-<!-- <div class="editor-indent" style="margin-left: 30px;"> -->
-<!--     Substituting this into the second expression (remember composite functions?): -->
-<!--     \[ Area = L \times (30 - L) \] -->
-<!--     note that since the area is a function of the length of the enclosure, we can write this expression as:  -->
-<!--     \[A(L) = L(30-L)\] -->
-<!--     We need to think about the domain that this expression is makes sense. \(0 \leq L \leq 30\). If the length L is more than \(30m\) long, then there is not enough fence for the width! -->
-<!-- </div> -->
-<!-- Step 4: Find the stationary points of the expression. Use Wolfram Alpha to find the stationary points. You can use the command "stationary points A(L) = L(30-L)". This will result in:  -->
-<!-- <p style="text-align: center;">![](images/05/bunny-enclosure-soln.png) -->
-<!-- <div class="editor-indent" style="margin-left: 30px;"> -->
-<!--     <span style="font-size: 0.9375rem;">The stationary point is therefore \( (15,225) \). </span>
-
--->
-<!-- </div> -->
-<!-- Step 5: Establish the nature of the stationary points.  -->
-<!-- <div class="editor-indent" style="margin-left: 30px;"> -->
-<!--     You can see from the graph that \((15,225)\) represents a maxima.  -->
-<!-- </div> -->
-<!-- Step 6: Interpret the result. -->
-<!-- When the length is \(15m\) the area is at a maximum value, \(225~m^2\). This means that the largest enclosure we can make for bunny, given a \(60~m\) long fence and the restriction that it be rectangular, is an enclosure \(15~m \times 15~m\), which is a square and has a green grassy happy bunny area of \(225~m^2\).  -->
-
-<!-- #### Example 2 - volume of a box -->
-
-<!-- Imagine you have a \(10~cm \times 10~cm\) piece of paper. You cut off four squares \(x~cm \times x~cm\) and fold up the sides to form a box. -->
-<!-- <center>![](images/05/box-volume.png)![](images/05/box-volume.png)></center> -->
-<!-- 
-
--->
-<!-- (a) In terms of \(x\) find an expression for the volume of the box (no top). -->
-<!-- Solution: The base of the box will be \((10-2x) \times (10-2x)\) because you cut off a length of \(x~cm\) from each end of the \(10~cm\). The height of the sides that get folded up and give the box a height of \(x~cm\). -->
-<!-- Since the volume of a cuboid (box) is given by \(height~ \times width~ \times length\) in this case, the volume of the box is given by \(V(x)=x \times (10-2x)^2\) \(cm^3\). -->
-<!-- (b) What is the "biggest box" you can make out of this sheet of paper. In other words, what is the maximum volume you can obtain? -->
-<!-- Solution: In part a) you found an expression for the volume of the box.Let us consider extreme cases, if \(x=5\) you are cutting off \(5~cm\) from each side so the resulting box would have no volume at all. On the other hand, if you cut off **nothing**, -->
-<!--     there would also be a "box" with no volume (a flat box). So the amount that you cut off needs to be somewhere between \(0\) and \(5\). This is the domain, \(0 &lt; x &lt; 5\). -->
-<!-- To find the turning out, you can use Wolfram Alpha by typing in: "turning point y=x(10-2x)^2". It will give you the following results: -->
-<!-- <center>![](images/05/box-volume-wolfram.png) -->
-<!-- So the maximum volume you can get for the box is \(V = \frac{2000}{27}~cm^2 \approx 74~cm^3\) when you cut of \( x= \frac53~cm \approx 1.67~cm\). -->
-<!-- Notes: -->
-<!--   <ol><li>The domain here is important. You can see from the graph that, <em>theoretically</em>, you can get more volume out of the sheet of paper by cutting off more than \(5~cm\). But in real life, that is not a valid solution.</li> -->
-<!--     <li>In reality cutting off \(\frac53~cm\) is not possible. No precision cut can deal with an infinite number of precision!</li></ol> -->
+The main use of higher derivatives is to find whether given extrema are maxima or minima without having to graph the function. If $f''(x) > 0$, the point at $x$ is a minimum. If $f''(x) < 0$, the point is a maximum.
