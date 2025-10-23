@@ -1,16 +1,23 @@
+---
+number-sections: true
+number-offset: 0
+---
+
 # Functions
 
-Through linear equations and quadratics, we have now seen two useful ways to algebraically describe the relationship between variables. At the end of the last section, we also started to see more complicated algebraic expressions for structures like hyperbolae and ellipses, and these enable a broader range of modelling. This is an idea we can generalise.
+Linear equations and quadratics are two useful ways to algebraically describe the relationship between variables. You might also be familiar with more complicated algebraic expressions for structures like hyperbolae and ellipses, which have forms like
+$$
+  \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1, \quad   \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1.
+$$
+While these specific examples do enable a broader range of modelling, but point to a more general idea for defining algebraic relationships.
 
 ## Definition
 
-In school, the idea of **functions** is often introduced early on through the concept of a 'function machine'. This is some imagined box which takes in some number \(x\) as an input, carries out some operation \(f\) and then returns another number \(y\) as output.
+In school, the idea of **functions** is often introduced early on through the concept of a 'function machine'. This is some imagined box which takes in some number $x$ as an input, carries out some operation $f$ and then returns another number $y$ as output.
 
-```{r function-machine, out.width="30%", echo=FALSE, fig.align="center", fig.alt="Basic flowchart of a function machine."}
-knitr::include_graphics("images/06/Function_machine2.svg")
-```
+![](images/06/Function_machine2.svg){width=30% fig-align="center" fig-alt="Basic flowchart of a function machine."}
 
-Mathematically, this would be denoted \(f:x \rightarrow y\) or \(y = f(x)\) which would be read as "\(y\) equals \(f\) of \(x\)" or "the function \(f\) applied to \(x\)". As an example of how this might look in practice, the function \(f(x) = 2x\) maps values to their double. If \(x = 7\) for instance, the output of the function will be \(f(2) = 14\).
+Mathematically, this would be denoted $f:x \rightarrow y$ or $y = f(x)$ which would be read as "$y$ equals $f$ of $x$" or "the function $f$ applied to $x$". As an example of how this might look in practice, the function $f(x) = 2x$ maps values to their double. If $x = 7$ for instance, the output of the function will be $f(2) = 14$.
 
 Functions are an important concept in mathematics, and they describe many natural and human-made phenomena. The speed of growth of a plant for instance is a function of (amongst other factors), the temperature of the weather.
 
@@ -18,68 +25,71 @@ Functions are an important concept in mathematics, and they describe many natura
 
 Aside from the relationship between variables, essential to this idea of functions is the set of values that it's possible to use as inputs or receive as outputs. This is reflected in the full mathematical definition of a function:
 
-> A function is a relationship that maps elements from one set \(A\) to another set \(B\), where each element in \(A\) is uniquely associated with an element in \(B\). This may be denoted \(f:A\rightarrow{}B\).
+:::{.callout-note title=Definition}
+A function is a relationship that maps elements from one set $A$ to another set $B$, where each element in $A$ is uniquely associated with an element in $B$. This may be denoted $f:A\rightarrow{}B$.
+:::
 
-Here, the first set of values \(A\) is called the **domain**, and can be thought of as the set of valid inputs for \(f\). The second set of values \(B\) is called the **codomain**, and can be thought of as the type of numbers we expect to get out of \(f\). Linked to that is the **range**; this is the subset of all codomain values that are actually received as outputs.
+Here, the first set of values $A$ is called the **domain**, and can be thought of as the set of valid inputs for $f$. The second set of values $B$ is called the **codomain**, and can be thought of as the type of numbers we expect to get out of $f$. Linked to that is the **range**; this is the subset of all codomain values that are actually received as outputs.
 
-For example, consider the function \(f(x) = x^2\) where \(f:\mathbb{R}\rightarrow\mathbb{R}\). This function takes any real number as an input, and returns another real number as the output; its domain is the reals, and the codomain is the reals. However square numbers are always positive, so the range of \(f\) is restricted to the positive real numbers.
+For example, consider the function $f(x) = x^2$ where $f:\mathbb{R}\rightarrow\mathbb{R}$. This function takes any real number as an input, and returns another real number as the output; its domain is the reals, and the codomain is the reals. However square numbers are always positive, so the range of $f$ is restricted to the positive real numbers.
 
-Sometimes it is easier to think of where a function is not defined, rather than when it is. For instance, the square root of a negative number is not defined in the real numbers (e.g. \(\sqrt{-1}\) is not a real number). Similarly, dividing by zero is not meaningful, so \(\frac{1}{x}\) is not defined for \(x=0\).
+Sometimes it is easier to think of where a function is not defined, rather than when it is. For instance, the square root of a negative number is not defined in the real numbers (e.g. $\sqrt{-1}$ is not a real number). Similarly, dividing by zero is not meaningful, so $\frac{1}{x}$ is not defined for $x=0$.
 
 In theory (but not always in practice) a function should always have it's domain specified. For example, strictly speaking we should say:
 
-- \(\sqrt{x}\) for \(\lbrace x \in \mathbb{R} | x \geq 0\rbrace \),
-- \(\frac{1}{x}\) for \(\lbrace x \in \mathbb{R} | x \ne 0\rbrace \).
+:::{layout-ncol=2}
+$$\sqrt{x}\ \text{for}\ \lbrace x \in \mathbb{R}~|~x \geq 0\rbrace,$$
 
-While the domain may be restricted because the graph is only defined for certain values, we may also restrict it because in the context of the real-world problem some answers do not make sense. For example, if we wishes to use out function \(f(x) = x^2\) to find integer squares we could define its domain as \(\mathbb{Z}\), rather than \(\mathbb{R}\).
+$$\frac{1}{x}\ \text{for}\ \lbrace x \in \mathbb{R}~|~x \ne 0\rbrace.$$
+:::
 
-#### Example A {-}
+While the domain may be restricted because the graph is only defined for certain values, we may also restrict it because in the context of the real-world problem some answers do not make sense. For example, if we wishes to use out function $f(x) = x^2$ to find integer squares we could define its domain as $\mathbb{Z}$, rather than $\mathbb{R}$.
 
-We are constructing a rabbit enclosure from \(60 m\) of fence. With only this fence, we want to make the largest possible rectangular enclosure for our bunny. One side of the enclosure is against the wall so we don't need any fence on that side.
+:::{.callout-tip title="Example A"}
+We are constructing a rabbit enclosure from $60 m$ of fence. With only this fence, we want to make the largest possible rectangular enclosure for our bunny. One side of the enclosure is against the wall so we don't need any fence on that side.
 
-```{r rabbit-enclosure, out.width="50%", echo=FALSE, fig.align="center", fig.alt="Rabbit enclosure with the length parallel to the wall labelled 'L' and the length perpendicular to the wall labelled 'W'."}
-knitr::include_graphics("images/06/rabbit.png")
-```
+![](images/06/rabbit.png){width=50% fig-align="center" fig-alt="Rabbit enclosure with the length parallel to the wall labelled 'L' and the length perpendicular to the wall labelled 'W'."}
 
-Algebraically, we can write that we are aiming to maximize the enclosure's area \(L\times{}W\) and that our solution must satisfy \(L + 2W = 60\). However, since \(L\) and \(W\) represent lengths of fence in the real world they must also be positive numbers.
+Algebraically, we can write that we are aiming to maximize the enclosure's area $L\times{}W$ and that our solution must satisfy $L + 2W = 60$. However, since $L$ and $W$ represent lengths of fence in the real world they must also be positive numbers.
 
 This is an example of a domain restriction. Any results in our calculations that includes a negative length or area cannot be valid.
+:::
 
-#### Example B {-}
-
+:::{.callout-tip title="Example B"}
 In the GeoGebra Applet below, restrict the domain so that the function models the path of the basketball only (_i.e._ it should not pass beyond the path of the ball).
 
 ```{r geogebra_ball, echo=FALSE, fig.align="center", fig.alt="Screenshot of a ball bouncing in GeoGebra.", dev="png", cache=TRUE}
 knitr::include_url("https://www.geogebra.org/material/iframe/id/nswh6yjg/width/950/height/567/border/888888/sri/true/sdz/true")
 ```
+:::
 
-### Inverse functions
+## Inverse functions
 
-Since functions take one value and map it to another, we can also consider how to take the result back to the original value. Consider the function \(f(x)=x^2\) over the domain \(\lbrace 10, 2, 3, -3\rbrace\). 
+Since functions take one value and map it to another, we can also consider how to take the result back to the original value. Consider the function $f(x)=x^2$ over the domain $\lbrace 10, 2, 3, -3\rbrace$. 
 
-| \(x\) | \(\rightarrow\) | \(x^2\) |
-| :---: | :-------------: | :-----: |
-|    10 | \(\rightarrow\) |     100 |
-|     2 | \(\rightarrow\) |       4 |
-|     3 | \(\rightarrow\) |       9 |
-|    -3 | \(\rightarrow\) |       9 |
+|  $x$  | $\rightarrow$ |  $x^2$  |
+| :---: | :-----------: | :-----: |
+|    10 | $\rightarrow$ |     100 |
+|     2 | $\rightarrow$ |       4 |
+|     3 | $\rightarrow$ |       9 |
+|    -3 | $\rightarrow$ |       9 |
 
-From previous work, we know that square rooting would be the answer in this case. But in general, are there functions that can map the numbers on the right-hand side of the table back to the left-hand side?
+From what we know about quadratics, square rooting would be the answer in this case. But in general, are there functions that can map the numbers on the right-hand side of the table back to the left-hand side?
 
 Most mathematical operations have an **inverse operation**; addition can be undone by subtraction, and multiplication by division. The same is true of a function, it's just a case of finding its **inverse**.
 
-The general method^[This method comes from the graph of a function and its inverse being mirrored in the line \(y = x\).] is to:
+The general method^[This method comes from the graph of a function and its inverse being mirrored in the line $y = x$.] is to:
 
-1. write \(f(x)\) as \(y\),
-2. swap all appearances of \(x\) and \(y\),
-3. rearrange the subject of the formula to \(y\) again,
-4. replace the \(y\) with \(f^{-1}(x)\).
+1. write $f(x)$ as $y$,
+2. swap all appearances of $x$ and $y$,
+3. rearrange the subject of the formula to $y$ again,
+4. replace the $y$ with $f^{-1}(x)$.
 
-#### Example A {-}
+:::{.callout-tip title="Example A"}
 
-> Find the inverse operation of the function \(f(x) = 5x - 7\).
+> Find the inverse operation of the function $f(x) = 5x - 7$."
 
-First we write this as \(y = 5x - 7\). Then we swap all appearances of \(x\) and \(y\) to get \(x = 5y - 7\). We must now rearrange it to make \(y\) the subject, _i.e._ to put it in the form \(y = \) some function of \(x\).
+First we write this as $y = 5x - 7$. Then we swap all appearances of $x$ and $y$ to get $x = 5y - 7$. We must now rearrange it to make $y$ the subject, _i.e._ to put it in the form $y = $ some function of $x$.
 
 \begin{align*}
                             x &= 5y-7 \\
@@ -88,45 +98,47 @@ First we write this as \(y = 5x - 7\). Then we swap all appearances of \(x\) and
    \frac{1}{5}x + \frac{7}{5} &= y
 \end{align*}
 
-Finally, replacing \(y\) with \(f^{-1}(x)\) gives that the inverse function of \(f(x) = 5x-7\) is \(f^{-1}(x) = \frac{1}{5}x+ \frac{7}{5}\). This means that if you send a number into \(f(x)\), say \(10\)
+Finally, replacing $y$ with $f^{-1}(x)$ gives that the inverse function of $f(x) = 5x-7$ is $f^{-1}(x) = \frac{1}{5}x+ \frac{7}{5}$. This means that if you send a number into $f(x)$, say $10$
 
-\[
+$$
   f(10) = 5 \times 10 -7 = 43
-\]
+$$
 
-and then apply \(f^{-1}(x)\) to the result it will return to \(10\),
+and then apply $f^{-1}(x)$ to the result it will return to $10$,
 
-\[
+$$
   f^{-1}(43) = \frac{43+7}{5} = \frac{50}{5} = 10.
-\]
+$$
 
 Voila! You can also use Wolfram Alpha to find an inverse by typing in `inverse of y=5x-7`{.mathematica}.
+:::
 
-#### Example B {-}
+:::{.callout-tip title="Example B"}
 
-> Find the inverse of \(f(x) = \frac{3x^2 + 7}{5}\). 
+> Find the inverse of $f(x) = \frac{3x^2 + 7}{5}$. 
 
-We work through this in the table below.
+We work through this using "two column working" in the table below.
 
 Equation                         | Explanation
 :------------------------------: | :----------
-\(\frac{3y^2 + 7}{5} = x\)       | After the initial swap.
-\(3y^2 + 7 = 5x\)                | Multiply both sides by \(5\).
-\(3y^2 = 5x - 7\)                | Subtract \(7\) from both sides.
-\(y^2 = \frac{5x - 7}{3} \)      | Divide both sides by \(3\)
-\(y = \sqrt{\frac{5x - 7}{3}}\) | Take the square root on both sides.
+$\frac{3y^2 + 7}{5} = x$       | After the initial swap.
+$3y^2 + 7 = 5x$                | Multiply both sides by $5$.
+$3y^2 = 5x - 7$                | Subtract $7$ from both sides.
+$y^2 = \frac{5x - 7}{3} $      | Divide both sides by $3$
+$y = \sqrt{\frac{5x - 7}{3}}$ | Take the square root on both sides.
 
-Therefore \(f^{-1}(x) = \sqrt{\frac{5x-7}{3}}\).
+Therefore $f^{-1}(x) = \sqrt{\frac{5x-7}{3}}$.
+:::
 
-### Composite functions
+## Composite functions
 
-If we have two functions \(f\) and \(g\) we can form the **composition** \(f(g(x))\), sometimes denoted \((f \circ g)(x)\)). This is read aloud as "\(f\) of \(g\) of \(x\)".
+If we have two functions $f$ and $g$ we can form the **composition** $f(g(x))$, sometimes denoted $(f \circ g)(x)$). This is read aloud as "$f$ of $g$ of $x$".
 
-When evaluating these we work outwards from the innermost brackets. Here, given a number \(x\), we first apply \(g\) to \(x\) to get the value \(g(x)\), and then we apply \(f\) to the number \(g(x)\) to get the number \(f(g(x))\).
+When evaluating these we work outwards from the innermost brackets. Here, given a number $x$, we first apply $g$ to $x$ to get the value $g(x)$, and then we apply $f$ to the number $g(x)$ to get the number $f(g(x))$.
 
-#### Example A {-}
+:::{.callout-tip title="Example A"}
 
-> If \(f(x) = x^2 +1\) and \(g(x) = 2x + 3\), express the composites \(f(g(x))\) and \(g(f(x))\) explicitly as functions of \(x\).
+> If $f(x) = x^2 +1$ and $g(x) = 2x + 3$, express the composites $f(g(x))$ and $g(f(x))$ explicitly as functions of $x$.
 
 By definition we have that
 
@@ -144,337 +156,20 @@ Similarly, we have that
            & = 2x^2 + 2 + 3 \\
            &= 2x^2 + 5.
 \end{align*}
+:::
 
-Notice that indeed these two functions are different functions, e.g. \((f(g(0)) = 10\) but \((g(f(0)) = 5\), so the order is crucial.
+:::{.callout-warning}
+Notice these two functions are different functions, e.g. $f(g(0)) = 10$ but $g(f(0)) = 5$. The order is crucial!
+:::
 
-Note that (at time of writing) Wolfram Alpha does not have function composition capabilities, though the software it is based on does.
+At time of writing, Wolfram Alpha does not have function composition capabilities, though the software it is based on does.
 
 ### Decomposing Functions
 
 Other than the idea of a function feeding into another function being a useful one to understand (for instance when you consider machine learning and biological processes), it will also be a useful skill when we come to differentiation.
 
-For example, consider \((\color{red}{5x+8})^2\). Here the expression \(5x+8\) is nested within another function. We can think of it as the "inside" function. The outside function is \(x^2\).
+For example, consider $(\color{red}{5x+8})^2$. Here the expression $5x+8$ is nested within another function. We can think of it as the "inside" function. The outside function is $x^2$.
 
-```{r function-decompose, out.width="50%", echo=FALSE, fig.align="center", fig.alt="Visual explanation of function composition and decomposition."}
-knitr::include_graphics("images/06/decompose.png")
-```
+![](images/06/decompose.png){width=50% fig-align="center" fig-alt="Visual explanation of function composition and decomposition."}
 
-So if, for example, we were asked to decompose \(g(f(x)) = (5x+8)^2\) then a possible answer might be \(f(x)=5x+8\) and \(g(x)=x^2\).
-
-## Higher order polynomials
-
-A **polynomial** is a type of function generalised from straight lines and quadratics. In other words, linear functions (straight lines) and quadratic functions are examples of polynomials.
-
-A polynomial is any function that can be written in the form:
-\[
-  f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_2x^2 + a_1x + a_0
-\]
-where \(x\) is our variable, each \(a_i\) is a coefficient, and \(n\) is a strictly positive integer.
-
-The **degree** of the polynomial is \(n\), _i.e._ the highest power of \(x\) which appears in the expression. Familiar examples of polynomials include:
-
-- linear, e.g. \(y= 5x-9\) which has degree \(n=1\) and \(a_0=-9, a_1=5\)
-- quadratics, e.g. \(y=x^2+2x-12\) which has degree \(n=2\) and \(a_0=-12, a_1=2, a_2=1\)
-- cubics, e.g. \(y= 2x^3+4x+3\) which has degree \(n=3\) and \(a_0=3, a_1=4, a_2=0, a_3=2\).
-
-Play around with this GeoGebra applet to see how changing the power of the polynomial changes the shape.
-
-```{r geogebra_polynomial, echo=FALSE, fig.align="center", fig.alt="Screenshot of a general polynomial in GeoGebra.", dev="png", cache=TRUE}
-knitr::include_url("https://www.geogebra.org/material/iframe/id/ar2bb7zx/width/800/height/567/border/888888/sri/true/sdz/true")
-```
-
-### Solving Polynomials
-
-Given our linear \(ax + b = 0\) has the solution
-
-\[
-  x = -\frac{b}{a}
-\]
-
-and the quadratic \(ax^2 + bx + c = 0\) has solutions
-
-\[
-  x = \frac{-b \pm \sqrt{b^2-4ac}}{2a},
-\]
-
-it's natural to ask, what are the solutions to a general cubic \(ax^3 + bx^2 + cx + d = 0\)? Well...
-
-```{r cubic-equation, out.width="75%", echo=FALSE, fig.align="center", fig.alt="General solution to a cubic ax^3 + bx^2 + cx + d = 0."}
-knitr::include_graphics("images/06/cubic.gif")
-```
-
-The **cubic equation** is not simple, and the situation gets significantly worse when we look at quartics like \(x^4 + ax^3 + bx^2 + cx + d = 0\).
-
-```{r quartic-equation, out.width="100%", echo=FALSE, fig.align="center", fig.alt="General solution to a quartic x^4 + ax^3 + bx^2 + cx + d = 0."}
-knitr::include_graphics("images/06/Quartic_Formula.svg")
-```
-
-Practically, nobody is using either of these to solve polynomial equations in the same way they might use the quadratic equation. Instead, for polynomials of degree three or higher we almost exclusively rely on geometric or computational methods to find the solutions.^[Even if we were to rely on these unwieldy formulas, this equation for quartics is the last! A result called the **Abel–Ruffini theorem** shows that no equivalent formulas exist for polynomials of degree five or higher.]
-
-#### Example A {-}
-
-> Solve the equation \(4 x^4 + 4 x^3 - 28 x^2 - 52 x - 24 = 0\).
-
-Typing `solve 4 x^4 + 4 x^3 - 28 x^2 - 52 x - 24 = 0`{.mathematica} gives the nice whole number solutions: \(x=-2, -1, 3\).
-
-#### Example B {-}
-
-> Find the \(x\) values of the intersections between \(y = 0.6x^4+2.3x^3+2.2x^2+2.5\) and \(y = 0.1x+3\).
-
-This can either be done graphically using a tool such as GeoGebra, or by equating to the \(y\) values and typing `solve 0.6x^4+2.3x^3+2.2x^2+2.5=0.1x+3`{.mathematica} into Wolfram Alpha. It will return the results:
-
-\begin{align*}
-  x_1 &\approx -2.2322 \\
-  x_2 &\approx -1.31481\\
-  x_3 &\approx -0.69496\\
-  x_4 &\approx  0.40858
-\end{align*}
-
-which gives the four \(x\) coordinates of the intersections between the two graphs.
-
-### Terminology
-
-There are many different ways of asking the same thing in essence and getting comfortable with these is part of the course.
-
-An example we have seen a few times is how "find the solutions of the equation" and "find the roots of the graph" are asking the same thing of you. It is important to be observant for variations though, such as "find the points of intersection between these graphs", which would require not only to find the \(x-\)coordinate of the intersections, but also the \(y-\)coordinates.
-
-#### Example B Continued {-}
-
-> Find the points of intersections between \(y = 0.6x^4+2.3x^3+2.2x^2+2.5\) and \(y = 0.1x+3\).
-
-Continuing from the above, we substitute our \(x\) values into \(y = 0.1x + 3
-\) to find the equivalent \(y\) values:
-
-\begin{align*}
-  x_1 \approx -2.23220  \Rightarrow y_1 &\approx -2.2322 \times0.1 + 3 = 2.77678, \\
-  x_2 \approx -1.31481 \Rightarrow y_2 &\approx -1.31481\times0.1 + 3 = 2.868519, \\
-  x_3 \approx -0.69496 \Rightarrow y_3 &\approx -0.69496\times0.1 + 3 = 2.930504, \\
-  x_4 \approx \phantom{+}0.40858 \Rightarrow y_4 &\approx 0.40858\times0.1 + 3 = 3.040858.
-\end{align*}
-
-### Interpolation example
-
-Using a technique called **interpolation**, we can work backwards; given some points, we can find the polynomial that goes through them. We have already seen this for linear equations back in section 4, we just didn't call it interpolation at the time.
-
-#### Example A {-}
-
-> What is the equation of the quadratic that passes through (-1, 2), (0, 0), and (1, 2)?
-
-We know that the general equation of a quadratic is \(y = ax^2 + bx + c\). If a quadratic passes through a point, it must then be the case that substituting in the \(x\) coordinate of a point will give the \(y\) coordinate of the point.
-
-For example if it passes through \((x, y) = (-1, 2)\) it must be the case that 
-\[
-  2 = a(-1)^2 + b(-1) + c = a - b + c.
-\]
-
-We can similarly substitute with the other points to formulate the situation as a set of simultaneous equations:
-
-\begin{align*}
-  2 &= a - b + c, \\
-  0 &= c, \\
-  2 &= a + b + c.
-\end{align*}
-
-Substituting \(c = 0\) into the first and second equations gives a reduced system
-
-\begin{align*}
-  2 &= a - b, \\
-  2 &= a + b.
-\end{align*}
-
-Rearranging the first equation gives \(b = a - 2\), which when substituted into the second equation gives \(2 = 2a - 2\). Solving this gives \(a = 2\), and so \(b = a - 2 = 2 - 2 = 0\) follows.
-
-Thus, the polynomial that passes through those three points is \(y = 2x^2\).
-
-#### Example B {-}
-
-> Find the equation of the cubic that has this graph:
-
-```{r interpolation-example, echo=FALSE, out.width='60%', fig.align = 'center', fig.alt="Graph of a polynomial that passes through (-2, 0), (-1, 0), (0, -1), and (3, 0)."}
-knitr::include_graphics("images/06/interp-example.png")
-```
-
-While we could approach this algebraically in the same way as previous, this will lead to a set of four simultaneous equations in four variables. That may take some time to solve.
-
-As an alternative approach, we may use Wolfram Alpha through `interpolate polynomial through (-2,0), (-1,0), (0,-1) and (3,0)`{.mathematica}. It will return output that looks something like:
-
-```{r wolfram-interpolation, out.width="75%", echo=FALSE, fig.align="center", fig.alt="Example of Wolfram Alpha's output for an interpolation question."}
-knitr::include_graphics("images/06/wolfram-interpolation.png")
-```
-
-#### Example C {-}
-
-> Find the polynomial that best interpolates the points (4,5), (-1,2) and (9,3).
-
-In Wolfram Alpha, type `interpolate polynomial through (4,5),(-1,2) and (9,3)`{.mathematica}. It will return the curve \(y= -\frac{x^2}{10} + \frac{9 x}{10} + 3\).
-
-## Trigonometry Redux
-
-With these more general ideas of functions under our belt, we can also return to trig functions.
-
-```{r triangle-trig-redux, echo=FALSE, out.width="60%", fig.align="center", fig.alt="Right angled triangle with sides given names relative to a highlighted angle."}
-knitr::include_graphics("images/06/triangle6.png")
-```
-
-Recall that given some triangle with highlighted angle \(\theta\), we define the three trig functions as
-
-- \(\sin(\theta) = \frac{opposite}{hypotenuse}\).
-- \(\cos(\theta) = \frac{adjacent}{hypotenuse}\).
-- \(\tan(\theta) = \frac{opposite}{adjacent}\).
-
-### Inverse Trig Functions
-
-Each of the trig functions have an equivalent **inverse trig** function. These inverse functions take a given ratio between side lengths as input and return the angle that would give that ratio as output.
-
-- The sine ratio,  written \(\arcsin(\theta) = \frac{opposite}{hypotenuse}\).
-- The cosine ratio, written \(\arccos(\theta) = \frac{adjacent}{hypotenuse}\).
-- The tangent ratio.  written \(\arctan(\theta) = \frac{opposite}{adjacent}\).
-
-Alternative notation for these inverses you might see is \(\sin^{-1}\), \(\cos^{-1}\), or \(\tan^{-1}\) respectively. We have avoided that to emphasise that \(\arcsin(x) = \sin^{-1}(x)\) is not the same as \(\sin(x)^{-1} = \frac{1}{\sin(x)}\).^[An understandable confusion given \(\sin^2(x) = \sin(x)^2\) is standard notation.]
-
-Given two sides in a right-angled triangle, we can use the inverse trigonometric ratios to find the size of the angles.
-
-#### Example A {-}
-
-> Find the size of the angle \(\alpha\).
-
-```{r triangle-example2, echo=FALSE, out.width='60%', fig.align = 'center', fig.alt="Yet another triangle example."}
-knitr::include_graphics("images/06/triangle4.png")
-```
-
-We are given the lengths of the opposite and adjacent so we will use the tangent ratio.
-
-\begin{align*}
-    \tan(\alpha) &= \frac{1.4}{1.9} \\
-          \alpha &= \arctan\left( \frac{14}{19} \right) \\
-                 &= 36.38^{\circ}
-\end{align*}
-
-#### Example B {-}
-
-```{r triangle-example3, echo=FALSE, out.width='60%', fig.align = 'center', fig.alt="Yet another triangle example."}
-knitr::include_graphics("images/06/triangle5.png")
-```
-
-We are given the lengths of the opposite and hypotenuse so we will use the sine ratio.
-
-\begin{align*}
-  \sin(\beta) &= \frac{4.9}{5.55} \\
-        \beta &= \arcsin\left( \frac{98}{111} \right) \\
-              &= 61.99^{\circ}
-\end{align*}
-
-### Transformations
-
-We can apply the same idea about transforming linear equations and quadratics to trig functions too (or any general function for that matter). The graph \(y=sin(x)\) is the standard graph of the sine function. The graph of \(y=2 sin(x)\) is a similar graph, but it has a greater amplitude, it was stretched vertically by a factor of 2. Instead of just going up to \(1\) and down to \(-1\), the second graph goes up to \(2\) and down to \(-2\).
-
-The value that sine is multiplied in the previous example is called the **amplitude** and, as sine graphs can model sound, it is in fact related to the amplitude of a sound (i.e. how loud a sound is).
-
-Play around with the sine sound generator at [onlinetonegenerator.com](https://onlinetonegenerator.com/). The tool allows you to change the frequency of the graph, which affects the pitch of the sound. In maths, we often talk about the related concepts of period and wavelength. As the frequency of the sound increases, the period decreases, the pitch goes up.
-
-To look at how this is modelled, consider the following interactive graph of \(y=a\cos(b(x+c))+d\), where \(a\), \(b\), \(c\), and \(d\) are parameters.
-
-```{r geogebra_trig-transforms, echo=FALSE, fig.align="center", fig.alt="Screenshot of a GeoGebra applet for y = a cos(b (x + c)) + d.", dev="png", cache=TRUE}
-knitr::include_url("https://www.geogebra.org/material/iframe/id/s9yhttxw/width/1200/height/667/border/888888/sri/true/sdz/true")
-```
-
-You should be able to see that changing the parameters has the following impact:
-
-- \(a\) stretches the graph in the vertical direction by a factor of \(a\),
-- \(b\) stretches the graph in the horizontal direction by a factor of \(\frac{1}{b}\),
-- \(c\) translate the graph horizontally by \(-c\) units,
-- \(d\) translate the graph up by \(+d\) units.
-
-Also note that the change of the parameters of \(b\) and \(c\), which affect the \(x\)-coordinate, are somewhat counter-intuitive.^[In particular, as \(b\) increases, the frequency of the graph increases, which means that the period shrinks. Visually, that means that the graph gets squished against the \(y\)-axis.]
-
-Sometimes, the parameters for a transformation applied to sine or cosine can be read directly off the graph. But sometimes, it is not quite as clear and a formula is useful.
-
-1. To find \(a\), the **amplitude** of the graph (i.e. the vertical stretch), find half the difference between the maximum and minimum value of the graph: \(a= \frac{\max-\min}{2}\).
-
-2. To find \(d\), the **vertical shift**, find the average between the maximum and the minimum value: \(d = \frac{\max+\min}{2}\).
-
-3. To find \(b\), the **horizontal stretch**, find the period and divide either \(360^{\circ}\) or \(2\pi\) (depending what units you are working in) by its value; \(b = \frac{360^{\circ}}{\text{period}}\) or \(b=\frac{2\pi}{\text{period}}\).
-
-4. Finding \(c\), the **vertical translation**, is the trickiest. It relies on comparing important points on the graph with the standard sine or cosine graphs. Find the difference between the \(x\)-coordinate of the maximum of the standard graph and that of the given graph and from that figure out whether the graph was shifted right (negative \(c\) value) or left (positive \(c\) value).
-
-#### Example A {-}
-
-> What is the equation of a sine graph with amplitude \(5\) and period length \(200\)?
- 
-The \(5\) is the vertical stretch so \(a = 5\), and the \(200\) is the horizontal stretch by a factor of \( \frac{1}{200}\). Thus \(b= \frac{2\pi}{200} = \frac{\pi}{100}\), and the equation for this graph is \(f(x)=5\sin\left(\frac{\pi x}{100}\right)\).
-
-#### Example B {-}
-
-> What is the equation of a cosine graph with a maximum at \( (\frac{\pi}{6},9)\), a minimum at \( (\frac{7\pi}{6},5) \), and normal period length \(2\pi\)?
-
-From this information it follows that \(a = \frac{\max-\min}{2} = \frac{9-5}{2} = 2\) and \(d = \frac{9+5}{2}=7\). The sideways shift of the standard maximum of \((0,1)\) to \((\frac{\pi}{6},9)\) implies that the value of \(c\) is negative and the difference between \(\frac{\pi}{6}\) and \(0\) is \(\frac{\pi}{6}\), so the horizontal shift is \(\frac{\pi}{6}\).
-
-Putting this together, the equation would be
-
-\[
-  f(x) = 7 + 2\cos\left(x-\frac{\pi}{6}\right).
-\]
-
-### Trig Modelling
-
-In order to use trig functions to model real-life patterns, such as the amount of daylight in Aberdeen for instance, we need to be able to scale and translate the graphs using transformations.
-
-```{r sunrise-plot, echo=FALSE, out.width='80%', fig.align = 'center', fig.alt="Plot of the times of sunrise and sunset in Aberdeen, Scotland."}
-knitr::include_graphics("images/06/Aberdeen-gb-sunrise-set.PNG")
-```
-
-As discussed above, we can think about this algebraically or geometrically.
-
-#### Algebraic {-}
-
-On the longest day of the year, there are about \(17.5\) hours of daylight and on the shortest day of the year, \(4.5\) hours of daylight. On average, therefore, there are \(12.25\) hours of sunlight per day. That is our value of \(d\).
-
-The amplitude is given by the difference between the average \(d\) and the maximum \(17.5 - 12.15 = 5.25\) hours.
-
-The period is the number of days in a year, which is about \(365.2425\) days. The value of \(b\) therefore is \(b = \frac{2\pi}{365.2425} \approx 0.0172\) (3 s.f.).
-
-The last consideration is that the cosine graph starts on its maximum value but the day of longest day light is on the 21st of June, which is day \(193\). Therefore, \(c=193\).
-
-Therefore, the amount of daylight in Aberdeen can be modelled by the function
-
-\[
-   f(x) = 5.25\cos(0.0086(x-193)) + 12.25.
-\]
-
-#### Geometric {-}
-
-First of all, let us take a moment to familiarise ourselves with the information the graph contains. On the horizontal axis, we have the months of the year starting with January of the year 2010. On the vertical axis, you have the time of day measured in hours from midnight. The two lower lines represent the sunrise and the upper two represent the sunset. It is the red line we are interested in, as this is the time in BST (British Summer Time).
-
-Let us consider only the red line representing the sun rise in Aberdeen throughout 2010. You might then start to compare it with the periodic functions we learned about so far. The cosine graph is the most similar as it starts at it's extreme value. The length of the **period** of the graph that would model the sunrise however should be one year not \(2\pi\). So the graph needs to be scaled in the horizontal direction.
-
-From there, we see that the amplitude of the graph is not \(1\) so we need to be able to scale it in the vertical direction also. A cosine graph rises and dips below the \(x-\)axis which means that it averages out to \(zero\). Here however, the average sunrise time seems to be closer to \(7\text{am}\).
-
-Now try to adjust the parameters so that the graph models the green/red line when the sun rises in Aberdeen.
-
-```{r geogebra_aberdeen, echo=FALSE, fig.align="center", fig.alt="Screenshot of a Geogebra applet for modelling Aberdeen's sunshine with trigonometry.", dev="png", cache=TRUE}
-knitr::include_url("https://www.geogebra.org/material/iframe/id/fmy9xhuy/width/1200/height/667/border/888888/sri/true/sdz/true")
-```
-
-When modelling real-life data, there are not only inaccuracies but there are also assumptions and concessions that need to be made. Here for example, daylight savings creates a jump which means there's inaccuracy in using a simple cosine graph to model the sunrise in Aberdeen.^[An example solution might be:<br><br>![](images/06/sunshine-solution.png)]
-
-### Trig equations
-
-There are algebraic methods for solving equations that involve trig functions, but such problems are typically outwith arts, humanities, and social sciences. If you do encounter such a problem though, be aware that their solutions have some distinct properties compared to polynomials for example.
-
-#### Example {-}
-
-> Solve the equation \(\sin(x) = \cos(x)\) for \(0\leq x \leq 2\pi\).
-
-The first point to highlight is that, without the domain restriction, there will be an infinite number of solutions! To see why, consider the geometric interpretation of the question as finding the \(x\) coordinates where the graphs \(y = \sin(x)\) and \(y = \cos(x)\) intersect. Like the periodic functions themselves, the number of intersections also repeat at regular intervals.
-
-Geometrically, in with domain \(0 \leq x \leq 2\pi\) we can see that there are two solutions: \(x=0.79\) and \(x=3.39\).
-
-```{r sin-cos, echo=FALSE, out.width='80%', fig.align = 'center', fig.alt="Plot of the graphs of sin(x) and cos(x) on the same axes."}
-knitr::include_graphics("images/06/sin-cos.png")
-```
-
-Using Wolfram Alpha with `solve sin(x) = cos(x) for 0 < x < 2pi`, we receive the following output which gives the exact values as \(x=\frac{\pi}{4}\) and \(x = \frac{5\pi}{4}\).
-
-```{r sin-cos-wolfram, echo=FALSE, out.width='60%', fig.align = 'center', fig.alt="Wolfram Alpha output when asked to solve sin(x) = cos(x)."}
-knitr::include_graphics("images/06/sin-cos-soln.png")
-```
+So if, for example, we were asked to decompose $g(f(x)) = (5x+8)^2$ then a possible answer might be $f(x)=5x+8$ and $g(x)=x^2$.
