@@ -1,3 +1,8 @@
+---
+number-sections: true
+number-offset: 5
+---
+
 # Probability
 
 ## Introduction to probability
