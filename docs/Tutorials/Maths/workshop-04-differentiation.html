@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MSDA - Welcome</title>
+<title>MSDA - Differentiation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +67,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -78,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MSDA</span>
     </a>
   </div>
@@ -89,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Course Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -98,27 +127,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-01-functions.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-01-functions.html">
  <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-02-exp-n-log.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-02-exp-n-log.html">
  <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-03-sequences.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-03-sequences.html">
  <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-04-differentiation.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-05-integration.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-05-integration.html">
  <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-06-probability.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-06-probability.html">
  <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
@@ -129,27 +158,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-01-functions.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-01-functions.html">
  <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-02-exp-n-log.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-02-exp-n-log.html">
  <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-03-sequences.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-03-sequences.html">
  <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-04-differentiation.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-05-integration.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-05-integration.html">
  <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-06-probability.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-06-probability.html">
  <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
@@ -160,39 +189,39 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-08-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
  <span class="dropdown-text">Week 08 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-9-content-stats.qmd">
+    <a class="dropdown-item" href="../../Content/Stats/week-9-content-stats.qmd">
  <span class="dropdown-text">Week 09 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-10-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
  <span class="dropdown-text">Week 10 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-11-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
  <span class="dropdown-text">Week 11 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-12-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-12-content-stats.html">
  <span class="dropdown-text">Week 12 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-13-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-13-content-stats.html">
  <span class="dropdown-text">Week 13 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-14-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-14-content-stats.html">
  <span class="dropdown-text">Week 14 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-15-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-15-content-stats.html">
  <span class="dropdown-text">Week 15 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-16-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-16-content-stats.html">
  <span class="dropdown-text">Week 16 – Stats Content</span></a>
   </li>  
     </ul>
@@ -203,39 +232,39 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
  <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
  <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-10/week-10-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
  <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-11/week-11-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
  <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-12/week-12-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
  <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-13/week-13-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
  <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-14/week-14-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
  <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-15/week-15-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
  <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-16/week-16-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
  <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
   </li>  
     </ul>
@@ -257,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">Differentiation</h1>
 </div>
 
 
@@ -274,83 +303,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mathematics-statistics-data-analysis" class="level1">
-<h1>Mathematics, Statistics &amp; Data Analysis</h1>
-<p>Welcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.</p>
-<p>You will build confidence in working with quantitative evidence, and gain practical experience using <strong>Excel</strong> and <strong>R</strong> to manipulate, summarise, and interpret data.</p>
-<hr>
-<section id="course-overview" class="level2">
-<h2 class="anchored" data-anchor-id="course-overview">🧭 Course Overview</h2>
-<ul>
-<li><strong>Lectures</strong> introduce mathematical, statistical, and data analysis concepts<br>
-</li>
-<li><strong>Tutorials</strong> provide guided practice, discussion, and group activities<br>
-</li>
-<li><strong>MathsHub</strong> offers additional supported study (optional)</li>
-</ul>
-<p>You’ll engage in regular <strong>formative quizzes</strong> and complete a final <strong>data analysis project</strong>, where you’ll formulate a research question, summarise a dataset, and report your findings clearly using appropriate methods.</p>
-<hr>
+<p>This week uses calculus to explore the properties different models. Once you’ve worked out an answer, you should check it against a scientific calculator, <a href="https://www.wolframalpha.com/">algebra software</a>, or <a href="https://www.geogebra.org/calculator/">graphing software</a>.</p>
+<section id="derivatives" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">1</span> Derivatives</h2>
+<p>Before we look at applications, here are some starter questions to practice differentiating.</p>
+<ol type="1">
+<li><p>Find <span class="math inline">\(f'(x)\)</span> when <span class="math inline">\(f(x) = x^2\)</span>, <span class="math inline">\(f(x) = 3\)</span>, and <span class="math inline">\(f(x) = x^3 + 3x^2 + 3x + 1\)</span>.</p></li>
+<li><p>Use two different methods to show <span class="math inline">\(\frac{\text{d}}{\text{d}x}\big((x+a)(x-a)\big) = 2x\)</span> for all <span class="math inline">\(a\in\mathbb{R}\)</span>.</p></li>
+<li><p>Find <span class="math inline">\(\dot{x}\)</span> when <span class="math inline">\(x = e^{2t}\)</span>, <span class="math inline">\(x = \sin(2t)\)</span>, and <span class="math inline">\(x = \tan(t)\)</span>.</p></li>
+</ol>
 </section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">📚 Weekly Structure</h2>
-<p>Each week includes:</p>
-<ul>
-<li>🔍 <strong>Content</strong> – clear explanations and examples<br>
-</li>
-<li>💻 <strong>Tutorials</strong> – hands-on R and Excel activities<br>
-</li>
-<li>📁 <strong>Downloadable templates and datasets</strong></li>
-</ul>
-<p>Access all materials using the menu above or from Learn Ultra.</p>
-<hr>
+<section id="model-interpretations" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="model-interpretations"><span class="header-section-number">2</span> Model Interpretations</h2>
+<p>In workshop two we looked at a range of different models for real-world phenomena. For each of these, use software to find the derivative of the model with respect to the independent variable. Then, examine it graphically and describe the meaning of the derivative in context.</p>
+<ol type="1">
+<li><p>Compound interest, modelled by <span class="math inline">\(P(t) = Q e^{rt}\)</span>, where <span class="math inline">\(Q\)</span> is the initial investment and <span class="math inline">\(r\)</span> is the rate of interest.</p></li>
+<li><p>Population growth, modelled by <span class="math inline">\(P(t) = \frac{P_0 \cdot K}{P_0 + (K - P_0)e^{-rt}}\)</span>, with initial population size <span class="math inline">\(P_0\)</span>, a growth rate <span class="math inline">\(r\)</span> per day, and a maximum feasible population size <span class="math inline">\(K\)</span>.</p></li>
+<li><p>Sound in decibels, modelled by <span class="math inline">\(d(p) = 10\log\left(\frac{p}{p_{0}}\right)\)</span>, where <span class="math inline">\(p_0\)</span> is intensity of the faintest audible sound.</p></li>
+</ol>
 </section>
-<section id="required-software" class="level2">
-<h2 class="anchored" data-anchor-id="required-software">🛠 Required Software</h2>
-<p>To complete this course, you will need:</p>
-<ul>
-<li><a href="https://cran.r-project.org/">R</a><br>
-</li>
-<li><a href="https://posit.co/download/rstudio-desktop/">RStudio</a><br>
-</li>
-<li>A laptop (not a Chromebook or iPad)<br>
-</li>
-<li>Access to Microsoft Excel<br>
-</li>
-<li>Your coursebook website (this one!) and Learn Ultra</li>
-</ul>
-<p>If you do not have access to a laptop, please contact the COL Laptop Loan service.</p>
-<hr>
+<section id="optimization" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="optimization"><span class="header-section-number">3</span> Optimization</h2>
+<p>We discussed how one of the key applications of differentiation is to find the maximum or minimum value a model can take. These points happen when the gradient is zero.</p>
+<ol type="1">
+<li><p>What point is the minimum of <span class="math inline">\(f(x) = \frac{x(x+1)}{2}\)</span>?</p></li>
+<li><p>Does this minimum have meaning in the context of <span class="math inline">\(S_n\)</span> from the last workshop?</p></li>
+<li><p>Could this be used to make a better argument that <span class="math inline">\(\sum_{n=1}^{\infty} n \neq -\frac{1}{12}\)</span>?</p></li>
+</ol>
 </section>
-<section id="learning-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="learning-outcomes">📈 Learning Outcomes</h2>
-<p>By the end of the course, you will be able to:</p>
+<section id="classifying-derivatives" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="classifying-derivatives"><span class="header-section-number">4</span> Classifying Derivatives</h2>
+<p>It’s not always so clear whether a critical point is a maximum, minimum, or an inflection. To check this we look at the second derivative: <span class="math inline">\(\frac{\text{d}^2}{\text{d}x^2}\)</span>, <span class="math inline">\(f''(x)\)</span>, or <span class="math inline">\(\ddot{x}\)</span>.</p>
+<p>At a point <span class="math inline">\(x\)</span> where <span class="math inline">\(f'(x) = 0\)</span>:</p>
 <ul>
-<li>Apply mathematical and statistical concepts to summarise and interpret data<br>
-</li>
-<li>Use R and Excel to manipulate and visualise datasets<br>
-</li>
-<li>Conduct hypothesis testing and choose appropriate methods<br>
-</li>
-<li>Communicate your findings clearly in written reports and visual formats</li>
+<li>If <span class="math inline">\(f''(x) &gt; 0\)</span>, then <span class="math inline">\(x\)</span> is a local minimum,</li>
+<li>If <span class="math inline">\(f''(x) &lt; 0\)</span>, then <span class="math inline">\(x\)</span> is a local maximum,</li>
+<li>If <span class="math inline">\(f''(x) = 0\)</span>, more information is needed.</li>
 </ul>
-<hr>
-</section>
-<section id="quick-links" class="level2">
-<h2 class="anchored" data-anchor-id="quick-links">🔗 Quick Links</h2>
-<ul>
-<li><a href="https://learn.ultra.ed.ac.uk/...">Learn Ultra Course Page</a> ← <em>replace with your course link</em></li>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics (recommended)</a></li>
-<li><a href="https://www.bigbookofr.com/">Big Book of R</a></li>
-<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
-</ul>
-<hr>
-<footer>
-© 2025 University of Edinburgh | Centre for Open Learning<br>
-Mathematics, Statistics &amp; Data Analysis for CHASS
-</footer>
+<p>This is sometimes called the <strong>derivative test</strong>.</p>
+<ol type="1">
+<li><p>Verify that <span class="math inline">\((-0.5, -0.125)\)</span> is a minimum of <span class="math inline">\(f(x) = \frac{x(x+1)}{2}\)</span>.</p></li>
+<li><p>Classify the critical points of <span class="math inline">\(f(x) = x^3 + 3x^2 - 6x - 8\)</span>.</p></li>
+<li><p>Find the time at which the population <span class="math inline">\(P(t)\)</span> is changing fastest.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(f(x) = \frac{f_1(x)}{f_2(x)}\)</span>, when is <span class="math inline">\(f(x) = 0\)</span>?</p>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

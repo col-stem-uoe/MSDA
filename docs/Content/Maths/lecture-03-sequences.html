@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MSDA - Welcome</title>
+<title>MSDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +67,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -78,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MSDA</span>
     </a>
   </div>
@@ -89,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Course Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -98,27 +127,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-01-functions.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-01-functions.html">
  <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-02-exp-n-log.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-02-exp-n-log.html">
  <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-03-sequences.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-03-sequences.html">
  <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-04-differentiation.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-05-integration.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-05-integration.html">
  <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-06-probability.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-06-probability.html">
  <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
@@ -129,27 +158,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-01-functions.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-01-functions.html">
  <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-02-exp-n-log.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-02-exp-n-log.html">
  <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-03-sequences.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-03-sequences.html">
  <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-04-differentiation.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-05-integration.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-05-integration.html">
  <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-06-probability.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-06-probability.html">
  <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
@@ -160,39 +189,39 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-08-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
  <span class="dropdown-text">Week 08 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-9-content-stats.qmd">
+    <a class="dropdown-item" href="../../Content/Stats/week-9-content-stats.qmd">
  <span class="dropdown-text">Week 09 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-10-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
  <span class="dropdown-text">Week 10 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-11-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
  <span class="dropdown-text">Week 11 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-12-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-12-content-stats.html">
  <span class="dropdown-text">Week 12 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-13-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-13-content-stats.html">
  <span class="dropdown-text">Week 13 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-14-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-14-content-stats.html">
  <span class="dropdown-text">Week 14 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-15-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-15-content-stats.html">
  <span class="dropdown-text">Week 15 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-16-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-16-content-stats.html">
  <span class="dropdown-text">Week 16 – Stats Content</span></a>
   </li>  
     </ul>
@@ -203,39 +232,39 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
  <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
  <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-10/week-10-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
  <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-11/week-11-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
  <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-12/week-12-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
  <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-13/week-13-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
  <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-14/week-14-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
  <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-15/week-15-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
  <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-16/week-16-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
  <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
   </li>  
     </ul>
@@ -255,101 +284,112 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Welcome</h1>
+
+
+
+<section id="sequences-series" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Sequences &amp; Series</h1>
+<p>We have talked about how exponentials can model growth, but in our day to day we don’t always encounter growth in this <strong>continuous</strong> way as a curve. Rather, we encounter it in a <strong>discrete</strong> way as a <strong>sequence</strong>.</p>
+<section id="arithmetic" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="arithmetic"><span class="header-section-number">3.1</span> Arithmetic</h2>
+<p>Say I set myself a New Years resolution of reading more. At the moment I read about 3 pages per night, but I have the idea to increase this by two pages every day in January. On the January 1st I’ll read 5 pages, on Jan 2nd read 7 pages, on Jan 3rd read 9 pages, and so on. The number of pages I will is a <strong>sequence</strong>: <span class="math display">\[
+  5, 7, 9, \ldots.
+\]</span></p>
+<p>The <span class="math inline">\(n^{\text{th}}\)</span> term in a sequence is denoted <span class="math inline">\(a_n\)</span>, so here <span class="math inline">\(a_1 = 5\)</span>, <span class="math inline">\(a_2 = 7\)</span>, <em>etc</em>. By observation we might be able to see that on the <span class="math inline">\(n^{\text{th}}\)</span> day I will have read <span class="math inline">\(3+2n\)</span> pages, so here <span class="math inline">\(a_n = 3+2n\)</span>.</p>
+<p>This means that we can work out a given term in the sequence without calculating all the intermediate terms. For example, on January 31st I’ll read <span class="math inline">\(a_{31} = 3 + 2\times31 = 65\)</span> pages.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="mathematics-statistics-data-analysis" class="level1">
-<h1>Mathematics, Statistics &amp; Data Analysis</h1>
-<p>Welcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.</p>
-<p>You will build confidence in working with quantitative evidence, and gain practical experience using <strong>Excel</strong> and <strong>R</strong> to manipulate, summarise, and interpret data.</p>
-<hr>
-<section id="course-overview" class="level2">
-<h2 class="anchored" data-anchor-id="course-overview">🧭 Course Overview</h2>
-<ul>
-<li><strong>Lectures</strong> introduce mathematical, statistical, and data analysis concepts<br>
-</li>
-<li><strong>Tutorials</strong> provide guided practice, discussion, and group activities<br>
-</li>
-<li><strong>MathsHub</strong> offers additional supported study (optional)</li>
-</ul>
-<p>You’ll engage in regular <strong>formative quizzes</strong> and complete a final <strong>data analysis project</strong>, where you’ll formulate a research question, summarise a dataset, and report your findings clearly using appropriate methods.</p>
-<hr>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In general, We define the <span class="math inline">\(n^{\text{th}}\)</span> term of an <strong>arithmetic sequence</strong> as <span class="math inline">\(a_n = a_0 + nd\)</span>, where <span class="math inline">\(a_0\)</span> is our starting value and <span class="math inline">\(d\)</span> is the difference we move by each term.</p>
+</div>
+</div>
+<p>So in the reading previous example, <span class="math inline">\(a_0 = 3\)</span> and <span class="math inline">\(d = 2\)</span>.</p>
+<p>Suppose now I want to find how many pages <span class="math inline">\(S\)</span> I will read in January total. This would be the <span class="math display">\[
+  S = a_1 + a_2 + \cdots + a_{31}.
+\]</span> We could compute this by hand, but there exists a handy formula <span class="math display">\[
+  S_n = a_1 + a_2 + \cdots + a_{n} = \frac{n(a_1 + a_n)}{2}.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Theorem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This sum is called an <strong>arithmetic series</strong> and you may also see this sum denoted using ‘sigma’ notation <span class="math display">\[
+  S_n = \sum_{m=1}^{n} a_m = \frac{n(a_1 + a_n)}{2}.
+\]</span></p>
+</div>
+</div>
+<p>For my reading goal, that means <span class="math display">\[
+  S_{31} = \sum_{n=1}^{31}(3+2n) = \frac{31(5 + 65)}{2} = \frac{31\times70}{2} = 1085.
+\]</span> That’s almost the same number of pages as War and Peace, so probably not realistic as resolutions go!</p>
 </section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">📚 Weekly Structure</h2>
-<p>Each week includes:</p>
-<ul>
-<li>🔍 <strong>Content</strong> – clear explanations and examples<br>
-</li>
-<li>💻 <strong>Tutorials</strong> – hands-on R and Excel activities<br>
-</li>
-<li>📁 <strong>Downloadable templates and datasets</strong></li>
-</ul>
-<p>Access all materials using the menu above or from Learn Ultra.</p>
-<hr>
-</section>
-<section id="required-software" class="level2">
-<h2 class="anchored" data-anchor-id="required-software">🛠 Required Software</h2>
-<p>To complete this course, you will need:</p>
-<ul>
-<li><a href="https://cran.r-project.org/">R</a><br>
-</li>
-<li><a href="https://posit.co/download/rstudio-desktop/">RStudio</a><br>
-</li>
-<li>A laptop (not a Chromebook or iPad)<br>
-</li>
-<li>Access to Microsoft Excel<br>
-</li>
-<li>Your coursebook website (this one!) and Learn Ultra</li>
-</ul>
-<p>If you do not have access to a laptop, please contact the COL Laptop Loan service.</p>
-<hr>
-</section>
-<section id="learning-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="learning-outcomes">📈 Learning Outcomes</h2>
-<p>By the end of the course, you will be able to:</p>
-<ul>
-<li>Apply mathematical and statistical concepts to summarise and interpret data<br>
-</li>
-<li>Use R and Excel to manipulate and visualise datasets<br>
-</li>
-<li>Conduct hypothesis testing and choose appropriate methods<br>
-</li>
-<li>Communicate your findings clearly in written reports and visual formats</li>
-</ul>
-<hr>
-</section>
-<section id="quick-links" class="level2">
-<h2 class="anchored" data-anchor-id="quick-links">🔗 Quick Links</h2>
-<ul>
-<li><a href="https://learn.ultra.ed.ac.uk/...">Learn Ultra Course Page</a> ← <em>replace with your course link</em></li>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics (recommended)</a></li>
-<li><a href="https://www.bigbookofr.com/">Big Book of R</a></li>
-<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
-</ul>
-<hr>
-<footer>
-© 2025 University of Edinburgh | Centre for Open Learning<br>
-Mathematics, Statistics &amp; Data Analysis for CHASS
-</footer>
+<section id="geometric" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="geometric"><span class="header-section-number">3.2</span> Geometric</h2>
+<p>Another context where growth comes up is in savings or interest. Say I put <span class="math inline">\(\text{£}50\)</span> in a savings account with 2% annual interest. That is, at the end of the year 2% of the total balance is added extra by the bank.</p>
+<p>At the end of the first year, it will contain <span class="math inline">\(\text{£}50 + 2\%\times\text{£}50 = \text{£}50 + \text{£}1 = \text{£}51\)</span>. Next year though, <span class="math inline">\(2\%\)</span> of my balance isn’t <span class="math inline">\(\text{£}1\)</span> any more, it’s <span class="math inline">\(2\%\times\text{£}51 = \text{£}1.02\)</span>.</p>
+<p>By remembering that increasing by <span class="math inline">\(2\%\)</span> is the same as multiply by <span class="math inline">\(1 + \frac{2}{100} = 1.02\)</span>, we can put To put it back in the language of sequences as <span class="math display">\[\begin{align*}
+  a_0 &amp;= \text{£}50 \\
+  a_1 &amp;= \text{£}50 \times 1.02 \\
+  a_2 &amp;= (\text{£}50 \times 1.02) \times 1.02 \\
+  a_3 &amp;= ((\text{£}50 \times 1.02) \times 1.02) \times 1.02 \\
+\end{align*}\]</span> or, simplifying using powers, <span class="math inline">\(a_n = \text{£50}\times{1.02}^n\)</span>. That means in thirty five years my savings pot will be a whole <span class="math display">\[
+  a_{35} = 50\times1.02^{35} = 99.99448.
+\]</span> Well, <span class="math inline">\(\text{£}99.99\)</span> isn’t nothing, but it’s certainly not a retirement fund.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In general, We define the <span class="math inline">\(n^{\text{th}}\)</span> term of an <strong>geometric sequence</strong> as <span class="math inline">\(a_n = a_0 \times r^n\)</span>, where <span class="math inline">\(a_0\)</span> is our starting value and <span class="math inline">\(r\)</span> is the common ratio we increase by each term.</p>
+</div>
+</div>
+<p>In the previous example, <span class="math inline">\(a_0 = 50\)</span> and <span class="math inline">\(r = 1.02\)</span>. Similar to before, we can compute the sum of these terms - the <strong>geometric series</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Theorem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+  S_n = a_1 + a_2 + \cdots + a_{n} = \frac{a_0(1-r^n)}{1-r}.
+\]</span> This formula doesn’t hold when <span class="math inline">\(r = 1\)</span> since it would require dividing by zero, though in that case the value of <span class="math inline">\(S_n\)</span> can be worked out directly from its definition.</p>
+</div>
+</div>
+<section id="exponential-growth" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="exponential-growth"><span class="header-section-number">3.2.1</span> Exponential Growth</h3>
+<p>Geometric series with <span class="math inline">\(r &gt; 1\)</span> are often used to model exponential growth. For example, what if <span class="math inline">\(a_0 = 2\)</span>, <span class="math inline">\(r = 2\)</span> then the initially small numbers will increase initially slowly but faster and faster: <span class="math display">\[
+  2, 4, 8, 16, 32, 64, 128, \ldots
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/douglas-coffee-solution.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Decorative: visual depiction of the above sequence using increasing squares."></p>
+</figure>
+</div>
+<p>With each step, the increase is twice as large as the previous step.</p>
 
 
+</section>
 </section>
 </section>
 

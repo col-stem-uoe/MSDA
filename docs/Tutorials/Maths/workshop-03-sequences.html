@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MSDA - Welcome</title>
+<title>MSDA - Sequences &amp; Series</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +101,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -78,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MSDA</span>
     </a>
   </div>
@@ -89,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Course Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -98,27 +161,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-01-functions.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-01-functions.html">
  <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-02-exp-n-log.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-02-exp-n-log.html">
  <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-03-sequences.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-03-sequences.html">
  <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-04-differentiation.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-05-integration.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-05-integration.html">
  <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Maths/lecture-06-probability.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-06-probability.html">
  <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
@@ -129,27 +192,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-01-functions.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-01-functions.html">
  <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-02-exp-n-log.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-02-exp-n-log.html">
  <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-03-sequences.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-03-sequences.html">
  <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-04-differentiation.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-05-integration.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-05-integration.html">
  <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Maths/workshop-06-probability.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-06-probability.html">
  <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
@@ -160,39 +223,39 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-08-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
  <span class="dropdown-text">Week 08 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-9-content-stats.qmd">
+    <a class="dropdown-item" href="../../Content/Stats/week-9-content-stats.qmd">
  <span class="dropdown-text">Week 09 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-10-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
  <span class="dropdown-text">Week 10 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-11-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
  <span class="dropdown-text">Week 11 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-12-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-12-content-stats.html">
  <span class="dropdown-text">Week 12 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-13-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-13-content-stats.html">
  <span class="dropdown-text">Week 13 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-14-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-14-content-stats.html">
  <span class="dropdown-text">Week 14 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-15-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-15-content-stats.html">
  <span class="dropdown-text">Week 15 – Stats Content</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Content/Stats/week-16-content-stats.html">
+    <a class="dropdown-item" href="../../Content/Stats/week-16-content-stats.html">
  <span class="dropdown-text">Week 16 – Stats Content</span></a>
   </li>  
     </ul>
@@ -203,39 +266,39 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
  <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
  <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-10/week-10-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
  <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-11/week-11-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
  <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-12/week-12-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
  <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-13/week-13-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
  <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-14/week-14-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
  <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-15/week-15-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
  <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Tutorials/Stats/week-16/week-16-tutorial-stats.html">
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
  <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
   </li>  
     </ul>
@@ -257,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">Sequences &amp; Series</h1>
 </div>
 
 
@@ -274,83 +337,74 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mathematics-statistics-data-analysis" class="level1">
-<h1>Mathematics, Statistics &amp; Data Analysis</h1>
-<p>Welcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.</p>
-<p>You will build confidence in working with quantitative evidence, and gain practical experience using <strong>Excel</strong> and <strong>R</strong> to manipulate, summarise, and interpret data.</p>
-<hr>
-<section id="course-overview" class="level2">
-<h2 class="anchored" data-anchor-id="course-overview">🧭 Course Overview</h2>
-<ul>
-<li><strong>Lectures</strong> introduce mathematical, statistical, and data analysis concepts<br>
-</li>
-<li><strong>Tutorials</strong> provide guided practice, discussion, and group activities<br>
-</li>
-<li><strong>MathsHub</strong> offers additional supported study (optional)</li>
-</ul>
-<p>You’ll engage in regular <strong>formative quizzes</strong> and complete a final <strong>data analysis project</strong>, where you’ll formulate a research question, summarise a dataset, and report your findings clearly using appropriate methods.</p>
-<hr>
+<p>A couple of these problems mention R, but no coding is required! They are mostly pen and paper exercises, though a few of them ask you to create plots or look something up online.</p>
+<section id="decibel-sequence" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="decibel-sequence"><span class="header-section-number">1</span> Decibel Sequence</h2>
+<p>The solution to the decibel problem in last week’s workshop used a little snippet of R code,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">**</span>(<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">110</span>, <span class="at">by=</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1e+00 1e+01 1e+02 1e+03 1e+04 1e+05 1e+06 1e+07 1e+08 1e+09 1e+10 1e+11</code></pre>
+</div>
+</div>
+<p>In this is R’s <code>seq</code> function which generates a sequence of values. It takes some starting value <code>from</code>, a final value <code>to</code>, and a common difference <code>by</code>, then uses those to create an arithmetic sequence.</p>
+<ol type="1">
+<li><p>How would the sequence <code>seq(from=0, to=110, by=10)</code> be defined as <span class="math inline">\(a_n\)</span> mathematically?</p></li>
+<li><p>Code <code>seq(...)/10</code> divides this by ten. What’s the definition <span class="math inline">\(b_n\)</span> of the divided sequence?</p></li>
+<li><p>Finally, in <code>10**(...)</code>, each term is used as a power of ten. What’s this final sequence, <span class="math inline">\(c_n\)</span>?</p></li>
+</ol>
 </section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">📚 Weekly Structure</h2>
-<p>Each week includes:</p>
-<ul>
-<li>🔍 <strong>Content</strong> – clear explanations and examples<br>
-</li>
-<li>💻 <strong>Tutorials</strong> – hands-on R and Excel activities<br>
-</li>
-<li>📁 <strong>Downloadable templates and datasets</strong></li>
-</ul>
-<p>Access all materials using the menu above or from Learn Ultra.</p>
-<hr>
+<section id="sequence-to-series" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sequence-to-series"><span class="header-section-number">2</span> Sequence to Series</h2>
+<p>A common pitfall is confusing the terms ‘sequence’ (a list) and ‘series’ (a sum). For example, the strictly positive integers <span class="math inline">\(a_1 = 1\)</span>, <span class="math inline">\(a_2 = 2\)</span>, <em>etc</em> are a sequence <span class="math inline">\(a_n = n\)</span>. On the other hand their sum, <span class="math inline">\(1 + 2 + \ldots\)</span>, is a series.</p>
+<ol type="1">
+<li><p>What is <span class="math inline">\(\sum_{n=1}^{10} a_n\)</span>?</p></li>
+<li><p>What’s the sum of the first <span class="math inline">\(n\)</span> strictly positive integers?</p></li>
+<li><p>After seeing a video online, Charlie is convinced <span class="math inline">\(\sum_{n=1}^{\infty} n = -\frac{1}{12}\)</span>. Justify why this is not true.</p></li>
+</ol>
 </section>
-<section id="required-software" class="level2">
-<h2 class="anchored" data-anchor-id="required-software">🛠 Required Software</h2>
-<p>To complete this course, you will need:</p>
-<ul>
-<li><a href="https://cran.r-project.org/">R</a><br>
-</li>
-<li><a href="https://posit.co/download/rstudio-desktop/">RStudio</a><br>
-</li>
-<li>A laptop (not a Chromebook or iPad)<br>
-</li>
-<li>Access to Microsoft Excel<br>
-</li>
-<li>Your coursebook website (this one!) and Learn Ultra</li>
-</ul>
-<p>If you do not have access to a laptop, please contact the COL Laptop Loan service.</p>
-<hr>
+<section id="hui-shis-stick" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="hui-shis-stick"><span class="header-section-number">3</span> Hui Shi’s Stick</h2>
+<p>Long before the advent of analytical methods for working with infinite series, ancient philosophers wrestled with their seemingly paradoxical nature. For example in the Chinese <em>Zhuangzi</em> (~300 BCE),</p>
+<blockquote class="blockquote">
+<p>If from a stick a foot long you every day take the half of it, in a myriad ages it will not be exhausted.</p>
+</blockquote>
+<!-- Zhuangzi, chapter 33 (Legge translation) -->
+<p>Lets say that the length of the stick on day <span class="math inline">\(d\)</span> is denoted <span class="math inline">\(L_d\)</span>.</p>
+<ol type="1">
+<li><p>Find an expression for <span class="math inline">\(L_d\)</span> in terms of <span class="math inline">\(L_{d-1}\)</span> (<em>i.e.</em> the day before).</p></li>
+<li><p>Find an expression for <span class="math inline">\(L_d\)</span> that only depends on <span class="math inline">\(d\)</span>.</p></li>
+</ol>
+<p>Charlie argues that our formulation <em>can’t</em> be correct because the paradox says to ‘take’ half the stick away, so any correct formula must involve a subtraction. They present the following answer: <span class="math display">\[
+  L_d = 1 - \sum_{n=1}^d \frac{1}{2^n}.
+\]</span></p>
+<ol start="3" type="1">
+<li>Is Charlie’s argument correct? How does their answer compare to yours?</li>
+</ol>
 </section>
-<section id="learning-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="learning-outcomes">📈 Learning Outcomes</h2>
-<p>By the end of the course, you will be able to:</p>
-<ul>
-<li>Apply mathematical and statistical concepts to summarise and interpret data<br>
-</li>
-<li>Use R and Excel to manipulate and visualise datasets<br>
-</li>
-<li>Conduct hypothesis testing and choose appropriate methods<br>
-</li>
-<li>Communicate your findings clearly in written reports and visual formats</li>
-</ul>
-<hr>
-</section>
-<section id="quick-links" class="level2">
-<h2 class="anchored" data-anchor-id="quick-links">🔗 Quick Links</h2>
-<ul>
-<li><a href="https://learn.ultra.ed.ac.uk/...">Learn Ultra Course Page</a> ← <em>replace with your course link</em></li>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics (recommended)</a></li>
-<li><a href="https://www.bigbookofr.com/">Big Book of R</a></li>
-<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
-</ul>
-<hr>
-<footer>
-© 2025 University of Edinburgh | Centre for Open Learning<br>
-Mathematics, Statistics &amp; Data Analysis for CHASS
-</footer>
+<section id="weird-wonderful" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="weird-wonderful"><span class="header-section-number">4</span> Weird &amp; Wonderful</h2>
+<p>There are many weird and wonderful sequences and series. A common one you might have heard of is Fibonacci’s sequence, defined <span class="math display">\[
+  F_n = \begin{cases}
+    0 &amp; \text{if}~n = 0, \\
+    1 &amp; \text{if}~n = 1, \\
+    F_{n-1} + F_{n-2} &amp; \text{if}~n \geq 2.
+  \end{cases}
+\]</span> This gives 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on; this links into the <a href="https://en.wikipedia.org/wiki/Fibonacci_sequence#Definition">Golden Ratio</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Fibonacci_Squares.svg" class="img-fluid figure-img" style="width:50.0%" alt="Decorative: visual representation of the Fibonacci sequence as an outward spiral of squares in increasing area. The pattern follows the Golden Ratio."></p>
+<figcaption><a href="https://en.wikipedia.org/wiki/File:Fibonacci_Squares.svg">Tiled squares</a> representing the Fibonacci sequence, Romain (2022), <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.</figcaption>
+</figure>
+</div>
+<p>The <em>Online Encyclopaedia of Integer Sequences</em> (OEIS) tracks this as sequence <a href="https://oeis.org/A000045">A000045</a> (along with 388839 others) and includes some more mathematical, historical, and usage information.</p>
+<ol type="1">
+<li><p>Define a general sequence <span class="math inline">\(a_n\)</span> however you wish, and calculate its first eight terms are.</p></li>
+<li><p>Search those terms in <a href="https://oeis.org/">OEIS</a> to see if it’s a existing, named sequence.</p></li>
+<li><p>Is there a geometric interpretation of the sequence you’ve found?</p></li>
+</ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

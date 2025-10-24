@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>MSDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MSDA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Course Overview</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-content" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Content</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
+        <li>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-01-functions.html">
+ <span class="dropdown-text">Week 01 – Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Sequences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Differentiation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-05-integration.html">
+ <span class="dropdown-text">Week 05 – Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-06-probability.html">
+ <span class="dropdown-text">Week 06 – Probability</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-01-functions.html">
+ <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-05-integration.html">
+ <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-06-probability.html">
+ <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stats-content" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Stats Content</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
+ <span class="dropdown-text">Week 08 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-9-content-stats.qmd">
+ <span class="dropdown-text">Week 09 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
+ <span class="dropdown-text">Week 10 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
+ <span class="dropdown-text">Week 11 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-12-content-stats.html">
+ <span class="dropdown-text">Week 12 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-13-content-stats.html">
+ <span class="dropdown-text">Week 13 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-14-content-stats.html">
+ <span class="dropdown-text">Week 14 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-15-content-stats.html">
+ <span class="dropdown-text">Week 15 – Stats Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-16-content-stats.html">
+ <span class="dropdown-text">Week 16 – Stats Content</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stats-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Stats Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
+ <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
+ <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
+ <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
+ <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
+ <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
+ <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
+ <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
+ <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
+ <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="differentiation" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Differentiation</h1>
+<p>In the previous section we looked at how to model growth mathematically, either with exponential functions in a continuous setting or sequences in a discrete setting. It would be useful to have a way to quantify how fast something was growing, and for that we turn to calculus.</p>
+<section id="motivation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.1</span> Motivation</h2>
+<p>Consider the following scenario. You are standing on a bridge, holding a stone that you then drop. You might not be able to picture it exactly, but you might have the intuition that although it starts by falling quite slowly, it accelerates and becomes faster and faster in its fall.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/intro-distance-travelled.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%" alt="Plot of the velocity over time, v(t) = 10t."></p>
+</figure>
+</div>
+<p>The speed at which it falls increases because gravity pulls it towards the ground (centre of the mass of earth). Most of the time we consider the strength of the gravitational pull to be a constant, so the speed at which the stone is accelerating in a linear fashion, <em>i.e.</em> the amount that it speeds up is the same every second. This also means that the increasing speed can be modelled by a linear function (straight line with a positive gradient) and the acceleration by a constant function (a horizontal line).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/intro-acceleration.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%" alt="Plot of the acceleration over time, a(t) = 10."></p>
+</figure>
+</div>
+<p>What about the distance that it travelled down from where you initially held it? This is clearly also increasing. And it is increasing by the speed that it has. So as the speed increases, the rate of that the displacement increases, increases.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/intro-distance-travelled.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%" alt="Plot of the distance over time, d(t) = 5t^2."></p>
+</figure>
+</div>
+<p>How are acceleration, velocity, and distance travelled related?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/intro-summary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="The previous three plots all shown side by side."></p>
+</figure>
+</div>
+<section id="intuition" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">4.1.1</span> Intuition</h3>
+<p>We know that the gradient of a straight line is a constant; the very definition of a straight line is that the <span class="math inline">\(y\)</span> value increases in a constant fashion. That’s what makes it linear!</p>
+<p>A quadratic is a function that increases, increasingly; its rate of change increases in a linear fashion.</p>
+<p>Similarly, the arithmetic sequence of numbers <span class="math display">\[
+  4, 7, 10, 13, 16, \ldots
+\]</span> increases in a linear fashion by adding <span class="math inline">\(3\)</span> each time. On the other hand, the sequence <span class="math display">\[
+  2, 6, 13, 23, 36, 52, \ldots
+\]</span> increases in a quadratic fashion because it increases first by <span class="math inline">\(4\)</span>, then by <span class="math inline">\(7\)</span>, then <span class="math inline">\(10\)</span>, <span class="math inline">\(13\)</span>, <span class="math inline">\(16\)</span>, and so on by the linear sequence that we just had before.</p>
+<p>The gradient (or rate of change) of a quadratic is a linear function.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/quad-gradient.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="The previous three plots all shown side by side, but now highlighting the rate of change connection between them."></p>
+</figure>
+</div>
+<p>The rate of change of velocity is called acceleration. The rate of change of distance travelled (sometimes called displacement) is called velocity.</p>
+</section>
+</section>
+<section id="differentiation-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="differentiation-1"><span class="header-section-number">4.2</span> Differentiation</h2>
+<p>Calculus is what we call the study of infinitesimal change. This includes differentiation and integration, both of which we will cover over the next couple of sections.</p>
+<p>The subject has a really long history and, unfortunately for everyone, there was a historical spat between Gottfried Leibniz and Isaac Newton, two famous scientists of the 17th and 18th century, when calculus was developed.</p>
+<p>They both invented (or discovered depending on your philosophy) calculus around the same time and came up with different notations. To top it off, Joseph-Louis Lagrange, another scientist from that era invented yet more notation for the same ideas:</p>
+<ul>
+<li>Leibniz’ notation: <span class="math inline">\(\frac{\text{d}}{\text{d}x}y\)</span>,</li>
+<li>Newton’s notation: <span class="math inline">\(\dot{y}\)</span>,</li>
+<li>Lagrange’s notation: <span class="math inline">\(y'\)</span>.</li>
+</ul>
+<p>All three are reasonably common, so it’s good to be aware of them.</p>
+<section id="gradient-function" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="gradient-function"><span class="header-section-number">4.2.1</span> Gradient Function</h3>
+<p>We considered the gradient of a straight line. Now let us generalise this to other types of functions. The derivative at a certain point is the measurement of how much the function increases or decreases at that point. Consider the graph below. Pay attention to how the gradient decreases and increases, where it is negative and where positive.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/y9drqz3c/width/1000/height/567/border/888888/sri/true/sdz/true" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>In a weird twist of events, the value of the gradient/derivative can also be considered as a function in its own right and we call that function, the “gradient function” and denote it <span class="math inline">\(f'(x)\)</span>.</p>
+<p>Let us consider this: <strong>the gradient of a graph can itself be represented by a graph.</strong> Consider again the parabola:</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/ynkg7frs/width/1200/height/567/border/888888/sri/true/sdz/true" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>You can see how the gradient function of the parabola is described by a straight line graph. When the gradient of the parabola at its vertex has the value <span class="math inline">\(0\)</span>, its gradient function has the <span class="math inline">\(y\)</span> value <span class="math inline">\(0\)</span> (i.e.&nbsp;it intercepts the x-axis). When the parabola is moving up, the straight line has positive <span class="math inline">\(y-\)</span>coordinates (i.e.&nbsp;it’s above the <span class="math inline">\(x-\)</span>axis. When the graph moves down (the basketball is falling), then the rate of change of its height is negative, so the gradient function is below the <span class="math inline">\(x-\)</span>axis.</p>
+<p>Now we can consider the graph of a cubic and it’s gradient function (derivative). Move the slider to move point A the cubic graph <span class="math inline">\(f(x)\)</span> to see the corresponding value of the gradient/rate of change/derivative at that point and the corresponding <span class="math inline">\(y\)</span> value of the quadratic gradient/derivative function <span class="math inline">\(f'(x)\)</span>.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/hkpepg2a/width/900/height/600/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="straight-lines" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="straight-lines"><span class="header-section-number">4.2.2</span> Straight Lines</h3>
+<p>You should be able to see that the gradient of the line <span class="math inline">\(f(x) = x\)</span> has a gradient of 1 as each time it goes “1 across” is also “goes one up”. Note that the graph of <span class="math inline">\(f'(x)\)</span> is <span class="math inline">\(f'(x)=1\)</span>.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/uuhtkkuc/width/800/height/600/border/888888" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>In fact, consider the gradients of the following straight lines. Use the slider to change how steep the lines are and observe the graph and value of <span class="math inline">\(f'(x)\)</span></p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/pqqfrmjs/width/800/height/600/border/888888" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>From this you can see that the gradient of <span class="math inline">\(f(x)=cx\)</span> is going to be <span class="math inline">\(c\)</span>. In fact, you already know this fact if you remember <span class="math inline">\(y=mx+c\)</span> where <span class="math inline">\(m\)</span> stands for the gradient and <span class="math inline">\(c\)</span> stands for the y-intercept, the point on the y-axis where the straight line crosses. Since in our example above this is always at the origin, <em>i.e.</em> <span class="math inline">\(c = 0\)</span>, this means that the gradient function <span class="math inline">\(f'(x)=m\)</span> for all <span class="math inline">\(f(x)=mx\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivative of a line">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Derivative of a line
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(f(x) = mx+c\)</span>. Then <span class="math inline">\(f'(x) = m\)</span> for all <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Examples">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(f(x)=5x\)</span> then <span class="math inline">\(f'(x)=5\)</span>.</p>
+<p>If <span class="math inline">\(f(x)=9x\)</span> then <span class="math inline">\(f'(x)=9\)</span>.</p>
+<p>If <span class="math inline">\(f(x)=x+91\)</span> then <span class="math inline">\(f'(x)=1\)</span>.</p>
+<p>If <span class="math inline">\(f(x)=-x\)</span> then <span class="math inline">\(f'(x)=-1\)</span>.</p>
+<p>If <span class="math inline">\(f(x)=\frac{2}{3}x\)</span> then <span class="math inline">\(f'(x)=\frac{2}{3}\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="differentiating-polynomials" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="differentiating-polynomials"><span class="header-section-number">4.2.3</span> Differentiating polynomials</h3>
+<p>We saw that the gradient of a straight line is a constant (that we usually call “<span class="math inline">\(m\)</span>”) and which can be represented by a horizontal line <span class="math inline">\(y=m\)</span>. We also argued when talking about acceleration that the gradient of a parabola is given by a straight line (<em>i.e.</em> the gradient increases in a linear manner).</p>
+<p>This can be generalised further:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivative of a general integer power.">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Derivative of a general integer power.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we have a polynomial of degree <span class="math inline">\(n\)</span> where <span class="math inline">\(n\)</span> is a whole number, then its gradient function <span class="math inline">\(f'(x) = nx^{n-1}\)</span>, a polynomial of degree <span class="math inline">\(n-1\)</span>.</p>
+</div>
+</div>
+<p>Recall that <span class="math inline">\(x^0 = 1\)</span> for all values of <span class="math inline">\(x\)</span>. From this and the above, we also have that a constant function, <span class="math inline">\(f(x) = c\)</span> for all <span class="math inline">\(x\)</span>, the gradient is <span class="math inline">\(f'(x) = {(c\times x^{0})}' = c\times0x^{-1} = 0\)</span> for all <span class="math inline">\(x\)</span>. In other words, the constant function has no gradient.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/qq8u6w2f/width/1000/height/750/border/888888" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example A">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example A
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>If <span class="math inline">\(f(x)=5x^7\)</span>, what is <span class="math inline">\(f'(x)\)</span>?</p>
+</blockquote>
+<p>By the above, the gradient of <span class="math inline">\(x^7\)</span> is <span class="math inline">\(7x^{7-1} = 7x^6\)</span>. Multiplying this by <span class="math inline">\(5\)</span> gives that <span class="math inline">\(f'(x)=35x^6\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example B">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What is the gradient of <span class="math inline">\(f(x) = 4x^5 + 7x^2 - 8x + 10\)</span>?</p>
+</blockquote>
+<p>We can either apply the above rule to each individual term of the polynomial (e.g.&nbsp;<span class="math inline">\({(7x^2)}' = 7\times2x^{2-1}=14x\)</span>) or computational software. For example, in Wolfram Alpha using <code class="sourceCode mathematica"><span class="fu">derivative</span> of <span class="fu">f</span>(<span class="fu">x</span>) <span class="ex">=</span> <span class="dv">4</span>x<span class="sc">^</span><span class="dv">5</span> <span class="sc">+</span> <span class="dv">7</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">8</span>x <span class="sc">+</span> <span class="dv">10</span></code> returns <span class="math inline">\(f'(x) = 20x^4 + 14x - 8\)</span>. So the gradient of a polynomial of degree 5 is a polynomial function of power 4.</p>
+</div>
+</div>
+</section>
+<section id="generalisation" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="generalisation"><span class="header-section-number">4.2.4</span> Generalisation</h3>
+<p>And this can be further generalised to include cases where <span class="math inline">\(n\)</span> is not an integer (a whole number, either positive or negative).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Derivative of arbitrary powers">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Derivative of arbitrary powers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\((x^{a})' = ax^{a-1}\)</span> for any <span class="math inline">\(x&gt;0\)</span> and any <span class="math inline">\(a\)</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example A">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example A
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What is the gradient of <span class="math inline">\(y=5x-\sqrt{x}\)</span>?</p>
+</blockquote>
+<p>Since <span class="math inline">\(\sqrt{x} = x^{0.5}\)</span>, it follows from our rules for powers that <span class="math display">\[
+  {(\sqrt{x})}' = x^{0.5-1} = x^{-0.5} = \frac{1}{x^{0.5}} = \frac{1}{\sqrt{x}}.
+\]</span> Then we have that <span class="math inline">\(y'=5-\frac{1}{2\sqrt{x}}\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example B">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What’s the derivative of <span class="math inline">\(f(x) = 4\sqrt{x}+ \frac{7}{x} - \sqrt[3]{x}\)</span>?</p>
+</blockquote>
+<p>We note that this can be written as <span class="math inline">\(f(x) = 4x^{\frac{1}{2}} + 7x^{-1} - x^{\frac{1}{3}}\)</span>. Then by applying to above rule to each term, <span class="math display">\[
+  f'(x) = 4\times\frac{1}{2} \times x^{-\frac{1}{2}} - 7x^{-2} - \frac{1}{3} \times x^{-\frac{2}{3}}.
+\]</span> This can be simplified to <span class="math inline">\(f'(x)= \frac{2}{\sqrt{x}}-\frac{7}{x^2} - \frac{1}{3\sqrt[3]{x^2}}\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="gradient-at-a-point" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="gradient-at-a-point"><span class="header-section-number">4.3</span> Gradient at a point</h2>
+<p>Given some function that models the velocity of a aeroplane (or comet’s orbit, a profit curve, <em>etc.</em>), we can find what the velocity is at a certain point of time by substituting a value into the variable. But to know what the acceleration is of the bike, you first need to find the derivative of the function and then substitute the value of the point of time into it.</p>
+<section id="speed-examples" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="speed-examples"><span class="header-section-number">4.3.1</span> Speed Examples</h3>
+<p>Let the velocity of a particle be described by the function <span class="math inline">\(v(t)=4t-t^2\)</span> where <span class="math inline">\(v\)</span> is the velocity measured in <span class="math inline">\(\text{m/s}\)</span>and <span class="math inline">\(t\)</span> is the time in seconds.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example A">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example A
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What is the initial velocity?</p>
+</blockquote>
+<p><strong>Initial</strong> means that <span class="math inline">\(t=0\)</span>. So you’re looking for <span class="math inline">\(v(0)\)</span>, <em>i.e.</em> the value when substituting <span class="math inline">\(t=0\)</span> into the function of <span class="math inline">\(v(t)\)</span>.</p>
+<p>Here, <span class="math inline">\(v(0) = 4\times0-0^2 = 0\)</span>. We can also type <code class="sourceCode mathematica"><span class="fu">v</span>(<span class="fu">t</span>)<span class="ex">=</span><span class="dv">4</span>t<span class="sc">-</span><span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> where <span class="fu">t</span><span class="ex">=</span><span class="dv">0</span></code> into Wolfram Alpha. The initial velocity (speed) is zero meaning that that particle is initially not moving.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example B">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What is the initial acceleration?</p>
+</blockquote>
+<p>To find the initial acceleration, <strong><span class="math inline">\(a(0)=v'(0)\)</span></strong>, we first find the derivative to see that <span class="math inline">\(v'(t)=4-2t\)</span> and then substitute <span class="math inline">\(t=0\)</span> into this: <span class="math display">\[
+  v'(0) = 4 - 2t = 4 - 2\cdot0 = 4.
+\]</span> So the acceleration is <span class="math inline">\(4\text{m/s}^2\)</span>. The particle is being accelerated forward, the velocity is increasing.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example C">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example C
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What is the velocity of the particle after one second?</p>
+</blockquote>
+<p>Substitute <span class="math inline">\(t=1\)</span> into the function of <span class="math inline">\(v(t)\)</span> to obtain <span class="math inline">\(v(1)\)</span>. By hand that is <span class="math inline">\(v(1) = 4 \times 1 - (1)^2 = 3 \text{m/s}\)</span>. Through Wolfram Alpha, this would be <code class="sourceCode mathematica"><span class="dv">4</span>t<span class="sc">-</span><span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> at <span class="fu">t</span><span class="ex">=</span><span class="dv">1</span></code>. The particle now has a positive velocity, meaning that it is moving forward.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example D">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example D
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>What is the acceleration after two seconds?</p>
+</blockquote>
+<p>Substitute <span class="math inline">\(t=2\)</span> into the acceleration to obtain <strong><span class="math inline">\(a(2)=v'(2)\)</span></strong>. By hand we can do can do <span class="math inline">\(v'(2)=4-2 \times 2 = 0\)</span>. Alternatively, by Wolfram Alpha, <code class="sourceCode mathematica"><span class="fu">find</span> the <span class="fu">derivative</span> of <span class="fu">v</span>(<span class="fu">t</span>)<span class="ex">=</span><span class="dv">4</span>t<span class="sc">-</span><span class="fu">t</span><span class="sc">^</span><span class="dv">2</span> at <span class="fu">t</span><span class="ex">=</span><span class="dv">2</span></code></p>
+<p>After two seconds, the acceleration after two seconds is <span class="math inline">\(0 m/s^2\)</span> meaning that it no longer accelerates the particle. This means that the velocity is no longer increasing.</p>
+</div>
+</div>
+<p>Pulling all these examples together, here is a graph of the velocity.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/time-velocity-graph.png" class="img-fluid figure-img" style="width:50.0%" alt="Plot of the quadratic v = 4t - t^2, with velocities at t = 0, 1, and 2 marked."></p>
+<figcaption>Plot with <span class="math inline">\(t\)</span> on the horizontal axis and <span class="math inline">\(v(t)\)</span> on the vertical axis.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="non-polynomial-derivatives" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="non-polynomial-derivatives"><span class="header-section-number">4.4</span> Non-Polynomial Derivatives</h2>
+<p>This idea of of the derivative giving the gradient can be extended to other functions that we have looked at so far. Before we look at those however, it will be useful to state some rules that will help us.</p>
+<section id="differentation-rules" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="differentation-rules"><span class="header-section-number">4.4.1</span> Differentation Rules</h3>
+<p>Given two functions, <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span>, there are several key rules for working out what the derivatives of different combinations of those two functions might be.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Chain Rule">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Chain Rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given a composition of two functions, <span class="math inline">\(h(x) = f(g(x))\)</span>, then the derivative is given by <span class="math display">\[h'(x) = f'(g(x))\times g'(x).\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Product Rule">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Product Rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given a product of two functions <span class="math inline">\(h(x) = f(x)g(x)\)</span>, then the derivative is given by <span class="math display">\[h'(x) = f'(x)g(x) + f(x)g'(x).\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Quotient Rule">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quotient Rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given a ratio of two functions <span class="math inline">\(h(x) = \frac{f(x)}{g(x)}\)</span>, then the derivative is given by <span class="math display">\[h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}.\]</span></p>
+</div>
+</div>
+</section>
+<section id="trigonometric-functions" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="trigonometric-functions"><span class="header-section-number">4.4.2</span> Trigonometric functions</h3>
+<p>Consider the gradient of the sine graph. Again, pay particular attention to the places where the gradient of <span class="math inline">\(\sin(x)\)</span> is equal to zero.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/uz9ntth8/width/1200/height/600/border/888888" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>Notice how there are some places where the gradient is zero. What is special about these places? There are some values where the gradient is positive, and some where it’s negative. And this repeats periodically.</p>
+<p>What graph or function do you know that has periodicity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Theorem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the trig functions:</p>
+<ul>
+<li><span class="math inline">\(y = \sin(x)\)</span> has the derivative <span class="math inline">\(y' = \cos(x)\)</span></li>
+<li><span class="math inline">\(y = \cos(x)\)</span> has the derivative <span class="math inline">\(y' = -\sin(x)\)</span></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example A">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example A
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>Given that <span class="math inline">\(f(x)= 4x + sin(3x)\)</span>, find <span class="math inline">\(f'(x)\)</span>.</p>
+</blockquote>
+<p>We know from the above that the derivative of <span class="math inline">\(\sin(x)\)</span> is <span class="math inline">\(\cos(x)\)</span>, and the derivative of <span class="math inline">\(3x\)</span> is <span class="math inline">\(3\)</span>. Letting <span class="math inline">\(f(x) = \sin(x)\)</span> and <span class="math inline">\(g(x) = 3x\)</span> gives the composition <span class="math inline">\(f(g(x)) = \sin(3x)\)</span>. Then, by the chain rule, the derivative of the composition is<span class="math display">\[
+  f'(g(x))\times g'(x) = \cos(3x)\times 3 = 3\cos(3x).
+\]</span> We can also find that by typing in <code class="sourceCode mathematica">differentiate <span class="fu">f</span>(<span class="fu">x</span>) <span class="ex">=</span> <span class="dv">4</span>x <span class="sc">+</span> <span class="fu">sin</span>(<span class="dv">3</span>x)</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example B">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>The height of the tide in a harbour can be modelled by the graph <span class="math inline">\(H(t)=4.8 \sin(\frac{\pi}{6}(t+3)) + 5.1\)</span> where <span class="math inline">\(H(t)\)</span> is measured in metres and <span class="math inline">\(t\)</span> is measured in hours after midnight. What is the curve that models the rate of change in the tide?</p>
+</blockquote>
+<p>The rate of change (<em>i.e.</em> how rapidly the tide comes in and flows out) is given by <span class="math display">\[H'(t)= -2.5132\times\sin\left(\frac{\pi}{6}t\right).\]</span></p>
+</div>
+</div>
+</section>
+<section id="exponentials" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="exponentials"><span class="header-section-number">4.4.3</span> Exponentials</h3>
+<p>Remember when we considered Douglas’ coffee cooling down from a fictional <span class="math inline">\(100^{\circ}\text{C}\)</span>? Initially, the rate at which is was cooling down was quite rapid. This was because the difference between the temperature of the coffee and the surrounding air was great.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/douglas-coffee.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Plot of temperature over time using the function T = 79 exp(-0.3x) + 21"></p>
+</figure>
+</div>
+<p>As the difference between the temperature of the coffee and the surrounding air became smaller (decreased), the rate at which the coffee continued to cool down slowed down.</p>
+<p>As the coffee neared the temperature of the surrounding air, a fictional <span class="math inline">\(21^{\circ}\text{C}\)</span>, the coffee would stop cooling down as there was now very little difference between its temperature and the ambient temperature.</p>
+<p>Consider the following interactive graph. Move the point A. As time increases, the <span class="math inline">\(y\)</span> “Temperature” value decreases as the temperature of the tea is decreasing. The gradient is therefore negative (you can see the value).</p>
+<p>The gradient function is represented by the blue graph. You can see that it remains below the <span class="math inline">\(x-\)</span>axis even as it comes closer and closer to the <span class="math inline">\(x-\)</span>axis. This represents the fact that although the tea (or coffee) keeps getting colder (as it approaches the ambient temperature), the rate of decrease becomes more and more smaller.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/gumugum5/width/1000/height/567/border/888888/sri/true/sdz/true" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>You might be able to see that, even if the blue graph is upside down, it has the same general shape as the green graph which represents the temperature of Douglas’ coffee. In fact, the gradient of an exponential function is another exponential function. The rate of change of a quantity that increases or decreases in an exponential fashion is itself exponential.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example A">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example A
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(y=2^x\)</span>. Use the command <code class="sourceCode mathematica">differentiate <span class="fu">y</span><span class="ex">=</span><span class="dv">2</span><span class="sc">^</span><span class="fu">x</span></code> to obtain the answer: <span class="math inline">\(y'=2^x log(2)\)</span> or if you use the approximate values: <span class="math inline">\(y' =0.693147 2^x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example B">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(f(x)=18 \times 9.1x^{3x}+7x\)</span>. Use the command <code class="sourceCode mathematica">differentiate <span class="fu">f</span>(<span class="fu">x</span>)<span class="ex">=</span><span class="dv">18</span>  <span class="fl">9.1</span><span class="sc">^</span>(<span class="dv">3</span>x) <span class="sc">+</span><span class="dv">7</span>x</code> to obtain <span class="math inline">\(f'(x) = 119.247 \times 9.1^{3x} + 7\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="natural-exponentials" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="natural-exponentials"><span class="header-section-number">4.4.4</span> Natural exponentials</h3>
+<p>We talked about the natural exponential function in a previous week. Part of what makes these particularly important for growth models from biology or economics is the following property.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Theorem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(y = e^x\)</span>, then <span class="math inline">\(y' = e^x\)</span> also. That is, the natural exponential is a function where the graph of the function and the graph of its gradient are the same.</p>
+</div>
+</div>
+<p>We can then combine this with the other rules to work out exponential derivatives.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example B">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(h(x)=18 \times e^{3x}+11\)</span>. This can be differentiated using the chain rule, where <span class="math inline">\(f(x) = 18e^x + 11\)</span> (so <span class="math inline">\(f'(x) = 18e^x\)</span>) and <span class="math inline">\(g(x) = 3x\)</span> (so <span class="math inline">\(g'(x) = 3\)</span>).</p>
+<p>We get <span class="math display">\[
+  h'(x) = f'(g(x))g'(x) = 18e^{g(x)}\times3 = 54e^{3x}.
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example C">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example C
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(y = 4 - 5e^{\frac{1}{2}x}\)</span>. Find the value of the gradient of this function when <span class="math inline">\(x = 9\)</span>. Use <code class="sourceCode mathematica">differentiate <span class="dv">4</span> <span class="sc">-</span> <span class="dv">5</span><span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span>x) at <span class="fu">x</span><span class="ex">=</span><span class="dv">9</span></code> to obtain <code class="sourceCode mathematica"><span class="sc">-</span>(<span class="dv">5</span> <span class="fu">e</span><span class="sc">^</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">2</span>))<span class="sc">/</span><span class="dv">2</span></code>, or the approximate form: <span class="math inline">\(-225.043\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="optimization" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="optimization"><span class="header-section-number">4.5</span> Optimization</h2>
+<p><strong>Optimization</strong> is the process of finding the <strong>maximum</strong> and/or <strong>minimum</strong> value of a function. If the function is posed as part of a problem, such a value is often referred to as the <strong>optimal</strong> solution.</p>
+<section id="extrema" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="extrema"><span class="header-section-number">4.5.1</span> Extrema</h3>
+<p>When we studied parabolas we looked at the maximum or minimum value that the vertical value of a graph could take by finding the vertex (<em>e.g.</em> the height of a thrown basketball). Now we can generalise this because differentiation allows us to find these points for many more graphs.</p>
+<div class="cell">
+<iframe src="https://www.geogebra.org/material/iframe/id/yw8pjvft/width/1000/height/567/border/888888/sri/true/sdz/true" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<p>To find the <strong>maxima</strong> (plural of maximum) or <strong>minima</strong> (plural of minimum) of a graph you need to consider what is happening to the function’s gradient.</p>
+<p>Look again at the graph above. You can see that at the extrema (maxima or minima), the graph “turns around” (one reason we call them turning points also). Either the graph is going down and then back up or it is increasing and then, after the turning point, decreasing again.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/minima-maxima.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Demonstrating the above text on a segment of a sinusoidal wave."></p>
+</figure>
+</div>
+<p>These maxima and minima are the points where the gradient is zero, so can be found by solving <span class="math inline">\(f'(x) = 0\)</span>.</p>
+</section>
+</section>
+<section id="higher-order-derivatives" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="higher-order-derivatives"><span class="header-section-number">4.6</span> Higher Order Derivatives</h2>
+<p>Think back to our example of acceleration <span class="math inline">\(a(t)\)</span>, velocity <span class="math inline">\(v(t)\)</span>, and distance <span class="math inline">\(d(t)\)</span>. There we talked about how velocity was the rate of change in distance with respect to time, and how acceleration was the change in velocity with respect to time. With this, can we connect acceleration and distance?</p>
+<p>Since <span class="math inline">\(v(t) = d'(t)\)</span> and <span class="math inline">\(a(t) = v'(t)\)</span>, we could substitute the first equation into the second to get that <span class="math display">\[
+  a(t) = (v(t))' = (d'(t))'.
+\]</span> In other words, we define acceleration b as the derivative of the derivative of the distance with respect to time. This is what is called a <strong>second derivative</strong>.</p>
+<p>In the various notations discussed earlier these would be:</p>
+<ul>
+<li>Leibniz’ notation: <span class="math inline">\(\frac{\text{d}^2}{\text{d}x^2}y\)</span>,</li>
+<li>Newton’s notation: <span class="math inline">\(\ddot{y}\)</span>,</li>
+<li>Lagrange’s notation: <span class="math inline">\(y''\)</span>.</li>
+</ul>
+<p>We can extend this idea to the <span class="math inline">\(n^{\text{th}}\)</span> derivative (<em>i.e.</em> what comes after taking the derivative of a function <span class="math inline">\(n\)</span> times). This is usually denoted by <span class="math inline">\(f^{(n)}(x)\)</span> or <span class="math inline">\(\frac{\text{d}^{n}y}{\text{d}x^n}\)</span> since the other two notations get complicated for <span class="math inline">\(n&gt;3\)</span>.</p>
+<p>The main use of higher derivatives is to find whether given extrema are maxima or minima without having to graph the function. If <span class="math inline">\(f''(x) &gt; 0\)</span>, the point at <span class="math inline">\(x\)</span> is a minimum. If <span class="math inline">\(f''(x) &lt; 0\)</span>, the point is a maximum.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
