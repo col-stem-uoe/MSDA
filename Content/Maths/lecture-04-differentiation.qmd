@@ -146,7 +146,7 @@ By the above, the gradient of $x^7$ is $7x^{7-1} = 7x^6$. Multiplying this by $5
 
 > What is the gradient of $f(x) = 4x^5 + 7x^2 - 8x + 10$? 
 
-We can either apply the above rule to each individual term of the polynomial (e.g. ${(7x^2)}' = 7\times2x^{2-1}=14x$) or computational software. For example, in Wolfram Alpha the command `derivative of f(x) = 4x^5 + 7x^2 - 8x + 10`{.mathematica} returns $f'(x) = 20x^4 + 14x - 8$. So the gradient of a polynomial of degree 5 is a polynomial function of power 4.   
+We can either apply the above rule to each individual term of the polynomial (e.g. ${(7x^2)}' = 7\times2x^{2-1}=14x$) or computational software. For example, in Wolfram Alpha using `derivative of f(x) = 4x^5 + 7x^2 - 8x + 10`{.mathematica} returns $f'(x) = 20x^4 + 14x - 8$. So the gradient of a polynomial of degree 5 is a polynomial function of power 4.   
 :::
 
 ### Generalisation
@@ -172,11 +172,11 @@ Then we have that $y'=5-\frac{1}{2\sqrt{x}}$.
 
 > What's the derivative of $f(x) = 4\sqrt{x}+ \frac{7}{x} - \sqrt[3]{x}$?
 
-We note that this can be written as $f(x) = 4x^{\frac{1}{2}} + 7x^{-1} - x^{\frac{1}{3}} $. Then by applying to above rule to each term,
+We note that this can be written as $f(x) = 4x^{\frac{1}{2}} + 7x^{-1} - x^{\frac{1}{3}}$. Then by applying to above rule to each term,
 $$
   f'(x) = 4\times\frac{1}{2} \times x^{-\frac{1}{2}} - 7x^{-2} - \frac{1}{3} \times x^{-\frac{2}{3}}.
 $$
-This can be simplified to $f'(x)= \frac{2}{\sqrt{x}}-\frac{7}{x^2} - \frac{1}{3\sqrt[3]{x^2}} $.
+This can be simplified to $f'(x)= \frac{2}{\sqrt{x}}-\frac{7}{x^2} - \frac{1}{3\sqrt[3]{x^2}}$.
 :::
 
 ## Gradient at a point
@@ -185,75 +185,69 @@ Given some function that models the velocity of a aeroplane (or comet's orbit, a
 
 ### Speed Examples
 
-Let the velocity of a particle be described by the function $v(t)=4t-t^2$ where $v$ is the velocity measured in $[m/s]$and $t$ is the time in seconds.  
+Let the velocity of a particle be described by the function $v(t)=4t-t^2$ where $v$ is the velocity measured in $\text{m/s}$and $t$ is the time in seconds.  
 
-#### Example A {-}
+:::{.callout-tip title="Example A"}
 
 > What is the initial velocity?
 
 **Initial** means that $t=0$. So you're looking for $v(0)$, _i.e._ the value when substituting $t=0$ into the function of $v(t)$.
 
-Here, $v(0) = 4\times0-0^2 = 0$. We can also type `v(t)=4t-t^2 where t=0`{.mathematica} into Wolfram Alpha.
+Here, $v(0) = 4\times0-0^2 = 0$. We can also type `v(t)=4t-t^2 where t=0`{.mathematica} into Wolfram Alpha. The initial velocity (speed) is zero meaning that that particle is initially not moving.
+:::
 
-```{r initial_velocity, out.width="40%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/initial-velocity.png")
-```
-
-The initial velocity (speed) is zero meaning that that particle is initially not moving.
-
-#### Example B {-}
+:::{.callout-tip title="Example B"}
 
 > What is the initial acceleration?
 
-To find the initial acceleration, **$a(0)=v'(0)$**, we first find the derivative to see that $v'(t)=4-2t$ and then substitute $t=0$ into this. In Wolfram Alpha, this would be done using `v(t)=4t-t^2, find v'(t)`{.mathematica}
+To find the initial acceleration, **$a(0)=v'(0)$**, we first find the derivative to see that $v'(t)=4-2t$ and then substitute $t=0$ into this:
+$$
+  v'(0) = 4 - 2t = 4 - 2\cdot0 = 4.
+$$
+So the acceleration is $4\text{m/s}^2$. The particle is being accelerated forward, the velocity is increasing. 
+:::
 
-```{r initial_acceleration, out.width="40%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/init-acceleration.png")
-```
-
-Then, evaluate the expression $t-2t$ where $t=0$. In Wolfram Alpha, you can do this by clicking on $4-2t$ in the "input interpretation" box. This will copy the expression into the command line. Add `t=0`{.mathematica} so that you have this in the command line `4 - 2t where t=0`{.mathematica} and you should have the following:
-
-```{r initial_acceleration-wolfram, out.width="40%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/init-acceleration-wolfram.png")
-```
-
-So the acceleration is $4 m/s^2$.
-
-```{r initial_acceleration-wolfram2, out.width="70%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/init-acceleration-wolfram2.png")
-```
-
-The particle is being accelerated forward, the velocity is increasing. 
-
-#### Example C {-}
+:::{.callout-tip title="Example C"}
 
 > What is the velocity of the particle after one second?
 
-Substitute $t=1$ into the function of $v(t)$ to obtain $v(1)$. We can also do $v(1)=4 \times 1 - (1)^2 = 3 m/s$. Through Wolfram Alpha, this would be `4t-t^2 at t=1`{.mathematica} (similar to point 1.) ( )$
+Substitute $t=1$ into the function of $v(t)$ to obtain $v(1)$. By hand that is $v(1) = 4 \times 1 - (1)^2 = 3 \text{m/s}$. Through Wolfram Alpha, this would be `4t-t^2 at t=1`{.mathematica}. The particle now has a positive velocity, meaning that it is moving forward.
+:::
 
-The particle now has a positive velocity, meaning that it is moving forward.
+:::{.callout-tip title="Example D"}
 
-#### Example D {-}
+> What is the acceleration after two seconds?
 
-> What is the acceleration after two seconds?</h5>
-
-Substitute $t=2$ into the acceleration to obtain **$a(2)=v'(2)$**. We can do can do: $v'(2)=4-2 \times 2 = 0$. On Wolfram Alpha, `find the derivative of v(t)=4t-t^2 at t=2`{.mathematica}
+Substitute $t=2$ into the acceleration to obtain **$a(2)=v'(2)$**. By hand we can do can do $v'(2)=4-2 \times 2 = 0$. Alternatively, by Wolfram Alpha, `find the derivative of v(t)=4t-t^2 at t=2`{.mathematica}
 
 After two seconds, the acceleration after two seconds is $0 m/s^2$ meaning that it no longer accelerates the particle. This means that the velocity is no longer increasing.
+:::
 
-Putting this all together, here is a graph of the velocity. On the the horizontal axis we have $t$, and then $v(t)$ is the vertical axis.
+Pulling all these examples together, here is a graph of the velocity.
 
-```{r time-velocity-graph, out.width="70%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/time-velocity-graph.png")
-```
+![Plot with $t$ on the horizontal axis and $v(t)$ on the vertical axis.](images/08/time-velocity-graph.png){width=50% fig-align="center" fig-alt="Plot of the quadratic v = 4t - t^2, with velocities at t = 0, 1, and 2 marked."}
 
 ## Non-Polynomial Derivatives
 
-This idea of of the derivative giving the gradient can be extended to other functions that we have looked at so far. A useful tool to help with this is called the chain rule.
+This idea of of the derivative giving the gradient can be extended to other functions that we have looked at so far. Before we look at those however, it will be useful to state some rules that will help us.
 
-### Chain Rule
+### Differentation Rules
 
+Given two functions, $f(x)$ and $g(x)$, there are several key rules for working out what the derivatives of different combinations of those two functions might be.
+
+:::{.callout-note title="Chain Rule"}
 Given a composition of two functions, $h(x) = f(g(x))$, then the derivative is given by $$h'(x) = f'(g(x))\times g'(x).$$
+:::
+
+:::{.callout-note title="Product Rule"}
+Given a product of two functions $h(x) = f(x)g(x)$, then the derivative is given by $$h'(x) = f'(x)g(x) + f(x)g'(x).$$
+:::
+
+:::{.callout-note title="Quotient Rule"}
+Given a ratio of two functions $h(x) = \frac{f(x)}{g(x)}$, then the derivative is given by $$h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}.$$
+:::
+
+
 
 ### Trigonometric functions
 
@@ -267,93 +261,87 @@ Notice how there are some places where the gradient is zero. What is special abo
 
 What graph or function do you know that has periodicity?  
 
-> $y = \sin(x)$ has the derivative $y' = \cos(x)$ 
->
-> $y = \cos(x)$ has the derivative $y' = -\sin(x)$
+:::{.callout-note title="Theorem"}
+For the trig functions:
 
-#### Example A {-}
+- $y = \sin(x)$ has the derivative $y' = \cos(x)$ 
+- $y = \cos(x)$ has the derivative $y' = -\sin(x)$
+:::
+
+:::{.callout-tip title="Example A"}
 
 > Given that $f(x)= 4x + sin(3x)$, find $f'(x)$.
 
 We know from the above that the derivative of $\sin(x)$ is $\cos(x)$, and the derivative of $3x$ is $3$. Letting $f(x) = \sin(x)$ and $g(x) = 3x$ gives the composition $f(g(x)) = \sin(3x)$. Then, by the chain rule, the derivative of the composition is$$
   f'(g(x))\times g'(x) = \cos(3x)\times 3 = 3\cos(3x).
 $$
-We can also find that  by typing in `differentiate f(x)=4x+sin(3x)`{.mathematica}.
+We can also find that  by typing in `differentiate f(x) = 4x + sin(3x)`{.mathematica}.
+:::
 
-#### Example B {-}
+:::{.callout-tip title="Example B"}
 
 > The height of the tide in a harbour can be modelled by the graph $H(t)=4.8 \sin(\frac{\pi}{6}(t+3)) + 5.1$ where $H(t)$ is measured in metres and $t$ is measured in hours after midnight. What is the curve that models the rate of change in the tide?
 
 The rate of change (_i.e._ how rapidly the tide comes in and flows out) is given by $$H'(t)= -2.5132\times\sin\left(\frac{\pi}{6}t\right).$$
+:::
 
 ### Exponentials 
 
-Remember when we considered Douglas' coffee cooling down from a fictional $100^oC$?
+Remember when we considered Douglas' coffee cooling down from a fictional $100^{\circ}\text{C}$? Initially, the rate at which is was cooling down was quite rapid. This was because the difference between the temperature of the coffee and the surrounding air was great. 
 
-Initially, the rate at which is was cooling down was quite rapid. This was because the difference between the temperature of the coffee and the surrounding air was great. 
-
-```{r douglas-coffee, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/douglas-coffee.png")
-```
+![](images/08/douglas-coffee.png){width=60% fig-align="center" fig-alt="Plot of temperature over time using the function T = 79 exp(-0.3x) + 21"}
 
 As the difference between the temperature of the coffee and the surrounding air became smaller (decreased), the rate at which the coffee continued to cool down slowed down.
 
-As the coffee neared the temperature of the surrounding air, a fictional $21^oC$, the coffee would stop cooling down as there was now very little difference between its temperature and the ambient temperature.
+As the coffee neared the temperature of the surrounding air, a fictional $21^{\circ}\text{C}$, the coffee would stop cooling down as there was now very little difference between its temperature and the ambient temperature.
+
 Consider the following interactive graph. Move the point A. As time increases, the $y$ "Temperature" value decreases as the temperature of the tea is decreasing. The gradient is therefore negative (you can see the value). 
 
 The gradient function is represented by the blue graph. You can see that it remains below the $x-$axis even as it comes closer and closer to the $x-$axis. This represents the fact that although the tea (or coffee) keeps getting colder (as it approaches the ambient temperature),
     the rate of decrease becomes more and more smaller. 
 
-<center><iframe width="800" height="467" src="https://www.geogebra.org/material/iframe/id/gumugum5/width/1000/height/567/border/888888/sri/true/sdz/true" scrolling="yes" style="border: 0px;" alt="As the tea cools, the rate of change in temperature decreases."> </iframe></center>
-
-You might be able to see that, even if the blue graph is upside down, it has the same general shape as the green graph which represents the temperature of Douglas' coffee. 
-
-In fact, the gradient of an exponential function is another exponential function.
-
-The rate of change of a quantity that increases or decreases in an exponential fashion is itself exponential. 
-
-This is part of the difficulty of understanding exponential growth. Initially small numbers will increase initially slowly but faster
-    and faster. 
-Consider the following sequence of numbers:
-
- $2, 4, 8, 16, 32, 64, 128, ...$. With each step, the increase is twice as large as the previous step. 
-
-```{r douglas-coffee-solution, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/douglas-coffee-solution.png")
+```{r geogebra_temp-gradient, echo=FALSE, fig.alt="As the tea cools, the rate of change in temperature decreases.", dev="png", cache=TRUE}
+knitr::include_url('https://www.geogebra.org/material/iframe/id/gumugum5/width/1000/height/567/border/888888/sri/true/sdz/true')
 ```
 
-#### Example A {-}
+You might be able to see that, even if the blue graph is upside down, it has the same general shape as the green graph which represents the temperature of Douglas' coffee.  In fact, the gradient of an exponential function is another exponential function. The rate of change of a quantity that increases or decreases in an exponential fashion is itself exponential. 
 
+:::{.callout-tip title="Example A"}
 Let $y=2^x$. Use the command `differentiate y=2^x`{.mathematica} to obtain the answer: $y'=2^x log(2)$ or if you use the approximate values: $y' =0.693147 2^x$.
+:::
 
-#### Example B {-}
-
+:::{.callout-tip title="Example B"}
 Let $f(x)=18 \times 9.1x^{3x}+7x$. Use the command `differentiate f(x)=18  9.1^(3x) +7x`{.mathematica} to obtain $f'(x) = 119.247 \times 9.1^{3x} + 7$.
+:::
 
-### The natural exponential function
+### Natural exponentials
 
-There is one exponential functions which is particularly important in biology and other natural growth models. That is the **exponential** This is the function where the graph of the function is the same as its gradient function:
+We talked about the natural exponential function in a previous week. Part of what makes these particularly important for growth models from biology or economics is the following property.
+
+:::{.callout-note title=Theorem}
+If $y = e^x$, then $y' = e^x$ also. That is, the natural exponential is a function where the graph of the function and the graph of its gradient are the same.
+:::
+
+We can then combine this with the other rules to work out exponential derivatives.
+
+:::{.callout-tip title="Example B"}
+Let $h(x)=18 \times e^{3x}+11$. This can be differentiated using the chain rule, where $f(x) = 18e^x + 11$ (so $f'(x) = 18e^x$) and $g(x) = 3x$ (so $g'(x) = 3$). 
+
+We get
 $$
-  y=e^x \text{ has the gradient function }y'=e^x
+  h'(x) = f'(g(x))g'(x) = 18e^{g(x)}\times3 = 54e^{3x}.
 $$
+:::
 
-#### Example A {-}
-
-Let $y=e^x$. Use the command `differentiate y=e^x`{.mathematica} to obtain the answer: $y'=e^x$. Weird right? The derivative is the same as the original function.
-
-#### Example B {-}
-
-Let $f(x)=18 \times e^{3x}+11$. Use the command "differentiate f(x)= 18e^(3x) +11" to obtain $f'(x)  = 54 e^{3x}$.
-
-#### Example C {-}
-
-Let $y=4-5e^{\frac12x}$. Find the value of the gradient of this function when $x=9$. Use the command `find the derivative of  4-5e^(1/2x) at x=9`{.mathematica} to obtain `-(5 e^(9/2))/2` or the approximate form: $-225.043$.
+:::{.callout-tip title="Example C"}
+Let $y = 4 - 5e^{\frac{1}{2}x}$. Find the value of the gradient of this function when $x = 9$. Use `differentiate 4 - 5*exp(-0.5x) at x=9`{.mathematica} to obtain `-(5 e^(9/2))/2`{.mathematica}, or the approximate form: $-225.043$.
+:::
 
 ## Optimization
 
-**Optimisation **is the process of finding the **maximum **and **minimum **value of a function. The solution is often referred to as the **optimal solution.** 
+**Optimization** is the process of finding the **maximum** and/or **minimum** value of a function. If the function is posed as part of a problem, such a value is often referred to as the **optimal** solution.
 
-### Maxima and minima
+### Extrema
 
 When we studied parabolas we looked at the maximum or minimum value that the vertical value of a graph could take by finding the vertex (_e.g._ the height of a thrown basketball). Now we can generalise this because differentiation allows us to find these points for many more graphs.
 
@@ -361,64 +349,20 @@ When we studied parabolas we looked at the maximum or minimum value that the ver
 knitr::include_url('https://www.geogebra.org/material/iframe/id/yw8pjvft/width/1000/height/567/border/888888/sri/true/sdz/true')
 ```
 
-To find the maximum or minimum value of a graph you need to consider what is happening to the function's gradient.
+To find the **maxima** (plural of maximum) or **minima** (plural of minimum) of a graph you need to consider what is happening to the function's gradient.
 
-Look again at the graph above. You can see that at the extrema (maximum or minimum), the graph "turns around" (one reason we call them turning points also). Either the graph is going down and then back up or it is increasing and then, after the turning point, decreasing again.
+Look again at the graph above. You can see that at the extrema (maxima or minima), the graph "turns around" (one reason we call them turning points also). Either the graph is going down and then back up or it is increasing and then, after the turning point, decreasing again.
 
-```{r minima-maxima, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/minima-maxima.png")
-```
+![](images/08/minima-maxima.png){width=60% fig-align="center" fig-alt="Demonstrating the above text on a segment of a sinusoidal wave."} 
 
-These maxima and minima are the points where the gradient is zero, so can be found by solving $f'(X) = 0$.
+These maxima and minima are the points where the gradient is zero, so can be found by solving $f'(x) = 0$.
 
-There are many ways that Wolfram Alpha will calculate the turning points (maxima/minima) partly because these points have so many different names. But here are some examples of what works:
-
-#### Example A {-}
-
-> Find the stationary points of the graph $y=5x-x^2$ and "determine their nature".
-
-In Wolfram Alpha use the command `stationary points y=5x-x^2`{.mathematica}. This will give you:
-
-```{r minima-maxima-soln1, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/minima-maxima-soln1.png")
-```
-
-The graph therefore has a **maximum** at $ (\frac52,\frac{25}{4}) $.   
-
-#### Example B {-}
-
-> Find the maximum $y$ value of the graph $ y= \frac{5x}{4x^2+1} $. 
-
-To solve this, we can use the command `maximum value of y=5x/(4x^2+1)`{.mathematica}. The website will give you:
-
-```{r minima-maxima-soln2, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/minima-maxima-soln2.png")
-```
-
-```{r minima-maxima-soln3, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/minima-maxima-soln3.png")
-```
-
-This means that the maximum $y$ value is $\frac54$. Note that $x=\frac12$ is the horizontal value of the maximum point. The $y$ maximum value if the number after "max{...}=" in Wolfram Alpha's answer.
-
-#### Example C {-}
-
-> Find the turning point of the graph $y=5 \sin(2x)+3$ in the domain $0 \leq x \leq 2\pi$.
-
-Use the command `turning points y=5sin(2x)+3, 0<=x<=2pi`{.mathematica}. This will give you four turning points, two maxima and two minima.
-
-```{r minima-maxima-soln4, out.width="60%", echo=FALSE, fig.align="center", fig.alt="TODO WRITE THIS"}
-knitr::include_graphics("images/08/minima-maxima-wolfram1.png")
-```
-
-So the maxima are: $ (\frac{\pi}{4}, 8) $, $ (\frac{5\pi}{4}, 8) $, and the minima are: $ (\frac{3\pi}{4}, -2) $, $ (\frac{7\pi}{4}, -2) $.
-
-### Higher Order Derivatives
+## Higher Order Derivatives
 
 Think back to our example of acceleration $a(t)$, velocity $v(t)$, and distance $d(t)$. There we talked about how velocity was the rate of change in distance with respect to time, and how acceleration was the change in velocity with respect to time. With this, can we connect acceleration and distance?
 
 Since $v(t) = d'(t)$ and $a(t) = v'(t)$, we could substitute the first equation into the second to get that $$
-  a(t) = (v(t))' = (d'(t))' = (d(t))'.
+  a(t) = (v(t))' = (d'(t))'.
 $$
 In other words, we define acceleration b as the derivative of the derivative of the distance with respect to time. This is what is called a **second derivative**.
 
@@ -428,6 +372,6 @@ In the various notations discussed earlier these would be:
 - Newton's notation: $\ddot{y}$,
 - Lagrange's notation: $y''$.
 
-We can extend this idea to the **$n^{\text{th}}$ derivative (_e.g._ what comes after taking the derivative of a function $n$ times). This is usually denoted by $f^{(n)}$ or $\frac{\text{d}^n}{\text{d}x^n}y$ since the other two notations get complicated for $n>3$.
+We can extend this idea to the $n^{\text{th}}$ derivative (_i.e._ what comes after taking the derivative of a function $n$ times). This is usually denoted by $f^{(n)}(x)$ or $\frac{\text{d}^{n}y}{\text{d}x^n}$ since the other two notations get complicated for $n>3$.
 
 The main use of higher derivatives is to find whether given extrema are maxima or minima without having to graph the function. If $f''(x) > 0$, the point at $x$ is a minimum. If $f''(x) < 0$, the point is a maximum.
