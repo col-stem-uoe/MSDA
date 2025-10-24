@@ -11,336 +11,200 @@ The previous section discussed differentiation. This is just one aspect of calcu
 
 Many operations in mathematics have "inverse operations" (the mathematical version of CTRL+Z).
 
-![](images/09/intro-inverse1.png)
+Operation     | Inverse Operation
+:-----------: | :---------------:
+$+$           | $-$
+$\times$      | $\div$
+$\square^{2}$ | $\sqrt{\square}$
+$\square^{3}$ | $\sqrt[3]{\square}$
+$\sin(x)$     | $\arcsin(x)$
+$e^x$         | $\ln(x)$
+$2^x$         | $\log_{2}x$
 
-This means for instance that if you add 2 to a number, subtracting 2 from it will bring you back to the original number. If you square a number, for instance $9^2$, you obtain $81$. If you square root the $81$, $(\sqrt{81})$, you return back to $9$. 
+This means for instance that if you add 2 to a number, subtracting 2 from it will bring you back to the original number. If you square a number, for instance $9^2$, you obtain $81$. If you square root the $81$, $(\sqrt{81})$, you return back to $9$.
 
-![](images/09/intro-inverse2.png)
-
-Differentiation also has it's "undo" operation. It is called integration.
-Together, differentiation and integration make up what is known as calculus or even "the calculus".Sometimes, integration is known as the "anti-derivative" because it is in a way the inverse operation to differentiation.
+Differentiation also has it's "undo" operation, called **integration**. Sometimes an integral is actually known as the "anti-derivative" because it is in a way the inverse operation to differentiation.
 
 ### Anti-derivative
 
-The integral of a function $f(x)$ is sometimes referred to as the "anti-derivative" because it is the inverse operation of finding the derivative.
+The integral of the function $f(x)$ is a function whose derivative is $f(x)$. So if $f'(x)$ is the derivative of function $f(x)$, then $f(x)$ is the integral of $f'(x)$.
 
-A little bit of notation: The integral of the function $f(x)$ is a function whose derivative is $f(x)$. So if $f'(x)$ is the derivative of function $f(x)$, then $f(x)$ is the integral of $f'(x)$. Often the integral is denoted using a capital letter.
+:::{.callout-note title="Notation"}
+Often the integral is denoted using a capital letter; $F(x)$ is the integral of $f(x)$. This means that $F'(x)=f(x)$.
+:::
 
-So $F(x)$ is the integral of $f(x)$. This means that $F'(x)=f(x)$.
+This creates a relationship whereby each operation undoes the other.
 
-You can think of integral being the result of "undoing differentiation". 
+![](images/09/anti-derivative.png){width=60% fig-align="center" fig-alt="Decorative: graphical depiction of differentiation and integration as a loop, with each reverting to the other."}
 
-![](images/09/4_0_3antideriv.png)
+### Constants of integration
 
-![](images/09/anti-derivative.png)
+:::{.callout-tip title="Example"}
 
-#### Example {-}
+> Find an integral of $f(x)$ where $f(x)=\cos(x)$.
 
-> Find the integral of $f(x)$ where $f(x)=\cos(x)$.
+Since $(\sin(x))' = \cos(x)$, we have that $\sin(x)$ is an integral of $\cos(x)$.
+:::
 
-Since $(\sin(x))'=\cos(x)$, we have that $\sin(x)$ is integral of $\cos(x)$.
+:::{.callout-warning}
+However, it's also true that $(\sin(x)+5)' = \cos(x)$. So it must be that $\sin(x)+5$ is **also** an integral of $\cos(x)$. In fact, there are an infinite number of possible integrals!
 
-Note that since also $(\sin(x)+5)'=\cos(x)$, we have that $\sin(x)+5$ is **also** an integral of $\cos(x)$. In fact, there are an infinite number of possible integrals.
-
-In fact, we need to write $F(x)=sin(x)+c$. This $"c"$ will be explained later. For now, remember that a constant needs to be added each time. "+c".
+To give us a unique answer, we need to write $F(x) = \sin(x) + C$ where $C\in\mathbb{R}$ is a constant. This "$+C$" is called a **constant of integration** and is something we'll add every time.
+:::
 
 ### Notation
 
-In differentiating you had to learn two different notations. For integration there is one notation:$\int$ $dx$. The function that will be integrated, $f(x)$, is called the integrand. It is written between the integration sign (the taaaaaal S which you can think of as "infinite sum") $\int$ and the $dx$ which represents the **infinitesimal**. So the integral is really "the infinite sum of infinitesimally small things". Which is actually what it is (but this course will not go into this...). 
+When differentiating we mentioned that there were a whole bunch of different notations people used. For integration, there's pretty much just one: $\int~\text{d}x$.^[We don't get into this in MSDA, but the taaaaaall S can be thought of as an infinite sum and the $\text{d}x$ as the **infinitesimal**. This defines integration as the infinite sum of infinitely small things!] The function that will be integrated, $f(x)$, is called the **integrand**, and the variable $x$ in the $\text{d}x$ is the variable we are integrating with respect to.
 
+This is put together with the $f(x)$ and $F(x)$ from above to give
 $$
-  \int{f(x)} dx = F(x) + c.
+  \int{f(x)}~\text{d}x = F(x) + C.
 $$
+In Wolfram Alpha the keyword `integrate`{.mathematica} or `int`{.mathematica} is used.
 
-#### Examples {-}
+:::{.callout-note title="Example"}
+To use Wolfram Alpha to find that $$\int{2^{3x}-4 \cos(6x)~dx} = \frac{8^x}{\ln(8)} - \frac{2}{3} \sin(6x) + C,$$ we write `integrate 2^(3x)-4cos(6x)`{.mathematica} and get the following output.
 
-In Wolfram Alpha, use the command "integrate". Let $y=2$. What is the integral? You need to integrate.
+![](images/09/intro-wolfram.png){width=200px fig-align="center" fig-alt="Wolfram Alpha confirming the above result, only using '+ constant' rather than '+ C'."}
+:::
 
-> $ \int{2}~dx = 2x+c$
+:::{.callout-warning}
+Remember that Wolfram Alpha and some tools like it use '$\log$' to mean $\ln$, rather than log base-10.
+:::
 
-Remember that $(2x)' = 2$, i.e. the gradient of the straight line $y=2x$ is $m=2$. 
+## Definite Integrals
 
-> $ \int{x}~dx = \frac12 x^2+c$
+When we differentiated, there was always just one gradient for a given function. However we've seen that the same doesn't hold for integration in general.
 
-Remember the gradient of a quadratic function can be represented by a straight line as in our opening example using acceleration, velocity and displacement.
+### Indefinite
 
-> $ \int{\sin(x)}~dx = -\cos(x)+c$
+:::{.callout-note title="Definition"}
+What we've seen so far is so-called **indefinite integration**, $\displaystyle\int f(x)~\text{d}x = F(x) + C$.
+:::
 
-Remember that $(cos(x))' = - \sin(x)$.
-
-Practice your syntax:
-
-> $\int{2^{3x}-4 \cos(6x)~dx} $
-
-`integrate 2^(3x)-4cos(6x)`
-
-> $\int{2^{3x}-4 \cos(6x)~dx} = \frac{8^x}{log(8)} - \frac23 \sin(6x) +c$ 
-
-Remember to compare your answer with the way it appears in Wolfram Alpha.
-
-![](images/09/intro-wolfram.png)
-
-## Integration
-
-Integration challenges in this course comes in three forms: 
-
-1. Indefinite integration, which can be remembered as "+c"
-2. Definite integration, which can be remembered as "from .... to" (Square brackets).
-3. Initial Value Problem. An extension of 1.
-
-### Indefinite integration "+c"
-
-When we differentiated, there was always just one gradient for a given function.
 Consider the interactive graph below. There are three parabolas. You can move the red one up and down by changing the value of $c$. Move the blue point and see how the gradient changes.
 
-<center><iframe width="900" height="400" src="https://www.geogebra.org/material/iframe/id/t2bbvhfb/width/1400/height/567/border/888888/sri/true/sdz/true" scrolling="no" style="border: 0px;" alt="..."> </iframe></center>
+```{r geogebra_quadratic-move, echo=FALSE, fig.alt="Exploring the +C in GeoGebra.", dev="png", cache=TRUE}
+knitr::include_url('https://www.geogebra.org/material/iframe/id/t2bbvhfb/width/1400/height/567/border/888888/sri/true/sdz/true')
+```
 
-> The **indefinite integral** $\displaystyle\int f(x)\,dx=F(x)+c$
+You can see that all three parabolas have the same gradient $2x$ where $x$ is the $x-$coordinate of the point where the gradient is being measured. In other words, given $f(x)$, there's an infinite number of graphs/functions that have this particular gradient.
 
-Hope you can see that all three parabolas have the same gradient $2x$ where $x$ is the $x-$coordinate of the point where the gradient is being measured. In other words, given $f(x)$, there's an infinite number of graphs/functions that have this particular gradient.
+![](images/09/indefinite-integral.png){width=80% fig-align="center" fig-alt="Decorative: visual illustration of the previous three paragraphs as a flowchart."}
 
-![](images/09/indefinite-integral.png)
+So without more information, we cannot know what constant disappeared when we differentiated and should reappear when we integrate. That is why we have to add "$+C$" at the end of the integration. 
 
-So without more information, we cannot know what constant disappeared when we differentiated and should reappear when we integrate. That is why we have to add "+c" at the end of the integration. 
+:::{.callout-tip title="Example A"}
+Returning to the example above, we can write the indefinite integral $\int 2x~\text{d}x = x^2 + C$ where the "$+C$" means that we not know which of the parabolas we need. 
+:::
 
-#### Example A {-}
-
-Returning to the example above, we can write the indefinite integral $\int 2x\;dx = x^2+c$ where the +c means that we not know which of the parabolas we need. 
-
-#### Example B {-}
-
-$ \int 6x^2 +2x \;dx = 2x^3+x^2+ c $; Wolfram Alpha will remind you by stating "+constant".
-
-![](images/09/indefinite-example.png)
-
-#### Example C {-}
-
-$ \int -12x^{11} +x -15 \;dx = -x^{12} +\frac12 x^2 -15x +c $
+:::{.callout-tip title="Example B"}
+Generally, for $f(x) = x^n$ where $n\in\mathbb{N}$, $F(x) = \frac{x^{n+1}}{n+1} +C$.
+:::
 
 ### Definite Integrals
 
-Definite integration returns a value (a number) rather than a function. Instead of the "+c" we use square brackets and substitute limits into the integral. Instead of "+c" we use square brackets!
-
-The notation is:$$ \int_b^af(x)\;dx = [F(x)]^a_b = F(a)-F(b) $$
+Definite integration, or integration between two limits, returns a specific value rather than a function. Instead of the "$+C$" we use square brackets and substitute limits into the integral:
+$$
+  \int_b^a f(x)~\text{d}x = {[F(x)]}^a_b = F(a) - F(b)
+$$
 
 You will not need to know how to write this, but you will need to interpret what the notation represents. The most direct reason that we use this technique is to calculate the area underneath a curve. 
 
-![Splitting up an integral into two parts](images/09/4_3_1_property6.png)
+![](images/09/4_3_1_property6.png){fig-align="center" fig-alt="Showing the graph under a curve y = f(x) from x = a to x = b split about some intermediate point x = c."}
 
-The light grey area in this image can be represented by $ \int^a_bf(x)\;dx = [F(x)]^a_b = F(a)-F(b) $. The blue area is represented by $ \int^b_c f(x)\;dx = [F(x)]^b_c = F(b)-F(c) $. 
+The light grey area from $x = a$ to $x = c$ can be represented by $$\int_a^c f(x)~\text{d}x = [F(x)]^a_c = F(c)-F(a).$$ The blue area is represented by $$\int_c^b f(x)~\text{d}x = [F(x)]_c^b = F(b)-F(c).$$ See how adding these together gives $F(b) - F(a)$?
 
-#### Example A {-}
+:::{.callout-note title=Theorem}
+Given three values $a \leq c \leq b$, then the
+$$
+  \int_a^b f(x)~\text{d}x = \int_a^c f(x)~\text{d}x + \int_c^b f(x)~\text{d}x.
+$$
+:::
+It's not something we'll get into much in this course, but this 'splitting' can be very useful when the domain contains a point that might cause trouble (_e.g._ $\frac{1}{x}$ over $[-1,1]$, which includes $x = 0$).
+
+::::{.callout-tip title="Example A"}
 
 > Find the area underneath the graph $y=6x^2 -9x+7$ for $0 \leq x \leq 8$. 
 
-`area under y=6x^2 -9x+7, 0 <= x <= 8` or `integrate 6x^2 -9x+7, 0 <= x <= 8` or `integrate 6x^2 -9x+7, from 0 to 8`. 
+There are a few different Wolfram Alpha commands that could get us what we want
 
-![](images/09/definite-example1.png)
-![](images/09/definite-example2.png)
+- `area under y=6x^2 -9x+7, 0 <= x <= 8`{.mathemaica},
+- `integrate 6x^2 -9x+7, 0 <= x <= 8`{.mathemaica},
+- `integrate 6x^2 -9x+7, from 0 to 8`{.mathemaica}. 
 
-The area underneath the graph is $792 ~units^2$  
+It doesn't matter which we choose, all will return equivalent outputs.
 
-#### Example B {-}
+:::{layout-ncol=2}
+![](images/09/definite-example1.png){fig-alt="Wolfram alpha input interpretation and result for the above queries."}
 
-> Find the area underneath the graph $y=5-x$ for $0 \leq x \leq 5$.
+![](images/09/definite-example2.png){width=70% fig-alt="Wolfram alpha's plot for the above queries."}
+:::
 
-`area under y=5-x, 0 <= x <= 5` or `integrate 5-x, 0 <= x <= 5` or `integrate 5-x, from 0 to 5`. 
+The area underneath the graph is $792~\text{unit}^2$.  
+::::
 
-![](images/09/area-under-graph.png)
+:::{.callout-tip title="Example B"}
 
-Note:
+> Find the area underneath the graph of $y = 5 - x$ between $x = 0$ and $x = 5$.
 
-1. The area underneath the graph is $-12.5~units^2$. Note that the area is negative. This is because it is **below** the x-axis. In real life, areas are never negative, but in applications, the area can represent for instance velocity or accumulated profit which of course, then would actually represent growing loss.
-2. The area could have been calculated using the formula of area of a triangle $A=\frac12~base \times ~height$. In this case it would have been $A=\frac12 5 \times 5 = 12.5 ~units^2$.
+If we use `integrate 5-x, 0 <= x <= 5`{.mathematica}, we get the following output.
 
-#### Example C {-}
+![](images/09/area-under-graph.png){fig-alt="Wolfram Alpha output for the above command, which appears to be a right angled triangle underneath the x-axis."}
 
-> Find the shaded area underneath the graph $y=3 + 1.4 x - 0.4 x^2$.
+With our understanding so far, this would mean the area underneath the graph is $-12.5 \text{units}^2$: a negative area! This is because it is **below** the $x$-axis. How this is interpreted will depend on the application of the problem.
+:::
 
-![](images/09/definite-example3.png)
+In some applications, such as design or architecture, the area should never be negative. In others, where the area represents velocity or accumulated profit, then negative area has a legitimate interpretation as growing loss.
 
-Step 1. Find where the graph intercepts the $x-$axis. This is done using the command `intercepts`. `intercepts 3 + 1.4 x - 0.4 x^2` which returns $x=-1.5$ and $x=5$.
+:::{.callout-warning}
+Applying integration to solve a problem like this is sometimes overkill! This area could have been calculated using the formula of area of a triangle $A=\frac{1}{2}\text{base}\times\text{height}$. In this case it would have been $$A = \frac{1}{2}\cdot{}5\cdot{}5 = 12.5~\text{units}^2.$$
+:::
 
-Step 2. Integrate using these intercepts as limits.`integrate y=3 + 1.4 x - 0.4 x^2 from -1.5 to 5`.
+## Initial value problems
 
-![](images/09/definite-example4.png)
+Especially when working with real world problems, we sometimes have additional information about $f(x)$, $f'(x)$, and/or $F(x)$. This information can help find a specific function when integrating, rather than a family of functions connected by a $+C$. This is called an **initial value problem**.
 
-The area underneath the graph is $18.3083 ~units^2 \approx 18.31 ~units^2~(2dp)$  
-
-### Initial value problem (IVP)
-
-#### Example A {-}
+:::{.callout-tip title="Example A"}
 
 > Let $f'(x)=6x+1$. It is given that $f(5)=14$. Find the expression for $f(x)$.
 
-Step 1: Find the indefinite integral $f(x)=\int 6x+1~dx = 3x^2 + x + c$ (do not forget the +c !!)
+First, find the indefinite integral: $f(x) = \int 6x+1~\text{d}x = 3x^2 + x + C$. Then substitute in the initial values to find the value of $C$.
 
-Step 2: Substitute the "initial values" to find the value of $c$
+Since we are told that $f(5)=14$ we need to substitute $x=5$ into the expression and set it equal to $14$. That is $3(5)^2 + 5 + C = 14$ which after simplifying and rearranging gives $C = -66$.
+:::
 
-Since we are told that $f(5)=14$ we need to substitute $x=5$ into the expression and set it equal to $14$. Use Wolfram Alpha, "3x^2 + x + c where x=5". This simplifies to: 80+c
+:::{.callout-tip title="Example B"}
 
-Next, make that expression equal to $14$, i.e. enter the command "80+c=14" to find the value of $c$. 
+> The acceleration of a particle is given by $a(t)=8t^3 - 5t +9$. It is known that the velocity of the initial velocity of the particle is $5\text{m/s}$. Find the function of the velocity.
 
-![](images/09/ivp1.png)
-
-Therefore, $f(x) =3x^2 + x - 66$.
-
-#### Example B {-}
-
-> The acceleration of a particle is given by $a(t)=8t^3 - 5t +9$. It is known that the velocity of the initial velocity of the particle is $5 m/s$. Find the function of the velocity.
-
-Step 1: Find the indefinite integral $v(t)=\int a(t) dx = \int 8x^3 - 5x +9 ~dx = 2t^4 - \frac52 t^2 + 9t + c$ (Using Wolfram Alpha `integrate` command) 
-
-![](images/09/ivp2.png)
-
-Step 2: Use the initial values to find the value of the "constant of integration $c$" The question tells us that the initial velocity $v_o$ is $5 m/s$. This means that $v(0) = 5$.
-
-To find what the value of $c$ you need to substitute $t=0$ and set the expression equal to 5.
-
-Type: `2t^4 - 5/2 t^2 + 9t + c when t=0`"`. This will return simply "c". Therefore, $c=5$.  
-
-Therefore the function for the velocity is $v(t)=2t^4 - \frac52 t^2 + 9t + 5$.  
-
-#### Example C {-}
-
-Find the expression for $g(t)$ given that $g'(t) = \sqrt{2x-5} $ and it is known that $g(x)$ passes through the point $(7,5)$.
-
-Step 1: Find the indefinite integral Using the command `integrate sqrt(2x-5)` which results in: 
-
-![](images/09/ivp3.png)
-
-So, $g(t)=\frac13(2t-5)^{\frac32}+c$.
-
-Step 2: Use the initial values to find the value of the "constant of integration $c$" Now, we need to use the information that the graph passes through the point $(7,5)$. Substitute these values into$g(t)=\frac{1}{3}(2t-5)^{\frac{3}{2}}+c$ and then solve for $c$.
-
-In other words, first use the command `1/3*(2t-5)^(3/2)+c when t=7` This results in: 9+c. Set this expression equal to 5 so you have the command "9 +c = 5" and the result will give you:
-
-![](images/09/ivp4.png)
-
-Therefore, $g(t)=\frac13(2t-5)^{\frac32}-4$ 
-
-#### Example D {-}
-
-Find the expression for $k(x)$ given that $k'(x) = \cos(\pi x) $ and that $k(\frac12) = 0.1 $.
-Step 1. Find the indefinite integral using the command "integrate cos(pi x)" which results in 
-
-![](images/09/ivp5.png)
-
-So, $k(x)=\frac{sin(\pi x)}{\pi} + c$.
-
-Step 2. Substitute $k(\frac12) = 0.1 $ into the above expression:
-
-$$\frac{sin(\pi \times \frac12)}{\pi} + c = 0.1$$
-
-Then solve for $c$. Use the command: "sin(pi 1/2)/pi + c =0.1". This will give you $c=-0.21831 \approx -0.22~(2dp)$Therefore, $k(x)=\frac{sin(\pi x)}{\pi} -0.22$
-
-
-## Applying Integration
-
-So far, we've only looked at how to integrate but not really considered **why **one would want to integrate. Initially, we looked at the link between acceleration, velocity and displacement, but another important - and useful - application is for the computation of areas and volumes.
-
-In general, integration is also important in the solving of of differential equations but that is a topic that we will not cover in this course. These can be used to model all sorts of real-world phenomena, including population growth, weather, and the motion of planets - so finding solutions is of great practical significance.
-
-### Acceleration -> Velocity -> Displacement
-
-![](images/09/application1.png)
-
-#### Area under the curve {-}
-
-![](images/09/application2.png)
-
-#### Area under the curve II {-}
-
-![](images/09/application3.png)
-
-#### Area under the curve III {-}
-
-![](images/09/application4.png)
-
-#### Summary integration {-}
-
-![](images/09/summary.png)
-
-### Area under a curve
-
-We are all familiar with finding the area of shapes like triangles, rectangles and circles.
-But how can we go about finding areas which are more complicated, e.g. the area under the curve $y=x^2$?
-
-![](images/09/area-under1.png)
-
-Consider the graph of $y=x^2$. The blue shaded area is the area under the graph vertically between the graph of $f(x)$ and the $x-$axis. We can get an estimate for the area from counting the number of square. You can see that there are more than eight squares shaded in (combine partial squares). To calculate the area under the curve we use integration. Area = $\int^3_0 f(x) ~dx = [ \frac{1}{3} x^3 ]^3_0 = \frac13 (3^3-0^3) = 9 \text{ units}^2 $.    
-
-#### Example 1 {-}
-
-> Find the area enclosed by the graph of $y= -\frac{9}{2} - \frac{3}{4} x + \frac14 x^2$ and the $x-$axis.
-
-![](images/09/area-under2.png)
-
-In Wolfram Alpha, use the command `area under-9/2 - (3 x)/4 + x^2/4` to obtain the area:
-
-![](images/09/area-under3.png)
-
-The area between the parabola and the $x-$axis is therefore $30.375 ~units^2$.  
-
-#### Example 2 {-}
-
-> Find the area between the sine curve $y=\sin(x)$ and the $x-$axis from $0$ to $2\pi$.
-
-![](images/09/area-under4.png)
-
-Use the command `area under sin(x) from 0 to 2pi`. It will give you:
-
-![](images/09/area-under5.png)
-
-So the area is $4 ~units^2$. 
-
-
-Please note that integrating $y=sin(x)$ from $0$ to $2\pi$ would not result in the area between the graph and the curve. If you used the command `integrate sin(x) from 0 to pi` in Wolfram Alpha it returns 0. This is because integrating when a curve is under the x-axis results in a negative value, even as there is no such thing as negative areas.
-
-### Areas between curves
-
-So far we have used integration to find the area under a curve, or between a curve and the $x$-axis. Here, we will consider the more general case where the area we want to find is between two curves.
-For example, how can we find the area of the region enclosed by $y=x^2$ and $y=x+2$?
-
-![](images/09/10-2-1_parabola_line.png)
-
-Notice that we could find this from two areas that we already know how to compute:
-
-| ![](images/09/10-2-1_line_area.png) | ![](images/09/10-2-1_parabola_area.png) |
-| :-: | :-: |
-| The area under $y=x+2$ between $x=-1$ and $x=2$. | The area under $y=x^2$ between $x=-1$ and $x=2$ |
-| $\displaystyle \int_{-1}^2 \left(x+2\right)\,dx$ | $\displaystyle \int_{-1}^2 \left(x^2\right)\,dx$ |
-
-The area we want is the difference of these two, and by the properties of the definite integral we can write this as $$ \int_{-1}^2 \left(x+2\right)\,dx - \int_{-1}^2 \left(x^2\right)\,dx = \int_{-1}^2 \left(\left(x+2\right)-\left(x^2\right)\right)\,dx.
+We find that the indefinite integral is
 $$
-So to find the area between theses two graphs, we ask Wolfram Alpha to `area between x^2 and x+1`
+  v(t) = \int a(t)~\text{d}t = \int 8t^3 - 5t + 9~\text{d}t = 2t^4 - \frac{5}{2}t^2 + 9t + C.
+$$
+The question tells us that the initial velocity is $5\text{m/s}$; this means that $v(0) = 5$. Substituting and solving as before, we find that $C = 5$.  
 
-![](images/09/area-between-wolfram2.png)
+Therefore the function for the velocity is $v(t)=2t^4 - \frac52 t^2 + 9t + 5$.
 
-So the area between the two curves is 4.5 $units^2$.
+## Applications
 
-#### Example 1 {-}
+So far, we've only looked at how to integrate but not really considered **why** one would want to integrate. Integration is often associated with computing areas like we've talked about, but it can also find volumes and other physical quantities too.
 
-> Find the area enclosed by the parabola $y=16-x^2$ and the line $y=7$.
+Integration is also important when solving of differential equations - though that's a topic beyond the scope of this course. These can be used to model all sorts of real-world phenomena, including population growth, weather, and the motion of planets, so finding solutions is of great practical significance.
 
-In Wolfram Alpha, type `area between 16-x^2 and 7`.
+### Acceleration, velocity, displacement
 
-![](images/09/area-between-wolfram.png)
+Initially, we looked at the link between acceleration, velocity and displacement when it came to differentiation. Let's look at this again using what we now know about integration.
 
-The area between is therefore $36~units^2$.
+![](images/09/application1.png){width=80% fig-alt="Let us consider another characteristic of functions/graphs: the area underneath the curve."}
 
-#### Example 2 {-}
+![](images/09/application2.png){width=70% fig-align="center" fig-alt="The area uder the graph of acceleration is the velocity."}
 
-> Find the area between $y=sin(3x)$ and $y=5-e^x$ from the $y-axis$ to their point of intersection.
 
-If you ask Wolfram Alpha to compute the area between the two graphs, it will tell you that "(could not compute the area between the curves)". This is because the area is infinitely large as you can see from the graph. 
+![](images/09/application3.png){width=70% fig-align="center" fig-alt="The area uder the graph of velocity is the distance."}
 
-But you can compute the area between two limits, and one might be to find the area between two curves from $x=0$ to their point of intersection, as in this example.
+![](images/09/application4.png){width=80% fig-align="center" fig-alt="Finding the area under the curve is done by integrating."}
 
-Step 1: Find the point of intersection by using the command "intersection sin(3x) and 5-e^x ". This will give you $x \approx 1.76413$. 
+This speaks to how integration can link these concepts together.
 
-Step 2: Find the area from $0$ to the point of intersection between the two graphs. Use the command "area between sin(3x) and 5-e^x from 0 to 1.76413".
-
-![](images/09/area-between.png)
-
-The area is therefore $3.83~units^2$ (2dp).
+![](images/09/summary.png){width=50% fig-align="center" fig-alt="Decorative: summary of the relationships talked about above in a flowchart."}
