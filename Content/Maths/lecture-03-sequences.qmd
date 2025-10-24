@@ -77,3 +77,15 @@ $$
 $$
 This formula doesn't hold when $r = 1$ since it would require dividing by zero, though in that case the value of $S_n$ can be worked out directly from its definition.
 :::
+
+### Exponential Growth
+
+Geometric series with $r > 1$ are often used to model exponential growth. For example, what if $a_0 = 2$, $r = 2$ then the initially small numbers will increase initially slowly but faster and faster:
+$$
+  2, 4, 8, 16, 32, 64, 128, \ldots
+$$
+
+
+![](images/08/douglas-coffee-solution.png){width=60% fig-align="center" fig-alt="Decorative: visual depiction of the above sequence using increasing squares."}
+
+With each step, the increase is twice as large as the previous step.
