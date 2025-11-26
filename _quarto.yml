@@ -31,7 +31,6 @@ website:
           - text: "Week 06 – Probability"
             href: Content/Maths/lecture-06-probability.qmd
             
-            
       - text: "Maths Tutorials"
         menu:
           - text: "Week 01 – Tutorial: Functions"
@@ -47,7 +46,6 @@ website:
           - text: "Week 06 – Tutorial: Probability"
             href: Tutorials/Maths/workshop-06-probability.qmd
             
-            
       - text: "Stats Content"
         menu:
           - text: "Week 07 – Getting Ready with R and RStudio"
@@ -55,7 +53,7 @@ website:
           - text: "Week 08 – Research Questions, Variables, and Study Design"
             href: Content/Stats/week-08-content-stats.qmd
           - text: "Week 09 –Categorical variables "
-            href: Content/Stats/week-09-content-stats.qmd   # note 09 vs 9 if needed
+            href: Content/Stats/week-09-content-stats.qmd
           - text: "Plots – Grammar of Graphics"
             href: Content/Stats/Plots_and_grammar.qmd
           - text: "Week 10 – "
@@ -67,7 +65,6 @@ website:
           - text: "Week 13 – "
             href: Content/Stats/week-13-content-stats.qmd
 
-         
       - text: "Stats Tutorials"
         menu:
           - text: "Week 07 – Tutorial 00"
@@ -91,8 +88,6 @@ website:
           - text: "Week 16 – Tutorial 09"
             href: Tutorials/Stats/week-16/week-16-tutorial-stats.qmd
 
-
-
       - text: "R Support"
         menu:
           - text: "Getting Ready with R and RStudio – IFP"
@@ -100,12 +95,11 @@ website:
           - text: "R Basics: Syntax and Variables"
             href: "R Support/R Basics_Syntax_&_Variables.qmd"
 
-
 format:
   html:
     theme:
-      light: default      # or another light theme if you prefer
-      dark: darkly        # a built-in dark theme
+      light: default
+      dark: darkly
       
 execute:
   fig-dev: ragg_png
