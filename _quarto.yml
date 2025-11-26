@@ -66,7 +66,7 @@ website:
             href: Content/Stats/week-12-content-stats.qmd
           - text: "Week 13 – "
             href: Content/Stats/week-13-content-stats.qmd
-            
+
          
       - text: "Stats Tutorials"
         menu:
@@ -91,7 +91,8 @@ website:
           - text: "Week 16 – Tutorial 09"
             href: Tutorials/Stats/week-16/week-16-tutorial-stats.qmd
 
-         
+
+
       - text: "R Support"
         menu:
           - text: "Getting Ready with R and RStudio – IFP"
