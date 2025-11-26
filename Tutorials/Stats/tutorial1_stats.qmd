@@ -1,0 +1,20 @@
+---
+title: "Tutorial 01"
+editor: visual
+---
+
+Data Set
+
+| **Variable name** | **Type** | **Description** | **Example values** |
+|---------------------|----------------|---------------------|----------------|
+| **ID** | Categorical (nominal) | Unique participant identifier (anonymous student code). | S001, S002, S003 |
+| **Gender** | Categorical (nominal) | Self-identified gender of the student. | Female, Male, Non-binary |
+| **Study_hours** | Numeric (continuous) | Average number of hours spent studying per day. | 6.8, 3.1, 8.2 |
+| **Sleep_hours** | Numeric (continuous) | Average number of hours of sleep per night. | 7.4, 5.8, 8.2 |
+| **Stress_level** | Categorical (ordinal) | Self-reported stress level. | Low, Moderate, High |
+| **Satisfaction_Likert_item** | Categorical (ordinal) | Verbal response to “How satisfied are you with your university experience?” | Very Dissatisfied, Dissatisfied, Neutral, Satisfied, Very Satisfied |
+| **Satisfaction_Likert_value** | Numeric (ordinal/interval-like) | Numeric version of the Likert item, coded from 1 (Very Dissatisfied) to 5 (Very Satisfied). | 1–5 |
+| **Coffee_per_day** | Numeric (discrete) | Number of cups of coffee (or caffeinated drinks) consumed daily. | 0, 1, 2, 3, 4 |
+| **Social_media_hr** | Numeric (continuous) | Average number of hours spent on social media per day. | 2.4, 4.7, 1.9 |
+| **Exercise** | Categorical (binary) | Whether the student engages in regular physical exercise. | Yes, No |
+| **Overall_mark** | Numeric (continuous) | Overall university mark as a percentage (UK system). | 55, 68, 78 |

@@ -1,6 +1,19 @@
 ---
-title: "Week 12 – Tutorial (Stats)"
-format: html
+title: " – MSDA IFP"
+subtitle: "Week 12 – Tutorial 05"
+format:
+  html:
+    layout: article
+    toc: true
+    toc-depth: 3
+    code-annotations: hover
+    code-line-numbers: false
+    code-fold: false
+    code-fold-label: "Code"
+    code-block-background: true
+    code-block-bg: true
+    highlight-style: "pygments"
+    css: styles.css
 ---
 
 Coming soon!

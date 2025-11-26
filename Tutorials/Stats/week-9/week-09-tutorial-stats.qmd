@@ -1,6 +1,582 @@
 ---
-title: "Week 09 – Tutorial (Stats)"
-format: html
+title: " Categorical Data – MSDA IFP"
+subtitle: "Week 09 – Tutorial 02"
+format:
+  html:
+    layout: article
+    toc: true
+    toc-depth: 3
+    code-annotations: hover
+    code-line-numbers: false
+    code-fold: false
+    code-fold-label: "Code"
+    code-block-background: true
+    code-block-bg: true
+    highlight-style: "pygments"
+    css: styles.css
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-Coming soon!
+## 1. Tasks For formative report
+
+This week’s task is highlighted in bold below. Please only focus on
+completing that task this week. In the next section, you will also find
+guided sub-steps you may want to consider to complete this week’s task.
+
+::: task-block
+<p class="task-main">
+
+1) Read the College dataset into R, inspect it, and write a concise
+introduction to the data and its structure.
+
+</p>
+
+<p class="task-sub">
+
+<strong style="color:#1a73e8;">2) Display and describe the categorical variables.</strong>
+
+</p>
+
+<p class="task-sub">
+
+3) Display and describe a selection of numeric variables.
+
+</p>
+
+<p class="task-sub">
+
+4) Display and describe at least one relationship between two or three variables.
+
+</p>
+
+<p class="task-sub">
+
+5) Finish the report write-up, knit to PDF, and submit.
+
+</p>
+:::
+
+
+This tutorial is designed to help you complete **Task 2**.
+
+## 1.1 Task 2 – sub-tasks
+
+## 1.1 Task 2 – sub-tasks
+
+::: {.callout-tip .margin}
+**Tip:** Hover over the footnotes for hints showing useful R functions.
+:::
+
+This week you will only focus on **Task 2: Display and describe the categorical variables**.  
+Below there are some guided sub-steps you may want to consider to complete **Task 2**.
+
+- Reopen last week’s `.qmd` file, as you will continue last week’s work and build on it.[^1]
+
+1. Read the **CollegeScores** dataset into R (from the provided CSV file in `datasets/`) and give the object a sensible name (for example `college`).[^2]
+
+2. Use functions such as `glimpse()` or `str()` to check the structure of the dataset and identify which variables are **categorical** (e.g. `State`, `Control`, `Region`, `Locale`, `Main`, `Online`).[^3]
+
+3. Convert these categorical variables to **factors** in R so that they are treated correctly in plots and summaries.[^4]
+
+4. Create **bar plots** showing the frequency distribution of at least three categorical variables  
+   (for example: number of institutions by `Region`, by `Control`, and by `Locale`).[^5]
+
+5. Improve the readability of your bar plots by:
+   - rotating x-axis labels if the names are long  
+   - ordering categories by frequency using `fct_infreq()` where appropriate  
+   - adding clear axis labels and an informative title with `labs()`.[^6]
+
+6. For the same categorical variables, create **frequency tables** showing both the **count** and the **percentage** of institutions in each category.[^7]
+
+7. Format your frequency tables neatly using `kbl()` from the **kableExtra** package, so they are ready to include in your report.[^8]
+
+8. In your written **Analysis** section, describe the distributions in words. For example:
+   - Which categories are most common?  
+   - Are some categories rare?  
+   - Is the distribution fairly balanced or dominated by one or two groups?
+
+9. For each categorical variable in your report, include **either** the bar plot **or** the frequency table (not both) to avoid duplicating information.
+
+[^1]: Hint: Open the same `.qmd` file you used for Task 1 so you keep building a single report.
+[^2]: Hint: Use `read_csv("datasets/CollegeScores_teaching.csv")` from the **readr** package.
+[^3]: Hint: Try `glimpse(college)` from **dplyr** or `str(college)`.
+[^4]: Hint: Use `mutate()` with `factor()`, for example  
+      `college <- college |> mutate(Control = factor(Control), Region = factor(Region))`.
+[^5]: Hint: Use `ggplot(college, aes(x = Control)) + geom_bar()`.
+[^6]: Hint: `theme(axis.text.x = element_text(angle = 45, hjust = 1))` and `fct_infreq()` from **forcats**.
+[^7]: Hint: `college |> count(Control) |> mutate(Percent = round(n / sum(n) * 100, 2))`.
+[^8]: Hint: `kbl(your_table, booktabs = TRUE, digits = 2)`.
+
+
+
+You do **not** need to include R output in the report; you only need the
+**written description**. Keep this paragraph; you will re-use it in your
+report.
+
+
+## Data
+
+[CollegeScores Dataset]{.data-title}
+
+You will work with the *CollegeScores* dataset in this tutorial.\
+At the link **CollegeScores_teaching.csv** you will find information
+about **400 higher-education institutions in the United States**.\
+The dataset includes variables describing each institution’s location,
+sector (public/private), tuition costs, enrolment, and the demographic
+composition of their student body.
+
+```{r college-direct, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tibble)
+library(gt)
+library(dplyr)
+
+college_dict <- tribble(
+  ~Variable,    ~Description,
+  "Name",       "Name of the school",
+  "State",      "State where the school is located",
+  "ID",         "ID number for school",
+  "Main",       "Main campus? (1 = yes, 0 = branch campus)",
+  "Accred",     "Accreditation agency",
+  "MainDegree", "Predominant undergrad degree (0 = not classified, 1 = certificate, 2 = associate, 3 = bachelors, 4 = only graduate)",
+  "HighDegree", "Highest degree (0 = no degrees, 1 = certificate, 2 = associate, 3 = bachelors, 4 = graduate)",
+  "Control",    "Control of school (Private, Profit, Public)",
+  "Region",     "Region of country (Midwest, Northeast, Southeast, Territory, West)",
+  "Locale",     "Locale (City, Rural, Suburb, Town)",
+  "Latitude",   "Latitude",
+  "Longitude",  "Longitude",
+  "AdmitRate",  "Admission rate",
+  "MidACT",     "Median of ACT scores",
+  "AvgSAT",     "Average combined SAT scores",
+  "Online",     "Only online (distance) programmes",
+  "Enrollment", "Undergraduate enrolment",
+  "White",      "Percent of undergraduates who report being white",
+  "Black",      "Percent of undergraduates who report being black",
+  "Hispanic",   "Percent of undergraduates who report being Hispanic",
+  "Asian",      "Percent of undergraduates who report being Asian",
+  "Other",      "Percent of undergraduates who do not report one of the above",
+  "PartTime",   "Percent of undergraduates who are part-time students",
+  "NetPrice",   "Average net price (cost minus aid)",
+  "Cost",       "Average total cost for tuition, room, board, etc.",
+  "TuitionIn",  "In-state tuition and fees",
+  "TuitionOut", "Out-of-state tuition and fees",
+  "TuitionFTE", "Net tuition revenue per FTE student",
+  "InstructFTE","Instructional spending per FTE student",
+  "FacSalary",  "Average monthly salary for full-time faculty",
+  "FullTimeFac","Percent of faculty who are full-time",
+  "Pell",       "Percent of students receiving Pell grants",
+  "CompRate",   "Completion rate (percent who finish programme within 150% of normal time)",
+  "Debt",       "Average debt for students who complete the programme",
+  "Female",     "Percent of female students",
+  "FirstGen",   "Percent of first-generation students",
+  "MedIncome",  "Median family income (in $1,000)"
+)
+
+
+
+
+library(gt)
+library(tibble)
+
+college_dict |>
+  gt() |>
+  cols_label(
+    Variable    = "Variable Name",
+    Description = "Description"
+  ) |>
+  # stop wrapping in the header
+  tab_style(
+    style = cell_text(whitespace = "nowrap"),
+    locations = cells_column_labels(columns = Variable)
+  ) |>
+  # bold headings
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) |>
+  # bold variable names
+  #tab_style(
+  #  style = cell_text(weight = "bold"),
+   # locations = cells_body(columns = Variable)
+  #) |>
+  # 👉 add horizontal space by widening the first column
+  cols_width(
+    Variable    ~ px(180),   # wider first column = more gap to the next
+    Description ~ px(600)    # optional: set width for the description column
+  ) |>
+  opt_row_striping() |>
+  tab_options(
+    table.font.size  = px(13.6),
+    data_row.padding = px(6)
+  )
+```
+
+
+
+
+## 2 Worked Example
+
+Consider the dataset provided in `datasets/HollywoodMovies.csv`,
+containing **1295 observations** on the following **15 variables**:
+
+```{r hollywood-dict, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tibble)
+library(gt)
+library(dplyr)
+
+hollywood_dict <- tribble(
+  ~Variable,         ~Description,
+  "Movie",           "Title of the movie",
+  "LeadStudio",      "Primary U.S. distributor",
+  "RottenTomatoes",  "Critics' rating (Rotten Tomatoes)",
+  "AudienceScore",   "Audience rating (Rotten Tomatoes)",
+  "Genre",           "Film genre (e.g., Action Adventure, Comedy, Thriller)",
+  "TheatersOpenWeek","Number of screens on opening weekend",
+  "OpeningWeekend",  "Opening weekend gross (in millions)",
+  "BOAvgOpenWeekend","Average box office income per theatre, opening weekend",
+  "Budget",          "Production budget (in millions)",
+  "DomesticGross",   "U.S. gross income (in millions)",
+  "ForeignGross",    "Foreign gross income (in millions)",
+  "WorldGross",      "Worldwide gross income (in millions)",
+  "Profitability",   "Worldwide gross as a percentage of budget",
+  "OpenProfit",      "Percentage of budget recovered on opening weekend",
+  "Year",            "Year of release"
+)
+
+hollywood_dict |>
+  gt() |>
+  cols_label(
+    Variable    = "Variable Name",
+    Description = "Description"
+  ) |>
+  # prevent header wrapping
+  tab_style(
+    style = cell_text(whitespace = "nowrap"),
+    locations = cells_column_labels()
+  ) |>
+  # bold headers
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) |>
+  # widen columns for spacing
+  cols_width(
+    Variable    ~ px(180),
+    Description ~ px(600)
+  ) |>
+  opt_row_striping() |>
+  tab_options(
+    table.font.size  = px(13.6),
+    data_row.padding = px(6)
+  )
+```
+
+These data were compiled from Box Office Mojo, The Numbers, and Rotten
+Tomatoes.
+
+::: margin
+We load the `tidyverse` package as we will use the functions\
+`read_csv()` and `glimpse()` from this package.
+:::
+
+#### Load tidyverse and import the data
+
+```{r load_library, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+::: margin
+`read_csv()` reads CSV (comma-separated values) files.\
+The loaded data are stored in an object called `movies` using the arrow
+`<-`.
+:::
+
+```{r load_data, echo=TRUE, message=FALSE, warning=FALSE}
+movies <- read_csv("HollywoodMovies.csv")
+```
+
+```{r}
+movies <- movies |>
+  select(1:15)
+
+glimpse(movies)
+
+```
+
+### 3.1 Visualising categorical variables
+
+| Variable       | Why categorical?                                 |
+|----------------|--------------------------------------------------|
+| **Movie**      | Unique labels (ID variable)                      |
+| **LeadStudio** | Qualitative categories                           |
+| **Genre**      | Qualitative categories                           |
+| **Year**       | Distinct categories, not continuous numeric data |
+
+You will create **bar plots** for:
+
+-   `Genre`
+
+-   `LeadStudio`
+
+-   `Year`
+
+Bar plots are the standard way to display categorical frequencies.
+
+#### Genre frequency plot
+
+```{r}
+plot_genre <- ggplot(movies, aes(x = Genre)) +
+  geom_bar() +
+  labs(x = "Movie Genre", y = "Frequency") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+plot_genre
+```
+
+#### LeadStudio frequency plot
+
+```{r}
+library(tidyverse)
+library(forcats)
+
+plot_LeadStudio  <- ggplot(movies, aes(x = fct_infreq(LeadStudio))) +
+  geom_bar() +
+  labs(
+    x = "Lead Studio (sorted by frequency)",
+    y = "Count",
+    title = "Frequency of Lead Studios"
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 150, by = 20)   # More detailed count axis
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1,
+      size = 6,                    # Smaller labels so they fit
+      lineheight = 0.8
+    ),
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.text.y = element_text(size = 9)
+  )
+
+plot_LeadStudio
+```
+
+Flip
+
+```{r, fig.height=15}
+ggplot(movies, aes(x = fct_infreq(LeadStudio))) +
+  geom_bar() +
+  coord_flip() +
+  labs(x = "Lead Studio (sorted by frequency)", y = "Count") +
+  theme_minimal() +
+  scale_y_continuous(breaks = seq(0, 150, by = 10))
+```
+
+#### Show only the top N studios (recommended)
+
+Most analyses only need the *most frequent* studios.
+
+```{r}
+library(tidyverse)
+
+top_studios <- movies |>
+  count(LeadStudio) |>
+  arrange(desc(n)) |>
+  slice_head(n = 10)   # top 10 studios
+top_studios
+```
+
+```{r}
+
+# Plot with readable labels
+ggplot(top_studios, aes(x = fct_reorder(LeadStudio, n), y = n)) +
+  geom_col(fill = "grey40") +
+  labs(
+    x = "Lead Studio",
+    y = "Count",
+    title = "Top 10 Most Common Lead Studios"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1,
+      vjust = 1
+    )
+  )
+
+```
+
+-   **`slice(1:10)`** limits the graph to the top 10 studios → readable.
+
+-   **`fct_reorder()`** orders bars by frequency.
+
+-   **`angle = 45`** rotates labels so they don’t overlap.
+
+-   **`base_size = 14`** makes everything easier to read.
+
+If you want *horizontal bars* (even cleaner for long labels), use:
+
+```{r}
+ggplot(top_studios, aes(x = n, y = fct_reorder(LeadStudio, n))) +
+  geom_col(fill = "grey40") +
+  labs(
+    x = "Count",
+    y = "Lead Studio",
+    title = "Top 10 Most Common Lead Studios"
+  ) +
+  theme_minimal(base_size = 14)
+
+```
+
+This horizontal version is often the best for categorical names.
+
+#### Thinking question: Should we plot Movie Titles?
+
+```{r}
+ggplot(movies, aes(x = Movie)) + geom_bar()
+```
+
+::: {.callout-warning title="Would plotting movie titles give any useful insight?"}
+\-`Movie` is an **identifier variable**: each title appears only once.
+-A bar plot of titles would have **hundreds of bars of height 1**, which
+is very hard to read and does not summarise the data. -In reports, we
+usually **do not visualise ID variables**; instead, we focus on
+variables that group observations into meaningful categories (such as
+`Genre` or `LeadStudio`).
+:::
+
+#### Year frequency plot
+
+```{r}
+ggplot(movies, aes(x = factor(Year))) +
+geom_bar() +
+labs(
+x = "Year of Release",
+y = "Frequency",
+title = "Number of Movies Released per Year"
+) +
+theme_minimal() +
+theme(
+axis.text.x = element_text(
+angle = 45,
+hjust = 1
+)
+)
+
+```
+
+### 3.2 Frequency tables with percentages
+
+**Genre frequency table**
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+
+# Genre frequency table
+tbl_genre <- movies |>
+  count(Genre, name = "n") |>
+  mutate(
+    Percent = round((n / sum(n)) * 100, digits = 2)
+  ) |>
+  arrange(desc(n))
+
+tbl_genre
+
+```
+
+**LeadStudio frequency table**
+
+```{r}
+# LeadStudio frequency table
+tbl_studio <- movies |>
+  count(LeadStudio, name = "n") |>
+  mutate(
+    Percent = round((n / sum(n)) * 100, digits = 2)
+  ) |>
+  arrange(desc(n))
+
+tbl_studio
+
+
+```
+
+```{r}
+tbl_studio_top10 <- tbl_studio |>
+  slice(1:10)
+```
+
+#### Formatting tables nicely
+
+```{r}
+
+kbl(
+  list(
+    tbl_genre,
+    tbl_studio_top10
+  ),
+  booktabs = TRUE,
+  digits = 2,
+  col.names = c("Category", "Count", "Percent")
+)
+
+```
+
+If you prefer **separate tables with captions** you can reference in the
+text:
+
+```{r}
+# Genre table
+tbl_genre |>
+  kbl(
+    booktabs = TRUE,
+    digits = 2,
+    caption = "Frequency distribution of movie genres",
+    col.names = c("Genre", "Count", "Percent")
+  )
+
+# Lead studio table (top 10)
+tbl_studio_top10 |>
+  kbl(
+    booktabs = TRUE,
+    digits = 2,
+    caption = "Top 10 most common lead studios",
+    col.names = c("Lead Studio", "Count", "Percent")
+  )
+
+```
+
+Then in your `.qmd` text you can reference them like:
+
+``` markdown
+Table \@ref(tab:genre-table) shows the frequency and percentage of each film genre.
+
+Table \@ref(tab:studio-table) summarises the ten most common lead studios.
+```
+
+(using the corresponding chunk labels,
+e.g. `{r genre-table}` and `{r studio-table}` for the chunks that create
+each `kbl`).
+
+### What is the most common category?
+
+-   **Most common genre** = category with the highest frequency
+
+-   **Most common lead studio** = category with the highest frequency
+
+You can identify this from the **sorted** tables or by
+using `slice_max()`:
+
+```{r}
+slice_max(tbl_genre, n, n = 1)
+```
+
+```{r}
+slice_max(tbl_studio, n, n = 1)
+```

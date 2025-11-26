@@ -1,6 +1,21 @@
 ---
-title: "Week 10 – Tutorial (Stats)"
-format: html
+title: " Numeric data– MSDA IFP"
+subtitle: "Week 10 – Tutorial 03"
+format:
+  html:
+    layout: article
+    toc: true
+    toc-depth: 3
+    code-annotations: hover
+    code-line-numbers: false
+    code-fold: false
+    code-fold-label: "Code"
+    code-block-background: true
+    code-block-bg: true
+    highlight-style: "pygments"
+    css: styles.css
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-Coming soon!

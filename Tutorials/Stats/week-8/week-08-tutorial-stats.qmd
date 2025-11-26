@@ -1,6 +1,782 @@
 ---
-title: "Week 08 – Tutorial (Stats)"
-format: html
+title: "Research Design & Data – MSDA IFP"
+subtitle: "Week 08 – Tutorial 01"
+format:
+  html:
+    layout: article
+    toc: true
+    toc-depth: 3
+    code-annotations: hover
+    code-line-numbers: false
+    code-fold: false
+    code-fold-label: "Code"
+    code-block-background: true
+    code-block-bg: true
+    highlight-style: "pygments"
+    css: styles.css
 ---
 
-Coming soon!
+# **Part 1: Your First R Markdown File**
+
+To produce short reports that combine code, output, and written explanation, we will use **R Markdown**. 
+
+## 1 Creating and running code in an `.Rmd` file
+
+Create a new R Markdown document via:
+
+**File \> New File \> R Markdown…**
+
+Give your document a title (e.g. *Intro Lab*) and enter your name. Leave **HTML** as the default output format, then click **OK**.
+
+RStudio creates a template file. Delete everything **below the first code chunk** so that you begin with a clean document.
+
+### Adding your first code chunk
+
+Insert a new R code chunk using either:
+
+-   **Insert \> R**, or
+
+-   **Ctrl + Alt + I** (Windows) / **Option + Cmd + I** (macOS)
+
+Inside the chunk, type:
+
+```{r}
+# Packages used in this document
+library(tidyverse)
+```
+
+Running the chunk may produce several informational messages — this is normal.
+
+### Comments in code
+
+Inside a code chunk, `#` creates a *comment* which R ignores. Use comments to explain what your code is doing.
+
+## 2 Writing text in an `.Rmd` file
+
+Outside code chunks you can write ordinary text.
+
+Headings are created using `#`:
+
+``` markdown
+# R code examples
+```
+
+When the `.Rmd` file is rendered, this becomes a formatted heading.
+
+### Recall
+
+-   **Inside a code chunk:** `#` creates a comment
+
+-   **Outside a code chunk:** `#` creates a heading
+
+### Task
+
+Choose a few of the symbols below and, in your `.Rmd`, write:
+
+1.  a short explanation of what each one does
+
+2.  an example inside a code chunk
+
+Available symbols:
+
+``` markdown
++
+-
+*
+/
+()
+^
+<-
+<
+>
+<=
+>=
+==
+!=
+```
+
+You might structure it like this:
+
+```{r}
+# Addition
+2 + 3
+```
+
+## Storing data in R
+
+So far we have stored single numbers using `<-`, for example:
+
+``` r
+x <- 5
+```
+
+To store a sequence of numbers, combine them using the `c()` function.\
+A sequence of elements of the same type is called a **vector**.
+
+For example:
+
+``` r
+myfirstvector <- c(1, 5, 3, 7)
+myfirstvector
+```
+
+R prints:
+
+```         
+[1] 1 5 3 7
+```
+
+You can carry out arithmetic on every element of the vector:
+
+``` r
+myfirstvector + 5
+```
+
+Returns:
+
+```         
+[1] 6 10 8 12
+```
+
+Vectors can also contain words (“character” data):
+
+``` r
+wordsvector <- c("cat", "dog", "parrot", "peppapig")
+wordsvector
+```
+
+R prints:
+
+```         
+[1] "cat" "dog" "parrot" "peppapig"
+```
+
+You may use single or double quotation marks; both work.
+
+You can check the type of an object using `class()`:
+
+``` r
+class(wordsvector)
+```
+
+Because addition only makes sense for numbers, R will give an error if you try an invalid operation:
+
+``` r
+wordsvector + 5
+```
+
+Finally, if you mix types inside `c()`, R converts everything to the most general type (usually characters):
+
+``` r
+mysecondvector <- c(4, "cat")
+mysecondvector
+```
+
+Returns:
+
+```         
+[1] "4" "cat"
+```
+
+Putting all of this together, you now know how R stores individual values, sequences of numbers, and sequences of text, and how R decides what type each vector should be. These tools form the foundation for reading, inspecting, and describing real datasets — skills you will now begin applying in your coursework.
+
+# **Part 2: Instructions**
+
+::: {.callout-important title="Instructions" collapse="true"}
+## Tutorial Format
+
+At the start of each teaching block, you will receive a dataset that you will use throughout the tutorials for that block. By the end of each block, your group will produce a written report analysing the dataset.
+
+**Report deadlines:**
+
+-   **Formative Report :** 12 noon, *Friday 2025*
+
+Reports must be submitted as **PDF files** (not `.qmd` or `.Rmd` source files). As these are **group submissions**, no extensions will be given.
+
+------------------------------------------------------------------------
+
+## Group Setup
+
+Work through tutorial tasks in groups of **up to 5 students**.
+
+-   Each week, one person is the **driver** and the rest are **navigators**.\
+-   The **driver** types the code and edits the report template file.\
+-   The **navigators** read carefully, make suggestions, and help with debugging.\
+-   Rotate the driver each week so that everyone has a turn.
+
+**Driver:**\
+Download the template report file below, upload it to your RStudio, and work in that file. Save regularly via *File → Save*.
+
+👉 [Download the Formative Report template (.Rmd)](templates/formative_report_template.Rmd){download="formative_report_template.Rmd"}
+
+**Navigators:**\
+Support the strategy, spot typos, and help troubleshoot.
+
+------------------------------------------------------------------------
+
+## Report Format
+
+Each report must follow these rules:
+
+-   Submit a **PDF** no longer than **6 sides of A4** (excluding appendices).\
+-   Keep the default knitting settings (font, margins, spacing).\
+-   Appendices do **not** count towards the page limit.\
+-   You must include a **compulsory appendix listing all R code used**.
+
+This is added automatically by including the following section at the very end of your `.qmd` file (already present in the template):
+
+------------------------------------------------------------------------
+
+## Lab Help and Support
+
+The tutorials are designed with multiple layers of support. If you are unsure or stuck: Raise your hand for help from a tutor. Hover over the superscript numbers to view quick hints for commands and functions. Scroll to the Worked Example section at the bottom of the tutorial to see a parallel worked solution in R. Even if you complete the task without the Worked Example, make sure you read it carefully during independent study — it is designed to reinforce the reasoning and R skills you will need for later weeks.
+:::
+
+# 1 Formative Report
+
+In this block you will work in groups with a single dataset, which you will analyse in your **Formative Report A**.The report is written for a **general reader with basic statistical knowledge**, not for someone who knows R. This means:
+
+-   Do **not** show R code or console output in the report PDF.
+
+-   Focus on **clear descriptions, well-labelled tables and figures**, and short paragraphs in plain language.
+
+In this first tutorial we begin with **Task 1**, which is about getting to know the data and writing a concise description of it.
+
+::: {.callout-note .margin}
+💡 Keep the paragraph you write for Task A1: you will re-use it in your report.
+:::
+
+## 1.1 Data
+
+[CollegeScores Dataset]{.data-title}
+
+You will work with the *CollegeScores* dataset in this tutorial.\
+At the link **CollegeScores_teaching.csv** you will find information about **400 higher-education institutions in the United States**.\
+The dataset includes variables describing each institution’s location, sector (public/private), tuition costs, enrolment, and the demographic composition of their student body.
+
+You will use this dataset throughout the Stats block for your formative report.\
+Below is a description of the variables included in the dataset.
+
+```{r college-direct, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tibble)
+library(gt)
+library(dplyr)
+
+college_dict <- tribble(
+  ~Variable,      ~Description,
+  "Name",         "Name of the institution",
+  "State",        "U.S. state where the institution is located",
+  "ID",           "Unique identifier for the institution",
+  "Main",         "Main campus indicator (1 = main campus, 0 = branch campus)",
+  "Control",      "Type of institution (Public, Private, For-profit)",
+  "Region",       "Geographical region in the U.S.",
+  "Locale",       "Setting of the institution (City, Suburb, Town, Rural)",
+  "Enrollment",   "Total undergraduate enrolment",
+  "PartTime",     "Percent of undergraduates who are part-time students",
+  "TuitionIn",    "In-state tuition and fees (USD)",
+  "TuitionOut",   "Out-of-state tuition and fees (USD)",
+  "White",        "Percent of undergraduates who identify as White",
+  "Black",        "Percent of undergraduates who identify as Black",
+  "Hispanic",     "Percent of undergraduates who identify as Hispanic",
+  "Asian",        "Percent of undergraduates who identify as Asian",
+  "Other",        "Percent of undergraduates who identify with another racial/ethnic group"
+)
+
+college_dict |>
+  gt() |>
+  cols_label(
+    Variable    = "Variable Name",
+    Description = "Description"
+  ) |>
+  tab_style(
+    style = cell_text(whitespace = "nowrap"),
+    locations = cells_column_labels(columns = Variable)
+  ) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) |>
+  cols_width(
+    Variable    ~ px(180),
+    Description ~ px(600)
+  ) |>
+  opt_row_striping() |>
+  tab_options(
+    table.font.size  = px(13.6),
+    data_row.padding = px(6)
+  )
+
+```
+
+::: callout-tip
+When you write about the data in your report, you will describe variables in words, not as code. This table is your reference for names and meanings.
+:::
+
+## 1.2 Tasks
+
+For Formative Report you will eventually complete several tasks.\
+This week we focus only on Task 1.
+
+::: task-block
+<p class="task-main">
+
+[<strong>1) Read the CollegeScores dataset into R, inspect it, and write a concise introduction to the data and its structure.</strong>]{style="color:#1a73e8;"}
+
+</p>
+
+<p class="task-sub">
+
+2)  Display and describe the categorical variables.
+
+</p>
+
+<p class="task-sub">
+
+3)  Display and describe a selection of numeric variables.
+
+</p>
+
+<p class="task-sub">
+
+4)  Display and describe at least one relationship between two or three variables.
+
+</p>
+
+<p class="task-sub">
+
+5)  Finish the report write-up, knit to PDF, and submit.
+
+</p>
+:::
+
+This tutorial is designed to help you complete **Task 1**.
+
+### 1.3 Task 1, sub-tasks
+
+::: {.callout-tip .margin}
+**Tip:** Hover over the footnotes for hints showing useful R functions.
+:::
+
+This week you only need to complete Task 1. The steps below are suggestions to guide your work.
+
+1.  Read the data into R (from the provided CSV file in datasets/) and give the object a sensible name (for example `college`).[^1]
+
+2.  View the data in RStudio and check that it matches your expectations.[^2]
+
+3.  How many **rows** (observations) are there in the dataset?[^3]
+
+4.  How many **columns** (variables) are there?[^4]
+
+5.  What **type** is each variable in R (character, numeric, factor, etc.)?[^5]
+
+6.  Pick at least four variables (a mix of categorical and numeric). For each one:
+
+    -   State whether it is **categorical** or **numeric**.
+    -   State its **level of measurement** (nominal, ordinal, interval, ratio).
+    -   Give one example value from the data.
+
+7.  For several numeric variables (e.g. `Enrollment`, `TuitionIn`, `TuitionOut`), find the **minimum**, **maximum**, and **mean** values.[^6]
+
+8.  Identify which variables contain **missing values** (if any) and how many.[^7]
+
+9.  Write a short **description of the dataset** (one paragraph) for a generic reader. You might include:
+
+    -   What the data represent.
+    -   How many institutions and variables are included.
+    -   The kinds of information recorded (location, enrolment, costs, student characteristics).
+    -   A brief comment on any clear missing data issues.
+
+[^1]: Hint: use `read_csv()` from the `readr` package.
+
+[^2]: Hint: try `View(DATA)` or `head(DATA)`.
+
+[^3]: Hint: `nrow(DATA)` or `dim(DATA)[1]`.
+
+[^4]: Hint: `ncol(DATA)` or `dim(DATA)[2]`.
+
+[^5]: Hint: `glimpse(DATA)` from the **dplyr** package or `str(DATA)`.
+
+[^6]: Hint: `summary(DATA$Variable)` or `min()`, `max()`, `mean()`.
+
+[^7]: Hint: `summary(DATA)` will show `NA`s per variable.
+
+------------------------------------------------------------------------
+
+You do **not** need to include R output in the report; you only need the **written description**. Keep this paragraph; you will re-use it in your report.
+
+## 2 Worked example
+
+Consider the dataset provided in `datasets/HollywoodMovies.csv`, containing **1295 observations** on the following **15 variables**:
+
+```{r hollywood-dict, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tibble)
+library(gt)
+library(dplyr)
+
+hollywood_dict <- tribble(
+  ~Variable,         ~Description,
+  "Movie",           "Title of the movie",
+  "LeadStudio",      "Primary U.S. distributor",
+  "RottenTomatoes",  "Critics' rating (Rotten Tomatoes)",
+  "AudienceScore",   "Audience rating (Rotten Tomatoes)",
+  "Genre",           "Film genre (e.g., Action Adventure, Comedy, Thriller)",
+  "TheatersOpenWeek","Number of screens on opening weekend",
+  "OpeningWeekend",  "Opening weekend gross (in millions)",
+  "BOAvgOpenWeekend","Average box office income per theatre, opening weekend",
+  "Budget",          "Production budget (in millions)",
+  "DomesticGross",   "U.S. gross income (in millions)",
+  "ForeignGross",    "Foreign gross income (in millions)",
+  "WorldGross",      "Worldwide gross income (in millions)",
+  "Profitability",   "Worldwide gross as a percentage of budget",
+  "OpenProfit",      "Percentage of budget recovered on opening weekend",
+  "Year",            "Year of release"
+)
+
+hollywood_dict |>
+  gt() |>
+  cols_label(
+    Variable    = "Variable Name",
+    Description = "Description"
+  ) |>
+  # prevent header wrapping
+  tab_style(
+    style = cell_text(whitespace = "nowrap"),
+    locations = cells_column_labels()
+  ) |>
+  # bold headers
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) |>
+  # widen columns for spacing
+  cols_width(
+    Variable    ~ px(180),
+    Description ~ px(600)
+  ) |>
+  opt_row_striping() |>
+  tab_options(
+    table.font.size  = px(13.6),
+    data_row.padding = px(6)
+  )
+```
+
+These data were compiled from Box Office Mojo, The Numbers, and Rotten Tomatoes.
+
+::: margin
+We load the `tidyverse` package as we will use the functions\
+`read_csv()` and `glimpse()` from this package.
+:::
+
+#### Load tidyverse and import the data
+
+```{r load_library, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+::: margin
+`read_csv()` reads CSV (comma-separated values) files.\
+The loaded data are stored in an object called `movies` using the arrow `<-`.
+:::
+
+```{r load_data, echo=TRUE, message=FALSE, warning=FALSE}
+movies <- read_csv("HollywoodMovies.csv")
+```
+
+#### Take a first look at the data
+
+::: margin
+`head()` shows by default the first **six** rows of the dataset.\
+Use `n = 10` to show more rows (e.g., `head(movies, n = 10)`).
+:::
+
+```{r head, echo=TRUE, message=FALSE, warning=FALSE}
+head(movies)
+```
+
+::: margin
+`dim()` returns the **dimensions** of the dataset:\
+- number of **rows** (observations)\
+- number of **columns** (variables)
+:::
+
+```{r}
+dim(movies)
+```
+
+::: margin
+`glimpse()` provides a compact summary of the entire dataset.\
+It shows:\
+- the number of **rows** and **columns**\
+- each variable’s **name**\
+- its **type** (e.g., `<dbl>`, `<chr>`)\
+- a preview of the **first few values**
+
+Useful for checking that variables are read correctly and spotting problems such as missing values. Ideal for large datasets.
+:::
+
+```{r}
+glimpse(movies)
+```
+
+::: {.callout-tip title="Example writeup"}
+A dataset containing records for 1295 Hollywood films released between 2012 and 2018 was obtained from public film industry sources including Box Office Mojo, The Numbers, and Rotten Tomatoes. The dataset includes 15 variables describing key financial and categorical features of each film. Four variables are numeric, providing information such as production budget (in millions of dollars), domestic and foreign box office revenue, and worldwide gross. The remaining variables are categorical and describe aspects such as film genre, lead studio, and release year. Initial inspection shows considerable variation in budgets and earnings across films, and several missing values in variables such as Budget, ForeignGross, and Profitability. These data offer a useful basis for examining factors associated with box office performance.
+:::
+
+#### Summary statistics
+
+::: margin
+`summary()` produces quick descriptive statistics for each variable.\
+For numeric variables, it shows the **minimum**, **maximum**, **median**, **mean**, and quartiles.\
+For categorical variables, it shows **frequency counts** for each category.\
+Useful for a fast overview of the dataset.
+:::
+
+```{r}
+summary(movies)
+```
+
+You probably will not understand every part of the summary output yet, and that is completely fine. For now, focus on the minimum, maximum, mean, and the general spread of the numeric variables.
+
+For the categorical variables, the output is not very informative at the moment. These variables are stored as character data, but we can tell R to treat them as *factors*, which makes their behaviour clearer in later analysis.
+
+#### Convert selected variables to factors
+
+::: margin
+**What does `factor()` do?**
+
+`factor()` is a function in R that turns a variable into a **factor**, which is R’s way of storing **categorical data** (groups, labels, categories).
+
+Many datasets import text categories as `"character"` data.\
+Using `factor()` tells R that these values represent **categories**, not free-text.
+:::
+
+```{r}
+movies$Genre <- factor(movies$Genre)
+movies$LeadStudio <- factor(movies$LeadStudio)
+movies$Year <- factor(movies$Year)
+```
+
+For example:
+
+-   `movies$Genre` contains labels such as `"Comedy"`, `"Drama"`, `"Horror"`.\
+-   `factor(movies$Genre)` converts these labels into a categorical variable.
+
+We use:
+
+`movies$Genre <- factor(movies$Genre)`
+
+to **replace** the original column with a factor version of itself.
+
+**The `$` operator**\
+
+The `$` symbol is used to select a single column from a dataset.\
+For example,\
+`movies$Genre` means “the *Genre* column inside the *movies* dataset”.
+
+#### Check the updated structure:
+
+::: margin
+After converting character variables into **factors**, the output of `summary()` becomes much more informative for categorical data.
+
+Instead of only showing `"Length"`, `"Class"`, and `"Mode"`, R now displays the **number of observations in each category** (for example, how many films belong to each genre or studio).
+
+This is why converting categorical variables to factors is useful: it allows R to treat them properly as categories and summarise them in a meaningful way.
+:::
+
+```{r}
+summary(movies)
+```
+
+::: {.callout-important title="How to read the summary output" collapse="false"}
+**How to read the summary output**
+
+The `summary()` function gives a quick statistical overview of every variable in the dataset. For **numeric variables**, it shows:
+
+-   **Min.** – the smallest value
+
+-   **1st Qu.** – the value below which 25% of the data lie
+
+-   **Median** – the middle value
+
+-   **Mean** – the average
+
+-   **3rd Qu.** – the value below which 75% of the data lie
+
+-   **Max.** – the largest value
+
+-   **NA’s** – how many values are missing
+
+These numbers help you understand the overall range and spread of each variable. For example,
+
+ `Budget` ranges from **0.9 to 365 million dollars**, and
+
+ `RottenTomatoes` scores run from **0 to 99**.
+
+For **categorical variables**—now stored as factors—such as `Genre` or `LeadStudio`, the summary shows the **number of observations in each category**. This lets us quickly see which genres or studios appear most often in the dataset.
+
+It is also helpful to check whether the **minimum or maximum values look realistic**. For instance, the `Profitability` variable has a **maximum of 10176%**, meaning a film supposedly earned more than one hundred times its budget. This is unusually high and suggests there may be some data entry errors that need to be investigated later.
+
+Overall, `summary()` provides a useful first look at the structure of the dataset and can help identify potential issues such as unrealistic values or many missing entries.
+:::
+
+#### **Detecting unusual values**
+
+Sometimes it is helpful to look for values that seem unrealistic.\
+From the summary output, we noticed that **Profitability** has a maximum value of **10,176%**, which suggests a film supposedly earned more than *one hundred times* its budget. This is extremely unlikely and probably indicates a data entry error.
+
+To inspect these cases more closely, we can filter the rows where profitability is greater than 1000%:
+
+::: margin
+`a > b` tests whether a is greater than b. `a < b` tests whether a is smaller than b. `a == b` tests whether a is equal to b; notice the double equal sign! You can also use `>=` or `<=`
+:::
+
+```{r}
+movies[movies$Profitability > 1000, ]
+```
+
+If we decide that these values are not plausible, we can replace them with `NA` so they do not distort later analyses:
+
+```{r}
+movies$Profitability[movies$Profitability > 1000] <- NA
+```
+
+### Inspecting the cleaned variable
+
+```{r}
+summary(movies$Profitability)
+```
+
+This output now shows:
+
+-   a much lower and more realistic maximum (now around 993%)
+
+-   an updated **mean** and **median**
+
+-   the number of NA values introduced (319), matching the number we replaced
+
+This check reassures us that the cleaning step worked as expected and reassures us that the values remaining in the dataset are plausible for later analysis.
+
+To check the range more directly, we can examine the minimum and maximum values while ignoring missing data:
+
+```{r}
+min(movies$Profitability, na.rm = TRUE)
+max(movies$Profitability, na.rm = TRUE)
+
+```
+
+::: {.callout-warning title="What to do with NAs afterwards?" collapse="true"}
+-   It is normal for real datasets to contain missing values.
+
+-   Many functions (e.g., `min()`, `mean()`) require `na.rm = TRUE` to ignore them.
+
+-   More advanced handling (e.g., imputation) comes *much later* in the course.
+
+For now, the key idea is simply:\
+**“We remove impossible values so that the dataset provides sensible summaries.”**
+:::
+
+:::: {.callout-note title="What else should we examine?" collapse="true"}
+Here are additional checks that match the psychology approach:
+
+### 2. Check for impossible or negative values
+
+In your dataset, some variables show impossible values:
+
+-   **ForeignGross** has a minimum of **–0.76 million** → negative earnings are impossible
+
+-   **OpeningWeekend** has a minimum close to zero (fine), but some extremely large values
+
+-   **BOAvgOpenWeekend** has a maximum of **240,000**, which seems unusually high for average per-screen income
+
+We can inspect suspicious values:
+
+```{r}
+movies[movies$ForeignGross < 0, ]
+```
+
+Then correct:
+
+```{r}
+movies$ForeignGross[movies$ForeignGross < 0] <- NA
+```
+
+### **3. Explore missing values**
+
+The summary shows many variables with **239 missing values** (Budget, Profitability, OpenProfit).
+
+Add a short explanation:
+
+> Some films have missing financial information—this is common in movie datasets.\
+> We keep missing values as `NA` and handle them later during analysis using functions such as `mean(..., na.rm = TRUE)`.
+
+You can also look at a full missing-data overview:
+
+```{r}
+colSums(is.na(movies))
+```
+
+::: {.callout-note title="Cleaning explaination paragraph"}
+After inspecting the summary output, we noticed that some values were unrealistic, particularly in the *Profitability*variable, which included cases above 10,000%. Since such values imply a film earned more than one hundred times its budget, they are likely due to data entry errors. We therefore identified all films with *Profitability* greater than 1000% and replaced these values with `NA` so they would not distort later analyses. We also checked for other implausible values, such as negative *ForeignGross*, and handled these similarly. Missing values remain coded as `NA`, and functions such as `mean()`, `min()`, and `max()` will require the argument `na.rm = TRUE` to return a numeric result. Re-running `summary(movies)` now provides a more realistic overview of the dataset.
+:::
+::::
+
+After checking for impossible values, correcting clear errors, and converting categorical variables to factors, we now have a cleaner and more reliable dataset. At this stage, the aim is simply to **ensure the data make sense** before moving on to later analytical tasks.
+
+```{r}
+summary(movies)
+
+```
+
+This allows you to confirm:
+
+-   the categorical variables now display meaningful counts for each category
+
+-   extremely large or impossible values have been removed
+
+-   missing values remain coded as NA (ready to be handled properly in later weeks)
+
+-   the numeric summaries (min, max, mean) now fall within sensible ranges
+
+At this point, the dataset is in a good condition for basic exploration.
+
+Now, we have enough information to write a clear introductory paragraph describing the dataset
+
+::: {.callout-tip title="Example writeup"}
+A dataset containing records for 1295 Hollywood films released between 2012 and 2018 was analysed. The dataset includes financial information such as production budget, opening weekend gross, domestic revenue, and worldwide revenue, as well as critics' and audience ratings. Additional variables include film genre, lead studio, and release year. Initial inspection indicated wide variability in budgets and earnings, and some missing values in foreign gross and profitability measures. These data provide a useful foundation for investigating predictors of film success.
+:::
+
+## 3. Student Glossary
+
+To conclude the lab, create a **glossary of R functions**.\
+Use Word, Excel, OneNote, or any tool you like, and make a simple table with two columns:
+
+-   **Function name**
+
+-   **Brief description of what the function does**
+
+This “do it yourself” glossary will help you revise the key ideas from today’s lab and will be extremely useful when completing the weekly quizzes.
+
+Below is a starter example you can expand:
+
+| Function   | Use and package                                             |
+|------------|-------------------------------------------------------------|
+| `read_csv` | Reads comma-separated value files. Part of the *tidyverse*. |
+| `View`     | Opens a spreadsheet-style view of a dataset.                |
+| `head`     | Shows the first few rows (six by default).                  |
+| `nrow`     | Returns the number of rows in a dataset.                    |
+| `ncol`     | Returns the number of columns in a dataset.                 |
+| `dim`      | Returns both rows and columns (dimensions).                 |
+| `glimpse`  | Provides a compact overview of all variables (dplyr).       |
+| `str`      | Shows the internal structure of an object.                  |
+| `summary`  | Gives summary statistics for each variable.                 |
+| `factor`   | Converts a variable into a categorical factor.              |
+
+Feel free to add more as you encounter additional functions during the course.
+
+------------------------------------------------------------------------
+
+### Reference
+
+Lock, Robin H, Patti Frazer Lock, Kari Lock Morgan, Eric F. Lock, and Dennis F. Lock. 2020. *Statistics: Unlocking the Power of Data*. John Wiley & Sons.
