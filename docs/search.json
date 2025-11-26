@@ -543,42 +543,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Welcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.\nYou will build confidence in working with quantitative evidence, and gain practical experience using Excel and R to manipulate, summarise, and interpret data.\n\n\n\n\nLectures introduce mathematical, statistical, and data analysis concepts\n\nTutorials provide guided practice, discussion, and group activities\n\nMathsHub offers additional supported study (optional)\n\nYou’ll engage in regular formative quizzes and complete a final data analysis project, where you’ll formulate a research question, summarise a dataset, and report your findings clearly using appropriate methods.\n\n\n\n\nEach week includes:\n\n🔍 Content – clear explanations and examples\n\n💻 Tutorials – hands-on R and Excel activities\n\n📁 Downloadable templates and datasets\n\nAccess all materials using the menu above or from Learn Ultra.\n\n\n\n\nTo complete this course, you will need:\n\nR\n\nRStudio\n\nA laptop (not a Chromebook or iPad)\n\nAccess to Microsoft Excel\n\nYour coursebook website (this one!) and Learn Ultra\n\nIf you do not have access to a laptop, please contact the COL Laptop Loan service.\n\n\n\n\nBy the end of the course, you will be able to:\n\nApply mathematical and statistical concepts to summarise and interpret data\n\nUse R and Excel to manipulate and visualise datasets\n\nConduct hypothesis testing and choose appropriate methods\n\nCommunicate your findings clearly in written reports and visual formats\n\n\n\n\n\n\nLearn Ultra Course Page ← replace with your course link\nOpenIntro Statistics (recommended)\nBig Book of R\nR for Data Science\n\n\n\n© 2025 University of Edinburgh | Centre for Open Learning\nMathematics, Statistics & Data Analysis for CHASS"
-  },
-  {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "Welcome",
-    "section": "",
-    "text": "Lectures introduce mathematical, statistical, and data analysis concepts\n\nTutorials provide guided practice, discussion, and group activities\n\nMathsHub offers additional supported study (optional)\n\nYou’ll engage in regular formative quizzes and complete a final data analysis project, where you’ll formulate a research question, summarise a dataset, and report your findings clearly using appropriate methods."
-  },
-  {
-    "objectID": "index.html#weekly-structure",
-    "href": "index.html#weekly-structure",
-    "title": "Welcome",
-    "section": "",
-    "text": "Each week includes:\n\n🔍 Content – clear explanations and examples\n\n💻 Tutorials – hands-on R and Excel activities\n\n📁 Downloadable templates and datasets\n\nAccess all materials using the menu above or from Learn Ultra."
-  },
-  {
-    "objectID": "index.html#required-software",
-    "href": "index.html#required-software",
-    "title": "Welcome",
-    "section": "",
-    "text": "To complete this course, you will need:\n\nR\n\nRStudio\n\nA laptop (not a Chromebook or iPad)\n\nAccess to Microsoft Excel\n\nYour coursebook website (this one!) and Learn Ultra\n\nIf you do not have access to a laptop, please contact the COL Laptop Loan service."
-  },
-  {
-    "objectID": "index.html#learning-outcomes",
-    "href": "index.html#learning-outcomes",
-    "title": "Welcome",
-    "section": "",
-    "text": "By the end of the course, you will be able to:\n\nApply mathematical and statistical concepts to summarise and interpret data\n\nUse R and Excel to manipulate and visualise datasets\n\nConduct hypothesis testing and choose appropriate methods\n\nCommunicate your findings clearly in written reports and visual formats"
-  },
-  {
-    "objectID": "index.html#quick-links",
-    "href": "index.html#quick-links",
-    "title": "Welcome",
-    "section": "",
-    "text": "Learn Ultra Course Page ← replace with your course link\nOpenIntro Statistics (recommended)\nBig Book of R\nR for Data Science\n\n\n\n© 2025 University of Edinburgh | Centre for Open Learning\nMathematics, Statistics & Data Analysis for CHASS"
+    "text": "Mathematics, Statistics & Data Analysis\nWelcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.\n\n© 2025 University of Edinburgh | Centre for Open Learning\nMathematics, Statistics & Data Analysis for CHASS"
   },
   {
     "objectID": "Teacher_Guidelines.html",
