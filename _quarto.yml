@@ -50,24 +50,22 @@ website:
             
       - text: "Stats Content"
         menu:
-          - text: "Week 08 – Stats Content"
+          - text: "Week 07 – Getting Ready with R and RStudio"
+            href: Content/Stats/getting_ready_with_R_RStudio_IFP.qmd
+          - text: "Week 08 – Research Questions, Variables, and Study Design"
             href: Content/Stats/week-08-content-stats.qmd
-          - text: "Week 09 – Stats Content"
-            href: Content/Stats/week-9-content-stats.qmd
-          - text: "Week 10 – Stats Content"
+          - text: "Week 09 –Categorical variables "
+            href: Content/Stats/week-09-content-stats.qmd   # note 09 vs 9 if needed
+          - text: "Plots – Grammar of Graphics"
+            href: Content/Stats/Plots_and_grammar.qmd
+          - text: "Week 10 – "
             href: Content/Stats/week-10-content-stats.qmd
-          - text: "Week 11 – Stats Content"
+          - text: "Week 11 – "
             href: Content/Stats/week-11-content-stats.qmd
-          - text: "Week 12 – Stats Content"
+          - text: "Week 12 – "
             href: Content/Stats/week-12-content-stats.qmd
-          - text: "Week 13 – Stats Content"
+          - text: "Week 13 – "
             href: Content/Stats/week-13-content-stats.qmd
-          - text: "Week 14 – Stats Content"
-            href: Content/Stats/week-14-content-stats.qmd
-          - text: "Week 15 – Stats Content"
-            href: Content/Stats/week-15-content-stats.qmd
-          - text: "Week 16 – Stats Content"
-            href: Content/Stats/week-16-content-stats.qmd
             
       - text: "Stats Tutorials"
         menu:
@@ -89,11 +87,21 @@ website:
             href: Tutorials/Stats/week-15/week-15-tutorial-stats.qmd
           - text: "Week 16 – Tutorial (Stats)"
             href: Tutorials/Stats/week-16/week-16-tutorial-stats.qmd
+            
+      - text: "R Support"
+        menu:
+          - text: "Getting Ready with R and RStudio – IFP"
+            href: "R Support/getting_ready_with_R_RStudio_IFP.qmd"
+          - text: "R Basics: Syntax and Variables"
+            href: "R Support/R Basics_Syntax_&_Variables.qmd"
+
 
 format:
   html:
-    theme: default
-    css: styles.css
-
+    theme:
+      light: default      # or another light theme if you prefer
+      dark: darkly        # a built-in dark theme
+      
 execute:
   fig-dev: ragg_png
+
