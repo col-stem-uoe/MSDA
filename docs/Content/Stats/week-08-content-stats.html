@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 08 – Stats – MSDA</title>
+<title>Week 08 – Research Questions, Variables, and Study Design – MSDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -36,10 +71,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-748b535e376f14d4692bf2b2e5fd6380.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-078f5be260b122ac6dcea7ea886f5ae9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-078f5be260b122ac6dcea7ea886f5ae9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c339993edb64e1d3a2f6a10e47fa98b5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-078f5be260b122ac6dcea7ea886f5ae9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,11 +108,171 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -95,63 +294,63 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Course Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-math-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Math Content</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Content</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-math-content">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
         <li>
-    <a class="dropdown-item" href="../../Content/Math/lecture-01-functions.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-01-functions.html">
  <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Content/Math/lecture-02-exp-n-log.html">
- <span class="dropdown-text">Week 02 – Exponential and Logarithmic Functions</span></a>
+    <a class="dropdown-item" href="../../Content/Maths/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Content/Math/lecture-03-sequences.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-03-sequences.html">
  <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Content/Math/lecture-04-differentiation.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Content/Math/lecture-05-integration.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-05-integration.html">
  <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Content/Math/lecture-06-probability.html">
+    <a class="dropdown-item" href="../../Content/Maths/lecture-06-probability.html">
  <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-math-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Math Tutorials</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Tutorials</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-math-tutorials">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Math/workshop-01-functions.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-01-functions.html">
  <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Math/workshop-02-exp-n-log.html">
- <span class="dropdown-text">Week 02 – Tutorial: Exponential and Logarithmic Functions</span></a>
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Math/workshop-03-sequences.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-03-sequences.html">
  <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Math/workshop-04-differentiation.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Math/workshop-05-integration.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-05-integration.html">
  <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Math/workshop-06-probability.html">
+    <a class="dropdown-item" href="../../Tutorials/Maths/workshop-06-probability.html">
  <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
@@ -162,40 +361,36 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
- <span class="dropdown-text">Week 08 – Stats Content</span></a>
+    <a class="dropdown-item" href="../../Content/Stats/getting_ready_with_R_RStudio_IFP.html">
+ <span class="dropdown-text">Week 07 – Getting Ready with R and RStudio</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Content/Stats/week-9-content-stats.qmd">
- <span class="dropdown-text">Week 09 – Stats Content</span></a>
+    <a class="dropdown-item" href="../../Content/Stats/week-08-content-stats.html">
+ <span class="dropdown-text">Week 08 – Research Questions, Variables, and Study Design</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/week-09-content-stats.html">
+ <span class="dropdown-text">Week 09 –Categorical variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Content/Stats/Plots_and_grammar.html">
+ <span class="dropdown-text">Plots – Grammar of Graphics</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
- <span class="dropdown-text">Week 10 – Stats Content</span></a>
+ <span class="dropdown-text">Week 10 –</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
- <span class="dropdown-text">Week 11 – Stats Content</span></a>
+ <span class="dropdown-text">Week 11 –</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-12-content-stats.html">
- <span class="dropdown-text">Week 12 – Stats Content</span></a>
+ <span class="dropdown-text">Week 12 –</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-13-content-stats.html">
- <span class="dropdown-text">Week 13 – Stats Content</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../Content/Stats/week-14-content-stats.html">
- <span class="dropdown-text">Week 14 – Stats Content</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../Content/Stats/week-15-content-stats.html">
- <span class="dropdown-text">Week 15 – Stats Content</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../Content/Stats/week-16-content-stats.html">
- <span class="dropdown-text">Week 16 – Stats Content</span></a>
+ <span class="dropdown-text">Week 13 –</span></a>
   </li>  
     </ul>
   </li>
@@ -205,46 +400,66 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
- <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-7/week-07-tutorial-stats.html">
+ <span class="dropdown-text">Week 07 – Tutorial 00</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
- <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-8/week-08-tutorial-stats.html">
+ <span class="dropdown-text">Week 08 – Tutorial 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Tutorials/Stats/week-9/week-09-tutorial-stats.html">
+ <span class="dropdown-text">Week 09 – Tutorial 02</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
- <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 10 – Tutorial 03</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
- <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 11 – Tutorial 04</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
- <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 12 – Tutorial 05</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
- <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 13 – Tutorial 06</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
- <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 14 – Tutorial 07</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
- <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 15 – Tutorial 08</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
- <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 16 – Tutorial 09</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-support" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R Support</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r-support">    
+        <li>
+    <a class="dropdown-item" href="../../R Support/getting_ready_with_R_RStudio_IFP.qmd">
+ <span class="dropdown-text">Getting Ready with R and RStudio – IFP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../R Support/R Basics_Syntax_&amp;_Variables.qmd">
+ <span class="dropdown-text">R Basics: Syntax and Variables</span></a>
   </li>  
     </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -253,13 +468,45 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-research" id="toc-what-is-research" class="nav-link active" data-scroll-target="#what-is-research">1. What Is Research?</a></li>
+  <li><a href="#the-research-cycle" id="toc-the-research-cycle" class="nav-link" data-scroll-target="#the-research-cycle">2. The Research Cycle</a>
+  <ul class="collapse">
+  <li><a href="#from-constructs-to-variables-link-to-lecture-01" id="toc-from-constructs-to-variables-link-to-lecture-01" class="nav-link" data-scroll-target="#from-constructs-to-variables-link-to-lecture-01">2.1 From Constructs to Variables (link to Lecture 01)</a></li>
+  </ul></li>
+  <li><a href="#variables-in-research" id="toc-variables-in-research" class="nav-link" data-scroll-target="#variables-in-research">3. Variables in Research</a>
+  <ul class="collapse">
+  <li><a href="#variables-by-role-independent-and-dependent" id="toc-variables-by-role-independent-and-dependent" class="nav-link" data-scroll-target="#variables-by-role-independent-and-dependent">3.1 Variables by Role: Independent and Dependent</a></li>
+  <li><a href="#manipulated-vs-measured-variables" id="toc-manipulated-vs-measured-variables" class="nav-link" data-scroll-target="#manipulated-vs-measured-variables">3.2 Manipulated vs Measured Variables</a></li>
+  </ul></li>
+  <li><a href="#variables-in-the-lecture-dataset" id="toc-variables-in-the-lecture-dataset" class="nav-link" data-scroll-target="#variables-in-the-lecture-dataset">4. Variables in the Lecture Dataset</a>
+  <ul class="collapse">
+  <li><a href="#variables-by-type-categorical-and-numeric" id="toc-variables-by-type-categorical-and-numeric" class="nav-link" data-scroll-target="#variables-by-type-categorical-and-numeric">4.1 Variables by Type: Categorical and Numeric</a>
+  <ul class="collapse">
+  <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link" data-scroll-target="#categorical-variables"><strong>4.1.1 Categorical variables</strong></a></li>
+  <li><a href="#numeric-variables" id="toc-numeric-variables" class="nav-link" data-scroll-target="#numeric-variables">4.1.2 Numeric variables</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#levels-of-measurement" id="toc-levels-of-measurement" class="nav-link" data-scroll-target="#levels-of-measurement">5. Levels of Measurement</a></li>
+  <li><a href="#exercise-classifying-variables-in-the-lecture-dataset" id="toc-exercise-classifying-variables-in-the-lecture-dataset" class="nav-link" data-scroll-target="#exercise-classifying-variables-in-the-lecture-dataset">6. Exercise: Classifying Variables in the Lecture Dataset</a>
+  <ul class="collapse">
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
+  <li><a href="#now-write-one-possible-research-question-using-any-two-variables-above." id="toc-now-write-one-possible-research-question-using-any-two-variables-above." class="nav-link" data-scroll-target="#now-write-one-possible-research-question-using-any-two-variables-above.">Now write one possible research question using any two variables above.</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 08 – Stats</h1>
+<h1 class="title">Week 08 – Research Questions, Variables, and Study Design</h1>
 </div>
 
 
@@ -276,13 +523,1120 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Coming soon!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lecture <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 200 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): ID, Degree, Gender, Stress_level, Satisfaction_Likert_item, Exercise
+dbl (8): Year, Study_hours, Sleep_hours, Satisfaction_Likert_value, Coffee_p...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lecture)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 200
+Columns: 14
+$ ID                        &lt;chr&gt; "S001", "S002", "S003", "S004", "S005", "S00…
+$ Degree                    &lt;chr&gt; "Architecture", "Linguistics", "English", "P…
+$ Year                      &lt;dbl&gt; 2, 1, 2, 1, 2, 2, 2, 3, 2, 2, 1, 3, 1, 1, 2,…
+$ Gender                    &lt;chr&gt; "Female", "Male", "Female", "Male", "Non-bin…
+$ Study_hours               &lt;dbl&gt; 6.8, 3.1, 8.2, 5.5, 4.0, 7.4, 2.7, 9.0, 5.9,…
+$ Sleep_hours               &lt;dbl&gt; 7.4, 5.8, 7.6, 6.7, 5.9, 7.8, 5.0, 8.2, 6.6,…
+$ Stress_level              &lt;chr&gt; "Moderate", "High", "Low", "Moderate", "High…
+$ Satisfaction_Likert_item  &lt;chr&gt; "Satisfied", "Dissatisfied", "Very Satisfied…
+$ Satisfaction_Likert_value &lt;dbl&gt; 4, 2, 5, 4, 2, 5, 1, 5, 4, 4, 2, 5, 3, 2, 5,…
+$ Coffee_per_day            &lt;dbl&gt; 1, 3, 1, 2, 2, 1, 4, 0, 2, 1, 3, 0, 2, 3, 1,…
+$ Social_media_hr           &lt;dbl&gt; 2.4, 4.7, 2.0, 3.0, 4.1, 2.1, 5.2, 2.5, 3.2,…
+$ Exercise                  &lt;chr&gt; "Yes", "No", "Yes", "No", "No", "Yes", "No",…
+$ Overall_mark              &lt;dbl&gt; 68, 55, 78, 65, 58, 74, 49, 81, 66, 70, 56, …
+$ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100, 10…</code></pre>
+</div>
+</div>
+<section id="what-is-research" class="level1">
+<h1>1. What Is Research?</h1>
+<p>Research begins with curiosity — a question about how the world works.<br>
+In this course we work with existing datasets, but behind each dataset there is (or should be) a <strong>research question</strong>.</p>
+<p>This week connects your earlier work on <strong>data types and levels of measurement</strong> (Lecture 01) with:</p>
+<ul>
+<li>research questions and hypotheses<br>
+</li>
+<li>independent and dependent variables<br>
+</li>
+<li>study design<br>
+</li>
+<li>how variables are represented in data sets</li>
+</ul>
+<p>By the end of this week you should be able to:</p>
+<ul>
+<li>turn an informal idea into a <strong>research question</strong> and a <strong>testable hypothesis</strong><br>
+</li>
+<li>identify <strong>independent</strong> and <strong>dependent</strong> variables<br>
+</li>
+<li>classify variables by <strong>type</strong> and <strong>level of measurement</strong><br>
+</li>
+<li>understand how design and variables shape statistical analysis</li>
+</ul>
+<hr>
+</section>
+<section id="the-research-cycle" class="level1">
+<h1>2. The Research Cycle</h1>
+<p>We can think of research as a simple cycle:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A simplified research cycle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Observation</strong><br>
+Something you notice about the world.<br>
+<em>Example:</em> Some students study a lot but do not always achieve high marks.</p></li>
+<li><p><strong>Research question</strong><br>
+A focused, answerable question.<br>
+<em>Example:</em> Is there an association between hours of study and overall mark?</p></li>
+<li><p><strong>Hypothesis</strong><br>
+A testable prediction.<br>
+<em>Example:</em> Students who study more hours per week will achieve higher marks.</p></li>
+<li><p><strong>Identify variables</strong><br>
+Decide what you will measure.</p>
+<ul>
+<li><strong>IV:</strong> <em>Study_hours</em><br>
+</li>
+<li><strong>DV:</strong> <em>Overall_mark</em></li>
+</ul></li>
+<li><p><strong>Collect data</strong><br>
+Gather values for these variables in a sample.</p></li>
+<li><p><strong>Analyse data</strong><br>
+Summarise variables and test relationships.</p></li>
+<li><p><strong>Interpret and conclude</strong><br>
+Relate the results back to the research question.</p></li>
+</ol>
+</div>
+</div>
+<p>This week focuses on <strong>Step 4</strong> because everything else depends on identifying variables correctly.</p>
+<hr>
+<section id="from-constructs-to-variables-link-to-lecture-01" class="level2">
+<h2 class="anchored" data-anchor-id="from-constructs-to-variables-link-to-lecture-01">2.1 From Constructs to Variables (link to Lecture 01)</h2>
+<p>In Lecture 01 we noted that before data collection, researchers must decide <strong>what they intend to measure</strong>. They begin with abstract ideas (<em>constructs</em>), such as <em>stress</em>, <em>learning</em>, or <em>academic success</em>. Constructs cannot be observed directly — we only see them through the <strong>measures</strong> we choose.</p>
+<p><img src="images/concept_measurement.png" class="img-fluid" style="width:70.0%"></p>
+<p>The logic is:</p>
+<ul>
+<li><strong>Constructs</strong> are theoretical ideas.<br>
+</li>
+<li><strong>Measures</strong> operationalise these ideas.<br>
+</li>
+<li><strong>Variables</strong> are the recorded data.<br>
+</li>
+<li>All variables contain some <strong>measurement error</strong>.</li>
+</ul>
+<p>In this course we mainly work at the level of <strong>variables</strong>, but it is important to remember where they come from.</p>
+<hr>
+</section>
+</section>
+<section id="variables-in-research" class="level1">
+<h1>3. Variables in Research</h1>
+<p>A <strong>variable</strong> is any characteristic that varies between individuals.</p>
+<p>In <em>Lecture1_data.csv</em>, variables include:</p>
+<ul>
+<li><code>Gender</code>, <code>Degree</code>, <code>Exercise</code><br>
+</li>
+<li><code>Study_hours</code>, <code>Sleep_hours</code><br>
+</li>
+<li><code>Stress_level</code>, <code>Satisfaction_Likert_item</code><br>
+</li>
+<li><code>Overall_mark</code>, <code>IQ</code></li>
+</ul>
+<p>Variables can be classified in two ways:</p>
+<ol type="1">
+<li><strong>By role</strong> — how they function in the research design<br>
+</li>
+<li><strong>By type</strong> — the kind of information they contain</li>
+</ol>
+<hr>
+<section id="variables-by-role-independent-and-dependent" class="level2">
+<h2 class="anchored" data-anchor-id="variables-by-role-independent-and-dependent">3.1 Variables by Role: Independent and Dependent</h2>
+<div class="narrow-table" style="font-size: 0.95rem">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 28%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Role</strong></th>
+<th><strong>What it does</strong></th>
+<th><strong>Example from the dataset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Independent variable (IV)</strong></td>
+<td>Used to explain/predict something; sometimes manipulated</td>
+<td><code>Study_hours</code>, <code>Gender</code>, <code>Exercise</code></td>
+</tr>
+<tr class="even">
+<td><strong>Dependent variable (DV)</strong></td>
+<td>The outcome being measured</td>
+<td><code>Overall_mark</code>, <code>Sleep_hours</code>, <code>Stress_level</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A simple way to remember:</p>
+<blockquote class="blockquote">
+<p><strong>IV → DV</strong><br>
+“Does X influence / predict / relate to Y?”</p>
+</blockquote>
+<p>Examples using the lecture dataset:</p>
+<ul>
+<li><em>Does <strong>study time</strong> predict <strong>overall marks</strong>?</em>
+<ul>
+<li>IV: <code>Study_hours</code><br>
+</li>
+<li>DV: <code>Overall_mark</code></li>
+</ul></li>
+<li><em>Do <strong>students who exercisesleep more</strong>?</em>
+<ul>
+<li>IV: <code>Exercise</code><br>
+</li>
+<li>DV: <code>Sleep_hours</code></li>
+</ul></li>
+<li><em>Is <strong>stress level</strong> related to <strong>hours of study</strong>?</em>
+<ul>
+<li>IV: <code>Study_hours</code><br>
+</li>
+<li>DV: <code>Stress_level</code></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="manipulated-vs-measured-variables" class="level2">
+<h2 class="anchored" data-anchor-id="manipulated-vs-measured-variables">3.2 Manipulated vs Measured Variables</h2>
+<ul>
+<li><strong>Manipulated variables</strong>
+<ul>
+<li><p>Assigned by the researcher (e.g.&nbsp;an experiment).</p></li>
+<li><p>Not present in this dataset.</p></li>
+</ul></li>
+<li><strong>Measured variables</strong>
+<ul>
+<li>Naturally occurring characteristics recorded by the researcher.</li>
+<li>All variables in <em>Lecture1_data.csv</em> are <strong>measured</strong>.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="variables-in-the-lecture-dataset" class="level1">
+<h1>4. Variables in the Lecture Dataset</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>lecture <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lecture)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 200
+Columns: 14
+$ ID                        &lt;chr&gt; "S001", "S002", "S003", "S004", "S005", "S00…
+$ Degree                    &lt;chr&gt; "Architecture", "Linguistics", "English", "P…
+$ Year                      &lt;dbl&gt; 2, 1, 2, 1, 2, 2, 2, 3, 2, 2, 1, 3, 1, 1, 2,…
+$ Gender                    &lt;chr&gt; "Female", "Male", "Female", "Male", "Non-bin…
+$ Study_hours               &lt;dbl&gt; 6.8, 3.1, 8.2, 5.5, 4.0, 7.4, 2.7, 9.0, 5.9,…
+$ Sleep_hours               &lt;dbl&gt; 7.4, 5.8, 7.6, 6.7, 5.9, 7.8, 5.0, 8.2, 6.6,…
+$ Stress_level              &lt;chr&gt; "Moderate", "High", "Low", "Moderate", "High…
+$ Satisfaction_Likert_item  &lt;chr&gt; "Satisfied", "Dissatisfied", "Very Satisfied…
+$ Satisfaction_Likert_value &lt;dbl&gt; 4, 2, 5, 4, 2, 5, 1, 5, 4, 4, 2, 5, 3, 2, 5,…
+$ Coffee_per_day            &lt;dbl&gt; 1, 3, 1, 2, 2, 1, 4, 0, 2, 1, 3, 0, 2, 3, 1,…
+$ Social_media_hr           &lt;dbl&gt; 2.4, 4.7, 2.0, 3.0, 4.1, 2.1, 5.2, 2.5, 3.2,…
+$ Exercise                  &lt;chr&gt; "Yes", "No", "Yes", "No", "No", "Yes", "No",…
+$ Overall_mark              &lt;dbl&gt; 68, 55, 78, 65, 58, 74, 49, 81, 66, 70, 56, …
+$ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100, 10…</code></pre>
+</div>
+</div>
+<p>Below is a description of all variables in the Lecture1_data.csv dataset.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="wolohwmwfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wolohwmwfi table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wolohwmwfi thead, #wolohwmwfi tbody, #wolohwmwfi tfoot, #wolohwmwfi tr, #wolohwmwfi td, #wolohwmwfi th {
+  border-style: none;
+}
+
+#wolohwmwfi p {
+  margin: 0;
+  padding: 0;
+}
+
+#wolohwmwfi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13.6px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wolohwmwfi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wolohwmwfi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wolohwmwfi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wolohwmwfi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wolohwmwfi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wolohwmwfi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wolohwmwfi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wolohwmwfi .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wolohwmwfi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wolohwmwfi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wolohwmwfi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wolohwmwfi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wolohwmwfi .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wolohwmwfi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wolohwmwfi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wolohwmwfi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wolohwmwfi .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wolohwmwfi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wolohwmwfi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wolohwmwfi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wolohwmwfi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wolohwmwfi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wolohwmwfi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wolohwmwfi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wolohwmwfi .gt_left {
+  text-align: left;
+}
+
+#wolohwmwfi .gt_center {
+  text-align: center;
+}
+
+#wolohwmwfi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wolohwmwfi .gt_font_normal {
+  font-weight: normal;
+}
+
+#wolohwmwfi .gt_font_bold {
+  font-weight: bold;
+}
+
+#wolohwmwfi .gt_font_italic {
+  font-style: italic;
+}
+
+#wolohwmwfi .gt_super {
+  font-size: 65%;
+}
+
+#wolohwmwfi .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wolohwmwfi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wolohwmwfi .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wolohwmwfi .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wolohwmwfi .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wolohwmwfi .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wolohwmwfi .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wolohwmwfi .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wolohwmwfi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="white-space: nowrap; font-weight: bold" scope="col">Variable Name</th>
+<th id="Description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">ID</td>
+<td class="gt_row gt_left" headers="Description">Participant ID (unique identifier)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Degree</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Degree programme the student is enrolled in</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Year</td>
+<td class="gt_row gt_left" headers="Description">Year of study (1, 2, 3 …)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Gender</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Self-reported gender</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Study_hours</td>
+<td class="gt_row gt_left" headers="Description">Hours spent studying per day (continuous)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Sleep_hours</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Hours of sleep per night (continuous)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Stress_level</td>
+<td class="gt_row gt_left" headers="Description">Reported stress level (Low, Moderate, High)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Satisfaction_Likert_item</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Satisfaction rating (text: e.g. Satisfied)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Satisfaction_Likert_value</td>
+<td class="gt_row gt_left" headers="Description">Numerical coding of satisfaction (1–5)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Coffee_per_day</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Cups of coffee consumed per day (count)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Social_media_hr</td>
+<td class="gt_row gt_left" headers="Description">Time spent on social media per day (hours)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Exercise</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Whether the student exercises (Yes/No)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Overall_mark</td>
+<td class="gt_row gt_left" headers="Description">Overall module mark (%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">IQ</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Estimated IQ score</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="variables-by-type-categorical-and-numeric" class="level2">
+<h2 class="anchored" data-anchor-id="variables-by-type-categorical-and-numeric">4.1 Variables by Type: Categorical and Numeric</h2>
+<p>We also classify variables by the <em>kind</em> of information they contain. This affects:</p>
+<ul>
+<li>how we <strong>summarise</strong> them (counts, means, medians, etc.)<br>
+</li>
+<li>which <strong>plots</strong> we use (bar plots, histograms, boxplots, scatterplots)<br>
+</li>
+<li>which <strong>statistical tests</strong> are appropriate</li>
+</ul>
+<section id="categorical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-variables"><strong>4.1.1 Categorical variables</strong></h3>
+<blockquote class="blockquote">
+<p>They group observations into labels.</p>
+<p>Example variables in the lecture dataset:</p>
+</blockquote>
+<ul>
+<li><p><code>Gender</code></p></li>
+<li><p><code>Exercise</code></p></li>
+<li><p><code>Degree</code></p></li>
+<li><p><code>Stress_level</code></p></li>
+<li><p><code>Satisfaction_Likert_item</code></p></li>
+<li><p><code>Satisfaction_Likert_value</code>&nbsp;(ordinal coded)</p></li>
+</ul>
+<section id="subtypes" class="level4">
+<h4 class="anchored" data-anchor-id="subtypes">Subtypes</h4>
+<ul>
+<li><p><strong>Nominal:</strong>&nbsp;no natural order (e.g.&nbsp;Gender, Degree)</p></li>
+<li><p><strong>Ordinal:</strong>&nbsp;meaningful order (e.g.&nbsp;Stress_level, Satisfaction ratings)</p></li>
+</ul>
+<p>We <strong>summarise</strong> categorical variables using:</p>
+<ul>
+<li><p>frequencies (counts)</p></li>
+<li><p>percentages / proportions</p></li>
+<li><p>bar plots</p></li>
+</ul>
+</section>
+</section>
+<section id="numeric-variables" class="level3">
+<h3 class="anchored" data-anchor-id="numeric-variables">4.1.2 Numeric variables</h3>
+<p>Examples in the lecture dataset:</p>
+<ul>
+<li><p><code>Study_hours</code></p></li>
+<li><p><code>Sleep_hours</code></p></li>
+<li><p><code>Overall_mark</code></p></li>
+<li><p><code>IQ</code></p></li>
+<li><p><code>Coffee_per_day</code></p></li>
+<li><p><code>Social_media_hr</code></p></li>
+</ul>
+<section id="subtypes-1" class="level4">
+<h4 class="anchored" data-anchor-id="subtypes-1">Subtypes:</h4>
+<ul>
+<li><p><strong>Discrete</strong>&nbsp;(counts):&nbsp;<code>Coffee_per_day</code></p></li>
+<li><p><strong>Continuous</strong>&nbsp;(measurements):&nbsp;<code>Study_hours</code>,&nbsp;<code>IQ</code>,&nbsp;<code>Sleep_hours</code></p></li>
+</ul>
+<p>We <strong>summarise</strong> numeric variables using:</p>
+<ul>
+<li><p>means, medians</p></li>
+<li><p>standard deviation, IQR</p></li>
+<li><p>histograms, boxplots, scatterplots</p></li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="levels-of-measurement" class="level1">
+<h1>5. Levels of Measurement</h1>
+<p>In Lecture 01 you met four classic levels of measurement. Here we briefly reconnect them to research design, using variables from the <em>Lecture1_data.csv</em> dataset.</p>
+<div class="narrow-table" style="font-size: 0.9rem">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Level</strong></th>
+<th><strong>Meaning</strong></th>
+<th><strong>Examples (lecture dataset)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nominal</strong></td>
+<td>Categories with no intrinsic order</td>
+<td><code>Gender</code>, <code>Degree</code>, <code>Exercise</code></td>
+</tr>
+<tr class="even">
+<td><strong>Ordinal</strong></td>
+<td>Ordered categories, unequal gaps</td>
+<td><code>Stress_level</code>, <code>Satisfaction_Likert_value</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Interval</strong></td>
+<td>Numeric, equal spacing, <strong>no</strong> true zero</td>
+<td>IQ (treated as an approximate interval scale in psychology)</td>
+</tr>
+<tr class="even">
+<td><strong>Ratio</strong></td>
+<td>Numeric, equal spacing, <strong>true</strong> zero</td>
+<td><code>Study_hours</code>, <code>Sleep_hours</code>, <code>Overall_mark</code>, <code>Coffee_per_day</code>, <code>Social_media_hr</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In practice we often talk simply about <strong>categorical</strong> vs <strong>numeric</strong> variables, but levels of measurement sit in the background and influence what is sensible:</p>
+<ul>
+<li>you would not normally compute a <strong>mean</strong> of nominal data<br>
+</li>
+<li>you should be cautious interpreting means of ordinal scales<br>
+</li>
+<li>most parametric tests (e.g.&nbsp;t-tests, correlation) assume <strong>numeric (interval/ratio)</strong> data</li>
+</ul>
+<hr>
+</section>
+<section id="exercise-classifying-variables-in-the-lecture-dataset" class="level1">
+<h1>6. Exercise: Classifying Variables in the Lecture Dataset</h1>
+<p>Use the variables from <em>Lecture1_data.csv</em> to practise identifying:</p>
+<ol type="1">
+<li>whether each variable is <strong>categorical</strong> or <strong>numeric</strong><br>
+</li>
+<li>the <strong>level of measurement</strong><br>
+</li>
+<li>whether it could be an <strong>IV</strong>, a <strong>DV</strong>, or either</li>
+</ol>
+<p>Consider the following variables:</p>
+<ul>
+<li><code>Gender</code><br>
+</li>
+<li><code>Exercise</code><br>
+</li>
+<li><code>Study_hours</code><br>
+</li>
+<li><code>Overall_mark</code><br>
+</li>
+<li><code>Stress_level</code><br>
+</li>
+<li><code>Coffee_per_day</code><br>
+</li>
+<li><code>Social_media_hr</code></li>
+</ul>
+<section id="your-task" class="level3">
+<h3 class="anchored" data-anchor-id="your-task">Your Task</h3>
+<p>Complete the table below by filling in the <strong>Type</strong>, <strong>Level</strong>, and <strong>Possible Role(s)</strong> for each variable.</p>
+<div class="narrow-table" style="font-size: 0.9rem">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 36%">
+<col style="width: 12%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Type</strong> (Categorical/Numeric)</th>
+<th><strong>Level</strong></th>
+<th><strong>Possible Role(s)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gender</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Exercise</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Stress_level</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Study_hours</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Overall_mark</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Coffee_per_day</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Social_media_hr</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="now-write-one-possible-research-question-using-any-two-variables-above." class="level3">
+<h3 class="anchored" data-anchor-id="now-write-one-possible-research-question-using-any-two-variables-above.">Now write one possible research question using any two variables above.</h3>
+<blockquote class="blockquote">
+<p>Example format:</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="1">
+<li>“Does ___ predict ___?”<br>
+</li>
+<li>“Do ___ and ___ differ in ___?”<br>
+</li>
+<li>“Is there an association between ___ and ___?”</li>
+</ol>
+</blockquote>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled" title="Suggested Answers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested Answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="classification-table" class="level3">
+<h3 class="anchored" data-anchor-id="classification-table">Classification Table</h3>
+<div class="narrow-table" style="font-size: 0.9rem">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Level</strong></th>
+<th><strong>Possible Role(s)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gender</td>
+<td>Categorical</td>
+<td>Nominal</td>
+<td>IV (grouping variable)</td>
+</tr>
+<tr class="even">
+<td>Exercise</td>
+<td>Categorical</td>
+<td>Nominal</td>
+<td>IV or DV</td>
+</tr>
+<tr class="odd">
+<td>Stress_level</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+<td>IV or DV</td>
+</tr>
+<tr class="even">
+<td>Study_hours</td>
+<td>Numeric</td>
+<td>Ratio</td>
+<td>IV or DV</td>
+</tr>
+<tr class="odd">
+<td>Overall_mark</td>
+<td>Numeric</td>
+<td>Ratio</td>
+<td>DV (usually an outcome)</td>
+</tr>
+<tr class="even">
+<td>Coffee_per_day</td>
+<td>Numeric</td>
+<td>Discrete</td>
+<td>IV</td>
+</tr>
+<tr class="odd">
+<td>Social_media_hr</td>
+<td>Numeric</td>
+<td>Ratio</td>
+<td>IV or DV</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="example-research-questions">Example research questions</h3>
+<ul>
+<li><em>Does study time predict overall marks?</em><br>
+</li>
+<li><em>Do students who exercise sleep more?</em><br>
+</li>
+<li><em>Are stress levels associated with time spent on social media?</em><br>
+</li>
+<li><em>Do male and female students differ in their study hours?</em></li>
+</ul>
+</section>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

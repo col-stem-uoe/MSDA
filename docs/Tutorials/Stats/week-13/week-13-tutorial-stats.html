@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 13 – Tutorial (Stats) – MSDA</title>
+<title>– MSDA IFP – MSDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +36,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-078f5be260b122ac6dcea7ea886f5ae9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bc0c8e102d2d1764e4b903533790f518.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-6a00ee8b13758a0d4082ae5787a975b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-bc0c8e102d2d1764e4b903533790f518.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,11 +73,172 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -95,63 +260,63 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Course Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-math-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Math Content</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Content</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-math-content">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/lecture-01-functions.html">
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-01-functions.html">
  <span class="dropdown-text">Week 01 – Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/lecture-02-exp-n-log.html">
- <span class="dropdown-text">Week 02 – Exponential and Logarithmic Functions</span></a>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/lecture-03-sequences.html">
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-03-sequences.html">
  <span class="dropdown-text">Week 03 – Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/lecture-04-differentiation.html">
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/lecture-05-integration.html">
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-05-integration.html">
  <span class="dropdown-text">Week 05 – Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Math/lecture-06-probability.html">
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-06-probability.html">
  <span class="dropdown-text">Week 06 – Probability</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-math-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Math Tutorials</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Tutorials</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-math-tutorials">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-01-functions.html">
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-01-functions.html">
  <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-02-exp-n-log.html">
- <span class="dropdown-text">Week 02 – Tutorial: Exponential and Logarithmic Functions</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-03-sequences.html">
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-03-sequences.html">
  <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-04-differentiation.html">
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-04-differentiation.html">
  <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-05-integration.html">
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-05-integration.html">
  <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Math/workshop-06-probability.html">
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-06-probability.html">
  <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
   </li>  
     </ul>
@@ -162,40 +327,36 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
         <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-08-content-stats.html">
- <span class="dropdown-text">Week 08 – Stats Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Stats/getting_ready_with_R_RStudio_IFP.html">
+ <span class="dropdown-text">Week 07 – Getting Ready with R and RStudio</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-9-content-stats.qmd">
- <span class="dropdown-text">Week 09 – Stats Content</span></a>
+    <a class="dropdown-item" href="../../../Content/Stats/week-08-content-stats.html">
+ <span class="dropdown-text">Week 08 – Research Questions, Variables, and Study Design</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-09-content-stats.html">
+ <span class="dropdown-text">Week 09 –Categorical variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/Plots_and_grammar.html">
+ <span class="dropdown-text">Plots – Grammar of Graphics</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Content/Stats/week-10-content-stats.html">
- <span class="dropdown-text">Week 10 – Stats Content</span></a>
+ <span class="dropdown-text">Week 10 –</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Content/Stats/week-11-content-stats.html">
- <span class="dropdown-text">Week 11 – Stats Content</span></a>
+ <span class="dropdown-text">Week 11 –</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Content/Stats/week-12-content-stats.html">
- <span class="dropdown-text">Week 12 – Stats Content</span></a>
+ <span class="dropdown-text">Week 12 –</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Content/Stats/week-13-content-stats.html">
- <span class="dropdown-text">Week 13 – Stats Content</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-14-content-stats.html">
- <span class="dropdown-text">Week 14 – Stats Content</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-15-content-stats.html">
- <span class="dropdown-text">Week 15 – Stats Content</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../Content/Stats/week-16-content-stats.html">
- <span class="dropdown-text">Week 16 – Stats Content</span></a>
+ <span class="dropdown-text">Week 13 –</span></a>
   </li>  
     </ul>
   </li>
@@ -205,46 +366,66 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Stats/week-08/week-08-tutorial-stats.qmd">
- <span class="dropdown-text">Week 08 – Tutorial (Stats)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-7/week-07-tutorial-stats.html">
+ <span class="dropdown-text">Week 07 – Tutorial 00</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../Tutorials/Stats/week-09/week-09-tutorial-stats.qmd">
- <span class="dropdown-text">Week 09 – Tutorial (Stats)</span></a>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-8/week-08-tutorial-stats.html">
+ <span class="dropdown-text">Week 08 – Tutorial 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-9/week-09-tutorial-stats.html">
+ <span class="dropdown-text">Week 09 – Tutorial 02</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
- <span class="dropdown-text">Week 10 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 10 – Tutorial 03</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
- <span class="dropdown-text">Week 11 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 11 – Tutorial 04</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
- <span class="dropdown-text">Week 12 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 12 – Tutorial 05</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
- <span class="dropdown-text">Week 13 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 13 – Tutorial 06</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
- <span class="dropdown-text">Week 14 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 14 – Tutorial 07</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
- <span class="dropdown-text">Week 15 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 15 – Tutorial 08</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
- <span class="dropdown-text">Week 16 – Tutorial (Stats)</span></a>
+ <span class="dropdown-text">Week 16 – Tutorial 09</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-support" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R Support</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r-support">    
+        <li>
+    <a class="dropdown-item" href="../../../R Support/getting_ready_with_R_RStudio_IFP.qmd">
+ <span class="dropdown-text">Getting Ready with R and RStudio – IFP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../R Support/R Basics_Syntax_&amp;_Variables.qmd">
+ <span class="dropdown-text">R Basics: Syntax and Variables</span></a>
   </li>  
     </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -253,13 +434,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 13 – Tutorial (Stats)</h1>
+<h1 class="title">– MSDA IFP</h1>
+<p class="subtitle lead">Week 13 – Tutorial 06</p>
 </div>
 
 
@@ -283,6 +468,19 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -621,25 +819,64 @@ ul.task-list li input[type="checkbox"] {
           }
         };
       }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
             }
-          });
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
         }
     const findCites = (el) => {
       const parentEl = el.parentElement;

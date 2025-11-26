@@ -67,27 +67,31 @@ website:
           - text: "Week 13 – "
             href: Content/Stats/week-13-content-stats.qmd
             
+         
       - text: "Stats Tutorials"
         menu:
-          - text: "Week 08 – Tutorial (Stats)"
-            href: Tutorials/Stats/week-08/week-08-tutorial-stats.qmd
-          - text: "Week 09 – Tutorial (Stats)"
-            href: Tutorials/Stats/week-09/week-09-tutorial-stats.qmd
-          - text: "Week 10 – Tutorial (Stats)"
+          - text: "Week 07 – Tutorial 00"
+            href: Tutorials/Stats/week-7/week-07-tutorial-stats.qmd
+          - text: "Week 08 – Tutorial 01"
+            href: Tutorials/Stats/week-8/week-08-tutorial-stats.qmd
+          - text: "Week 09 – Tutorial 02"
+            href: Tutorials/Stats/week-9/week-09-tutorial-stats.qmd
+          - text: "Week 10 – Tutorial 03"
             href: Tutorials/Stats/week-10/week-10-tutorial-stats.qmd
-          - text: "Week 11 – Tutorial (Stats)"
+          - text: "Week 11 – Tutorial 04"
             href: Tutorials/Stats/week-11/week-11-tutorial-stats.qmd
-          - text: "Week 12 – Tutorial (Stats)"
+          - text: "Week 12 – Tutorial 05"
             href: Tutorials/Stats/week-12/week-12-tutorial-stats.qmd
-          - text: "Week 13 – Tutorial (Stats)"
+          - text: "Week 13 – Tutorial 06"
             href: Tutorials/Stats/week-13/week-13-tutorial-stats.qmd
-          - text: "Week 14 – Tutorial (Stats)"
+          - text: "Week 14 – Tutorial 07"
             href: Tutorials/Stats/week-14/week-14-tutorial-stats.qmd
-          - text: "Week 15 – Tutorial (Stats)"
+          - text: "Week 15 – Tutorial 08"
             href: Tutorials/Stats/week-15/week-15-tutorial-stats.qmd
-          - text: "Week 16 – Tutorial (Stats)"
+          - text: "Week 16 – Tutorial 09"
             href: Tutorials/Stats/week-16/week-16-tutorial-stats.qmd
-            
+
+         
       - text: "R Support"
         menu:
           - text: "Getting Ready with R and RStudio – IFP"
