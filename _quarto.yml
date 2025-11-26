@@ -65,8 +65,9 @@ website:
           - text: "Week 12 – "
             href: Content/Stats/week-12-content-stats.qmd
           - text: "Week 13 – "
-            href: Content/Stats/week-13-content-stats.qmd
-            
+            href: Content/Stats/week-13-content-stats.qm
+
+         
     - text: "Stats Tutorials"
        menu:
          - text: "Week 07 – Tutorial 00"
@@ -97,7 +98,6 @@ website:
             href: "R Support/getting_ready_with_R_RStudio_IFP.qmd"
           - text: "R Basics: Syntax and Variables"
             href: "R Support/R Basics_Syntax_&_Variables.qmd"
-
 
 format:
   html:
