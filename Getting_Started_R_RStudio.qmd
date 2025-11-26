@@ -1,0 +1,203 @@
+---
+title: "Getting Started with R and RStudio"
+editor: visual
+format:
+  html:
+    toc: true
+    theme: cosmo
+    number-sections: true
+    code-fold: false
+    code-tools: true
+    code-block-bg: true
+    code-block-border-left: "#003366"
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
+execute:
+  eval: false       # do not execute any code in this document
+  echo: true
+---
+
+# Installing R and RStudio
+
+To get started with R, you need to acquire your own copy. This appendix explains how to download and install both **R** and **RStudio**, the application that makes R easier to use. By the end, you’ll have opened your first R session. Both are completely free.
+
+## 1 How to Download and Install R
+
+R is maintained by an international team of developers and distributed through the **Comprehensive R Archive Network (CRAN)**. Visit <https://cran.r-project.org> and follow the link that matches your operating system: **Windows**, **macOS**, or **Linux**.
+
+### 1.1 Windows
+
+1.  Click **Download R for Windows**.
+2.  Select **base**.
+3.  Click the top link labelled something like “Download R x.x.x for Windows” (the numbers will show the latest release).
+4.  Run the downloaded installer and follow the prompts.
+
+This will install R to your Program Files folder and add shortcuts to the Start menu. You’ll need admin rights to install new software.
+
+### 1.2 macOS
+
+1.  Click **Download R for macOS**.
+2.  Select the current `.pkg` installer (e.g., R‑4.x.x‑arm64.pkg for Apple Silicon, or x86_64.pkg for Intel Macs).
+3.  Run the installer and accept the defaults—these work for nearly everyone.
+
+> **Tip:** If your Mac asks for your password, that’s the standard system prompt for installing applications.
+
+## 2 Using R
+
+R is a **programming language**, not a graphical application. You use R by typing commands and letting the interpreter execute them. Historically, R was used in UNIX terminals, but today almost everyone works through **RStudio**, which provides a friendlier environment.
+
+### R and UNIX
+
+You can still open R from a UNIX or Bash terminal by typing:
+
+``` bash
+R
+```
+
+This launches the R interpreter. When you’re finished, type:
+
+``` r
+q()
+```
+
+This quits the session.
+
+## 3 RStudio
+
+**RStudio** is an application like Microsoft Word—except that instead of writing text, you write code in R. It provides panes for code editing, plots, data management, and help, all in one place. The interface is almost identical across Windows, macOS, and Linux.
+
+1.  Visit <https://posit.co/download/rstudio>.
+2.  Download **RStudio Desktop (Free)**.
+3.  Run the installer.
+
+After installation, open RStudio as you would any program. On macOS, the app sits in **Applications**; on Windows, find it in the **Start menu.**
+
+### Opening R
+
+Now that you have both R and RStudio on your computer, you can begin using R by opening the RStudio program. Open RStudio just as you would any program, by clicking on its icon or by typing “RStudio” at the Windows Run prompt.
+
+##  First Look at RStudio
+
+When RStudio opens, you’ll see **three or four panes** (see Figure 1):
+
+-   **Console** (bottom left) — run commands and see results.
+-   **Source** (top left) — write longer scripts.
+-   **Environment** (top right) — list data and objects.
+-   **Files/Plots/Help** (bottom right) — browse files, view plots, and read documentation.
+
+![](Tutorials/images/RStudio_panel.png)
+
+![](Tutorials/images/rstudio_interface.png)
+
+> **Figure 1:** The RStudio IDE for R.
+
+Everything you type in the Console is sent directly to R. The rest of the interface helps you organise, edit, and visualise your work.
+
+```{r}
+# Try your first R command
+2 + 2
+```
+
+You should see:
+
+```         
+[1] 4
+```
+
+# R Packages
+
+Many of R’s most useful functions do not come preloaded when you start R, but reside in *packages* that can be installed on top of R. An R package bundles together useful functions, help files, and data sets. You can use these functions within your own R code once you load the package they live in. Usually the contents of an R package are all related to a single type of task, which the package helps solve. R packages will let you take advantage of R’s most useful features: its large community of package writers (many of whom are active data scientists) and its prewritten routines for handling many common (and exotic) data-science tasks.
+
+## 1. Installing Packages
+
+To use an R package, you must first install it on your computer and then load it in your current R session. The easiest way to install an R package is with the `install.packages` R function. Open R and type the following into the command line:
+
+```{r}
+install.packages("<package name>")
+```
+
+This will search for the specified package in the collection of packages hosted on the CRAN site. When R finds the package, it will download it into a libraries folder on your computer. R can access the package here in future R sessions without reinstalling it.
+
+You can install multiple packages at once by linking their names with R’s concatenate function, `c`. For example, to install the ggplot2, reshape2, and dplyr packages, run:
+
+```{r}
+install.packages(c("ggplot2", "reshape2", "dplyr"))
+```
+
+## 2. Loading Packages
+
+Installing a package doesn’t immediately place its functions at your fingertips. It just places them on your computer. To use an R package, you next have to load it in your R session with the command:
+
+```{r}
+library(<package name>)
+```
+
+Notice that the quotation marks have disappeared. You can use them if you like, but quotation marks are optional for the `library` command. (This is not true for the `install.packages` command).
+
+`library` will make all of the package’s functions, data sets, and help files available to you until you close your current R session. The next time you begin an R session, you’ll have to reload the package with `library` if you want to use it, but you won’t have to reinstall it. You only have to install each package once. After that, a copy of the package will live in your R library. To see which packages you currently have in your R library, run:
+
+```{r}
+library()
+```
+
+Example:
+
+```{r}
+library(tidyverse)
+```
+
+# Loading and Saving Data in R
+
+## Working Directory
+
+Each time you open R, it links itself to a directory on your computer, which R calls the working directory. This is where R will look for files when you attempt to load them, and it is where R will save files when you save them. The location of your working directory will vary on different computers. To determine which directory R is using as your working directory, run:
+
+```{r}
+getwd()
+## "/Users/garrettgrolemund"
+```
+
+You can place data files straight into the folder that is your working directory, or you can move your working directory to where your data files are. You can move your working directory to any folder on your computer with the function `setwd`. Just give `setwd` the file path to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. That way I can keep all of my data, scripts, graphs, and reports in the same place. For example:
+
+```{r}
+setwd("~/Users/garrettgrolemund/Documents/Book_Project")
+```
+
+If the file path does not begin with your root directory, R will assume that it begins at your current working directory.
+
+You can also change your working directory by clicking on Session \> Set Working Directory \> Choose Directory in the RStudio menu bar. The Windows and Mac GUIs have similar options. If you start R from a UNIX command line (as on Linux machines), the working directory will be whichever directory you were in when you called R.
+
+You can see what files are in your working directory with `list.files()`. If you see the file that you would like to open in your working directory, then you are ready to proceed. How you open files in your working directory will depend on which type of file you would like to open.
+
+**The second way is to set the working directory from the GUI.**
+
+![](Tutorials/images/working_directory.png){width="553"}
+
+## Loading Data
+
+We will read in a simple dataset that was used in this week’s lecture. The dataset is currently stored on a website associated with this course, and as long as the tidyverse package has been loaded, you should be able to read in the data with the following command:
+
+```{r}
+mydata <- read_csv("https://uoepsy.github.io/data/lecture1_data.csv")
+```
+
+Notice that we use the assignment operator again, storing the data in a variable named “mydata”. The remaining part of the command uses the function “read_csv()”, because the data file is stored in a csv file. The argument of the function, written inside the parentheses, is the url where the csv file is located, enclosed in double quotes.
+
+# R Markdown
+
+## How to create and use an R Markdown document
+
+In RStudio it is often convenient to use a special type of file format called “R Markdown”. An R Markdown file can be converted into a pdf document, and can also include what we call “code chunks”, which are pieces of R code that can be run inside the document. This is useful because you can save the document, and you will keep all your work, unlike in the console, where you lose the code that you have written if you quit R Studio. The R Markdown format will be used extensivly in the lab sessions, and you will get plenty of practice. In the Live R lecture session on Tuesday, we will give a very brief introduction, to show how to create a new R Markdown document, and how to create and run code chunks.
+
+Very briefly, you can create an R Markdown document via the File menu in R Studio, like this:
+
+File \> New File \> R Markdown
+
+This will create a new panel in R Studio with some example contents of an R Markdown file. You can edit these contents to make your own document.
+
+Read Lesson 1 of the RMarkdown Bootcamp: [Lesson 1: Basics of RMarkdown](https://uoepsy.github.io/scs/rmd-bootcamp/01-basics.html)
+
+**References**
+
+<https://rstudio-education.github.io/hopr/packages2.html>
