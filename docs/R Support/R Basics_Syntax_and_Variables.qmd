@@ -1,0 +1,367 @@
+---
+title: "R Basics: Syntax & Variables"
+subtitle: ""
+format:
+  html:
+    layout: article
+    toc: true
+    toc-depth: 3
+    code-annotations: hover
+    code-line-numbers: false
+    code-fold: false
+    code-fold-label: "Code"
+    code-block-background: true
+    code-block-bg: true
+    highlight-style: "pygments"
+    css: styles.css
+---
+
+## What Is R Syntax and Why Does It Matter?
+
+In programming, *syntax* refers to the set of rules that define the combinations of symbols considered correctly structured programs in a given language. In simpler terms, it’s the specific way you must write your instructions so that the R interpreter can understand and execute them.
+
+Understanding R syntax is absolutely crucial because even a tiny mistake—a missing comma, a misplaced parenthesis, or incorrect capitalisation—can lead to errors that prevent your code from running. Mastering these basics empowers you to write clean, efficient, and error-free scripts, laying a solid foundation for your data journey.
+
+## R Syntax Basics: Your First Steps in Coding
+
+Let’s dive into the core elements of R syntax that you’ll encounter every day.
+
+### Comments: The Programmer’s Notes
+
+Comments are lines in your code that R ignores. They are incredibly useful for you and others to understand what your code does, why you made certain choices, or to temporarily disable a line of code.\
+In R, you use the hash symbol `#` to indicate a comment.
+
+-   Anything after `#` on a line is treated as a comment.\
+-   Comments improve code readability and maintainability.
+
+```{r}
+# This is a single-line comment
+x <- 10 # This comment explains what x is
+```
+
+### Variables and Assignment: Storing Your Data
+
+Variables are like named containers that hold values. You use them to store data (numbers, text, logical values) so you can refer to it and manipulate it later in your script. In R, the primary way to assign a value to a variable is using the assignment operator `<-` (a less-than sign followed by a hyphen).
+
+-   You can also use `=` for assignment, but `<-` is generally preferred for clarity and consistency in R.
+
+-   Variable names should start with a letter and can contain letters, numbers, and underscores (`_`) or periods (`.`).
+
+-   R is case-sensitive! `myVariable` is different from `myvariable`.
+
+```{r}
+
+# Assigning a number to a variable
+my_number <- 42
+
+# Assigning text (a character string)
+my_text <- "Hello, R!"
+
+# Assigning a logical value
+is_active <- TRUE
+
+```
+
+### Data Types: What Kind of Information Are You Handling?
+
+Every piece of data in R has a type, which tells R what kind of information it is and how it can be used. Understanding data types is fundamental for performing correct operations.
+
+-   **Numeric:** For numbers (integers like `5` or decimals like `3.14`).
+
+-   **Character:** For text, enclosed in single or double quotes (`"hello"`, `'world'`).
+
+-   **Logical:** For boolean values, either `TRUE` or `FALSE`.
+
+```{r}
+# Numeric examples
+age <- 30
+pi_value <- 3.14159
+
+# Character examples
+name <- "Alice"
+message <- 'Welcome to R programming.'
+
+# Logical examples
+is_raining <- FALSE
+has_data <- TRUE
+
+# You can check the type with the class() function
+class(age)
+class(name)
+```
+
+### Vectors: The Building Blocks of R
+
+Vectors are the most basic data structure in R. They are ordered collections of elements of the *same data type*. You create vectors using the `c()` function, which stands for “combine” or “concatenate”.
+
+-   All elements in a vector must be of the same type (numeric, character, or logical).
+
+-   Vectors can be of any length, from a single element to thousands.
+
+```{r}
+
+# A numeric vector
+ages <- c(25, 30, 35, 40)
+
+# A character vector
+names <- c("Alice", "Bob", "Charlie")
+
+# A logical vector
+results <- c(TRUE, FALSE, TRUE, TRUE)
+
+# Accessing elements in a vector (R uses 1-based indexing!)
+ages[1] # Returns 25
+names[3] # Returns "Charlie"
+```
+
+## R Code Structure: How R Organizes Instructions
+
+Beyond individual syntax elements, understanding how R structures sequences of instructions is key to writing functional scripts.
+
+### Functions: Performing Actions
+
+Functions are pre-defined blocks of code that perform a specific task. They take inputs (called arguments) and often return an output. You call a function by writing its name followed by parentheses, inside which you pass any required arguments.
+
+-   Common functions include `print()`, `sum()`, `mean()`, `sqrt()`.
+
+-   Arguments are passed inside the parentheses, separated by commas.
+
+```{r}
+
+# Using the print() function to display output
+print("Hello, world!")
+
+# Using the sum() function on a vector
+numbers <- c(1, 2, 3, 4, 5)
+total <- sum(numbers)
+print(total) # Output: 15
+
+# Using the mean() function
+average <- mean(numbers)
+print(average) # Output: 3
+```
+
+### Operators: Doing Math and Comparisons
+
+Operators are special symbols that perform operations on values and variables. R has a rich set of operators for arithmetic, comparison, and logical operations.
+
+-   **Arithmetic:** `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `^` or `**` (exponentiation), `%%` (modulo – remainder), `%/%` (integer division).
+
+-   **Relational (Comparison):** `==` (equal to), `!=` (not equal to), `<` (less than), `>` (greater than), `<=` (less than or equal to), `>=` (greater than or equal to). These return logical (TRUE/FALSE) values.
+
+-   **Logical:** `&` (AND), `|` (OR), `!` (NOT). Used to combine or negate logical conditions.
+
+```{r}
+
+# Arithmetic examples
+result_add <- 5 + 3
+result_mult <- 4 * 2
+result_pow <- 2^3 # 8
+
+# Relational examples
+is_equal <- (10 == 10) # TRUE
+is_greater <- (7 > 12) # FALSE
+
+# Logical examples
+condition1 <- TRUE
+condition2 <- FALSE
+combined_and <- condition1 & condition2 # FALSE
+combined_or <- condition1 | condition2 # TRUE
+not_condition1 <- !condition1 # FALSE
+```
+
+### Control Flow: Making Decisions (If/Else)
+
+Control flow statements allow your code to make decisions or repeat actions based on certain conditions. The most fundamental control flow structure is the `if` statement, often paired with `else`.
+
+-   An `if` statement executes a block of code only if a specified condition is `TRUE`.
+
+-   An `else` block provides an alternative action if the `if` condition is `FALSE`.
+
+-   Code blocks are typically enclosed in curly braces `{}`.
+
+```{r}
+score <- 75
+
+if (score >= 60) {
+ print("You passed!")
+} else {
+ print("You need to study more.")
+}
+
+# You can also have "else if" for multiple conditions
+grade <- "B"
+
+if (grade == "A") {
+ print("Excellent!")
+} else if (grade == "B") {
+ print("Good job!")
+} else {
+ print("Keep practicing.")
+}
+```
+
+## Common R Syntax Pitfalls for Beginners
+
+Even experienced programmers make syntax errors. Here are a few common ones to watch out for as you learn **R code structure**:
+
+-   **Case Sensitivity:** Remember, `variable` is not the same as `Variable`. This applies to function names too!
+
+-   **Missing Parentheses or Brackets:** A common oversight, especially with nested functions or vector indexing. R will often tell you it”s expecting something.
+
+-   **Incorrect Assignment vs. Equality:** Using `=` when you mean `==` (or vice versa) can lead to unexpected results or errors.
+
+-   **Quotation Marks:** For character strings, always use matching single or double quotes (e.g., `"text"` or `'text'`, not `"text'`).
+
+-   **Object Not Found:** This usually means you”ve misspelled a variable name, forgotten to assign a value, or haven”t loaded a necessary package.
+
+# Variables
+
+## What Are Variables in R?
+
+At its core, a variable in R is a symbolic name that refers to a value. This value could be a single number, a piece of text, a logical true/false statement, or even a complex data structure like a dataset. When you assign a value to a variable, R stores that value in memory and associates it with the name you”ve chosen.
+
+Why are they so important? Variables allow you to reuse data without retyping it, make your code dynamic (data can change without changing the code itself), and greatly improve the readability of your scripts. Instead of a “magic number,” you can have a variable named `"tax_rate"`.
+
+## The Primary Assignment Operator: `<-`
+
+In R, the most common and recommended way to assign a value to a variable is by using the assignment operator `<-`. This operator is often referred to as the “gets” operator because you can read it as “variable gets value.” The value on the right-hand side is “assigned to” or “gets” stored in the variable on the left-hand side.
+
+### Basic Assignment with `<-`
+
+Let”s start with a simple example. We”ll assign the number 10 to a variable named `my_number`.
+
+```{r}
+my_number <- 10
+print(my_number)
+```
+
+When you run this code, R creates a variable called `my_number` and stores the value 10 inside it. The `print()` function then displays the value of that variable.
+
+### Assigning Different Data Types
+
+R is a dynamically typed language, meaning you don”t need to declare the data type of a variable before assigning a value. R automatically infers the type based on the value you assign. You can assign various types of data to variables using `<-`:
+
+-   **Numeric:** For numbers (integers, decimals).
+
+-   **Character:** For text (strings).
+
+-   **Logical:** For TRUE/FALSE values.
+
+```{r}
+# Assigning a numeric value (decimal)
+price <- 29.99
+print(price)
+
+# Assigning a character (string) value
+product_name <- "R Programming Guide"
+print(product_name)
+
+# Assigning a logical (boolean) value
+is_available <- TRUE
+print(is_available)
+```
+
+## Naming Conventions for Variables
+
+Choosing good names for your variables is just as important as knowing how to assign them. Clear, descriptive names make your code much more understandable for yourself and others. Here are some key guidelines for naming variables in R:
+
+-   **Start with a letter or a dot:** Variable names cannot start with a number. If they start with a dot, the next character must be a letter.
+
+-   **No spaces:** Use underscores (`_`) or periods (`.`) to separate words, or use camel case.
+
+-   **No special characters:** Avoid symbols like `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `-`, `+`, `=`, `~`, `!`.
+
+-   **Be descriptive:** `total_sales` is much better than `ts`.
+
+-   **Be consistent:** If you use `snake_case` (e.g., `my_variable`), stick to it throughout your project. Other common styles include `camelCase` (e.g., `myVariable`) and `dot.case` (e.g., `my.variable`).
+
+-   **Avoid reserved words:** Don”t use names that R already uses, such as `if`, `else`, `for`, `function`, `TRUE`, `FALSE`, `NA`, `NULL`.
+
+```{r , eval=FALSE}
+# Good variable names
+user_age <- 30
+first.name <- "Alice"
+totalRevenue <- 1500.75
+
+# Bad variable names (will cause errors or confusion)
+1st_quarter <- 100 # Starts with a number
+my variable <- "data" # Contains a space
+sum <- 5 # "sum" is a built-in function
+```
+
+## Entering Data
+
+For small data sets, you can enter data directly into **vectors** (also known as columns).
+
+```{r}
+
+heights <- c(62, 70, 59, 65, 68)
+heights
+## [1] 62 70 59 65 68
+```
+
+The first line of the syntax creates a new variable named `heights` with five data points.\
+The second line prints the contents of `heights` to the output window.
+
+## Reading Data from Files
+
+For larger data sets, you can save the data into a separate **text file**, which can be **comma-** or **tab-delimited**. For example, the following command reads in a CSV file and stores the contents into a new R object called `data`:
+
+```{r, eval=FALSE}
+
+data <- read.csv("FILENAME")
+```
+
+If you type:
+
+```{r, eval=FALSE}
+data <- read.csv("FILENAME", header = TRUE)
+```
+
+the **first row** will be used as names for each column.\
+Otherwise, if you use:
+
+```{r, eval=FALSE}
+data <- read.csv("FILENAME")
+```
+
+you’ll need to manually add column names later using:
+
+```{r, eval=FALSE}
+names(data) <- c("VAR1", "VAR2", "VAR3")
+```
+
+Here, `VAR1` corresponds to the first variable name, and so on.\
+Make sure there are as many names as there are columns in the object `data`.
+
+## File Paths and Working Directory
+
+`FILENAME` is a file that resides in the **current working directory**.\
+If the file is located elsewhere, you need to specify the **full file path** so R can find it, for example:
+
+```{r, eval=FALSE}
+read.csv("C:\\working\\data\\FILENAME.csv")
+```
+
+On **Windows**, you can use either **double backslashes (`\\`)** or **single forward slashes (`/`)**, e.g.:
+
+```{r, eval=FALSE}
+read.csv("C:/rich/working/data/FILENAME.csv")
+```
+
+On **Mac** and **Linux**, the **forward slash (`/`)** format is the only one that works:
+
+```{r, eval=FALSE}
+read.csv("/Users/username/Documents/data/FILENAME.csv")
+```
+
+### Summary
+
+-   Use `c()` to enter small datasets directly into vectors.
+
+-   Use `read.csv()` to load larger datasets from files.
+
+-   Always check your **working directory** and use correct file path formatting for your operating system.
+
+-   If `header = TRUE`, the first row of your file will automatically become column names.
