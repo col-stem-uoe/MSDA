@@ -69,6 +69,8 @@ website:
             
     - text: "Stats Tutorials"
        menu:
+         - text: "Week 07 – Tutorial 00"
+           href: Tutorials/Stats/week-7/week-07-tutorial-stats.qmd
          - text: "Week 08 – Tutorial 01"
            href: Tutorials/Stats/week-8/week-08-tutorial-stats.qmd
          - text: "Week 09 – Tutorial 02"
