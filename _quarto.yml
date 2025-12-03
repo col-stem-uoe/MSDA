@@ -58,7 +58,7 @@ website:
             href: Content/Stats/week-09-content-stats.qmd
           - text: "Plots – Grammar of Graphics"
             href: Content/Stats/Plots_and_grammar.qmd
-          - text: "Week 10 – "
+          - text: "Week 10 – Continuous Varibales "
             href: Content/Stats/week-10-content-stats.qmd
           - text: "Week 11 – "
             href: Content/Stats/week-11-content-stats.qmd
@@ -93,7 +93,7 @@ website:
           - text: "Getting Ready with R and RStudio – IFP"
             href: "R Support/getting_ready_with_R_RStudio_IFP.qmd"
           - text: "R Basics: Syntax and Variables"
-            href: "R Support/R-Basics_Syntax-and-Variables.qmd"
+            href: "R Support/R_Basics_Syntax-and-Variables.qmd"
 
 format:
   html:

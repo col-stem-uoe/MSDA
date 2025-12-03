@@ -9,16 +9,9 @@ format:
 editor: visual
 ---
 
-```{r, echo=TRUE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-
 lecture <- read_csv("Lecture1_data.csv")
-
-```
-
-```{r}
-glimpse(lecture)
-
 ```
 
 # 1. What Is Research?
@@ -32,6 +25,8 @@ This week connects your earlier work on **data types and levels of measurement**
 -   independent and dependent variables\
 -   study design\
 -   how variables are represented in data sets
+
+<br>
 
 By the end of this week you should be able to:
 

@@ -15,7 +15,7 @@ Categorical data appear in many subjects: education, health, psychology, linguis
 
 To follow the examples, first load the tidyverse:
 
-```{r}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
 
@@ -48,8 +48,34 @@ summary(students)
 
 ```
 
-For numeric variables, this shows the **minimum**, **maximum**, **mean**, and so on.\
-For categorical variables, it shows the **number of students** in each category.
+::: callout-important
+-   For **numeric variables**, this shows the **minimum**, **maximum**, **mean**, and so on.\
+-   For **categorical variables**, it shows the **number of students** in each category.
+:::
+
+::: {.callout-note title="Interpreting the Summary for Categorical Variables" collapse="true"}
+For **categorical variables**, `summary()` behaves differently depending on **how the variable is stored** in R:
+
+-   If the variable is stored as a **character**, R only reports:
+    -   the number of observations\
+    -   the class\
+    -   the mode
+-   If the variable is a **factor**, R also reports the **frequency** of each category.
+
+**Example:**\
+In the original dataset, `Gender` is stored as a character, so R prints only structural information:
+
+![](images/Gender.jpg){width="142"}
+
+If we convert the variable to a factor:
+
+```{r}
+students$Gender <- factor(students$Gender)
+summary(students$Gender)
+```
+
+This is much more informative, because you can immediately see how many students belong to each group.
+:::
 
 What we are doing here is providing a **numeric description of the distribution** of each variable.
 
@@ -58,7 +84,7 @@ What we are doing here is providing a **numeric description of the distribution
 
 We will focus on describing and visualising **categorical** distributions.
 
-# **1. What Are Categorical Variables?**
+# 1. What Are Categorical Variables?
 
 Categorical variables place individuals into **groups**. The categories might be:
 
@@ -76,7 +102,7 @@ Categorical variables place individuals into **groups**. The categories might b
 
 We distinguish between **nominal** and **ordinal** categories.
 
-### **Nominal variables**
+### Nominal variables
 
 These categories have **no natural order**.
 
@@ -90,7 +116,7 @@ Examples in our dataset:
 
 The category labels are simply **names** — they do not imply higher or lower scores.
 
-### **Ordinal variables**
+### Ordinal variables
 
 Ordinal categories **have a clear order**.
 
@@ -100,7 +126,15 @@ In our dataset:
 
 The order matters, but the difference between levels is not necessarily equal.
 
-# **2. Telling R That a Variable Is Categorical**
+# 2. Telling R That a Variable Is Categorical
+
+::: {.callout-tip .margin}
+`mutate()` modifies or creates variables.\
+
+For example, `Gender = factor(Gender)` replaces the original `Gender` column with a version stored as a factor.\
+
+All other columns remain unchanged, and the updated data frame continues through the pipe (\|\>)
+:::
 
 R reads some categorical variables as **character strings**. To analyse them correctly, we often convert them into **factors**.
 
@@ -131,7 +165,7 @@ students <- students |>
 
 ```
 
-# **3. Note about R code: Using the Pipe Operator (`|>`)**
+# 3. Note about R code: Using the Pipe Operator (`|>`)
 
 ### Using the pipe `|>`: reading left to right
 
@@ -163,7 +197,7 @@ This is easier to read:
 
 We will use this style a lot in this course, especially with functions from **tidyverse**.
 
-### **An example using our dataset**
+### An example using our dataset
 
 Let’s say we want to:
 
@@ -183,7 +217,7 @@ students |>
 
 ```
 
-### **How to read this**
+### How to read this
 
 -   Take the `students` data
 
@@ -198,7 +232,7 @@ count(select(students, Degree), Degree)
 
 ```
 
-### **Another very simple example**
+### Another example
 
 Imagine we want to:
 
@@ -224,7 +258,7 @@ Read it as:
 -   **and then** create a new column with percentages
 
 ::: note
-### **About `%>%`**
+### About `%>%`
 
 You may still see the older pipe symbol `%>%` in online examples:
 
@@ -236,9 +270,9 @@ students %>% select(Degree) %>% count(Degree)
 It works in exactly the same way, but the newer `|>` is now preferred.
 :::
 
-# **4. Summary Statistics :**
+# 4. Summary Statistics :
 
-### **4.1 Frequency Tables**
+### 4.1 Frequency Tables
 
 A frequency table shows **how many** observations fall into each category.
 
@@ -438,7 +472,7 @@ knitr::kable(perc_degree)
 :::
 ::::::
 
-# **5. Bar Charts for Categorical Data**
+# 5. Bar Charts for Categorical Data\*\*
 
 Bar charts visually display frequency distribution — useful for spotting patterns at a glance.
 
@@ -623,6 +657,8 @@ Although the values are stored as numbers, they represent **ordered categories*
 
 ### 6.1 Frequency table for an ordinal variable
 
+This gives the number of students choosing each response.
+
 ```{r}
 students |>
   count(Satisfaction_Likert_value)
@@ -630,6 +666,8 @@ students |>
 ```
 
 ### 6.2 We can again use relative frequencies:
+
+We can also calculate the **percentage** choosing each category:
 
 ```{r}
 freq_sat <-
@@ -643,13 +681,15 @@ freq_sat
 
 ```
 
-### 6.3 Median
+This helps us compare how common each category is.
 
-Because the categories are ordered, we can talk about the **median**.
+### 6.3 The Median for an Ordinal Variable
 
-> **Median**\
+Because ordinal categories have an order, we can meaningfully talk about the **median**.
+
+> **Definition:**\
 > The median is the value for which 50% of observations are lower and 50% are higher.\
-> It is the middle value when all the observations are lined up in order.
+> It is the middle value when all observations are lined up in order.
 
 We can find the median of the satisfaction ratings directly:
 
@@ -658,11 +698,13 @@ median(as.numeric(students$Satisfaction_Likert_value))
 
 ```
 
-> The median satisfaction rating is 4. This means that at least half of the students gave a rating of 4 (“Satisfied”) or higher.
+> -   The median satisfaction rating is 4.
+>
+> -   This means that at least half of the students gave a rating of 4 (“Satisfied”) or higher.
 
 ### 6.4 Cumulative percentages and quartiles
 
-To find the median and quartiles, we can look at **cumulative percentages**.
+To find **quartiles**, we use **cumulative percentages**.
 
 > **Cumulative percentage**\
 > The cumulative percentage for a category is the percentage of observations in that category **or below** it.
@@ -681,60 +723,102 @@ students |>
 
 From this table, we can work out the **quartiles** and the **median**:
 
--   **First quartile (Q1)**: the first category where the cumulative percentage is **at least 25%**
+-   **Q1 (first quartile):** first category where cumulative % ≥ **25%**
 
--   **Median (Q2)**: the first category where the cumulative percentage is **at least 50%**
+-   **Q2 (median):** first category where cumulative % ≥ **50%**
 
--   **Third quartile (Q3)**: the first category where the cumulative percentage is **at least 75%**
+-   **Q3 (third quartile):** first category where cumulative % ≥ **75%**
 
 Using the values in the table:
 
--   Q1 occurs at the first category where cumulative percent ≥ 25% → **Likert value 2**
+| Quartile        | Rule             | Likert value |
+|-----------------|------------------|--------------|
+| **Q1**          | cumulative ≥ 25% | **2**        |
+| **Q2 (Median)** | cumulative ≥ 50% | **4**        |
+| **Q3**          | cumulative ≥ 75% | **5**        |
 
--   Q2 (the median) occurs at the first category where cumulative percent ≥ 50% → **Likert value 4**
+#### Interpretation
 
--   Q3 occurs at the first category where cumulative percent ≥ 75% → **Likert value 4**
+Most students rate their satisfaction at the higher end of the scale, with the majority of responses in categories **4** and **5**, and only a small number giving mid-range ratings (category 3).
 
-These quartiles give us a sense of how the data are distributed across the ordered categories.\
-For example, in this case a large proportion of ratings lie in categories **3, 4, and 5**, showing that satisfaction is generally on the higher end of the scale.
+#### **Does this interpretation sound counter-intuitive?**
 
-::: {.callout-tip title="Can we use the IQR with Likert data?"}
-Yes – R can calculate the IQR of a Likert scale because the responses are stored as numbers.
+Let's recap: what the data look like:
 
-However, Likert responses are *ordinal*, not truly numeric.\
-So the IQR should be interpreted in terms of **categories**, not as a precise numerical distance.
+```{r, echo=FALSE}
 
-Use quartiles (Q1, Q2, Q3) from the cumulative percentage table to describe how spread out the responses are across the ordered scale.
-:::
+library(dplyr)
+library(knitr)
 
-::: {.callout-tip title="Using the IQR and Quartiles with Likert Data"}
-Because Likert values are stored as numbers, R can calculate quartiles (Q1, Q2, Q3) and even the IQR.\
-However, a Likert scale is **ordinal**, not truly numeric, so we must interpret these values with care.
+quartile_table <-
+  students |>
+    count(Satisfaction_Likert_value) |>
+    arrange(Satisfaction_Likert_value) |>
+    mutate(
+      percent_raw  = n / sum(n) * 100,
+      cum_raw      = cumsum(percent_raw),
+      percent      = round(percent_raw, 1),
+      cumulative_percent = round(cum_raw, 1),
+      Quartile = case_when(
+        cum_raw >= 25 & lag(cum_raw, default = 0) < 25 ~ "Q1",
+        cum_raw >= 50 & lag(cum_raw, default = 0) < 50 ~ "Q2 (Median)",
+        cum_raw >= 75 & lag(cum_raw, default = 0) < 75 ~ "Q3",
+        TRUE ~ ""
+      ),
+      Rule = case_when(
+        Quartile == "Q1" ~ "First cumulative ≥ 25%",
+        Quartile == "Q2 (Median)" ~ "First cumulative ≥ 50%",
+        Quartile == "Q3" ~ "First cumulative ≥ 75%",
+        TRUE ~ ""
+      )
+    )
 
-### ✔️ What you *can* safely do
+quartile_table |>
+  select(
+    Satisfaction_Likert_value,
+    n,
+    percent,
+    cumulative_percent,
+    Quartile,
+    Rule
+  ) |>
+  kable(
+    col.names = c(
+      "Likert Value",
+      "Count",
+      "Percent (%)",
+      "Cumulative (%)",
+      "Quartile",
+      "Rule"
+    ),
+    align = "c"
+  )
 
-Use quartiles to talk about how responses are spread across the **ordered categories**.
 
-To do this properly:
+```
 
-1.  Identify **Q1**, **median (Q2)**, and **Q3** from the **cumulative percentage table**,\
-    rather than relying on the raw numeric outputs.
+**Note:** Q3 falls at Likert value 5 because cumulative percentage reaches 75% only when category 5 is included. Even though category 4 has many responses, it is not enough to reach 75% on its own.
 
-2.  Treat these quartiles as **categories**, not measurements.
+::: {.callout-tip title="Important Clarifications when Identifying Quartiles" collapse="true"}
+1.  You always **choose the first category that meets the threshold**
 
-### ✔️ Safe interpretation example
+    If cumulative jumps over the quartile threshold (e.g., from 3% to 31.5%), that category still contains the quartile.
 
-Using our satisfaction ratings:
+2.  **Overshooting is fine** .
 
--   **Q1 = 2**\
--   **Median = 4**\
--   **Q3 = 4**
+    Quartiles do not require the cumulative percentage to equal the threshold — only to be greater than or equal.
 
-So:
+3.  **Quartiles depend on cumulative percentages, not on category sizes**.
 
-> **Half of the students rated their satisfaction between 2 and 4 on the scale.**
+    Even if a category is very large or very small, quartiles are determined only by: ordering of the categories cumulative distribution across them
 
-This keeps the interpretation grounded in the **ordinal nature** of the data and avoids treating Likert responses as precise numeric units.
+4.  **Quartiles may repeat categories**.
+
+    It is possible for Q2 and Q3 to be the same category if that category contains both the 50% and 75% thresholds.
+
+5.  **Quartiles do not need to fall in the “middle” category.**
+
+    In skewed ordinal data, quartiles often fall: higher than students expect or both in the same category or in categories with small raw counts This is normal.
 :::
 
 ## 7 Visualising ordinal data
@@ -751,6 +835,7 @@ freq_sat <-
     percent = n / sum(n) * 100
   )
 
+freq_sat
 ```
 
 Then we plot:
@@ -797,33 +882,129 @@ This helps us see:
 
 -   where the **75%** point lies (Q3)
 
-**Checking quartiles in R**
+### **Checking quartiles in R**
+
+R can calculate the quartiles of an ordered variable directly:
 
 ```{r}
-quantile(students$Year, c(0.25, 0.75))
+quantile(students$Year, c(0.25, 0.50, 0.75))
 
 ```
 
-**Interquartile range (IQR)**
-
-```{r}
-IQR(students$Year)
-
-```
-
-**Median Year**
+### **Median in R - Year**
 
 ```{r}
 median(students$Year)
 
 ```
 
-These summaries are useful when we want to understand how students are distributed across levels of an ordered attribute.
+The median (Q2) identifies the category at which **50% of students are in Year 1 or 2**, and **50% are in Year 2 or 3**(depending on distribution).
+
+For ordinal data like `Year`, the median is interpreted as:
+
+> The “middle” year category where half of the students are below and half are above.
+
+### **Interquartile range (IQR)**
+
+-   The **interquartile range (IQR)** is a measure of **spread**.
+
+-   It tells us **where the middle 50% of the data lie**.
+
+The IQR is defined as:
+
+IQR=Q3−Q1
+
+-   **Q1 (first quartile):** the value at the 25% point
+
+-   **Q3 (third quartile):** the value at the 75% point
+
+So the IQR covers the range between the 25th and 75th percentiles.
+
+**It describes the spread of the middle half of the dataset.**
+
+**In R we calculate the IQR like this:**
+
+`IQR()` computes:
+
+> **IQR = Q3 − Q1**
+>
+> IQR = 2-1 =1
+
+```{r}
+IQR(students$Year)
+
+```
+
+This means that **the middle 50% of students fall between Year 1 and Year 2.**
+
+### Median or IQR ?
+
+**Median:** the *middle value*\
+**IQR:** the *spread of the middle 50%*
+
+-   The **median** tells us **where the centre of the data is**
+
+-   The **IQR** tells us **how spread out the central half of the data is**
+
+Together, they describe the **typical** part of the dataset.
+
+::: {.callout-note title="Example 1: Interpreting Year" collapse="true"}
+| Year | Cumulative % |
+|------|--------------|
+| 1    | 31.5%        |
+| 2    | 76%          |
+| 3    | 100%         |
+
+### **Median (Q2)**
+
+The median is the point where cumulative % ≥ **50%**.\
+
+-   The median Year = **2**
+
+**Interpretation:**
+
+The typical student is in **Year 2**.
+
+### **IQR (Q3 – Q1)**
+
+-   **Q1** is first cumulative ≥ 25% → **Year 1**
+
+-   **Q3** is first cumulative ≥ 75% → **Year 2**
+
+So:
+
+-    IQR = 2−1=1
+
+**Interpretation:**
+
+The middle half of students fall between **Year 1 and Year 2**.\
+This shows that most students are in the lower two years, with fewer in Year 3.
+:::
+
+::: {.callout-note title="Example 2: Interpreting Likert Satisfaction" collapse="true"}
+If your satisfaction distribution gives:
+
+-   Q1 = 2
+
+-   Median = 4
+
+-   Q3 = 4
+
+Then:
+
+-   Median = 4 → the central response is “Satisfied”.
+
+-   IQR = 4 − 2 = 2 (spread across categories 2–4)
+
+**Interpretation:**
+
+Half of the students rate their satisfaction between 2 (‘Dissatisfied’) and 4 (‘Satisfied’). Responses cluster in the mid-to-high end of the scale.
+:::
 
 ## 8. Glossary
 
 | Term / Function | Meaning |
-|----|----|
+|----------------------------------------------|--------------------------|
 | **distribution** | How often different possible values of a variable occur. |
 | **frequency** | Number of observations in a given category (a count). |
 | **relative frequency** | Proportion or percentage of observations in a given category. |
