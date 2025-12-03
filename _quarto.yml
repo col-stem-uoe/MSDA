@@ -2,11 +2,13 @@ project:
   type: website
   output-dir: docs
   render:
-   - index.qmd
-   - Teacher_Guidelines.qmd
-   - Content/**
-   - Tutorials/**
-   - "!Documentation/**"
+    - index.qmd
+    - Teacher_Guidelines.qmd
+    - "Content/**/*.qmd"
+    - "Tutorials/**/*.qmd"
+    - "R Support/**/*.qmd"
+    - "!Documentation/**"
+
 
 website:
   title: "MSDA"
@@ -15,7 +17,7 @@ website:
     left:
       - text: "Course Overview"
         href: index.qmd
-        
+
       - text: "Maths Content"
         menu:
           - text: "Week 01 – Functions"
@@ -30,7 +32,7 @@ website:
             href: Content/Maths/lecture-05-integration.qmd
           - text: "Week 06 – Probability"
             href: Content/Maths/lecture-06-probability.qmd
-            
+
       - text: "Maths Tutorials"
         menu:
           - text: "Week 01 – Tutorial: Functions"
@@ -45,14 +47,14 @@ website:
             href: Tutorials/Maths/workshop-05-integration.qmd
           - text: "Week 06 – Tutorial: Probability"
             href: Tutorials/Maths/workshop-06-probability.qmd
-            
+
       - text: "Stats Content"
         menu:
           - text: "Week 07 – Getting Ready with R and RStudio"
             href: Content/Stats/getting_ready_with_R_RStudio_IFP.qmd
           - text: "Week 08 – Research Questions, Variables, and Study Design"
             href: Content/Stats/week-08-content-stats.qmd
-          - text: "Week 09 –Categorical variables "
+          - text: "Week 09 – Categorical variables"
             href: Content/Stats/week-09-content-stats.qmd
           - text: "Plots – Grammar of Graphics"
             href: Content/Stats/Plots_and_grammar.qmd
@@ -91,14 +93,13 @@ website:
           - text: "Getting Ready with R and RStudio – IFP"
             href: "R Support/getting_ready_with_R_RStudio_IFP.qmd"
           - text: "R Basics: Syntax and Variables"
-            href: "R Support/R Basics_Syntax_and_Variables.qmd"
+            href: "R Support/R-Basics_Syntax-and-Variables.qmd"
 
 format:
   html:
     theme:
       light: default
       dark: darkly
-      
+
 execute:
   fig-dev: ragg_png
-

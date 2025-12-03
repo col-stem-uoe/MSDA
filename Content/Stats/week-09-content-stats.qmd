@@ -131,7 +131,7 @@ students <- students |>
 
 ```
 
-# **3. Note about R code: Using the Pipe Operator (`|>`)** 
+# **3. Note about R code: Using the Pipe Operator (`|>`)**
 
 ### Using the pipe `|>`: reading left to right
 
@@ -236,7 +236,7 @@ students %>% select(Degree) %>% count(Degree)
 It works in exactly the same way, but the newer `|>` is now preferred.
 :::
 
-# **4. Summary Statistics :** 
+# **4. Summary Statistics :**
 
 ### **4.1 Frequency Tables**
 
@@ -510,7 +510,7 @@ students |>
 ```
 
 ::: {.callout-tip title="Want to learn more about ggplot?"}
-For a deeper explanation of **ggplot**, including the grammar of graphics,  
+For a deeper explanation of **ggplot**, including the grammar of graphics,\
 aesthetics, geoms, and themes, see the **Plots & Grammar page**.
 
 [Plots and Grammar – How ggplot Works](plots_grammar.qmd)
@@ -569,7 +569,6 @@ then:
 
 fct_rev(Degree)
 
-
 flips the order to:
 
 1.  Architecture
@@ -595,8 +594,7 @@ This gives a clear and useful order:
 
 Example:
 
-mutate(Degree = fct_rev(fct_infreq(students$Degree)))
-
+mutate(Degree = fct_rev(fct_infreq(students\$Degree)))
 
 Step-by-step:
 
@@ -660,9 +658,7 @@ median(as.numeric(students$Satisfaction_Likert_value))
 
 ```
 
->The median satisfaction rating is 4.
->This means that at least half of the students gave a rating of 4 (“Satisfied”) or higher.
-
+> The median satisfaction rating is 4. This means that at least half of the students gave a rating of 4 (“Satisfied”) or higher.
 
 ### 6.4 Cumulative percentages and quartiles
 
@@ -824,11 +820,10 @@ median(students$Year)
 
 These summaries are useful when we want to understand how students are distributed across levels of an ordered attribute.
 
-
 ## 8. Glossary
 
 | Term / Function | Meaning |
-|-----------------------------------------------|-------------------------|
+|----|----|
 | **distribution** | How often different possible values of a variable occur. |
 | **frequency** | Number of observations in a given category (a count). |
 | **relative frequency** | Proportion or percentage of observations in a given category. |
@@ -842,9 +837,7 @@ These summaries are useful when we want to understand how students are distribut
 | **`ggplot()`** | Creates a plot. Uses `data =` and `aes()` to map variables to plot features (e.g. x-axis, y-axis, colours). |
 | **`geom_col()`** | Adds columns (bars) to a ggplot using the supplied y-values. |
 
-
 ::: callout-note
-For more examples of ggplot and the grammar of graphics, see  
+For more examples of ggplot and the grammar of graphics, see\
 [Plots and the Grammar of Graphics](Plots_and_grammar.qmd).
 :::
-
