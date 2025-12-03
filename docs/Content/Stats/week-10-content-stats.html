@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 10 – Stats – MSDA</title>
+<title>Week 10 – Continuous Variables – MSDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,11 +107,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -343,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
- <span class="dropdown-text">Week 10 –</span></a>
+ <span class="dropdown-text">Week 10 – Continuous Varibales</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
@@ -412,7 +476,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Getting Ready with R and RStudio – IFP</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../R Support/R-Basics_Syntax-and-Variables.qmd">
+    <a class="dropdown-item" href="../../R Support/R_Basics_Syntax-and-Variables.qmd">
  <span class="dropdown-text">R Basics: Syntax and Variables</span></a>
   </li>  
     </ul>
@@ -429,14 +493,62 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#central-tendency" id="toc-central-tendency" class="nav-link active" data-scroll-target="#central-tendency">2. Central tendency</a>
+  <ul class="collapse">
+  <li><a href="#revisiting-mode-and-median" id="toc-revisiting-mode-and-median" class="nav-link" data-scroll-target="#revisiting-mode-and-median">2.1 Revisiting mode and median</a></li>
+  <li><a href="#median-for-the-iq-scores" id="toc-median-for-the-iq-scores" class="nav-link" data-scroll-target="#median-for-the-iq-scores">Median for the IQ scores</a></li>
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a>
+  <ul class="collapse">
+  <li><a href="#calculating-the-mean-for-iq" id="toc-calculating-the-mean-for-iq" class="nav-link" data-scroll-target="#calculating-the-mean-for-iq">Calculating the mean for IQ</a></li>
+  <li><a href="#summarising-variables" id="toc-summarising-variables" class="nav-link" data-scroll-target="#summarising-variables">Summarising variables</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#measuring-spread-variance-and-standard-deviation" id="toc-measuring-spread-variance-and-standard-deviation" class="nav-link" data-scroll-target="#measuring-spread-variance-and-standard-deviation">3 Measuring spread: variance, and standard deviation</a>
+  <ul class="collapse">
+  <li><a href="#interquartile-range" id="toc-interquartile-range" class="nav-link" data-scroll-target="#interquartile-range"><strong>Interquartile range</strong></a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><strong>Interpretation</strong></a></li>
+  <li><a href="#in-practical-terms" id="toc-in-practical-terms" class="nav-link" data-scroll-target="#in-practical-terms"><strong>In practical terms</strong></a></li>
+  </ul></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance">Variance</a>
+  <ul class="collapse">
+  <li><a href="#calculating-the-variance-in-r" id="toc-calculating-the-variance-in-r" class="nav-link" data-scroll-target="#calculating-the-variance-in-r">Calculating the variance in R</a></li>
+  </ul></li>
+  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard deviation</a></li>
+  </ul></li>
+  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations">4 Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a>
+  <ul class="collapse">
+  <li><a href="#bins-and-their-effect-on-shape" id="toc-bins-and-their-effect-on-shape" class="nav-link" data-scroll-target="#bins-and-their-effect-on-shape">Bins and their effect on shape</a></li>
+  <li><a href="#understanding-histograms-using-study_hours-and-sleep_hours" id="toc-understanding-histograms-using-study_hours-and-sleep_hours" class="nav-link" data-scroll-target="#understanding-histograms-using-study_hours-and-sleep_hours">Understanding Histograms Using&nbsp;<em>Study_hours</em>&nbsp;and&nbsp;<em>Sleep_hours</em></a></li>
+  </ul></li>
+  <li><a href="#density-plot" id="toc-density-plot" class="nav-link" data-scroll-target="#density-plot">Density Plot</a></li>
+  </ul></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness">5 Skewness</a>
+  <ul class="collapse">
+  <li><a href="#what-is-skewness" id="toc-what-is-skewness" class="nav-link" data-scroll-target="#what-is-skewness">1. What is skewness?</a></li>
+  <li><a href="#why-do-the-mean-median-and-mode-shift" id="toc-why-do-the-mean-median-and-mode-shift" class="nav-link" data-scroll-target="#why-do-the-mean-median-and-mode-shift">2. Why do the mean, median, and mode shift?</a></li>
+  <li><a href="#how-to-interpret-the-figure" id="toc-how-to-interpret-the-figure" class="nav-link" data-scroll-target="#how-to-interpret-the-figure">3. How to interpret the figure</a></li>
+  </ul></li>
+  <li><a href="#choosing-appropriate-summaries" id="toc-choosing-appropriate-summaries" class="nav-link" data-scroll-target="#choosing-appropriate-summaries">6 Choosing appropriate summaries</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary">7 Glossary</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 10 – Stats</h1>
+<h1 class="title">Week 10 – Continuous Variables</h1>
 </div>
 
 
@@ -453,9 +565,958 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Coming soon!</p>
+<p>In earlier weeks we focused on&nbsp;<strong>categorical data</strong>&nbsp;and on how to describe it using:</p>
+<ul>
+<li><p>tables and bar plots</p></li>
+<li><p>measures of&nbsp;<strong>central tendency</strong>&nbsp;such as the&nbsp;<strong>mode</strong>&nbsp;and the&nbsp;<strong>median</strong></p></li>
+<li><p>simple measures of spread such as the&nbsp;<strong>range</strong>&nbsp;and&nbsp;<strong>quartiles</strong></p></li>
+</ul>
+<p>This week, we slow down and revisit the same ideas, but now for&nbsp;<strong>continuous (numeric) data</strong>.<br>
+We will:</p>
+<ol type="1">
+<li><p>look at how to&nbsp;<strong>visualise</strong>&nbsp;continuous data with histograms</p></li>
+<li><p>understand what the&nbsp;<strong>mean</strong>&nbsp;really is and how to calculate it</p></li>
+<li><p>build up measures of spread:&nbsp;<strong>deviations</strong>,&nbsp;<strong>variance</strong>, and&nbsp;<strong>standard deviation</strong></p></li>
+<li><p>briefly describe the&nbsp;<strong>shape</strong>&nbsp;of a distribution (skew and kurtosis)</p></li>
+</ol>
+<section id="central-tendency" class="level1">
+<h1>2. Central tendency</h1>
+<p>In the following examples, we are going to use data from 200 students on their IQ scores, study habits, sleep, stress, and related variables. These data are stored in the file Lecture1_data.csv, which we have already read in as students. Below is a quick numerical summary of some of the continuous variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(IQ, Study_hours, Sleep_hours, Overall_mark) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       IQ         Study_hours     Sleep_hours     Overall_mark  
+ Min.   : 85.0   Min.   :2.100   Min.   :4.200   Min.   :43.00  
+ 1st Qu.: 98.0   1st Qu.:4.500   1st Qu.:6.000   1st Qu.:57.00  
+ Median :104.0   Median :5.900   Median :6.800   Median :68.00  
+ Mean   :103.6   Mean   :5.845   Mean   :6.758   Mean   :66.24  
+ 3rd Qu.:109.2   3rd Qu.:7.200   3rd Qu.:7.600   3rd Qu.:74.25  
+ Max.   :126.0   Max.   :9.900   Max.   :8.600   Max.   :86.00  </code></pre>
+</div>
+</div>
+<p>This summary shows basic information (minimum, quartiles, median, mean, and maximum) for some of the continuous variables we will use.</p>
+<section id="revisiting-mode-and-median" class="level2">
+<h2 class="anchored" data-anchor-id="revisiting-mode-and-median">2.1 Revisiting mode and median</h2>
+<p>For central tendency we shall use:</p>
+<ul>
+<li><p><strong>Mode</strong>: the most frequently occurring value.</p></li>
+<li><p><strong>Median</strong>: the value for which 50% of observations are lower and 50% are higher (the middle value when data are ordered).</p></li>
+<li><p><strong>Mean</strong>: the arithmetic average (sum of values divided by the number of values).</p></li>
+</ul>
+<p>We previously applied these ideas to categorical variables, but they can also be used for numeric variables. The table below summarises which measures are appropriate for different types of data.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Mode</th>
+<th>Median</th>
+<th>Mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nominal (unordered categorical)</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr class="even">
+<td>Ordinal (ordered categorical)</td>
+<td>✓</td>
+<td>✓</td>
+<td>? (depends on context)</td>
+</tr>
+<tr class="odd">
+<td>Numeric continuous</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>For numeric variables there can be many different values, so the&nbsp;<strong>mode</strong>&nbsp;is not always very informative. However, we can still calculate it if we wish.</p>
+<p>Below we look at the most frequent value (the&nbsp;<strong>mode</strong>) of the&nbsp;<code>IQ</code>&nbsp;variable in the&nbsp;<code>students</code>&nbsp;data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(IQ, <span class="at">name =</span> <span class="st">"n"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 39 × 2
+      IQ     n
+   &lt;dbl&gt; &lt;int&gt;
+ 1   104    13
+ 2   108    12
+ 3   100    11
+ 4   101    11
+ 5    99     9
+ 6    95     8
+ 7   102     8
+ 8   106     8
+ 9   112     8
+10   113     8
+# ℹ 29 more rows</code></pre>
+</div>
+</div>
+<p>The first row of this output gives the most common IQ score in the sample.</p>
+</section>
+<section id="median-for-the-iq-scores" class="level2">
+<h2 class="anchored" data-anchor-id="median-for-the-iq-scores">Median for the IQ scores</h2>
+<p>Recall that the <strong>median</strong> is found by ordering the data from lowest to highest, and finding the mid-point.<br>
+In the <code>students</code> dataset we have IQ scores for 200 participants.<br>
+We find the median by ranking them from lowest to highest IQ and taking the mid-point between the two central scores.</p>
+<p>We can also use the <code>median()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(students<span class="sc">$</span>IQ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 104</code></pre>
+</div>
+</div>
+</section>
+<section id="mean" class="level2">
+<h2 class="anchored" data-anchor-id="mean">Mean</h2>
+<p>One of the most frequently used measures of central tendency for&nbsp;<strong>numeric</strong>&nbsp;data is the&nbsp;<strong>mean</strong>.</p>
+<section id="mean-1" class="level4">
+<h4 class="anchored" data-anchor-id="mean-1">Mean:</h4>
+<p>The mean is calculated by&nbsp;<strong>summing all of the observations</strong>&nbsp;together and then&nbsp;<strong>dividing by the total number of observations</strong>&nbsp;(n).</p>
+<p>When we have sampled some data, we denote the mean of our sample with the symbol<span class="math inline">\(\bar{x}\)</span> (sometimes called “x-bar”).<br>
+The formula is:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{\sum_{i = 1}^{n} x_i}{n}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(\bar{x}\)</span> = estimate of the mean of the variable <span class="math inline">\({x}\)</span></p></li>
+<li><p><span class="math inline">\(x_i\)</span> = individual values of <span class="math inline">\({x}\)</span></p></li>
+<li><p><span class="math inline">\(n\)</span> = sample size</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Samples and Populations">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Samples and Populations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Statistics is about drawing conclusions about a population from a smaller set of sampled data.<br>
+A number we calculate from a sample is an estimate of the corresponding quantity in the population.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Sample</th>
+<th>Population</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Number of observations</td>
+<td><span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(N\)</span></td>
+</tr>
+<tr class="even">
+<td>Mean</td>
+<td><span class="math inline">\(\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}\)</span></td>
+<td><span class="math inline">\(\mu = \frac{\sum_{i=1}^{N} x_i}{N}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In practice we almost always have a sample, so we work with <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(n\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-the-mean-for-iq" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-the-mean-for-iq">Calculating the mean for IQ</h3>
+<p>We can do the calculation by summing the IQ values and dividing by the number of students:</p>
+<p>We can also check this directly in R:</p>
+<ul>
+<li>Option 1:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(students<span class="sc">$</span>Overall_mark) <span class="sc">/</span> <span class="fu">length</span>(students<span class="sc">$</span>Overall_mark)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.24</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(students<span class="sc">$</span>Overall_mark)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.24</code></pre>
+</div>
+</div>
+<ul>
+<li>Option 2</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">mean_Overall_mark =</span> <span class="fu">mean</span>(Overall_mark)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_Overall_mark
+              &lt;dbl&gt;
+1              66.2</code></pre>
+</div>
+</div>
+<p>All approaches give the same value; the last one is the style we will normally use when working with data frames.</p>
+</section>
+<section id="summarising-variables" class="level3">
+<h3 class="anchored" data-anchor-id="summarising-variables">Summarising variables</h3>
+<p>Functions such as&nbsp;<code>mean()</code>,&nbsp;<code>median()</code>,&nbsp;<code>min()</code>&nbsp;and&nbsp;<code>max()</code>&nbsp;can quickly summarise data.<br>
+We can combine them neatly using&nbsp;<code>summarise()</code>&nbsp;from&nbsp;<strong>dplyr</strong>.</p>
+<section id="summarise" class="level4">
+<h4 class="anchored" data-anchor-id="summarise"><code>summarise()</code></h4>
+<p>The&nbsp;<code>summarise()</code>&nbsp;function reduces variables down to one or more&nbsp;<strong>summary values</strong>.</p>
+<pre><code># example structure
+
+data |&gt;
+summarise(
+summary_value1 = sum(variable1),
+summary_value2 = mean(variable2)
+)</code></pre>
+<p>So if we want to show the&nbsp;<strong>mean IQ</strong>&nbsp;and the&nbsp;<strong>mean Overall course mark</strong>&nbsp;of our students:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">mean_IQ          =</span> <span class="fu">mean</span>(IQ),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">mean_overall_mark =</span> <span class="fu">mean</span>(Overall_mark)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  mean_IQ mean_overall_mark
+    &lt;dbl&gt;             &lt;dbl&gt;
+1    104.              66.2</code></pre>
+</div>
+</div>
+<p>This produces a small table with one row and two columns: the average IQ score and the average overall mark in our sample.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="measuring-spread-variance-and-standard-deviation" class="level1">
+<h1>3 Measuring spread: variance, and standard deviation</h1>
+<p>Knowing the mean is not enough. Two classes can have the same average mark but very different&nbsp;<strong>spread</strong>:</p>
+<ul>
+<li><p>in one class, everyone is close to the mean</p></li>
+<li><p>in the other, some students do extremely well and others very poorly</p></li>
+</ul>
+<p>We therefore need a way to describe how much values&nbsp;<strong>vary around the mean</strong>.</p>
+<p>For each observation we can look at how far it is from the mean. This difference is called a&nbsp;<strong>deviation</strong>:</p>
+<section id="interquartile-range" class="level2">
+<h2 class="anchored" data-anchor-id="interquartile-range"><strong>Interquartile range</strong></h2>
+<p>If we are using the <strong>median</strong> as our measure of central tendency and we want to discuss how spread out the spread are around it, then we will want to use quartiles (recall that these are linked: the quartile = the median).</p>
+<p>We have already briefly introduced how for <strong>ordinal</strong> data, the 1st and 3rd quartiles give us information about how spread out the data are across the possible response categories. For numeric data, we can likewise find the 1st and 3rd quartiles in the same way - we rank-order all the data, and find the point at which 25% and 75% of the data falls below.</p>
+<p>The <em>difference</em> between the 1st and 3rd quartiles is known as the <strong>interquartile range (IQR)</strong>.<br>
+( <strong>Note</strong>, we couldn’t take the <em>difference</em> for ordinal data, because “difference” would not be quantifiable - the categories are ordered, but intervals are between categories are unknown)</p>
+<p>In R, we can find the IQR as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(students<span class="sc">$</span>IQ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.25</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># take the "students" dataframe |&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise() it, such that there is a value called "median_IQ", which</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># is the median() of the "IQ" variable, and a value called "iqr_age", which</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># is the IQR() of the "age" variable.</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_IQ =</span> <span class="fu">median</span>(IQ),</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">iqr_IQ =</span> <span class="fu">IQR</span>(IQ)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  median_IQ iqr_IQ
+      &lt;dbl&gt;  &lt;dbl&gt;
+1       104   11.2</code></pre>
+</div>
+</div>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation"><strong>Interpretation</strong></h3>
+<ul>
+<li><p>The&nbsp;<strong>median IQ</strong>&nbsp;in this sample is&nbsp;<strong>104</strong>.<br>
+This means that&nbsp;<strong>half of the students have an IQ below 104</strong>&nbsp;and&nbsp;<strong>half have an IQ above 104</strong>.<br>
+The median is a measure of&nbsp;<em>central tendency</em>&nbsp;that is not affected by extreme values.</p></li>
+<li><p>The&nbsp;<strong>interquartile range (IQR)</strong>&nbsp;for IQ is&nbsp;<strong>11.25</strong>.<br>
+This means that the&nbsp;<strong>middle 50% of students</strong>&nbsp;(those between the 25th and 75th percentiles) have IQ scores that differ by&nbsp;<strong>11.25 points</strong>.<br>
+The IQR is a measure of&nbsp;<em>spread</em>&nbsp;that tells us how tightly or loosely clustered the central half of the scores are.</p></li>
+</ul>
+</section>
+<section id="in-practical-terms" class="level3">
+<h3 class="anchored" data-anchor-id="in-practical-terms"><strong>In practical terms</strong></h3>
+<ul>
+<li><p>An IQR of&nbsp;<strong>11.25</strong>&nbsp;suggests that IQ scores in this class are&nbsp;<strong>moderately clustered</strong>&nbsp;around the centre.</p></li>
+<li><p>There is some variation, but most students fall within a relatively narrow band around the median.</p></li>
+</ul>
+</section>
+</section>
+<section id="variance" class="level2">
+<h2 class="anchored" data-anchor-id="variance">Variance</h2>
+<p>If we are using the <strong>mean</strong> as our measure of central tendency, we can think about the spread of the data in terms of the <strong>deviations</strong> (the distance of each value from the mean).</p>
+<p>Recall that the mean is denoted by <span class="math inline">\(\bar{x}\)</span>.<br>
+If we use <span class="math inline">\(x_i\)</span> to denote the <span class="math inline">\(i^{\text{th}}\)</span> value of <span class="math inline">\(x\)</span>, then the deviation for that value is:</p>
+<p><span class="math display">\[
+x_i - \bar{x}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="The sum of deviations from the mean is always zero">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The sum of deviations from the mean is always zero
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The deviations from the mean always add up to zero:</p>
+<p><span class="math display">\[
+\sum_{i = 1}^{n} (x_i - \bar{x}) = 0
+\]</span></p>
+<p>The mean acts like a <strong>centre of gravity</strong>:<br>
+positive deviations (where <span class="math inline">\(x_i &gt; \bar{x}\)</span>) are exactly balanced by negative deviations (where <span class="math inline">\(x_i &lt; \bar{x}\)</span>).</p>
+</div>
+</div>
+<p>Because deviations always sum to zero, they cannot be used directly as a measure of spread.<br>
+To solve this, we square them. Squaring makes all deviations positive, and larger deviations become disproportionately larger.<br>
+The <strong>average squared deviation</strong> is called the <strong>variance</strong>, written <span class="math inline">\(s^2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Variance: $s^2$">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Variance: <span class="math inline">\(s^2\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The variance is defined as the <strong>average of the squared deviations from the mean</strong>:</p>
+<p><span class="math display">\[
+s^2 = \frac{\sum_{i = 1}^{n} (x_i - \bar{x})^2}{\,n - 1\,}
+\]</span> Here,</p>
+<ul>
+<li><span class="math inline">\(s^2\)</span> = sample variance<br>
+</li>
+<li><span class="math inline">\(\bar{x}\)</span> = sample mean<br>
+</li>
+<li><span class="math inline">\(n\)</span> = sample size</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Why do we divide by $n - 1$?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why do we divide by <span class="math inline">\(n - 1\)</span>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The numerator</p>
+<p><span class="math display">\[
+\sum_{i = 1}^{n} (x_i - \bar{x})^2
+\]</span></p>
+<p>contains (n) deviations, but once the mean <span class="math inline">\(\bar{x}\)</span> is calculated, the deviations are <strong>not independent</strong>.<br>
+They must sum to zero, meaning only (n - 1) of them contain unique information.</p>
+<section id="example-with-two-values" class="level3">
+<h3 class="anchored" data-anchor-id="example-with-two-values">Example with two values</h3>
+<p>Suppose we only have two observations, <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>.<br>
+The sum of squared deviations is:</p>
+<p><span class="math display">\[
+\sum_{i = 1}^{2} (x_i - \bar{x})^2
+=
+(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2
+\]</span></p>
+<p>The mean for these two values is:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{x_1 + x_2}{2}
+\]</span></p>
+<p>Substituting this into the deviations:</p>
+<p><span class="math display">\[
+(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2
+=
+\left( x_1 - \frac{x_1 + x_2}{2} \right)^2
++
+\left( x_2 - \frac{x_1 + x_2}{2} \right)^2
+\]</span></p>
+<p>This simplifies to:</p>
+<p><span class="math display">\[
+\left( \frac{x_1 - x_2}{\sqrt{2}} \right)^2
+\]</span></p>
+<p>Even though there are two points, there is effectively <strong>one independent piece of information</strong>, so we divide by <span class="math inline">\(n - 1 = 1\)</span>.<br>
+More generally, with <span class="math inline">\(n\)</span> data points, we divide by <span class="math inline">\(n - 1\)</span>.</p>
+</section>
+</div>
+</div>
+</div>
+<section id="calculating-the-variance-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-the-variance-in-r">Calculating the variance in R</h3>
+<p>var() function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance_overall_mark =</span> <span class="fu">var</span>(Overall_mark),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance_IQ =</span> <span class="fu">var</span>(IQ)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  variance_overall_mark variance_IQ
+                  &lt;dbl&gt;       &lt;dbl&gt;
+1                  97.0        77.2</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="standard-deviation">Standard deviation</h2>
+<p>One difficulty in interpreting variance as a measure of spread is that it is expressed in units of squared deviations. It reflects the typical squared distance from a value to the mean. To bring the measure back into the same units as the original variable, we take the square root of the variance. This gives the standard deviation.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Standard Deviation: $s$">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Standard Deviation: <span class="math inline">\(s\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The standard deviation, denoted by <span class="math inline">\(s\)</span>, is an estimate of the typical distance of a value from the mean.<br>
+It is defined as the <strong>square root of the variance</strong>:</p>
+<p><span class="math display">\[
+s = \sqrt{ \frac{\sum_{i = 1}^{n} (x_i - \bar{x})^2}{\,n - 1\,} }
+\]</span></p>
+</div>
+</div>
+<p>We can ask R to calculate the standard deviation of a variable using the sd() function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">variance_IQ =</span> <span class="fu">var</span>(IQ),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">sd_IQ       =</span> <span class="fu">sd</span>(IQ)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  variance_IQ sd_IQ
+        &lt;dbl&gt; &lt;dbl&gt;
+1        77.2  8.79</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizations" class="level1">
+<h1>4 Visualizations</h1>
+<section id="boxplots" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots">Boxplots</h3>
+<p>A boxplot gives a quick picture of how the data are spread out.It provides a useful way of visualising the <strong>interquartile range (IQR).</strong> Here’s what each part of this plot shows:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="quartiles-q1-q2-q3" class="level4">
+<h4 class="anchored" data-anchor-id="quartiles-q1-q2-q3">Quartiles (Q1, Q2, Q3)</h4>
+<ul>
+<li><p><strong>Q1</strong>: 25% of the scores are below this value.</p></li>
+<li><p><strong>Q2 (Median)</strong>: the middle score in the dataset.</p></li>
+<li><p><strong>Q3</strong>: 75% of the scores are below this value.</p></li>
+</ul>
+<p>The dashed lines rise up from the box to show where each quartile sits.</p>
+</section>
+<section id="the-iqr-interquartile-range" class="level4">
+<h4 class="anchored" data-anchor-id="the-iqr-interquartile-range">The IQR (Interquartile Range)</h4>
+<ul>
+<li><p><strong>IQR = Q3 − Q1</strong></p></li>
+<li><p>It shows the spread of the&nbsp;<em>middle half</em>&nbsp;of the scores.</p></li>
+<li><p>The pink bracket at the top highlights this range.</p></li>
+</ul>
+</section>
+<section id="the-box" class="level4">
+<h4 class="anchored" data-anchor-id="the-box">The Box</h4>
+<ul>
+<li><p>The box stretches from&nbsp;<strong>Q1</strong>&nbsp;to&nbsp;<strong>Q3</strong>.</p></li>
+<li><p>The line inside the box marks the&nbsp;<strong>median (Q2)</strong>.<br>
+This box tells you where most of the students’ IQ scores fall.</p></li>
+</ul>
+</section>
+<section id="whiskers-minimum-and-maximum-values" class="level4">
+<h4 class="anchored" data-anchor-id="whiskers-minimum-and-maximum-values">Whiskers (minimum and maximum values)</h4>
+<ul>
+<li><p>The whiskers show the&nbsp;<strong>smallest</strong>&nbsp;and&nbsp;<strong>largest</strong>&nbsp;values in the data<br>
+<em>that are not considered outliers</em>.</p></li>
+<li><p>The labels underneath show where these values are.</p></li>
+</ul>
+</section>
+<section id="possible-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="possible-outliers">Possible outliers</h4>
+<ul>
+<li><p>A value is considered an outlier if it is:</p>
+<ul>
+<li><p><strong>below</strong>&nbsp;Q1 − 1.5 × IQR, or</p></li>
+<li><p><strong>above</strong>&nbsp;Q3 + 1.5 × IQR.</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Understanding the 1.5 × IQR Rule">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Understanding the 1.5 × IQR Rule
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You may wonder where the “1.5” in the boxplot definition comes from.</p>
+<p>The <strong>1.5 × IQR rule</strong> was introduced by statistician <strong>John Tukey</strong>, the creator of the boxplot. He wanted a simple, distribution-free way to detect values that are <em>unusually far</em> from the rest of the data.</p>
+<p><strong>How the rule works:</strong></p>
+<ul>
+<li>Compute the <strong>interquartile range (IQR)</strong>, which is Q3 − Q1.<br>
+</li>
+<li>Define two cut-off points, called <strong>fences</strong>:
+<ul>
+<li><strong>Lower fence:</strong> Q1 − 1.5 × IQR<br>
+</li>
+<li><strong>Upper fence:</strong> Q3 + 1.5 × IQR<br>
+</li>
+</ul></li>
+<li>Any value <em>below</em> the lower fence or <em>above</em> the upper fence is flagged as a <strong>potential outlier</strong>.</li>
+</ul>
+<p><strong>Why choose 1.5?</strong></p>
+<p>Tukey chose 1.5 because it works well across a wide variety of datasets:</p>
+<ul>
+<li>Using <strong>1 × IQR</strong> flags too many normal values as outliers.<br>
+</li>
+<li>Using <strong>2 × IQR</strong> misses points that are genuinely unusual.<br>
+</li>
+<li><strong>1.5 × IQR</strong> gives a balanced threshold that reliably identifies values far from the central bulk of the data.</li>
+</ul>
+<p>This is why the 1.5 × IQR rule has become the standard in statistics and data science. :::</p>
+<ul>
+<li>Our dataset has&nbsp;<strong>no real outliers</strong>, so the two pink points on the plot are just&nbsp;<strong>examples</strong>&nbsp;to help us see where outliers&nbsp;<em>would</em>&nbsp;appear.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="The real dataset does not have outliers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The real dataset does not have outliers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-this-plot-is-helpful" class="level4">
+<h4 class="anchored" data-anchor-id="why-this-plot-is-helpful">Why this plot is helpful</h4>
+<p>A boxplot lets you quickly understand:</p>
+<ul>
+<li><p>the middle of the data (median),</p></li>
+<li><p>how spread out the scores are (IQR),</p></li>
+<li><p>whether the distribution is balanced or skewed,</p></li>
+<li><p>and whether any scores stand out as unusual.</p></li>
+</ul>
+</section>
+</section>
+<section id="histograms" class="level2">
+<h2 class="anchored" data-anchor-id="histograms">Histograms</h2>
+<p>For categorical variables a bar plot works well because there are only a few distinct categories.<br>
+For a continuous variable such as&nbsp;<code>Overall_mark</code>, there may be many different values – sometimes every student has a slightly different mark.</p>
+<p>If we tried to draw a bar for every distinct mark the plot would be messy and unreadable. Instead we group values into&nbsp;<strong>bins</strong>&nbsp;(ranges) and count how many observations fall within each bin. This gives a&nbsp;<strong>histogram</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Overall_mark)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="at">bins  =</span> <span class="dv">20</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="at">fill   =</span> <span class="st">"steelblue4"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Overall course mark"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Histogram of Overall course mark"</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="bins-and-their-effect-on-shape" class="level3">
+<h3 class="anchored" data-anchor-id="bins-and-their-effect-on-shape">Bins and their effect on shape</h3>
+<p>The&nbsp;<strong>bin width</strong>&nbsp;(or, equivalently, the number of bins) can change the apparent shape of the histogram:</p>
+<ul>
+<li>Few wide bins</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># few wide bins</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Overall_mark)) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="at">bins  =</span> <span class="dv">5</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="at">fill   =</span> <span class="st">"steelblue4"</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Height (cm)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Heights with 5 wide bins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Many narrow bins</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># many narrow bins</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Overall_mark)) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="at">bins  =</span> <span class="dv">30</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="at">fill   =</span> <span class="st">"steelblue4"</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Height (cm)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Heights with 30 narrow bins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The&nbsp;<strong>data have not changed</strong>, but the visual impression can. When interpreting a histogram, always keep in mind that the choice of bins is under the analyst’s control.</p>
+</section>
+<section id="understanding-histograms-using-study_hours-and-sleep_hours" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-histograms-using-study_hours-and-sleep_hours">Understanding Histograms Using&nbsp;<em>Study_hours</em>&nbsp;and&nbsp;<em>Sleep_hours</em></h3>
+<p>We can use histograms to compare how&nbsp;<em>spread out</em>&nbsp;two continuous variables are. Below, we look at:</p>
+<ul>
+<li><p><strong>Study_hours</strong>&nbsp;→ wider spread</p></li>
+<li><p><strong>Sleep_hours</strong>&nbsp;→ narrower spread</p></li>
+</ul>
+<p>Even before plotting, we can quantify their variability using the&nbsp;<strong>mean</strong>&nbsp;and&nbsp;<strong>standard deviation</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_study =</span> <span class="fu">mean</span>(Study_hours),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_study   =</span> <span class="fu">sd</span>(Study_hours),</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_sleep =</span> <span class="fu">mean</span>(Sleep_hours),</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_sleep   =</span> <span class="fu">sd</span>(Sleep_hours)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  mean_study sd_study mean_sleep sd_sleep
+       &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+1       5.84     1.79       6.76    0.983</code></pre>
+</div>
+</div>
+<p>The&nbsp;<strong>standard deviation</strong>&nbsp;tells us how much values typically vary around the mean.<br>
+Study hours vary&nbsp;<em>more</em>&nbsp;(SD ≈ 1.8), whereas sleep hours vary&nbsp;<em>less</em>&nbsp;(SD ≈ 1.0).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)   <span class="co"># if not installed: install.packages("patchwork")</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Study_hours)) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">bins  =</span> <span class="dv">20</span>,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill   =</span> <span class="st">"steelblue4"</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Study hours per day"</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Study_hours: Wider spread"</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Sleep_hours)) <span class="sc">+</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">bins  =</span> <span class="dv">20</span>,</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill   =</span> <span class="st">"steelblue4"</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sleep hours per night"</span>,</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sleep_hours: Narrower spread"</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2   <span class="co"># displays them side-by-side</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="interpretation-1" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-1">Interpretation</h4>
+<p>‘Study_hours’ and ‘Sleep_hours’ show very different spreads.<br>
+Even though the averages are not too far apart, Study_hours has a much larger&nbsp;<strong>standard deviation</strong>, meaning students differ widely in how long they study each day. This gives the histogram a&nbsp;<strong>wider base</strong>.</p>
+<p>In contrast, Sleep_hours has a&nbsp;<strong>smaller standard deviation</strong>, meaning most students sleep roughly similar amounts. The histogram is therefore&nbsp;<strong>taller and narrower</strong>, because many values cluster close together.</p>
+<p>Histograms are helpful because they let us&nbsp;<em>see</em>&nbsp;these differences in spread, not just calculate them.</p>
+</section>
+</section>
+</section>
+<section id="density-plot" class="level2">
+<h2 class="anchored" data-anchor-id="density-plot">Density Plot</h2>
+<p>A density plot (or density curve) shows the shape of a distribution using a smooth curve instead of bars. The y-axis represents&nbsp;<strong>density</strong>, and the&nbsp;<em>total area under the curve equals 1</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Study_hours)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Study_hours: Wider spread (SD ≈ 1.8)"</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Sleep_hours)) <span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sleep_hours: Narrower spread (SD ≈ 1.0)"</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 61%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Histogram</th>
+<th>Density plot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Depends on bin width</td>
+<td>No bins — smooth curve</td>
+</tr>
+<tr class="even">
+<td>Height = count</td>
+<td>Height = density</td>
+</tr>
+<tr class="odd">
+<td>Area is not 1</td>
+<td>Area = 1</td>
+</tr>
+<tr class="even">
+<td>Can look quite different depending on bins</td>
+<td>Much more stable visually</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>When should you use each plot?</strong> <br></p>
+<p>Use a histogram when you want to count how many observations fall in particular ranges. Use a density plot when you want to understand the overall shape of a distribution without worrying about bin choices. Using both together often gives the clearest picture.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="skewness" class="level1">
+<h1>5 Skewness</h1>
+<p>The purpose of this figure is to illustrate&nbsp;<strong>how the shape of a distribution affects the relationship between the mean, median, and mode</strong>. These three measures of central tendency behave differently depending on whether a distribution is&nbsp;<strong>positively skewed</strong>,&nbsp;<strong>symmetric</strong>, or&nbsp;<strong>negatively skewed</strong>.</p>
+<section id="what-is-skewness" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-skewness">1. What is skewness?</h3>
+<p>Skewness is a measure of&nbsp;<strong>asymmetry</strong>&nbsp;in a distribution:</p>
+<ul>
+<li><p><strong>Positive skew (right-skewed)</strong><br>
+The distribution has a long tail on the&nbsp;<strong>right</strong>.<br>
+A few very large values pull the mean upward.</p></li>
+<li><p><strong>Symmetric distribution</strong><br>
+Data are balanced around the centre.<br>
+Mean = Median = Mode.</p></li>
+<li><p><strong>Negative skew (left-skewed)</strong><br>
+The distribution has a long tail on the&nbsp;<strong>left</strong>.<br>
+A few very small values pull the mean downward.</p></li>
+</ul>
+<p>Skewness is important because it affects which measure of central tendency best represents the “centre” of the data.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week-10-content-stats_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="why-do-the-mean-median-and-mode-shift" class="level3">
+<h3 class="anchored" data-anchor-id="why-do-the-mean-median-and-mode-shift">2. Why do the mean, median, and mode shift?</h3>
+<p>The&nbsp;<strong>mode</strong>&nbsp;always occurs at the highest peak—where most observations are concentrated.<br>
+The&nbsp;<strong>median</strong>&nbsp;is the midpoint value when the data are ordered.<br>
+The&nbsp;<strong>mean</strong>&nbsp;is sensitive to extreme values (outliers).</p>
+<p>As a result:</p>
+<ul>
+<li><p>In&nbsp;<strong>positive skew</strong>:<br>
+<strong>Mode &lt; Median &lt; Mean</strong><br>
+(the tail on the right pulls the mean to the right)</p></li>
+<li><p>In&nbsp;<strong>symmetric</strong>&nbsp;distributions:<br>
+<strong>Mode = Median = Mean</strong></p></li>
+<li><p>In&nbsp;<strong>negative skew</strong>:<br>
+<strong>Mean &lt; Median &lt; Mode</strong><br>
+(the tail on the left pulls the mean to the left)</p></li>
+</ul>
+<p>The ordering of these three values tells us about the direction of skew.</p>
+</section>
+<section id="how-to-interpret-the-figure" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-interpret-the-figure">3. How to interpret the figure</h3>
+<p>This visual helps you identify skew by looking at:</p>
+<ul>
+<li><p><strong>The direction of the tail</strong></p></li>
+<li><p><strong>Where the mean, median, and mode sit relative to each other</strong></p></li>
+<li><p><strong>The height of the density curve</strong>, which shows where values are most common</p></li>
+</ul>
+<p>Being able to visually diagnose skew is essential in real data analysis because skew affects:</p>
+<ul>
+<li><p>Which summary statistics to use</p></li>
+<li><p>How reliable the mean is</p></li>
+<li><p>Which statistical models are valid</p></li>
+<li><p>How to correctly describe the data distribution</p></li>
+</ul>
+</section>
+</section>
+<section id="choosing-appropriate-summaries" class="level1">
+<h1>6 Choosing appropriate summaries</h1>
+<p>A quick guide for which measures to use:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable type</th>
+<th>Centre (central tendency)</th>
+<th>Spread (dispersion)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Categorical (nominal)</td>
+<td>Mode</td>
+<td>Frequency table</td>
+</tr>
+<tr class="even">
+<td>Categorical (ordered)</td>
+<td>Mode / Median</td>
+<td>Range / IQR</td>
+</tr>
+<tr class="odd">
+<td>Continuous (numeric)</td>
+<td>Mean / Median</td>
+<td>Variance &amp; Standard deviation (plus IQR)</td>
+</tr>
+<tr class="even">
+<td>Counts</td>
+<td>Mode / Mean</td>
+<td>Range, variance, standard deviation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary" class="level1">
+<h1>7 Glossary</h1>
+<ul>
+<li><strong>Interquartile Range (IQR)</strong>: The 3rd quartile minus the 1st quartile; the range of the middle 50% of the data.</li>
+<li><strong>Mean</strong>: The sum of all observations divided by the total number of observations; the arithmetic average.</li>
+<li><strong>Median</strong>: The middle value of an ordered dataset; 50% of observations lie below and 50% above.</li>
+<li><strong>Mode</strong>: The most frequently occurring value in a dataset.</li>
+<li><strong>Deviation</strong>: The distance from an observation to the mean value.</li>
+<li><strong>Variance</strong>: The average squared distance of observations from the mean value.</li>
+<li><strong>Standard deviation</strong>: The square root of the variance; the typical distance of observations from the mean.</li>
+<li><strong>Quartiles (Q1, Q2, Q3)</strong>: Values that split ordered data into four equal parts (25%, 50%, 75%).</li>
+<li><strong>Interquartile fences</strong>: The cut-offs Q1 − 1.5 × IQR and Q3 + 1.5 × IQR used to flag potential outliers.</li>
+<li><strong>Outlier</strong>: An observation that lies far from the bulk of the data, often beyond the 1.5 × IQR fences.</li>
+<li><strong>Boxplot</strong>: Displays the median, quartiles, the IQR, and any potential outliers.</li>
+<li><strong>Histogram</strong>: Shows the frequency of values that fall within bins of an equal width.</li>
+<li><strong>Bin width</strong>: The size of the intervals used to group values in a histogram.</li>
+<li><strong>Density curve / density plot</strong>: A smooth curve reflecting the distribution of a variable, where the total area under the curve is 1.</li>
+<li><strong>Skew / Skewness</strong>: A measure of asymmetry in a distribution (positive/right skew or negative/left skew).</li>
+<li><strong>Positive skew</strong>: A distribution with a long tail to the right; extreme high values pull the mean to the right of the median.</li>
+<li><strong>Negative skew</strong>: A distribution with a long tail to the left; extreme low values pull the mean to the left of the median.</li>
+<li><strong>Spread / dispersion</strong>: How much the values of a variable vary around a central value.</li>
+<li><strong>Continuous variable</strong>: A numeric variable that can take many possible values on a scale (e.g., IQ, hours of sleep).</li>
+<li><strong>Categorical variable</strong>: A variable that records group membership or labels (e.g., degree programme, gender).</li>
+</ul>
+<p><br></p>
+<ul>
+<li><code>summarise()</code> To summarise variables into one or more values according to whatever calculation we give it.</li>
+<li><code>mean()</code> To calculate the mean of a numeric variable.</li>
+<li><code>median()</code> To calculate the median of a numeric variable.</li>
+<li><code>IQR()</code> To calculate the interquartile range for a numeric variable.</li>
+<li><code>sd()</code> To calculate the standard deviation of a numeric variable.</li>
+<li><code>var()</code> To calculate the variance of a numeric variable.</li>
+<li><code>min()</code> / <code>max()</code> To obtain the smallest and largest values of a numeric variable.</li>
+<li><code>count()</code> To count how many times each value or category occurs.</li>
+<li><code>ggplot()</code> To start a plot using the <em>ggplot2</em> grammar of graphics.</li>
+<li><code>geom_histogram()</code> To add a histogram to a ggplot.</li>
+<li><code>geom_boxplot()</code> To add a boxplot to a ggplot.</li>
+<li><code>geom_density()</code> To add a density curve to a ggplot.</li>
+<li><code>geom_vline()</code> To add a vertical reference line (e.g., for a mean or median) to a ggplot.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

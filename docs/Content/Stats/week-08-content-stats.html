@@ -378,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
- <span class="dropdown-text">Week 10 –</span></a>
+ <span class="dropdown-text">Week 10 – Continuous Varibales</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
@@ -447,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Getting Ready with R and RStudio – IFP</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../R Support/R-Basics_Syntax-and-Variables.qmd">
+    <a class="dropdown-item" href="../../R Support/R_Basics_Syntax-and-Variables.qmd">
  <span class="dropdown-text">R Basics: Syntax and Variables</span></a>
   </li>  
     </ul>
@@ -519,32 +519,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>lecture <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lecture)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 200
-Columns: 14
-$ ID                        &lt;chr&gt; "S001", "S002", "S003", "S004", "S005", "S00…
-$ Degree                    &lt;chr&gt; "Architecture", "Linguistics", "English", "P…
-$ Year                      &lt;dbl&gt; 2, 1, 2, 1, 2, 2, 2, 3, 2, 2, 1, 3, 1, 1, 2,…
-$ Gender                    &lt;chr&gt; "Female", "Male", "Female", "Male", "Non-bin…
-$ Study_hours               &lt;dbl&gt; 6.8, 3.1, 8.2, 5.5, 4.0, 7.4, 2.7, 9.0, 5.9,…
-$ Sleep_hours               &lt;dbl&gt; 7.4, 5.8, 7.6, 6.7, 5.9, 7.8, 5.0, 8.2, 6.6,…
-$ Stress_level              &lt;chr&gt; "Moderate", "High", "Low", "Moderate", "High…
-$ Satisfaction_Likert_item  &lt;chr&gt; "Satisfied", "Dissatisfied", "Very Satisfied…
-$ Satisfaction_Likert_value &lt;dbl&gt; 4, 2, 5, 4, 2, 5, 1, 5, 4, 4, 2, 5, 3, 2, 5,…
-$ Coffee_per_day            &lt;dbl&gt; 1, 3, 1, 2, 2, 1, 4, 0, 2, 1, 3, 0, 2, 3, 1,…
-$ Social_media_hr           &lt;dbl&gt; 2.4, 4.7, 2.0, 3.0, 4.1, 2.1, 5.2, 2.5, 3.2,…
-$ Exercise                  &lt;chr&gt; "Yes", "No", "Yes", "No", "No", "Yes", "No",…
-$ Overall_mark              &lt;dbl&gt; 68, 55, 78, 65, 58, 74, 49, 81, 66, 70, 56, …
-$ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100, 10…</code></pre>
-</div>
-</div>
 <section id="what-is-research" class="level1">
 <h1>1. What Is Research?</h1>
 <p>Research begins with curiosity — a question about how the world works.<br>
@@ -559,6 +533,7 @@ In this course we work with existing datasets, but behind each dataset there is 
 </li>
 <li>how variables are represented in data sets</li>
 </ul>
+<p><br></p>
 <p>By the end of this week you should be able to:</p>
 <ul>
 <li>turn an informal idea into a <strong>research question</strong> and a <strong>testable hypothesis</strong><br>
@@ -728,11 +703,11 @@ Relate the results back to the research question.</p></li>
 <section id="variables-in-the-lecture-dataset" class="level1">
 <h1>4. Variables in the Lecture Dataset</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>lecture <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lecture)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>lecture <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lecture)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 200
 Columns: 14
@@ -755,23 +730,23 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
 <p>Below is a description of all variables in the Lecture1_data.csv dataset.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="gapydlwwxs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gapydlwwxs table {
+<div id="ytxbgxutsu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ytxbgxutsu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gapydlwwxs thead, #gapydlwwxs tbody, #gapydlwwxs tfoot, #gapydlwwxs tr, #gapydlwwxs td, #gapydlwwxs th {
+#ytxbgxutsu thead, #ytxbgxutsu tbody, #ytxbgxutsu tfoot, #ytxbgxutsu tr, #ytxbgxutsu td, #ytxbgxutsu th {
   border-style: none;
 }
 
-#gapydlwwxs p {
+#ytxbgxutsu p {
   margin: 0;
   padding: 0;
 }
 
-#gapydlwwxs .gt_table {
+#ytxbgxutsu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -797,12 +772,12 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-left-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_caption {
+#ytxbgxutsu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gapydlwwxs .gt_title {
+#ytxbgxutsu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -814,7 +789,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-bottom-width: 0;
 }
 
-#gapydlwwxs .gt_subtitle {
+#ytxbgxutsu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -826,7 +801,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-top-width: 0;
 }
 
-#gapydlwwxs .gt_heading {
+#ytxbgxutsu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -838,13 +813,13 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-right-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_bottom_border {
+#ytxbgxutsu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_col_headings {
+#ytxbgxutsu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -859,7 +834,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-right-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_col_heading {
+#ytxbgxutsu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -879,7 +854,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   overflow-x: hidden;
 }
 
-#gapydlwwxs .gt_column_spanner_outer {
+#ytxbgxutsu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -891,15 +866,15 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   padding-right: 4px;
 }
 
-#gapydlwwxs .gt_column_spanner_outer:first-child {
+#ytxbgxutsu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gapydlwwxs .gt_column_spanner_outer:last-child {
+#ytxbgxutsu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gapydlwwxs .gt_column_spanner {
+#ytxbgxutsu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -911,11 +886,11 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   width: 100%;
 }
 
-#gapydlwwxs .gt_spanner_row {
+#ytxbgxutsu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gapydlwwxs .gt_group_heading {
+#ytxbgxutsu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -941,7 +916,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   text-align: left;
 }
 
-#gapydlwwxs .gt_empty_group_heading {
+#ytxbgxutsu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -956,15 +931,15 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   vertical-align: middle;
 }
 
-#gapydlwwxs .gt_from_md > :first-child {
+#ytxbgxutsu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gapydlwwxs .gt_from_md > :last-child {
+#ytxbgxutsu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gapydlwwxs .gt_row {
+#ytxbgxutsu .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -983,7 +958,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   overflow-x: hidden;
 }
 
-#gapydlwwxs .gt_stub {
+#ytxbgxutsu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -996,7 +971,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   padding-right: 5px;
 }
 
-#gapydlwwxs .gt_stub_row_group {
+#ytxbgxutsu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1010,15 +985,15 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   vertical-align: top;
 }
 
-#gapydlwwxs .gt_row_group_first td {
+#ytxbgxutsu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gapydlwwxs .gt_row_group_first th {
+#ytxbgxutsu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gapydlwwxs .gt_summary_row {
+#ytxbgxutsu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1028,16 +1003,16 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   padding-right: 5px;
 }
 
-#gapydlwwxs .gt_first_summary_row {
+#ytxbgxutsu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_first_summary_row.thick {
+#ytxbgxutsu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gapydlwwxs .gt_last_summary_row {
+#ytxbgxutsu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1047,7 +1022,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-bottom-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_grand_summary_row {
+#ytxbgxutsu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1057,7 +1032,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   padding-right: 5px;
 }
 
-#gapydlwwxs .gt_first_grand_summary_row {
+#ytxbgxutsu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1067,7 +1042,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-top-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_last_grand_summary_row_top {
+#ytxbgxutsu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1077,11 +1052,11 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-bottom-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_striped {
+#ytxbgxutsu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gapydlwwxs .gt_table_body {
+#ytxbgxutsu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1090,7 +1065,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-bottom-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_footnotes {
+#ytxbgxutsu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1104,7 +1079,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-right-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_footnote {
+#ytxbgxutsu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1113,7 +1088,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   padding-right: 5px;
 }
 
-#gapydlwwxs .gt_sourcenotes {
+#ytxbgxutsu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1127,7 +1102,7 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   border-right-color: #D3D3D3;
 }
 
-#gapydlwwxs .gt_sourcenote {
+#ytxbgxutsu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1135,72 +1110,72 @@ $ IQ                        &lt;dbl&gt; 102, 108, 95, 110, 99, 106, 88, 120, 100
   padding-right: 5px;
 }
 
-#gapydlwwxs .gt_left {
+#ytxbgxutsu .gt_left {
   text-align: left;
 }
 
-#gapydlwwxs .gt_center {
+#ytxbgxutsu .gt_center {
   text-align: center;
 }
 
-#gapydlwwxs .gt_right {
+#ytxbgxutsu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gapydlwwxs .gt_font_normal {
+#ytxbgxutsu .gt_font_normal {
   font-weight: normal;
 }
 
-#gapydlwwxs .gt_font_bold {
+#ytxbgxutsu .gt_font_bold {
   font-weight: bold;
 }
 
-#gapydlwwxs .gt_font_italic {
+#ytxbgxutsu .gt_font_italic {
   font-style: italic;
 }
 
-#gapydlwwxs .gt_super {
+#ytxbgxutsu .gt_super {
   font-size: 65%;
 }
 
-#gapydlwwxs .gt_footnote_marks {
+#ytxbgxutsu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gapydlwwxs .gt_asterisk {
+#ytxbgxutsu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gapydlwwxs .gt_indent_1 {
+#ytxbgxutsu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gapydlwwxs .gt_indent_2 {
+#ytxbgxutsu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gapydlwwxs .gt_indent_3 {
+#ytxbgxutsu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gapydlwwxs .gt_indent_4 {
+#ytxbgxutsu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gapydlwwxs .gt_indent_5 {
+#ytxbgxutsu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gapydlwwxs .katex-display {
+#ytxbgxutsu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gapydlwwxs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ytxbgxutsu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

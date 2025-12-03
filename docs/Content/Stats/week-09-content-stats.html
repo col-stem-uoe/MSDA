@@ -378,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-10-content-stats.html">
- <span class="dropdown-text">Week 10 –</span></a>
+ <span class="dropdown-text">Week 10 – Continuous Varibales</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../Content/Stats/week-11-content-stats.html">
@@ -447,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Getting Ready with R and RStudio – IFP</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../R Support/R-Basics_Syntax-and-Variables.qmd">
+    <a class="dropdown-item" href="../../R Support/R_Basics_Syntax-and-Variables.qmd">
  <span class="dropdown-text">R Basics: Syntax and Variables</span></a>
   </li>  
     </ul>
@@ -470,29 +470,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link active" data-scroll-target="#data-exploration">Data exploration</a></li>
-  <li><a href="#what-are-categorical-variables" id="toc-what-are-categorical-variables" class="nav-link" data-scroll-target="#what-are-categorical-variables"><strong>1. What Are Categorical Variables?</strong></a>
+  <li><a href="#what-are-categorical-variables" id="toc-what-are-categorical-variables" class="nav-link" data-scroll-target="#what-are-categorical-variables">1. What Are Categorical Variables?</a>
   <ul class="collapse">
-  <li><a href="#nominal-variables" id="toc-nominal-variables" class="nav-link" data-scroll-target="#nominal-variables"><strong>Nominal variables</strong></a></li>
-  <li><a href="#ordinal-variables" id="toc-ordinal-variables" class="nav-link" data-scroll-target="#ordinal-variables"><strong>Ordinal variables</strong></a></li>
+  <li><a href="#nominal-variables" id="toc-nominal-variables" class="nav-link" data-scroll-target="#nominal-variables">Nominal variables</a></li>
+  <li><a href="#ordinal-variables" id="toc-ordinal-variables" class="nav-link" data-scroll-target="#ordinal-variables">Ordinal variables</a></li>
   </ul></li>
-  <li><a href="#telling-r-that-a-variable-is-categorical" id="toc-telling-r-that-a-variable-is-categorical" class="nav-link" data-scroll-target="#telling-r-that-a-variable-is-categorical"><strong>2. Telling R That a Variable Is Categorical</strong></a></li>
-  <li><a href="#note-about-r-code-using-the-pipe-operator" id="toc-note-about-r-code-using-the-pipe-operator" class="nav-link" data-scroll-target="#note-about-r-code-using-the-pipe-operator"><strong>3. Note about R code: Using the Pipe Operator (<code>|&gt;</code>)</strong></a>
+  <li><a href="#telling-r-that-a-variable-is-categorical" id="toc-telling-r-that-a-variable-is-categorical" class="nav-link" data-scroll-target="#telling-r-that-a-variable-is-categorical">2. Telling R That a Variable Is Categorical</a></li>
+  <li><a href="#note-about-r-code-using-the-pipe-operator" id="toc-note-about-r-code-using-the-pipe-operator" class="nav-link" data-scroll-target="#note-about-r-code-using-the-pipe-operator">3. Note about R code: Using the Pipe Operator (<code>|&gt;</code>)</a>
   <ul class="collapse">
   <li><a href="#using-the-pipe-reading-left-to-right" id="toc-using-the-pipe-reading-left-to-right" class="nav-link" data-scroll-target="#using-the-pipe-reading-left-to-right">Using the pipe&nbsp;<code>|&gt;</code>: reading left to right</a></li>
-  <li><a href="#an-example-using-our-dataset" id="toc-an-example-using-our-dataset" class="nav-link" data-scroll-target="#an-example-using-our-dataset"><strong>An example using our dataset</strong></a></li>
-  <li><a href="#how-to-read-this" id="toc-how-to-read-this" class="nav-link" data-scroll-target="#how-to-read-this"><strong>How to read this</strong></a></li>
-  <li><a href="#another-very-simple-example" id="toc-another-very-simple-example" class="nav-link" data-scroll-target="#another-very-simple-example"><strong>Another very simple example</strong></a></li>
-  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about"><strong>About&nbsp;<code>%&gt;%</code></strong></a></li>
+  <li><a href="#an-example-using-our-dataset" id="toc-an-example-using-our-dataset" class="nav-link" data-scroll-target="#an-example-using-our-dataset">An example using our dataset</a></li>
+  <li><a href="#how-to-read-this" id="toc-how-to-read-this" class="nav-link" data-scroll-target="#how-to-read-this">How to read this</a></li>
+  <li><a href="#another-example" id="toc-another-example" class="nav-link" data-scroll-target="#another-example">Another example</a></li>
+  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about">About&nbsp;<code>%&gt;%</code></a></li>
   </ul></li>
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><strong>4. Summary Statistics :</strong></a>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">4. Summary Statistics :</a>
   <ul class="collapse">
-  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables"><strong>4.1 Frequency Tables</strong></a></li>
+  <li><a href="#frequency-tables" id="toc-frequency-tables" class="nav-link" data-scroll-target="#frequency-tables">4.1 Frequency Tables</a></li>
   <li><a href="#example-how-many-students-are-in-each-degree" id="toc-example-how-many-students-are-in-each-degree" class="nav-link" data-scroll-target="#example-how-many-students-are-in-each-degree">Example: how many students are in each degree?</a></li>
   <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">4.2 Mode</a></li>
   <li><a href="#relative-frequencies-proportions-and-percentages" id="toc-relative-frequencies-proportions-and-percentages" class="nav-link" data-scroll-target="#relative-frequencies-proportions-and-percentages">4.3 Relative frequencies (proportions and percentages)</a></li>
   <li><a href="#another-way-of-adding-percentages" id="toc-another-way-of-adding-percentages" class="nav-link" data-scroll-target="#another-way-of-adding-percentages">Another way of adding percentages:</a></li>
   </ul></li>
-  <li><a href="#bar-charts-for-categorical-data" id="toc-bar-charts-for-categorical-data" class="nav-link" data-scroll-target="#bar-charts-for-categorical-data"><strong>5. Bar Charts for Categorical Data</strong></a>
+  <li><a href="#bar-charts-for-categorical-data" id="toc-bar-charts-for-categorical-data" class="nav-link" data-scroll-target="#bar-charts-for-categorical-data">5. Bar Charts for Categorical Data**</a>
   <ul class="collapse">
   <li><a href="#degree-distribution" id="toc-degree-distribution" class="nav-link" data-scroll-target="#degree-distribution">Degree distribution</a></li>
   <li><a href="#changing-the-order-of-categories" id="toc-changing-the-order-of-categories" class="nav-link" data-scroll-target="#changing-the-order-of-categories">Changing the order of categories</a>
@@ -506,12 +506,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#frequency-table-for-an-ordinal-variable" id="toc-frequency-table-for-an-ordinal-variable" class="nav-link" data-scroll-target="#frequency-table-for-an-ordinal-variable">6.1 Frequency table for an ordinal variable</a></li>
   <li><a href="#we-can-again-use-relative-frequencies" id="toc-we-can-again-use-relative-frequencies" class="nav-link" data-scroll-target="#we-can-again-use-relative-frequencies">6.2 We can again use relative frequencies:</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">6.3 Median</a></li>
+  <li><a href="#the-median-for-an-ordinal-variable" id="toc-the-median-for-an-ordinal-variable" class="nav-link" data-scroll-target="#the-median-for-an-ordinal-variable">6.3 The Median for an Ordinal Variable</a></li>
   <li><a href="#cumulative-percentages-and-quartiles" id="toc-cumulative-percentages-and-quartiles" class="nav-link" data-scroll-target="#cumulative-percentages-and-quartiles">6.4 Cumulative percentages and quartiles</a></li>
   </ul></li>
   <li><a href="#visualising-ordinal-data" id="toc-visualising-ordinal-data" class="nav-link" data-scroll-target="#visualising-ordinal-data">7 Visualising ordinal data</a>
   <ul class="collapse">
   <li><a href="#example-2-categorical-variable-year" id="toc-example-2-categorical-variable-year" class="nav-link" data-scroll-target="#example-2-categorical-variable-year">Example 2 : Categorical variable (Year)</a></li>
+  <li><a href="#checking-quartiles-in-r" id="toc-checking-quartiles-in-r" class="nav-link" data-scroll-target="#checking-quartiles-in-r"><strong>Checking quartiles in R</strong></a></li>
+  <li><a href="#median-in-r---year" id="toc-median-in-r---year" class="nav-link" data-scroll-target="#median-in-r---year"><strong>Median in R - Year</strong></a></li>
+  <li><a href="#interquartile-range-iqr" id="toc-interquartile-range-iqr" class="nav-link" data-scroll-target="#interquartile-range-iqr"><strong>Interquartile range (IQR)</strong></a></li>
+  <li><a href="#median-or-iqr" id="toc-median-or-iqr" class="nav-link" data-scroll-target="#median-or-iqr">Median or IQR ?</a></li>
   </ul></li>
   <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary">8. Glossary</a></li>
   </ul></li>
@@ -546,26 +550,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To follow the examples, first load the tidyverse:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.2     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
 </div>
 <p>Then load the dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Lecture1_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can view the first few rows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(students)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(students)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 14
   ID    Degree        Year Gender     Study_hours Sleep_hours Stress_level
@@ -591,7 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>We can use&nbsp;<code>summary()</code>&nbsp;to get a quick overview:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(students)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(students)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      ID               Degree               Year          Gender         
  Length:200         Length:200         Min.   :1.000   Length:200        
@@ -623,8 +615,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  Max.   :86.00   Max.   :126.0  </code></pre>
 </div>
 </div>
-<p>For numeric variables, this shows the&nbsp;<strong>minimum</strong>,&nbsp;<strong>maximum</strong>,&nbsp;<strong>mean</strong>, and so on.<br>
-For categorical variables, it shows the&nbsp;<strong>number of students</strong>&nbsp;in each category.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>For <strong>numeric variables</strong>, this shows the&nbsp;<strong>minimum</strong>,&nbsp;<strong>maximum</strong>,&nbsp;<strong>mean</strong>, and so on.<br>
+</li>
+<li>For <strong>categorical variables</strong>, it shows the&nbsp;<strong>number of students</strong>&nbsp;in each category.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Interpreting the Summary for Categorical Variables">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpreting the Summary for Categorical Variables
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <strong>categorical variables</strong>, <code>summary()</code> behaves differently depending on <strong>how the variable is stored</strong> in R:</p>
+<ul>
+<li>If the variable is stored as a <strong>character</strong>, R only reports:
+<ul>
+<li>the number of observations<br>
+</li>
+<li>the class<br>
+</li>
+<li>the mode</li>
+</ul></li>
+<li>If the variable is a <strong>factor</strong>, R also reports the <strong>frequency</strong> of each category.</li>
+</ul>
+<p><strong>Example:</strong><br>
+In the original dataset, <code>Gender</code> is stored as a character, so R prints only structural information:</p>
+<p><img src="images/Gender.jpg" class="img-fluid" width="142"></p>
+<p>If we convert the variable to a factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>students<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(students<span class="sc">$</span>Gender)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(students<span class="sc">$</span>Gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Female       Male Non-binary 
+        91         80         29 </code></pre>
+</div>
+</div>
+<p>This is much more informative, because you can immediately see how many students belong to each group.</p>
+</div>
+</div>
+</div>
 <p>What we are doing here is providing a&nbsp;<strong>numeric description of the distribution</strong>&nbsp;of each variable.</p>
 <blockquote class="blockquote">
 <p><strong>Distribution</strong><br>
@@ -633,7 +680,7 @@ The distribution of a variable shows how often different values occur.</p>
 <p>We will focus on describing and visualising&nbsp;<strong>categorical</strong>&nbsp;distributions.</p>
 </section>
 <section id="what-are-categorical-variables" class="level1">
-<h1><strong>1. What Are Categorical Variables?</strong></h1>
+<h1>1. What Are Categorical Variables?</h1>
 <p>Categorical variables place individuals into&nbsp;<strong>groups</strong>. The categories might be:</p>
 <ul>
 <li><p>degree subjects</p></li>
@@ -645,7 +692,7 @@ The distribution of a variable shows how often different values occur.</p>
 </ul>
 <p>We distinguish between&nbsp;<strong>nominal</strong>&nbsp;and&nbsp;<strong>ordinal</strong>&nbsp;categories.</p>
 <section id="nominal-variables" class="level3">
-<h3 class="anchored" data-anchor-id="nominal-variables"><strong>Nominal variables</strong></h3>
+<h3 class="anchored" data-anchor-id="nominal-variables">Nominal variables</h3>
 <p>These categories have&nbsp;<strong>no natural order</strong>.</p>
 <p>Examples in our dataset:</p>
 <ul>
@@ -656,7 +703,7 @@ The distribution of a variable shows how often different values occur.</p>
 <p>The category labels are simply&nbsp;<strong>names</strong>&nbsp;— they do not imply higher or lower scores.</p>
 </section>
 <section id="ordinal-variables" class="level3">
-<h3 class="anchored" data-anchor-id="ordinal-variables"><strong>Ordinal variables</strong></h3>
+<h3 class="anchored" data-anchor-id="ordinal-variables">Ordinal variables</h3>
 <p>Ordinal categories&nbsp;<strong>have a clear order</strong>.</p>
 <p>In our dataset:</p>
 <ul>
@@ -666,32 +713,49 @@ The distribution of a variable shows how often different values occur.</p>
 </section>
 </section>
 <section id="telling-r-that-a-variable-is-categorical" class="level1">
-<h1><strong>2. Telling R That a Variable Is Categorical</strong></h1>
+<h1>2. Telling R That a Variable Is Categorical</h1>
+<div class="margin callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>mutate()</code>&nbsp;modifies or creates variables.<br>
+</p>
+<p>For example,&nbsp;<code>Gender = factor(Gender)</code>&nbsp;replaces the original&nbsp;<code>Gender</code>&nbsp;column with a version stored as a factor.<br>
+</p>
+<p>All other columns remain unchanged, and the updated data frame continues through the pipe (|&gt;)</p>
+</div>
+</div>
 <p>R reads some categorical variables as&nbsp;<strong>character strings</strong>. To analyse them correctly, we often convert them into&nbsp;<strong>factors</strong>.</p>
 <p>Example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Degree       =</span> <span class="fu">factor</span>(Degree),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender       =</span> <span class="fu">factor</span>(Gender),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Exercise     =</span> <span class="fu">factor</span>(Exercise),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Stress_level =</span> <span class="fu">factor</span>(Stress_level)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Degree       =</span> <span class="fu">factor</span>(Degree),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender       =</span> <span class="fu">factor</span>(Gender),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Exercise     =</span> <span class="fu">factor</span>(Exercise),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Stress_level =</span> <span class="fu">factor</span>(Stress_level)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For an&nbsp;<strong>ordered</strong>&nbsp;variable:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Satisfaction_Likert_value =</span> <span class="fu">factor</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      Satisfaction_Likert_value,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Satisfaction_Likert_value =</span> <span class="fu">factor</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      Satisfaction_Likert_value,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="note-about-r-code-using-the-pipe-operator" class="level1">
-<h1><strong>3. Note about R code: Using the Pipe Operator (<code>|&gt;</code>)</strong></h1>
+<h1>3. Note about R code: Using the Pipe Operator (<code>|&gt;</code>)</h1>
 <section id="using-the-pipe-reading-left-to-right" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-pipe-reading-left-to-right">Using the pipe&nbsp;<code>|&gt;</code>: reading left to right</h3>
 <p>Instead, we can write code&nbsp;<strong>step by step</strong>, using the&nbsp;<strong>pipe</strong>:&nbsp;<code>|&gt;</code>.</p>
@@ -703,12 +767,12 @@ The distribution of a variable shows how often different values occur.</p>
 <p>You can read it as “<strong>and then</strong>”.</p>
 <p>For example</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diff</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cumsum</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diff</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cumsum</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -720,7 +784,7 @@ The distribution of a variable shows how often different values occur.</p>
 <p>We will use this style a lot in this course, especially with functions from&nbsp;<strong>tidyverse</strong>.</p>
 </section>
 <section id="an-example-using-our-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="an-example-using-our-dataset"><strong>An example using our dataset</strong></h3>
+<h3 class="anchored" data-anchor-id="an-example-using-our-dataset">An example using our dataset</h3>
 <p>Let’s say we want to:</p>
 <ol type="1">
 <li><p>start with the&nbsp;<code>students</code>&nbsp;dataset</p></li>
@@ -729,9 +793,9 @@ The distribution of a variable shows how often different values occur.</p>
 </ol>
 <p>Using the pipe, we can write this clearly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Degree) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Degree) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    Degree           n
@@ -752,7 +816,7 @@ The distribution of a variable shows how often different values occur.</p>
 </div>
 </section>
 <section id="how-to-read-this" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-read-this"><strong>How to read this</strong></h3>
+<h3 class="anchored" data-anchor-id="how-to-read-this">How to read this</h3>
 <ul>
 <li><p>Take the&nbsp;<code>students</code>&nbsp;data</p></li>
 <li><p><strong>and then</strong>&nbsp;‘select’ the column called&nbsp;<code>Degree</code></p></li>
@@ -760,7 +824,7 @@ The distribution of a variable shows how often different values occur.</p>
 </ul>
 <p>This is easier to read than nesting everything inside one line, such as:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(<span class="fu">select</span>(students, Degree), Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(<span class="fu">select</span>(students, Degree), Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    Degree           n
@@ -780,8 +844,8 @@ The distribution of a variable shows how often different values occur.</p>
 </div>
 </div>
 </section>
-<section id="another-very-simple-example" class="level3">
-<h3 class="anchored" data-anchor-id="another-very-simple-example"><strong>Another very simple example</strong></h3>
+<section id="another-example" class="level3">
+<h3 class="anchored" data-anchor-id="another-example">Another example</h3>
 <p>Imagine we want to:</p>
 <ol type="1">
 <li><p>take the&nbsp;<code>Year</code>&nbsp;column</p></li>
@@ -789,9 +853,9 @@ The distribution of a variable shows how often different values occur.</p>
 <li><p>add percentages</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Year) <span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percent =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Year) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percent =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
    Year     n Percent
@@ -809,10 +873,10 @@ The distribution of a variable shows how often different values occur.</p>
 </ul>
 </section>
 <section id="about" class="level3 note">
-<h3 class="anchored" data-anchor-id="about"><strong>About&nbsp;<code>%&gt;%</code></strong></h3>
+<h3 class="anchored" data-anchor-id="about">About&nbsp;<code>%&gt;%</code></h3>
 <p>You may still see the older pipe symbol&nbsp;<code>%&gt;%</code>&nbsp;in online examples:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> <span class="fu">select</span>(Degree) <span class="sc">%&gt;%</span> <span class="fu">count</span>(Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> <span class="fu">select</span>(Degree) <span class="sc">%&gt;%</span> <span class="fu">count</span>(Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    Degree           n
@@ -835,16 +899,16 @@ The distribution of a variable shows how often different values occur.</p>
 </section>
 </section>
 <section id="summary-statistics" class="level1">
-<h1><strong>4. Summary Statistics :</strong></h1>
+<h1>4. Summary Statistics :</h1>
 <section id="frequency-tables" class="level3">
-<h3 class="anchored" data-anchor-id="frequency-tables"><strong>4.1 Frequency Tables</strong></h3>
+<h3 class="anchored" data-anchor-id="frequency-tables">4.1 Frequency Tables</h3>
 <p>A frequency table shows&nbsp;<strong>how many</strong>&nbsp;observations fall into each category.</p>
 </section>
 <section id="example-how-many-students-are-in-each-degree" class="level3">
 <h3 class="anchored" data-anchor-id="example-how-many-students-are-in-each-degree">Example: how many students are in each degree?</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    Degree           n
@@ -866,11 +930,11 @@ The distribution of a variable shows how often different values occur.</p>
 <p>This is a&nbsp;<strong>frequency table</strong>&nbsp;for&nbsp;<code>Degree</code>.</p>
 <p>We might store it in an object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>freq_degree <span class="ot">&lt;-</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>freq_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>freq_degree <span class="ot">&lt;-</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>freq_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    Degree           n
@@ -915,28 +979,28 @@ It can be written as:</p>
 <p>The sum of relative frequencies is 1 (or 100%).</p>
 <p>In our&nbsp;<code>freq_degree</code>&nbsp;table, the column&nbsp;<code>n</code>&nbsp;contains the number of students in each degree. The total of that column is the total number of students:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq_degree<span class="sc">$</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq_degree<span class="sc">$</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 200</code></pre>
 </div>
 </div>
 <p>Each value divided by the total gives us a&nbsp;<strong>proportion</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>freq_degree<span class="sc">$</span>n <span class="sc">/</span> <span class="fu">sum</span>(freq_degree<span class="sc">$</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>freq_degree<span class="sc">$</span>n <span class="sc">/</span> <span class="fu">sum</span>(freq_degree<span class="sc">$</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.110 0.035 0.075 0.080 0.085 0.060 0.100 0.145 0.075 0.070 0.120 0.045</code></pre>
 </div>
 </div>
 <p>We can add this as a new column using&nbsp;<code>mutate()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>freq_degree <span class="ot">&lt;-</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree) <span class="sc">|&gt;</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>freq_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>freq_degree <span class="ot">&lt;-</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>freq_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 3
    Degree           n  prop
@@ -963,14 +1027,14 @@ It can be written as:</p>
 </ul>
 <p>If we prefer&nbsp;<strong>percentages</strong>, we can multiply by 100:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>freq_degree <span class="ot">&lt;-</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree) <span class="sc">|&gt;</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>freq_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>freq_degree <span class="ot">&lt;-</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>freq_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 3
    Degree           n percent
@@ -993,9 +1057,9 @@ It can be written as:</p>
 <section id="another-way-of-adding-percentages" class="level3">
 <h3 class="anchored" data-anchor-id="another-way-of-adding-percentages">Another way of adding percentages:</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree) <span class="sc">|&gt;</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percent =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Degree) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percent =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 3
    Degree           n Percent
@@ -1081,11 +1145,11 @@ It can be written as:</p>
 <h3 class="anchored" data-anchor-id="count-how-many-students-are-in-each-degree-subject">Count how many students are in each degree subject</h3>
 <div class="narrow-table">
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-51"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-51-1"><a href="#annotated-cell-51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of students in each Degree category</span></span>
-<span id="annotated-cell-51-2"><a href="#annotated-cell-51-2" aria-hidden="true" tabindex="-1"></a>tbl_degree <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(students<span class="sc">$</span>Degree))</span>
-<span id="annotated-cell-51-3"><a href="#annotated-cell-51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tbl_degree) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Degree"</span>, <span class="st">"Count"</span>)</span>
-<span id="annotated-cell-51-4"><a href="#annotated-cell-51-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-51-5"><a href="#annotated-cell-51-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tbl_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-52"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-52-1"><a href="#annotated-cell-52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of students in each Degree category</span></span>
+<span id="annotated-cell-52-2"><a href="#annotated-cell-52-2" aria-hidden="true" tabindex="-1"></a>tbl_degree <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(students<span class="sc">$</span>Degree))</span>
+<span id="annotated-cell-52-3"><a href="#annotated-cell-52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tbl_degree) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Degree"</span>, <span class="st">"Count"</span>)</span>
+<span id="annotated-cell-52-4"><a href="#annotated-cell-52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-52-5"><a href="#annotated-cell-52-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tbl_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -1151,10 +1215,10 @@ It can be written as:</p>
 </div>
 <div class="narrow-table">
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-52"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-52-1"><a href="#annotated-cell-52-1" aria-hidden="true" tabindex="-1"></a>prop_degree <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>Degree)))</span>
-<span id="annotated-cell-52-2"><a href="#annotated-cell-52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(prop_degree) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Degree"</span>, <span class="st">"Proportion"</span>)</span>
-<span id="annotated-cell-52-3"><a href="#annotated-cell-52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-52-4"><a href="#annotated-cell-52-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(prop_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-53"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-53-1"><a href="#annotated-cell-53-1" aria-hidden="true" tabindex="-1"></a>prop_degree <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>Degree)))</span>
+<span id="annotated-cell-53-2"><a href="#annotated-cell-53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(prop_degree) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Degree"</span>, <span class="st">"Proportion"</span>)</span>
+<span id="annotated-cell-53-3"><a href="#annotated-cell-53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-53-4"><a href="#annotated-cell-53-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(prop_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -1220,17 +1284,17 @@ It can be written as:</p>
 </div>
 <div class="narrow-table">
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-53"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-53-1"><a href="#annotated-cell-53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentage of students in each Degree category</span></span>
-<span id="annotated-cell-53-2"><a href="#annotated-cell-53-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-53" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-53-3" class="code-annotation-target"><a href="#annotated-cell-53-3" aria-hidden="true" tabindex="-1"></a>perc_degree <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>Degree)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>))</span>
-<span id="annotated-cell-53-4"><a href="#annotated-cell-53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(perc_degree) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Degree"</span>, <span class="st">"Percentage"</span>)</span>
-<span id="annotated-cell-53-5"><a href="#annotated-cell-53-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-53-6"><a href="#annotated-cell-53-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(perc_degree)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-54"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-54-1"><a href="#annotated-cell-54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentage of students in each Degree category</span></span>
+<span id="annotated-cell-54-2"><a href="#annotated-cell-54-2" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-54" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-54-3" class="code-annotation-target"><a href="#annotated-cell-54-3" aria-hidden="true" tabindex="-1"></a>perc_degree <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>Degree)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>))</span>
+<span id="annotated-cell-54-4"><a href="#annotated-cell-54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(perc_degree) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Degree"</span>, <span class="st">"Percentage"</span>)</span>
+<span id="annotated-cell-54-5"><a href="#annotated-cell-54-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-54-6"><a href="#annotated-cell-54-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(perc_degree)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-53" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-54" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-53" data-code-lines="3" data-code-annotation="3">Multiply the proportions by 100 and round to one decimal place.</span>
+<span data-code-cell="annotated-cell-54" data-code-lines="3" data-code-annotation="3">Multiply the proportions by 100 and round to one decimal place.</span>
 </dd>
 </dl>
 </div>
@@ -1303,25 +1367,25 @@ It can be written as:</p>
 </section>
 </section>
 <section id="bar-charts-for-categorical-data" class="level1">
-<h1><strong>5. Bar Charts for Categorical Data</strong></h1>
+<h1>5. Bar Charts for Categorical Data**</h1>
 <p>Bar charts visually display frequency distribution — useful for spotting patterns at a glance.</p>
 <section id="degree-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="degree-distribution">Degree distribution</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>You can change the colour:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>geom_bar: just = 0.5, width = NULL, na.rm = FALSE, orientation = NA
 stat_count: width = NULL, na.rm = FALSE, orientation = NA
@@ -1329,13 +1393,13 @@ position_stack </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1346,17 +1410,17 @@ position_stack </code></pre>
 <section id="sometimes-you-want-degrees-to-appear-in-a-particular-order" class="level3">
 <h3 class="anchored" data-anchor-id="sometimes-you-want-degrees-to-appear-in-a-particular-order">Sometimes you want degrees to appear in a particular order:</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Degree =</span> <span class="fu">factor</span>(Degree,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Architecture"</span>, <span class="st">"Linguistics"</span>,</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"English"</span>, <span class="st">"Philosophy"</span>, <span class="st">"Education"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Degree =</span> <span class="fu">factor</span>(Degree,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Architecture"</span>, <span class="st">"Linguistics"</span>,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"English"</span>, <span class="st">"Philosophy"</span>, <span class="st">"Education"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1365,17 +1429,17 @@ position_stack </code></pre>
 <section id="reorder-by-frequency" class="level3">
 <h3 class="anchored" data-anchor-id="reorder-by-frequency">Reorder by frequency</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Degree =</span> <span class="fu">fct_infreq</span>(students<span class="sc">$</span>Degree)) <span class="sc">|&gt;</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Degree =</span> <span class="fu">fct_infreq</span>(students<span class="sc">$</span>Degree)) <span class="sc">|&gt;</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1391,15 +1455,15 @@ position_stack </code></pre>
 <section id="reverse-the-order-least-common-most-common" class="level3">
 <h3 class="anchored" data-anchor-id="reverse-the-order-least-common-most-common"><strong>Reverse the order (least common → most common)</strong></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Degree =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(Degree))) <span class="sc">|&gt;</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Degree =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(Degree))) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Degree)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Degree subject"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1507,9 +1571,10 @@ First reorder categories by&nbsp;<strong>frequency</strong>, then&nbsp;<strong>r
 <p>Although the values are stored as numbers, they represent&nbsp;<strong>ordered categories</strong>, not true numeric measurements.</p>
 <section id="frequency-table-for-an-ordinal-variable" class="level3">
 <h3 class="anchored" data-anchor-id="frequency-table-for-an-ordinal-variable">6.1 Frequency table for an ordinal variable</h3>
+<p>This gives the number of students choosing each response.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Satisfaction_Likert_value     n
@@ -1524,15 +1589,16 @@ First reorder categories by&nbsp;<strong>frequency</strong>, then&nbsp;<strong>r
 </section>
 <section id="we-can-again-use-relative-frequencies" class="level3">
 <h3 class="anchored" data-anchor-id="we-can-again-use-relative-frequencies">6.2 We can again use relative frequencies:</h3>
+<p>We can also calculate the&nbsp;<strong>percentage</strong>&nbsp;choosing each category:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>freq_sat <span class="ot">&lt;-</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value) <span class="sc">|&gt;</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>freq_sat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>freq_sat <span class="ot">&lt;-</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value) <span class="sc">|&gt;</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>freq_sat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
   Satisfaction_Likert_value     n percent
@@ -1544,41 +1610,45 @@ First reorder categories by&nbsp;<strong>frequency</strong>, then&nbsp;<strong>r
 5 5                            62    31  </code></pre>
 </div>
 </div>
+<p>This helps us compare how common each category is.</p>
 </section>
-<section id="median" class="level3">
-<h3 class="anchored" data-anchor-id="median">6.3 Median</h3>
-<p>Because the categories are ordered, we can talk about the&nbsp;<strong>median</strong>.</p>
+<section id="the-median-for-an-ordinal-variable" class="level3">
+<h3 class="anchored" data-anchor-id="the-median-for-an-ordinal-variable">6.3 The Median for an Ordinal Variable</h3>
+<p>Because ordinal categories have an order, we can meaningfully talk about the&nbsp;<strong>median</strong>.</p>
 <blockquote class="blockquote">
-<p><strong>Median</strong><br>
+<p><strong>Definition:</strong><br>
 The median is the value for which 50% of observations are lower and 50% are higher.<br>
-It is the middle value when all the observations are lined up in order.</p>
+It is the middle value when all observations are lined up in order.</p>
 </blockquote>
 <p>We can find the median of the satisfaction ratings directly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">as.numeric</span>(students<span class="sc">$</span>Satisfaction_Likert_value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">as.numeric</span>(students<span class="sc">$</span>Satisfaction_Likert_value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<p>The median satisfaction rating is 4. This means that at least half of the students gave a rating of 4 (“Satisfied”) or higher.</p>
+<ul>
+<li><p>The median satisfaction rating is 4.</p></li>
+<li><p>This means that at least half of the students gave a rating of 4 (“Satisfied”) or higher.</p></li>
+</ul>
 </blockquote>
 </section>
 <section id="cumulative-percentages-and-quartiles" class="level3">
 <h3 class="anchored" data-anchor-id="cumulative-percentages-and-quartiles">6.4 Cumulative percentages and quartiles</h3>
-<p>To find the median and quartiles, we can look at&nbsp;<strong>cumulative percentages</strong>.</p>
+<p>To find&nbsp;<strong>quartiles</strong>, we use&nbsp;<strong>cumulative percentages</strong>.</p>
 <blockquote class="blockquote">
 <p><strong>Cumulative percentage</strong><br>
 The cumulative percentage for a category is the percentage of observations in that category&nbsp;<strong>or below</strong>&nbsp;it.</p>
 </blockquote>
 <p>We can calculate cumulative percentages for the satisfaction ratings:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value) <span class="sc">|&gt;</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cumulative_percent =</span> <span class="fu">cumsum</span>(percent)</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value) <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cumulative_percent =</span> <span class="fu">cumsum</span>(percent)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   Satisfaction_Likert_value     n percent cumulative_percent
@@ -1592,74 +1662,139 @@ The cumulative percentage for a category is the percentage of observations in th
 </div>
 <p>From this table, we can work out the&nbsp;<strong>quartiles</strong>&nbsp;and the&nbsp;<strong>median</strong>:</p>
 <ul>
-<li><p><strong>First quartile (Q1)</strong>: the first category where the cumulative percentage is&nbsp;<strong>at least 25%</strong></p></li>
-<li><p><strong>Median (Q2)</strong>: the first category where the cumulative percentage is&nbsp;<strong>at least 50%</strong></p></li>
-<li><p><strong>Third quartile (Q3)</strong>: the first category where the cumulative percentage is&nbsp;<strong>at least 75%</strong></p></li>
+<li><p><strong>Q1 (first quartile):</strong>&nbsp;first category where cumulative % ≥&nbsp;<strong>25%</strong></p></li>
+<li><p><strong>Q2 (median):</strong>&nbsp;first category where cumulative % ≥&nbsp;<strong>50%</strong></p></li>
+<li><p><strong>Q3 (third quartile):</strong>&nbsp;first category where cumulative % ≥&nbsp;<strong>75%</strong></p></li>
 </ul>
 <p>Using the values in the table:</p>
-<ul>
-<li><p>Q1 occurs at the first category where cumulative percent ≥ 25% →&nbsp;<strong>Likert value 2</strong></p></li>
-<li><p>Q2 (the median) occurs at the first category where cumulative percent ≥ 50% →&nbsp;<strong>Likert value 4</strong></p></li>
-<li><p>Q3 occurs at the first category where cumulative percent ≥ 75% →&nbsp;<strong>Likert value 4</strong></p></li>
-</ul>
-<p>These quartiles give us a sense of how the data are distributed across the ordered categories.<br>
-For example, in this case a large proportion of ratings lie in categories&nbsp;<strong>3, 4, and 5</strong>, showing that satisfaction is generally on the higher end of the scale.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Can we use the IQR with Likert data?">
-<div class="callout-header d-flex align-content-center">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quartile</th>
+<th>Rule</th>
+<th>Likert value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Q1</strong></td>
+<td>cumulative ≥ 25%</td>
+<td><strong>2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Q2 (Median)</strong></td>
+<td>cumulative ≥ 50%</td>
+<td><strong>4</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Q3</strong></td>
+<td>cumulative ≥ 75%</td>
+<td><strong>5</strong></td>
+</tr>
+</tbody>
+</table>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<p>Most students rate their satisfaction at the higher end of the scale, with the majority of responses in categories&nbsp;<strong>4</strong>&nbsp;and&nbsp;<strong>5</strong>, and only a small number giving mid-range ratings (category 3).</p>
+</section>
+<section id="does-this-interpretation-sound-counter-intuitive" class="level4">
+<h4 class="anchored" data-anchor-id="does-this-interpretation-sound-counter-intuitive"><strong>Does this interpretation sound counter-intuitive?</strong></h4>
+<p>Let’s recap: what the data look like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 14%">
+<col style="width: 18%">
+<col style="width: 14%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Likert Value</th>
+<th style="text-align: center;">Count</th>
+<th style="text-align: center;">Percent (%)</th>
+<th style="text-align: center;">Cumulative (%)</th>
+<th style="text-align: center;">Quartile</th>
+<th style="text-align: center;">Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">28.5</td>
+<td style="text-align: center;">31.5</td>
+<td style="text-align: center;">Q1</td>
+<td style="text-align: center;">First cumulative ≥ 25%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">36.5</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">32.5</td>
+<td style="text-align: center;">69.0</td>
+<td style="text-align: center;">Q2 (Median)</td>
+<td style="text-align: center;">First cumulative ≥ 50%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">62</td>
+<td style="text-align: center;">31.0</td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: center;">Q3</td>
+<td style="text-align: center;">First cumulative ≥ 75%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Note:</strong> Q3 falls at Likert value 5 because cumulative percentage reaches 75% only when category 5 is included. Even though category 4 has many responses, it is not enough to reach 75% on its own.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Important Clarifications when Identifying Quartiles">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Can we use the IQR with Likert data?
+Important Clarifications when Identifying Quartiles
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Yes – R can calculate the IQR of a Likert scale because the responses are stored as numbers.</p>
-<p>However, Likert responses are <em>ordinal</em>, not truly numeric.<br>
-So the IQR should be interpreted in terms of <strong>categories</strong>, not as a precise numerical distance.</p>
-<p>Use quartiles (Q1, Q2, Q3) from the cumulative percentage table to describe how spread out the responses are across the ordered scale.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Using the IQR and Quartiles with Likert Data">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Using the IQR and Quartiles with Likert Data
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Because Likert values are stored as numbers, R can calculate quartiles (Q1, Q2, Q3) and even the IQR.<br>
-However, a Likert scale is <strong>ordinal</strong>, not truly numeric, so we must interpret these values with care.</p>
-<section id="what-you-can-safely-do" class="level3">
-<h3 class="anchored" data-anchor-id="what-you-can-safely-do">✔️ What you <em>can</em> safely do</h3>
-<p>Use quartiles to talk about how responses are spread across the <strong>ordered categories</strong>.</p>
-<p>To do this properly:</p>
 <ol type="1">
-<li><p>Identify <strong>Q1</strong>, <strong>median (Q2)</strong>, and <strong>Q3</strong> from the <strong>cumulative percentage table</strong>,<br>
-rather than relying on the raw numeric outputs.</p></li>
-<li><p>Treat these quartiles as <strong>categories</strong>, not measurements.</p></li>
+<li><p>You always <strong>choose the first category that meets the threshold</strong></p>
+<p>If cumulative jumps over the quartile threshold (e.g., from 3% to 31.5%), that category still contains the quartile.</p></li>
+<li><p><strong>Overshooting is fine</strong> .</p>
+<p>Quartiles do not require the cumulative percentage to equal the threshold — only to be greater than or equal.</p></li>
+<li><p><strong>Quartiles depend on cumulative percentages, not on category sizes</strong>.</p>
+<p>Even if a category is very large or very small, quartiles are determined only by: ordering of the categories cumulative distribution across them</p></li>
+<li><p><strong>Quartiles may repeat categories</strong>.</p>
+<p>It is possible for Q2 and Q3 to be the same category if that category contains both the 50% and 75% thresholds.</p></li>
+<li><p><strong>Quartiles do not need to fall in the “middle” category.</strong></p>
+<p>In skewed ordinal data, quartiles often fall: higher than students expect or both in the same category or in categories with small raw counts This is normal.</p></li>
 </ol>
-</section>
-<section id="safe-interpretation-example" class="level3">
-<h3 class="anchored" data-anchor-id="safe-interpretation-example">✔️ Safe interpretation example</h3>
-<p>Using our satisfaction ratings:</p>
-<ul>
-<li><strong>Q1 = 2</strong><br>
-</li>
-<li><strong>Median = 4</strong><br>
-</li>
-<li><strong>Q3 = 4</strong></li>
-</ul>
-<p>So:</p>
-<blockquote class="blockquote">
-<p><strong>Half of the students rated their satisfaction between 2 and 4 on the scale.</strong></p>
-</blockquote>
-<p>This keeps the interpretation grounded in the <strong>ordinal nature</strong> of the data and avoids treating Likert responses as precise numeric units.</p>
-</section>
 </div>
 </div>
+</div>
+</section>
 </section>
 </section>
 <section id="visualising-ordinal-data" class="level2">
@@ -1667,26 +1802,38 @@ rather than relying on the raw numeric outputs.</p></li>
 <p>We can visualise ordinal data much like nominal data.</p>
 <p>First, we create a table with percentages:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>freq_sat <span class="ot">&lt;-</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value) <span class="sc">|&gt;</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>freq_sat <span class="ot">&lt;-</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  students <span class="sc">|&gt;</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Satisfaction_Likert_value) <span class="sc">|&gt;</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>freq_sat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  Satisfaction_Likert_value     n percent
+  &lt;ord&gt;                     &lt;int&gt;   &lt;dbl&gt;
+1 1                             6     3  
+2 2                            57    28.5
+3 3                            10     5  
+4 4                            65    32.5
+5 5                            62    31  </code></pre>
+</div>
 </div>
 <p>Then we plot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> freq_sat,</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Satisfaction_Likert_value, <span class="at">y =</span> percent)) <span class="sc">+</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Satisfaction (1 = very dissatisfied, 5 = very satisfied)"</span>,</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Percentage of students </span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> freq_sat,</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Satisfaction_Likert_value, <span class="at">y =</span> percent)) <span class="sc">+</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Satisfaction (1 = very dissatisfied, 5 = very satisfied)"</span>,</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Percentage of students </span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1695,25 +1842,25 @@ rather than relying on the raw numeric outputs.</p></li>
 <section id="example-2-categorical-variable-year" class="level3">
 <h3 class="anchored" data-anchor-id="example-2-categorical-variable-year">Example 2 : Categorical variable (Year)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Year of study"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(students, <span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"</span><span class="sc">\n</span><span class="st"> Year of study"</span>, <span class="at">y =</span> <span class="st">"Count </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week-09-content-stats_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>For an ordered variable such as&nbsp;<code>Year</code>, we can examine&nbsp;<strong>cumulative percentages</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Year) <span class="sc">|&gt;</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percent    =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cumulative =</span> <span class="fu">cumsum</span>(Percent)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Year) <span class="sc">|&gt;</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percent    =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cumulative =</span> <span class="fu">cumsum</span>(Percent)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
    Year     n Percent Cumulative
@@ -1729,37 +1876,166 @@ rather than relying on the raw numeric outputs.</p></li>
 <li><p>where the&nbsp;<strong>50%</strong>&nbsp;point lies (median)</p></li>
 <li><p>where the&nbsp;<strong>75%</strong>&nbsp;point lies (Q3)</p></li>
 </ul>
-<p><strong>Checking quartiles in R</strong></p>
+</section>
+<section id="checking-quartiles-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="checking-quartiles-in-r"><strong>Checking quartiles in R</strong></h3>
+<p>R can calculate the quartiles of an ordered variable directly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(students<span class="sc">$</span>Year, <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(students<span class="sc">$</span>Year, <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>25% 75% 
-  1   2 </code></pre>
+<pre><code>25% 50% 75% 
+  1   2   2 </code></pre>
 </div>
 </div>
-<p><strong>Interquartile range (IQR)</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(students<span class="sc">$</span>Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-<p><strong>Median Year</strong></p>
+</section>
+<section id="median-in-r---year" class="level3">
+<h3 class="anchored" data-anchor-id="median-in-r---year"><strong>Median in R - Year</strong></h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(students<span class="sc">$</span>Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-<p>These summaries are useful when we want to understand how students are distributed across levels of an ordered attribute.</p>
+<p>The median (Q2) identifies the category at which&nbsp;<strong>50% of students are in Year 1 or 2</strong>, and&nbsp;<strong>50% are in Year 2 or 3</strong>(depending on distribution).</p>
+<p>For ordinal data like&nbsp;<code>Year</code>, the median is interpreted as:</p>
+<blockquote class="blockquote">
+<p>The “middle” year category where half of the students are below and half are above.</p>
+</blockquote>
+</section>
+<section id="interquartile-range-iqr" class="level3">
+<h3 class="anchored" data-anchor-id="interquartile-range-iqr"><strong>Interquartile range (IQR)</strong></h3>
+<ul>
+<li><p>The&nbsp;<strong>interquartile range (IQR)</strong>&nbsp;is a measure of&nbsp;<strong>spread</strong>.</p></li>
+<li><p>It tells us&nbsp;<strong>where the middle 50% of the data lie</strong>.</p></li>
+</ul>
+<p>The IQR is defined as:</p>
+<p>IQR=Q3−Q1</p>
+<ul>
+<li><p><strong>Q1 (first quartile):</strong>&nbsp;the value at the 25% point</p></li>
+<li><p><strong>Q3 (third quartile):</strong>&nbsp;the value at the 75% point</p></li>
+</ul>
+<p>So the IQR covers the range between the 25th and 75th percentiles.</p>
+<p><strong>It describes the spread of the middle half of the dataset.</strong></p>
+<p><strong>In R we calculate the IQR like this:</strong></p>
+<p><code>IQR()</code>&nbsp;computes:</p>
+<blockquote class="blockquote">
+<p><strong>IQR = Q3 − Q1</strong></p>
+<p>IQR = 2-1 =1</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(students<span class="sc">$</span>Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>This means that <strong>the middle 50% of students fall between Year 1 and Year 2.</strong></p>
+</section>
+<section id="median-or-iqr" class="level3">
+<h3 class="anchored" data-anchor-id="median-or-iqr">Median or IQR ?</h3>
+<p><strong>Median:</strong>&nbsp;the&nbsp;<em>middle value</em><br>
+<strong>IQR:</strong>&nbsp;the&nbsp;<em>spread of the middle 50%</em></p>
+<ul>
+<li><p>The&nbsp;<strong>median</strong>&nbsp;tells us&nbsp;<strong>where the centre of the data is</strong></p></li>
+<li><p>The&nbsp;<strong>IQR</strong>&nbsp;tells us&nbsp;<strong>how spread out the central half of the data is</strong></p></li>
+</ul>
+<p>Together, they describe the&nbsp;<strong>typical</strong>&nbsp;part of the dataset.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Example 1: Interpreting Year">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 1: Interpreting Year
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Cumulative %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>31.5%</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>76%</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<section id="median-q2" class="level3">
+<h3 class="anchored" data-anchor-id="median-q2"><strong>Median (Q2)</strong></h3>
+<p>The median is the point where cumulative % ≥&nbsp;<strong>50%</strong>.<br>
+</p>
+<ul>
+<li>The median Year =&nbsp;<strong>2</strong></li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<p>The typical student is in&nbsp;<strong>Year 2</strong>.</p>
+</section>
+<section id="iqr-q3-q1" class="level3">
+<h3 class="anchored" data-anchor-id="iqr-q3-q1"><strong>IQR (Q3 – Q1)</strong></h3>
+<ul>
+<li><p><strong>Q1</strong>&nbsp;is first cumulative ≥ 25% →&nbsp;<strong>Year 1</strong></p></li>
+<li><p><strong>Q3</strong>&nbsp;is first cumulative ≥ 75% →&nbsp;<strong>Year 2</strong></p></li>
+</ul>
+<p>So:</p>
+<ul>
+<li>IQR = 2−1=1</li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<p>The middle half of students fall between&nbsp;<strong>Year 1 and Year 2</strong>.<br>
+This shows that most students are in the lower two years, with fewer in Year 3.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Example 2: Interpreting Likert Satisfaction">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2: Interpreting Likert Satisfaction
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If your satisfaction distribution gives:</p>
+<ul>
+<li><p>Q1 = 2</p></li>
+<li><p>Median = 4</p></li>
+<li><p>Q3 = 4</p></li>
+</ul>
+<p>Then:</p>
+<ul>
+<li><p>Median = 4 → the central response is “Satisfied”.</p></li>
+<li><p>IQR = 4 − 2 = 2 (spread across categories 2–4)</p></li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<p>Half of the students rate their satisfaction between 2 (‘Dissatisfied’) and 4 (‘Satisfied’). Responses cluster in the mid-to-high end of the scale.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="glossary" class="level2">
 <h2 class="anchored" data-anchor-id="glossary">8. Glossary</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 63%">
+<col style="width: 36%">
 </colgroup>
 <thead>
 <tr class="header">

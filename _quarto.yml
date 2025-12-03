@@ -93,7 +93,7 @@ website:
           - text: "Getting Ready with R and RStudio – IFP"
             href: "R Support/getting_ready_with_R_RStudio_IFP.qmd"
           - text: "R Basics: Syntax and Variables"
-            href: "R Support/R_Basics_Syntax-and-Variables.qmd"
+            href: "R Support/R_Basics_Syntax_and_Variables.qmd"
 
 format:
   html:
