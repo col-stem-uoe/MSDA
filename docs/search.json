@@ -1,115 +1,10 @@
 [
   {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html",
-    "title": "Getting Started with R and RStudio – IFP",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
     "section": "",
-    "text": "This guide will help you get set up with R and RStudio for the IFP statistics and data skills modules. Please work through it before or during the first lab.\n\n\nYou have two main ways of using R and RStudio.\n\n\nFor the MSDA tutorial sessions, you will use the university computers, which already have R and RStudio installed. You do not need to download or install anything yourself.\n\n\n\nSit at any available computer in the lab.\nLog in using your university email address and password.\n\nThis is the same login you use for Learn and Outlook, university email, and other campus systems.\n\n\n\n\n\nOnce you are logged in:\n\nClick on the Start Menu (bottom left).\nType RStudio in the search bar.\nClick the RStudio application when it appears.\n\nRStudio will open and start an R session automatically.\nYou do not need to install or configure anything.\n\n\n\n\nIf you prefer to work on your own laptop, install R and then RStudio Desktop.\n\nInstall R from the official website:\nhttps://cran.r-project.org/\nChoose your operating system (Windows, macOS, or Linux) and follow the download and install instructions.\nInstall RStudio Desktop from:\nhttps://posit.co/download/rstudio-desktop/\nOnce installed, open RStudio. It should automatically find your R installation.\n\nYou only need to install R and RStudio once. After that you just open RStudio.\n\n\n\n\nIt is good practice to keep all the files for a course in one project folder.\n\nIn your Documents (or another sensible location), create a new folder called e.g. IFP_Stats.\nOpen RStudio.\nIn the top-right of RStudio, click Project (None) &gt; New Project….\nChoose Existing Directory.\nClick Browse, select your new IFP_Stats folder, then click Choose (or Open), and finally Create Project.\n\nYou should now see the project name at the top-right of RStudio. Any files you create will live inside this folder."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#accessing-the-software",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#accessing-the-software",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "",
-    "text": "You have two main ways of using R and RStudio.\n\n\nFor the MSDA tutorial sessions, you will use the university computers, which already have R and RStudio installed. You do not need to download or install anything yourself.\n\n\n\nSit at any available computer in the lab.\nLog in using your university email address and password.\n\nThis is the same login you use for Learn and Outlook, university email, and other campus systems.\n\n\n\n\n\nOnce you are logged in:\n\nClick on the Start Menu (bottom left).\nType RStudio in the search bar.\nClick the RStudio application when it appears.\n\nRStudio will open and start an R session automatically.\nYou do not need to install or configure anything.\n\n\n\n\nIf you prefer to work on your own laptop, install R and then RStudio Desktop.\n\nInstall R from the official website:\nhttps://cran.r-project.org/\nChoose your operating system (Windows, macOS, or Linux) and follow the download and install instructions.\nInstall RStudio Desktop from:\nhttps://posit.co/download/rstudio-desktop/\nOnce installed, open RStudio. It should automatically find your R installation.\n\nYou only need to install R and RStudio once. After that you just open RStudio."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#setting-up-your-ifp-project",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#setting-up-your-ifp-project",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "",
-    "text": "It is good practice to keep all the files for a course in one project folder.\n\nIn your Documents (or another sensible location), create a new folder called e.g. IFP_Stats.\nOpen RStudio.\nIn the top-right of RStudio, click Project (None) &gt; New Project….\nChoose Existing Directory.\nClick Browse, select your new IFP_Stats folder, then click Choose (or Open), and finally Create Project.\n\nYou should now see the project name at the top-right of RStudio. Any files you create will live inside this folder."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#storing-values-in-rs-memory",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#storing-values-in-rs-memory",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "3.1 Storing values in R’s memory",
-    "text": "3.1 Storing values in R’s memory\nIn R, you create and store values by assigning them to a name. The assignment operator is:\n&lt;-\nThis symbol is pronounced “arrow”, and it tells R to store a value in a named object.\nThe general structure is:\n[name] &lt;- [value]\nFor Example:\n\nx &lt;- 5\n\nThis creates an object called x and stores the value 5 inside it.\n\nRules for naming objects\nThere are a few important rules to follow when choosing names in R.\n\n1. No spaces\nNames cannot contain spaces.\n\nlucky_number &lt;- 5    ✔\nlucky number &lt;- 5    ✘\n\n(The spaces around &lt;- do not matter; only spaces inside the name are not allowed.)\n\n\n2. Names must start with a letter\nA name must begin with a letter, not a number.\n\nlucky_number &lt;- 5     ✔\n1lucky_number &lt;- 5    ✘\n\n\n\n3. R is case sensitive\nCapital letters matter.\n\nlucky_number\nLucky_Number\n\nThese refer to different objects.\n\n\n4. Some words cannot be used as names\nR has a set of reserved words that already have a special meaning. These include:\nif, else, for, in, TRUE, FALSE, NULL, NA, NaN, function\nYou do not need to memorise these. If you accidentally try to use one, R will warn you.\n\n\n\nObjects appear in the Environment pane\nAfter running a line such as:\n\nx &lt;- 5\n\nHere we have created an object called x with the value 5. You can now use x in later calculations. You should also see xappear in the Environment pane.\n\nTry using the stored x:\n\nx\n\n[1] 5\n\nx * 3\n\n[1] 15"
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-an-r-script",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-an-r-script",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "4.1 Creating an R script",
-    "text": "4.1 Creating an R script\n\nGo to File &gt; New File &gt; R Script.\nIn the new script window (top left), type:\n\n\nx &lt;- 210\ny &lt;- 15\nx / y\n\n[1] 14\n\n\n\nPut your cursor on the first line and press:\n\n\nCtrl + Enter (Windows)\nCmd + Enter (macOS)\n\nR sends that line to the Console and runs it, then moves your cursor to the next line. Press it again to run the next lines.\n\nNow change x to another number and re-run the lines.\n\nTo save your script:\n\nClick File &gt; Save.\nGive it a sensible name, e.g. week1_examples.R, and save it in your IFP_Stats project folder.\n\nYou should now see the file listed under the Files tab (bottom right)."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#a-very-simple-plot",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#a-very-simple-plot",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "4.2 A very simple plot",
-    "text": "4.2 A very simple plot\nAdd this line at the bottom of your script:\n\nplot(1, 5)\n\n\n\n\n\n\n\n\nRun it. A small plot should appear in the Plots tab."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-your-first-r-markdown-file",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-your-first-r-markdown-file",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "5.1 Creating your first R Markdown file",
-    "text": "5.1 Creating your first R Markdown file\n\nGo to File &gt; New File &gt; R Markdown….\nIn the pop-up:\n\nTitle: e.g. IFP Intro Lab\nAuthor: your name\nLeave “HTML” as the default output for now.\n\nClick OK. RStudio creates a template document.\n\nDelete everything below the first code chunk so you start with a mostly empty file."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#adding-and-running-a-code-chunk",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#adding-and-running-a-code-chunk",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "5.2 Adding and running a code chunk",
-    "text": "5.2 Adding and running a code chunk\nInsert a new R code chunk by either:\n\nClicking Insert &gt; R at the top of the editor, or\nPressing Ctrl + Alt + I (Windows) or Option + Cmd + I (macOS).\n\nInside the grey chunk, type:\n\nprint(\"Hello from the IFP!\")\n\n[1] \"Hello from the IFP!\"\n\n\nYou can run the chunk in three ways:\n\nPut the cursor on the first line and press Ctrl/Cmd + Enter repeatedly.\nClick the small green play button at the top right of the chunk.\nWith the cursor inside the chunk, press Cmd + Shift + Enter (macOS) or Ctrl + Shift + Enter (Windows).\n\nThe output appears just under the chunk."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-packages-in-an-r-markdown-file",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-packages-in-an-r-markdown-file",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "5.3 Loading packages in an R Markdown file",
-    "text": "5.3 Loading packages in an R Markdown file\nAt the top of your document, in the first code chunk, add:\n\n# Packages used in this document\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nThis assumes you have installed the tidyverse package (see below). Any messages that appear under the chunk are fine; they are just information."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#writing-headings-and-text",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#writing-headings-and-text",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "5.4 Writing headings and text",
-    "text": "5.4 Writing headings and text\nOutside code chunks, you write text as usual. R Markdown uses the # symbol to create headings in the final document. For example:\n# R code examples\n\nIn this section we will try some basic R commands.\nHeading levels work as follows:\n\n# gives a main heading,\n## gives a subheading,\n### gives a smaller subheading, and so on.\n\n\nBe aware that:\n\nInside code chunks, # creates an R comment that R will ignore.\nOutside code chunks, # creates a heading in the report.\n\n\n5.5 “Source” and “Visual” modes\nRStudio provides two ways of editing an R Markdown document:\n\nSource mode\nThis shows the raw Markdown file, including:\n\ncode chunks,\nformatting symbols (e.g. #, **bold**, *italics*),\nand output-format instructions.\n\nUse this mode when you want full control over your document.\n\n\n\nVisual mode\nThis behaves more like a word processor:\n\nYou see headings, formatting, and lists as they will appear in the final document,\nCode chunks are shown as blocks that you can edit without typing backticks.\n\nVisual mode is easier for beginners, but Source mode is useful once you want more precision in formatting.\nYou can switch between them at any time using the Source/Visual toggle at the top left of the editor."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#installing-tidyverse",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#installing-tidyverse",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "6.1 Installing tidyverse",
-    "text": "6.1 Installing tidyverse\nYou only need to install a package once per computer.\nIn the Console (not in an R Markdown chunk), type:\n\ninstall.packages(\"&lt;package name&gt;\")\n\n\ninstall.packages(\"tidyverse\")\n\nand press Enter. This will download and install the package. It may take a few minutes.\nOn some university servers tidyverse may already be installed. If so, install.packages() is not necessary there."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-a-package",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-a-package",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "6.2 Loading a package",
-    "text": "6.2 Loading a package\nEach time you start RStudio, you need to load any packages you want to use:\n\nlibrary(&lt;package name&gt;)\n\n\nlibrary(tidyverse)\n\nYou usually put these library() calls near the top of your script or R Markdown file so that anyone reading your code can see which packages they need.\nThe next time you begin an R session, you’ll have to reload the package with library if you want to use it, but you won’t have to reinstall it. You only have to install each package once."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-and-saving-a-small-data-set",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-and-saving-a-small-data-set",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "7.1 Creating and saving a small data set",
-    "text": "7.1 Creating and saving a small data set\n\nOpen Excel, LibreOffice Calc, Google Sheets or similar.\nCreate a tiny data set, for example:\n\nColumn 1: student\nColumn 2: score\n\nFill in a few rows with names and marks.\nSave the file as CSV (Comma-Separated Values) and call it something like ifp_scores.csv.\nMake sure you save it inside your IFP_Stats project folder."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#reading-the-csv-into-r",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#reading-the-csv-into-r",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "7.2 Reading the CSV into R",
-    "text": "7.2 Reading the CSV into R\nIn a new code chunk in your R Markdown file, or in a script, type:\n\nlibrary(tidyverse)\n\nscores &lt;- read_csv(\"ifp_scores.csv\")\n\nRows: 5 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): student\ndbl (1): score\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nscores\n\n# A tibble: 5 × 2\n  student score\n  &lt;chr&gt;   &lt;dbl&gt;\n1 Ana        82\n2 Sam        74\n3 Jae        91\n4 Luis       67\n5 Mira       88\n\n\nHelpful tip: if your cursor is between the quotation marks \" \" inside read_csv(\"\") and you press Tab, RStudio will show a list of files in your project so you can choose the correct name.\nThe object scores should now appear in the Environment pane. To see how many rows and columns there are, use:\n\ndim(scores)\n\n[1] 5 2\n\n\nTo see the structure of the data:\n\nglimpse(scores)\n\nRows: 5\nColumns: 2\n$ student &lt;chr&gt; \"Ana\", \"Sam\", \"Jae\", \"Luis\", \"Mira\"\n$ score   &lt;dbl&gt; 82, 74, 91, 67, 88"
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#start-with-a-clean-workspace",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#start-with-a-clean-workspace",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "8.1 Start with a clean workspace",
-    "text": "8.1 Start with a clean workspace\n\nGo to Tools &gt; Global Options….\nUnder General, untick “Restore .RData into workspace at startup”.\nSet “Save workspace to .RData on exit” to “Never”.\nClick Apply and OK.\n\nThis means RStudio will start with an empty workspace each time, so you must re-run your scripts to recreate objects. This is good practice and avoids confusing “left-over” objects."
-  },
-  {
-    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#wrap-long-lines-of-code",
-    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#wrap-long-lines-of-code",
-    "title": "Getting Started with R and RStudio – IFP",
-    "section": "8.2 Wrap long lines of code",
-    "text": "8.2 Wrap long lines of code\n\nGo to Tools &gt; Global Options… again.\nClick Code in the left-hand menu.\nTick “Soft-wrap R source files”.\nClick Apply and OK.\n\nNow long lines of code will wrap inside the editor, so you do not have to scroll sideways."
+    "text": "Mathematics, Statistics & Data Analysis\nWelcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.\n\n© 2025 University of Edinburgh | Centre for Open Learning\nMathematics, Statistics & Data Analysis for CHASS"
   },
   {
     "objectID": "Tutorials/Stats/week-9/week-09-tutorial-stats.html",
@@ -420,6 +315,188 @@
     "text": "4 Functions\n\nWhat are the domain and range of \\(f(x) = \\sqrt{x}\\)?\nIf \\(f(x) = x(x+1)\\), what is the inverse function?\nFind functions \\(f(x)\\) and \\(g(x)\\) that prove \\(f\\circ g\\neq g\\circ f\\).\nIf \\(h(x) = \\sqrt{x^2 + 2}\\), what is a possible decomposition of \\(h\\)? Are there others?"
   },
   {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "",
+    "text": "This guide will help you get set up with R and RStudio for the IFP statistics and data skills modules. Please work through it before or during the first lab.\n\n\nYou have two main ways of using R and RStudio.\n\n\nFor the MSDA tutorial sessions, you will use the university computers, which already have R and RStudio installed. You do not need to download or install anything yourself.\n\n\n\nSit at any available computer in the lab.\nLog in using your university email address and password.\n\nThis is the same login you use for Learn and Outlook, university email, and other campus systems.\n\n\n\n\n\nOnce you are logged in:\n\nClick on the Start Menu (bottom left).\nType RStudio in the search bar.\nClick the RStudio application when it appears.\n\nRStudio will open and start an R session automatically.\nYou do not need to install or configure anything.\n\n\n\n\nIf you prefer to work on your own laptop, install R and then RStudio Desktop.\n\nInstall R from the official website:\nhttps://cran.r-project.org/\nChoose your operating system (Windows, macOS, or Linux) and follow the download and install instructions.\nInstall RStudio Desktop from:\nhttps://posit.co/download/rstudio-desktop/\nOnce installed, open RStudio. It should automatically find your R installation.\n\nYou only need to install R and RStudio once. After that you just open RStudio.\n\n\n\n\nIt is good practice to keep all the files for a course in one project folder.\n\nIn your Documents (or another sensible location), create a new folder called e.g. IFP_Stats.\nOpen RStudio.\nIn the top-right of RStudio, click Project (None) &gt; New Project….\nChoose Existing Directory.\nClick Browse, select your new IFP_Stats folder, then click Choose (or Open), and finally Create Project.\n\nYou should now see the project name at the top-right of RStudio. Any files you create will live inside this folder."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#accessing-the-software",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#accessing-the-software",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "",
+    "text": "You have two main ways of using R and RStudio.\n\n\nFor the MSDA tutorial sessions, you will use the university computers, which already have R and RStudio installed. You do not need to download or install anything yourself.\n\n\n\nSit at any available computer in the lab.\nLog in using your university email address and password.\n\nThis is the same login you use for Learn and Outlook, university email, and other campus systems.\n\n\n\n\n\nOnce you are logged in:\n\nClick on the Start Menu (bottom left).\nType RStudio in the search bar.\nClick the RStudio application when it appears.\n\nRStudio will open and start an R session automatically.\nYou do not need to install or configure anything.\n\n\n\n\nIf you prefer to work on your own laptop, install R and then RStudio Desktop.\n\nInstall R from the official website:\nhttps://cran.r-project.org/\nChoose your operating system (Windows, macOS, or Linux) and follow the download and install instructions.\nInstall RStudio Desktop from:\nhttps://posit.co/download/rstudio-desktop/\nOnce installed, open RStudio. It should automatically find your R installation.\n\nYou only need to install R and RStudio once. After that you just open RStudio."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#setting-up-your-ifp-project",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#setting-up-your-ifp-project",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "",
+    "text": "It is good practice to keep all the files for a course in one project folder.\n\nIn your Documents (or another sensible location), create a new folder called e.g. IFP_Stats.\nOpen RStudio.\nIn the top-right of RStudio, click Project (None) &gt; New Project….\nChoose Existing Directory.\nClick Browse, select your new IFP_Stats folder, then click Choose (or Open), and finally Create Project.\n\nYou should now see the project name at the top-right of RStudio. Any files you create will live inside this folder."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#storing-values-in-rs-memory",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#storing-values-in-rs-memory",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "3.1 Storing values in R’s memory",
+    "text": "3.1 Storing values in R’s memory\nIn R, you create and store values by assigning them to a name. The assignment operator is:\n&lt;-\nThis symbol is pronounced “arrow”, and it tells R to store a value in a named object.\nThe general structure is:\n[name] &lt;- [value]\nFor Example:\n\nx &lt;- 5\n\nThis creates an object called x and stores the value 5 inside it.\n\nRules for naming objects\nThere are a few important rules to follow when choosing names in R.\n\n1. No spaces\nNames cannot contain spaces.\n\nlucky_number &lt;- 5    ✔\nlucky number &lt;- 5    ✘\n\n(The spaces around &lt;- do not matter; only spaces inside the name are not allowed.)\n\n\n2. Names must start with a letter\nA name must begin with a letter, not a number.\n\nlucky_number &lt;- 5     ✔\n1lucky_number &lt;- 5    ✘\n\n\n\n3. R is case sensitive\nCapital letters matter.\n\nlucky_number\nLucky_Number\n\nThese refer to different objects.\n\n\n4. Some words cannot be used as names\nR has a set of reserved words that already have a special meaning. These include:\nif, else, for, in, TRUE, FALSE, NULL, NA, NaN, function\nYou do not need to memorise these. If you accidentally try to use one, R will warn you.\n\n\n\nObjects appear in the Environment pane\nAfter running a line such as:\n\nx &lt;- 5\n\nHere we have created an object called x with the value 5. You can now use x in later calculations. You should also see xappear in the Environment pane.\n\nTry using the stored x:\n\nx\n\n[1] 5\n\nx * 3\n\n[1] 15"
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-an-r-script",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-an-r-script",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "4.1 Creating an R script",
+    "text": "4.1 Creating an R script\n\nGo to File &gt; New File &gt; R Script.\nIn the new script window (top left), type:\n\n\nx &lt;- 210\ny &lt;- 15\nx / y\n\n[1] 14\n\n\n\nPut your cursor on the first line and press:\n\n\nCtrl + Enter (Windows)\nCmd + Enter (macOS)\n\nR sends that line to the Console and runs it, then moves your cursor to the next line. Press it again to run the next lines.\n\nNow change x to another number and re-run the lines.\n\nTo save your script:\n\nClick File &gt; Save.\nGive it a sensible name, e.g. week1_examples.R, and save it in your IFP_Stats project folder.\n\nYou should now see the file listed under the Files tab (bottom right)."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#a-very-simple-plot",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#a-very-simple-plot",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "4.2 A very simple plot",
+    "text": "4.2 A very simple plot\nAdd this line at the bottom of your script:\n\nplot(1, 5)\n\n\n\n\n\n\n\n\nRun it. A small plot should appear in the Plots tab."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-your-first-r-markdown-file",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-your-first-r-markdown-file",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "5.1 Creating your first R Markdown file",
+    "text": "5.1 Creating your first R Markdown file\n\nGo to File &gt; New File &gt; R Markdown….\nIn the pop-up:\n\nTitle: e.g. IFP Intro Lab\nAuthor: your name\nLeave “HTML” as the default output for now.\n\nClick OK. RStudio creates a template document.\n\nDelete everything below the first code chunk so you start with a mostly empty file."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#adding-and-running-a-code-chunk",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#adding-and-running-a-code-chunk",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "5.2 Adding and running a code chunk",
+    "text": "5.2 Adding and running a code chunk\nInsert a new R code chunk by either:\n\nClicking Insert &gt; R at the top of the editor, or\nPressing Ctrl + Alt + I (Windows) or Option + Cmd + I (macOS).\n\nInside the grey chunk, type:\n\nprint(\"Hello from the IFP!\")\n\n[1] \"Hello from the IFP!\"\n\n\nYou can run the chunk in three ways:\n\nPut the cursor on the first line and press Ctrl/Cmd + Enter repeatedly.\nClick the small green play button at the top right of the chunk.\nWith the cursor inside the chunk, press Cmd + Shift + Enter (macOS) or Ctrl + Shift + Enter (Windows).\n\nThe output appears just under the chunk."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-packages-in-an-r-markdown-file",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-packages-in-an-r-markdown-file",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "5.3 Loading packages in an R Markdown file",
+    "text": "5.3 Loading packages in an R Markdown file\nAt the top of your document, in the first code chunk, add:\n\n# Packages used in this document\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nThis assumes you have installed the tidyverse package (see below). Any messages that appear under the chunk are fine; they are just information."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#writing-headings-and-text",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#writing-headings-and-text",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "5.4 Writing headings and text",
+    "text": "5.4 Writing headings and text\nOutside code chunks, you write text as usual. R Markdown uses the # symbol to create headings in the final document. For example:\n# R code examples\n\nIn this section we will try some basic R commands.\nHeading levels work as follows:\n\n# gives a main heading,\n## gives a subheading,\n### gives a smaller subheading, and so on.\n\n\nBe aware that:\n\nInside code chunks, # creates an R comment that R will ignore.\nOutside code chunks, # creates a heading in the report.\n\n\n5.5 “Source” and “Visual” modes\nRStudio provides two ways of editing an R Markdown document:\n\nSource mode\nThis shows the raw Markdown file, including:\n\ncode chunks,\nformatting symbols (e.g. #, **bold**, *italics*),\nand output-format instructions.\n\nUse this mode when you want full control over your document.\n\n\n\nVisual mode\nThis behaves more like a word processor:\n\nYou see headings, formatting, and lists as they will appear in the final document,\nCode chunks are shown as blocks that you can edit without typing backticks.\n\nVisual mode is easier for beginners, but Source mode is useful once you want more precision in formatting.\nYou can switch between them at any time using the Source/Visual toggle at the top left of the editor."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#installing-tidyverse",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#installing-tidyverse",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "6.1 Installing tidyverse",
+    "text": "6.1 Installing tidyverse\nYou only need to install a package once per computer.\nIn the Console (not in an R Markdown chunk), type:\n\ninstall.packages(\"&lt;package name&gt;\")\n\n\ninstall.packages(\"tidyverse\")\n\nand press Enter. This will download and install the package. It may take a few minutes.\nOn some university servers tidyverse may already be installed. If so, install.packages() is not necessary there."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-a-package",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#loading-a-package",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "6.2 Loading a package",
+    "text": "6.2 Loading a package\nEach time you start RStudio, you need to load any packages you want to use:\n\nlibrary(&lt;package name&gt;)\n\n\nlibrary(tidyverse)\n\nYou usually put these library() calls near the top of your script or R Markdown file so that anyone reading your code can see which packages they need.\nThe next time you begin an R session, you’ll have to reload the package with library if you want to use it, but you won’t have to reinstall it. You only have to install each package once."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-and-saving-a-small-data-set",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#creating-and-saving-a-small-data-set",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "7.1 Creating and saving a small data set",
+    "text": "7.1 Creating and saving a small data set\n\nOpen Excel, LibreOffice Calc, Google Sheets or similar.\nCreate a tiny data set, for example:\n\nColumn 1: student\nColumn 2: score\n\nFill in a few rows with names and marks.\nSave the file as CSV (Comma-Separated Values) and call it something like ifp_scores.csv.\nMake sure you save it inside your IFP_Stats project folder."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#reading-the-csv-into-r",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#reading-the-csv-into-r",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "7.2 Reading the CSV into R",
+    "text": "7.2 Reading the CSV into R\nIn a new code chunk in your R Markdown file, or in a script, type:\n\nlibrary(tidyverse)\n\nscores &lt;- read_csv(\"ifp_scores.csv\")\n\nRows: 5 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): student\ndbl (1): score\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nscores\n\n# A tibble: 5 × 2\n  student score\n  &lt;chr&gt;   &lt;dbl&gt;\n1 Ana        82\n2 Sam        74\n3 Jae        91\n4 Luis       67\n5 Mira       88\n\n\nHelpful tip: if your cursor is between the quotation marks \" \" inside read_csv(\"\") and you press Tab, RStudio will show a list of files in your project so you can choose the correct name.\nThe object scores should now appear in the Environment pane. To see how many rows and columns there are, use:\n\ndim(scores)\n\n[1] 5 2\n\n\nTo see the structure of the data:\n\nglimpse(scores)\n\nRows: 5\nColumns: 2\n$ student &lt;chr&gt; \"Ana\", \"Sam\", \"Jae\", \"Luis\", \"Mira\"\n$ score   &lt;dbl&gt; 82, 74, 91, 67, 88"
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#start-with-a-clean-workspace",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#start-with-a-clean-workspace",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "8.1 Start with a clean workspace",
+    "text": "8.1 Start with a clean workspace\n\nGo to Tools &gt; Global Options….\nUnder General, untick “Restore .RData into workspace at startup”.\nSet “Save workspace to .RData on exit” to “Never”.\nClick Apply and OK.\n\nThis means RStudio will start with an empty workspace each time, so you must re-run your scripts to recreate objects. This is good practice and avoids confusing “left-over” objects."
+  },
+  {
+    "objectID": "R Support/getting_ready_with_R_RStudio_IFP.html#wrap-long-lines-of-code",
+    "href": "R Support/getting_ready_with_R_RStudio_IFP.html#wrap-long-lines-of-code",
+    "title": "Getting Started with R and RStudio – IFP",
+    "section": "8.2 Wrap long lines of code",
+    "text": "8.2 Wrap long lines of code\n\nGo to Tools &gt; Global Options… again.\nClick Code in the left-hand menu.\nTick “Soft-wrap R source files”.\nClick Apply and OK.\n\nNow long lines of code will wrap inside the editor, so you do not have to scroll sideways."
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html",
+    "href": "Getting_Started_R_RStudio.html",
+    "title": "Getting Started with R and RStudio",
+    "section": "",
+    "text": "To get started with R, you need to acquire your own copy. This appendix explains how to download and install both R and RStudio, the application that makes R easier to use. By the end, you’ll have opened your first R session. Both are completely free.\n\n\nR is maintained by an international team of developers and distributed through the Comprehensive R Archive Network (CRAN). Visit https://cran.r-project.org and follow the link that matches your operating system: Windows, macOS, or Linux.\n\n\n\nClick Download R for Windows.\nSelect base.\nClick the top link labelled something like “Download R x.x.x for Windows” (the numbers will show the latest release).\nRun the downloaded installer and follow the prompts.\n\nThis will install R to your Program Files folder and add shortcuts to the Start menu. You’ll need admin rights to install new software.\n\n\n\n\nClick Download R for macOS.\nSelect the current .pkg installer (e.g., R‑4.x.x‑arm64.pkg for Apple Silicon, or x86_64.pkg for Intel Macs).\nRun the installer and accept the defaults—these work for nearly everyone.\n\n\nTip: If your Mac asks for your password, that’s the standard system prompt for installing applications.\n\n\n\n\n\nR is a programming language, not a graphical application. You use R by typing commands and letting the interpreter execute them. Historically, R was used in UNIX terminals, but today almost everyone works through RStudio, which provides a friendlier environment.\n\n\nYou can still open R from a UNIX or Bash terminal by typing:\nR\nThis launches the R interpreter. When you’re finished, type:\nq()\nThis quits the session.\n\n\n\n\nRStudio is an application like Microsoft Word—except that instead of writing text, you write code in R. It provides panes for code editing, plots, data management, and help, all in one place. The interface is almost identical across Windows, macOS, and Linux.\n\nVisit https://posit.co/download/rstudio.\nDownload RStudio Desktop (Free).\nRun the installer.\n\nAfter installation, open RStudio as you would any program. On macOS, the app sits in Applications; on Windows, find it in the Start menu.\n\n\nNow that you have both R and RStudio on your computer, you can begin using R by opening the RStudio program. Open RStudio just as you would any program, by clicking on its icon or by typing “RStudio” at the Windows Run prompt.\n\n\n\n\nWhen RStudio opens, you’ll see three or four panes (see Figure 1):\n\nConsole (bottom left) — run commands and see results.\nSource (top left) — write longer scripts.\nEnvironment (top right) — list data and objects.\nFiles/Plots/Help (bottom right) — browse files, view plots, and read documentation.\n\n\n\n\nFigure 1: The RStudio IDE for R.\n\nEverything you type in the Console is sent directly to R. The rest of the interface helps you organise, edit, and visualise your work.\n\n# Try your first R command\n2 + 2\n\nYou should see:\n[1] 4"
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#how-to-download-and-install-r",
+    "href": "Getting_Started_R_RStudio.html#how-to-download-and-install-r",
+    "title": "Getting Started with R and RStudio",
+    "section": "",
+    "text": "R is maintained by an international team of developers and distributed through the Comprehensive R Archive Network (CRAN). Visit https://cran.r-project.org and follow the link that matches your operating system: Windows, macOS, or Linux.\n\n\n\nClick Download R for Windows.\nSelect base.\nClick the top link labelled something like “Download R x.x.x for Windows” (the numbers will show the latest release).\nRun the downloaded installer and follow the prompts.\n\nThis will install R to your Program Files folder and add shortcuts to the Start menu. You’ll need admin rights to install new software.\n\n\n\n\nClick Download R for macOS.\nSelect the current .pkg installer (e.g., R‑4.x.x‑arm64.pkg for Apple Silicon, or x86_64.pkg for Intel Macs).\nRun the installer and accept the defaults—these work for nearly everyone.\n\n\nTip: If your Mac asks for your password, that’s the standard system prompt for installing applications."
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#using-r",
+    "href": "Getting_Started_R_RStudio.html#using-r",
+    "title": "Getting Started with R and RStudio",
+    "section": "",
+    "text": "R is a programming language, not a graphical application. You use R by typing commands and letting the interpreter execute them. Historically, R was used in UNIX terminals, but today almost everyone works through RStudio, which provides a friendlier environment.\n\n\nYou can still open R from a UNIX or Bash terminal by typing:\nR\nThis launches the R interpreter. When you’re finished, type:\nq()\nThis quits the session."
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#rstudio",
+    "href": "Getting_Started_R_RStudio.html#rstudio",
+    "title": "Getting Started with R and RStudio",
+    "section": "",
+    "text": "RStudio is an application like Microsoft Word—except that instead of writing text, you write code in R. It provides panes for code editing, plots, data management, and help, all in one place. The interface is almost identical across Windows, macOS, and Linux.\n\nVisit https://posit.co/download/rstudio.\nDownload RStudio Desktop (Free).\nRun the installer.\n\nAfter installation, open RStudio as you would any program. On macOS, the app sits in Applications; on Windows, find it in the Start menu.\n\n\nNow that you have both R and RStudio on your computer, you can begin using R by opening the RStudio program. Open RStudio just as you would any program, by clicking on its icon or by typing “RStudio” at the Windows Run prompt."
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#first-look-at-rstudio",
+    "href": "Getting_Started_R_RStudio.html#first-look-at-rstudio",
+    "title": "Getting Started with R and RStudio",
+    "section": "",
+    "text": "When RStudio opens, you’ll see three or four panes (see Figure 1):\n\nConsole (bottom left) — run commands and see results.\nSource (top left) — write longer scripts.\nEnvironment (top right) — list data and objects.\nFiles/Plots/Help (bottom right) — browse files, view plots, and read documentation.\n\n\n\n\nFigure 1: The RStudio IDE for R.\n\nEverything you type in the Console is sent directly to R. The rest of the interface helps you organise, edit, and visualise your work.\n\n# Try your first R command\n2 + 2\n\nYou should see:\n[1] 4"
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#installing-packages",
+    "href": "Getting_Started_R_RStudio.html#installing-packages",
+    "title": "Getting Started with R and RStudio",
+    "section": "2.1 1. Installing Packages",
+    "text": "2.1 1. Installing Packages\nTo use an R package, you must first install it on your computer and then load it in your current R session. The easiest way to install an R package is with the install.packages R function. Open R and type the following into the command line:\n\ninstall.packages(\"&lt;package name&gt;\")\n\nThis will search for the specified package in the collection of packages hosted on the CRAN site. When R finds the package, it will download it into a libraries folder on your computer. R can access the package here in future R sessions without reinstalling it.\nYou can install multiple packages at once by linking their names with R’s concatenate function, c. For example, to install the ggplot2, reshape2, and dplyr packages, run:\n\ninstall.packages(c(\"ggplot2\", \"reshape2\", \"dplyr\"))"
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#loading-packages",
+    "href": "Getting_Started_R_RStudio.html#loading-packages",
+    "title": "Getting Started with R and RStudio",
+    "section": "2.2 2. Loading Packages",
+    "text": "2.2 2. Loading Packages\nInstalling a package doesn’t immediately place its functions at your fingertips. It just places them on your computer. To use an R package, you next have to load it in your R session with the command:\n\nlibrary(&lt;package name&gt;)\n\nNotice that the quotation marks have disappeared. You can use them if you like, but quotation marks are optional for the library command. (This is not true for the install.packages command).\nlibrary will make all of the package’s functions, data sets, and help files available to you until you close your current R session. The next time you begin an R session, you’ll have to reload the package with library if you want to use it, but you won’t have to reinstall it. You only have to install each package once. After that, a copy of the package will live in your R library. To see which packages you currently have in your R library, run:\n\nlibrary()\n\nExample:\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#working-directory",
+    "href": "Getting_Started_R_RStudio.html#working-directory",
+    "title": "Getting Started with R and RStudio",
+    "section": "3.1 Working Directory",
+    "text": "3.1 Working Directory\nEach time you open R, it links itself to a directory on your computer, which R calls the working directory. This is where R will look for files when you attempt to load them, and it is where R will save files when you save them. The location of your working directory will vary on different computers. To determine which directory R is using as your working directory, run:\n\ngetwd()\n## \"/Users/garrettgrolemund\"\n\nYou can place data files straight into the folder that is your working directory, or you can move your working directory to where your data files are. You can move your working directory to any folder on your computer with the function setwd. Just give setwd the file path to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. That way I can keep all of my data, scripts, graphs, and reports in the same place. For example:\n\nsetwd(\"~/Users/garrettgrolemund/Documents/Book_Project\")\n\nIf the file path does not begin with your root directory, R will assume that it begins at your current working directory.\nYou can also change your working directory by clicking on Session &gt; Set Working Directory &gt; Choose Directory in the RStudio menu bar. The Windows and Mac GUIs have similar options. If you start R from a UNIX command line (as on Linux machines), the working directory will be whichever directory you were in when you called R.\nYou can see what files are in your working directory with list.files(). If you see the file that you would like to open in your working directory, then you are ready to proceed. How you open files in your working directory will depend on which type of file you would like to open.\nThe second way is to set the working directory from the GUI."
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#loading-data",
+    "href": "Getting_Started_R_RStudio.html#loading-data",
+    "title": "Getting Started with R and RStudio",
+    "section": "3.2 Loading Data",
+    "text": "3.2 Loading Data\nWe will read in a simple dataset that was used in this week’s lecture. The dataset is currently stored on a website associated with this course, and as long as the tidyverse package has been loaded, you should be able to read in the data with the following command:\n\nmydata &lt;- read_csv(\"https://uoepsy.github.io/data/lecture1_data.csv\")\n\nNotice that we use the assignment operator again, storing the data in a variable named “mydata”. The remaining part of the command uses the function “read_csv()”, because the data file is stored in a csv file. The argument of the function, written inside the parentheses, is the url where the csv file is located, enclosed in double quotes."
+  },
+  {
+    "objectID": "Getting_Started_R_RStudio.html#how-to-create-and-use-an-r-markdown-document",
+    "href": "Getting_Started_R_RStudio.html#how-to-create-and-use-an-r-markdown-document",
+    "title": "Getting Started with R and RStudio",
+    "section": "4.1 How to create and use an R Markdown document",
+    "text": "4.1 How to create and use an R Markdown document\nIn RStudio it is often convenient to use a special type of file format called “R Markdown”. An R Markdown file can be converted into a pdf document, and can also include what we call “code chunks”, which are pieces of R code that can be run inside the document. This is useful because you can save the document, and you will keep all your work, unlike in the console, where you lose the code that you have written if you quit R Studio. The R Markdown format will be used extensivly in the lab sessions, and you will get plenty of practice. In the Live R lecture session on Tuesday, we will give a very brief introduction, to show how to create a new R Markdown document, and how to create and run code chunks.\nVery briefly, you can create an R Markdown document via the File menu in R Studio, like this:\nFile &gt; New File &gt; R Markdown\nThis will create a new panel in R Studio with some example contents of an R Markdown file. You can edit these contents to make your own document.\nRead Lesson 1 of the RMarkdown Bootcamp: Lesson 1: Basics of RMarkdown\nReferences\nhttps://rstudio-education.github.io/hopr/packages2.html"
+  },
+  {
     "objectID": "Content/Stats/week-15-content-stats.html",
     "href": "Content/Stats/week-15-content-stats.html",
     "title": "Week 15 – Stats",
@@ -649,83 +726,6 @@
     "title": "2 Exponentials & Logs",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nAn example of a modelling assumption; if it’s winter in Edinburgh, perhaps \\(16^{\\circ}\\text{C}\\) would be more accurate.↩︎"
-  },
-  {
-    "objectID": "Teacher_Guidelines.html",
-    "href": "Teacher_Guidelines.html",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "",
-    "text": "The MSDA course website is collaboratively developed by the teaching team using Quarto and GitHub Desktop.\nEach instructor is responsible for maintaining their own content section, while the course coordinator publishes the overall site to GitHub Pages.\nTeachers may freely edit and render locally, but only the coordinator handles the final public build."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#overview",
-    "href": "Teacher_Guidelines.html#overview",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "",
-    "text": "The MSDA course website is collaboratively developed by the teaching team using Quarto and GitHub Desktop.\nEach instructor is responsible for maintaining their own content section, while the course coordinator publishes the overall site to GitHub Pages.\nTeachers may freely edit and render locally, but only the coordinator handles the final public build."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#folder-structure",
-    "href": "Teacher_Guidelines.html#folder-structure",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "2 Folder Structure",
-    "text": "2 Folder Structure\nBelow is the structure of the shared repository:\nMSDA-course/ \n\n├── Content/ \n│     ├── Math/             ← Maths lectures (Josh) \n│     └── Stats/            ← Statistics lectures (Javiera) \n│\n├── Tutorials/ \n│     ├── Math/             ← Maths tutorials\n│     └── Stats/            ← Stats tutorials\n│\n├── assets/                 ← shared images, datasets, CSS \n├── docs/                   ← published site output (auto-generated) \n├── styles.css\n├── edtheme.scss \n└──_quarto.yml\n\nDo not edit the docs/ folder manually; it’s created by Quarto.\nShared styles (styles.css, edtheme.scss) live at the project root."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#working-locally",
-    "href": "Teacher_Guidelines.html#working-locally",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "3 Working Locally",
-    "text": "3 Working Locally\n\nClone the repository in GitHub Desktop → File → Clone Repository.\nOpen the project in RStudio by double-clicking the .Rproj file.\nEdit only your section:\n\nJosh → Content/Math/, Tutorials/Math/\nJaviera → Content/Stats/, Tutorials/Stats/\n\nPreview locally using:\n\nquarto preview\n…or press the Render button in RStudio. This builds a local preview only (not the live site)."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#keep-pages-hidden-with-draft",
-    "href": "Teacher_Guidelines.html#keep-pages-hidden-with-draft",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "4 Keep Pages Hidden with draft",
-    "text": "4 Keep Pages Hidden with draft\nWhen a page is in progress, add the YAML header below at the top of the .qmd:\n---\ntitle: \"Week X – Title\"\ndraft: true\n---\nDraft pages render locally but are not published.\n\nWhen ready to release, switch to:\n\n---\ntitle: \"Week X – Title\"\ndraft: false\n---\n\n(or remove draft: entirely)."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#weekly-release-workflow",
-    "href": "Teacher_Guidelines.html#weekly-release-workflow",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "5 Weekly Release Workflow",
-    "text": "5 Weekly Release Workflow\nWe publish one week at a time:\n\nFinalise the week’s .qmd files; remove draft: true.\nNotify the course coordinator (currently Javiera).\nCoordinator updates _quarto.yml if using selective rendering and runs:\n\n    quarto render\n\nCoordinator commits and pushes the updated docs/ folder so GitHub Pages updates."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#version-control-github-desktop",
-    "href": "Teacher_Guidelines.html#version-control-github-desktop",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "6 Version Control (GitHub Desktop)",
-    "text": "6 Version Control (GitHub Desktop)\n\nBefore editing: Fetch origin → Pull.\nAfter editing:\n\nReview changed files.\nWrite a clear message (e.g., Add Week 3 tutorial draft).\nCommit to main.\nPush origin."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#roles-permissions",
-    "href": "Teacher_Guidelines.html#roles-permissions",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "7 Roles & Permissions",
-    "text": "7 Roles & Permissions\n\nTeachers have write access and may edit and render locally only in their area.\nThe course coordinator performs the project-wide render and publishes the site (pushes docs/).\nAvoid editing others’ folders to reduce merge conflicts."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#selective-rendering-publish-only-chosen-weeks",
-    "href": "Teacher_Guidelines.html#selective-rendering-publish-only-chosen-weeks",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "8 Selective Rendering (publish only chosen weeks)",
-    "text": "8 Selective Rendering (publish only chosen weeks)\nCoordinator whitelists what gets built in _quarto.yml:\nproject:\n  type: website\n  output-dir: docs\n  render:\n    - index.qmd\n    - Content/Math/week-01.qmd\n    - Tutorials/Math/week-01.qmd\n    - Content/Stats/week-01.qmd\n    - Tutorials/Stats/week-01.qmd\n    # Add further weeks here as they are approved\nAnything not listed under render: is skipped, even if it is not a draft."
-  },
-  {
-    "objectID": "Teacher_Guidelines.html#section-styling-math-vs-stats",
-    "href": "Teacher_Guidelines.html#section-styling-math-vs-stats",
-    "title": "Teacher Guidelines – MSDA Course Website",
-    "section": "9 Section Styling (Math vs Stats)",
-    "text": "9 Section Styling (Math vs Stats)\nUse folder-level _metadata.yml files so each area can have its own CSS.\nContent/Math/_metadata.yml\nformat:\n  html:\n    css: [styles.css, edtheme.scss]   # site base + Maths overrides\nTutorials/Math/_metadata.yml\n\nformat:\n  html:\n    css: [styles.css, edtheme.scss]   # site base + Maths overrides\nContent/Stats/_metadata.yml\n\nformat:\n  html:\n    css: styles.css\nTutorials/Stats/_metadata.yml\n\nformat:\n  html:\n    css: styles.css\nKeep styles.css and edtheme.scss at the project root."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Mathematics, Statistics & Data Analysis\nWelcome to this foundation-level course designed to support students progressing to degrees in the College of Arts, Humanities and Social Sciences. Over 16 weeks, we will develop the core skills you need to explore, visualise, and analyse data to answer real-world questions using mathematics and statistics.\n\n© 2025 University of Edinburgh | Centre for Open Learning\nMathematics, Statistics & Data Analysis for CHASS"
   },
   {
     "objectID": "Content/Maths/lecture-01-functions.html",
@@ -1120,6 +1120,153 @@
     "text": "Coming soon!"
   },
   {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html",
+    "title": "R Basics: Syntax & Variables",
+    "section": "",
+    "text": "In programming, syntax refers to the set of rules that define the combinations of symbols considered correctly structured programs in a given language. In simpler terms, it’s the specific way you must write your instructions so that the R interpreter can understand and execute them.\nUnderstanding R syntax is absolutely crucial because even a tiny mistake—a missing comma, a misplaced parenthesis, or incorrect capitalisation—can lead to errors that prevent your code from running. Mastering these basics empowers you to write clean, efficient, and error-free scripts, laying a solid foundation for your data journey."
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#what-is-r-syntax-and-why-does-it-matter",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#what-is-r-syntax-and-why-does-it-matter",
+    "title": "R Basics: Syntax & Variables",
+    "section": "",
+    "text": "In programming, syntax refers to the set of rules that define the combinations of symbols considered correctly structured programs in a given language. In simpler terms, it’s the specific way you must write your instructions so that the R interpreter can understand and execute them.\nUnderstanding R syntax is absolutely crucial because even a tiny mistake—a missing comma, a misplaced parenthesis, or incorrect capitalisation—can lead to errors that prevent your code from running. Mastering these basics empowers you to write clean, efficient, and error-free scripts, laying a solid foundation for your data journey."
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#r-syntax-basics-your-first-steps-in-coding",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#r-syntax-basics-your-first-steps-in-coding",
+    "title": "R Basics: Syntax & Variables",
+    "section": "R Syntax Basics: Your First Steps in Coding",
+    "text": "R Syntax Basics: Your First Steps in Coding\nLet’s dive into the core elements of R syntax that you’ll encounter every day.\n\nComments: The Programmer’s Notes\nComments are lines in your code that R ignores. They are incredibly useful for you and others to understand what your code does, why you made certain choices, or to temporarily disable a line of code.\nIn R, you use the hash symbol # to indicate a comment.\n\nAnything after # on a line is treated as a comment.\n\nComments improve code readability and maintainability.\n\n\n# This is a single-line comment\nx &lt;- 10 # This comment explains what x is\n\n\n\nVariables and Assignment: Storing Your Data\nVariables are like named containers that hold values. You use them to store data (numbers, text, logical values) so you can refer to it and manipulate it later in your script. In R, the primary way to assign a value to a variable is using the assignment operator &lt;- (a less-than sign followed by a hyphen).\n\nYou can also use = for assignment, but &lt;- is generally preferred for clarity and consistency in R.\nVariable names should start with a letter and can contain letters, numbers, and underscores (_) or periods (.).\nR is case-sensitive! myVariable is different from myvariable.\n\n\n# Assigning a number to a variable\nmy_number &lt;- 42\n\n# Assigning text (a character string)\nmy_text &lt;- \"Hello, R!\"\n\n# Assigning a logical value\nis_active &lt;- TRUE\n\n\n\nData Types: What Kind of Information Are You Handling?\nEvery piece of data in R has a type, which tells R what kind of information it is and how it can be used. Understanding data types is fundamental for performing correct operations.\n\nNumeric: For numbers (integers like 5 or decimals like 3.14).\nCharacter: For text, enclosed in single or double quotes (\"hello\", 'world').\nLogical: For boolean values, either TRUE or FALSE.\n\n\n# Numeric examples\nage &lt;- 30\npi_value &lt;- 3.14159\n\n# Character examples\nname &lt;- \"Alice\"\nmessage &lt;- 'Welcome to R programming.'\n\n# Logical examples\nis_raining &lt;- FALSE\nhas_data &lt;- TRUE\n\n# You can check the type with the class() function\nclass(age)\n\n[1] \"numeric\"\n\nclass(name)\n\n[1] \"character\"\n\n\n\n\nVectors: The Building Blocks of R\nVectors are the most basic data structure in R. They are ordered collections of elements of the same data type. You create vectors using the c() function, which stands for “combine” or “concatenate”.\n\nAll elements in a vector must be of the same type (numeric, character, or logical).\nVectors can be of any length, from a single element to thousands.\n\n\n# A numeric vector\nages &lt;- c(25, 30, 35, 40)\n\n# A character vector\nnames &lt;- c(\"Alice\", \"Bob\", \"Charlie\")\n\n# A logical vector\nresults &lt;- c(TRUE, FALSE, TRUE, TRUE)\n\n# Accessing elements in a vector (R uses 1-based indexing!)\nages[1] # Returns 25\n\n[1] 25\n\nnames[3] # Returns \"Charlie\"\n\n[1] \"Charlie\""
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#r-code-structure-how-r-organizes-instructions",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#r-code-structure-how-r-organizes-instructions",
+    "title": "R Basics: Syntax & Variables",
+    "section": "R Code Structure: How R Organizes Instructions",
+    "text": "R Code Structure: How R Organizes Instructions\nBeyond individual syntax elements, understanding how R structures sequences of instructions is key to writing functional scripts.\n\nFunctions: Performing Actions\nFunctions are pre-defined blocks of code that perform a specific task. They take inputs (called arguments) and often return an output. You call a function by writing its name followed by parentheses, inside which you pass any required arguments.\n\nCommon functions include print(), sum(), mean(), sqrt().\nArguments are passed inside the parentheses, separated by commas.\n\n\n# Using the print() function to display output\nprint(\"Hello, world!\")\n\n[1] \"Hello, world!\"\n\n# Using the sum() function on a vector\nnumbers &lt;- c(1, 2, 3, 4, 5)\ntotal &lt;- sum(numbers)\nprint(total) # Output: 15\n\n[1] 15\n\n# Using the mean() function\naverage &lt;- mean(numbers)\nprint(average) # Output: 3\n\n[1] 3\n\n\n\n\nOperators: Doing Math and Comparisons\nOperators are special symbols that perform operations on values and variables. R has a rich set of operators for arithmetic, comparison, and logical operations.\n\nArithmetic: + (addition), - (subtraction), * (multiplication), / (division), ^ or ** (exponentiation), %% (modulo – remainder), %/% (integer division).\nRelational (Comparison): == (equal to), != (not equal to), &lt; (less than), &gt; (greater than), &lt;= (less than or equal to), &gt;= (greater than or equal to). These return logical (TRUE/FALSE) values.\nLogical: & (AND), | (OR), ! (NOT). Used to combine or negate logical conditions.\n\n\n# Arithmetic examples\nresult_add &lt;- 5 + 3\nresult_mult &lt;- 4 * 2\nresult_pow &lt;- 2^3 # 8\n\n# Relational examples\nis_equal &lt;- (10 == 10) # TRUE\nis_greater &lt;- (7 &gt; 12) # FALSE\n\n# Logical examples\ncondition1 &lt;- TRUE\ncondition2 &lt;- FALSE\ncombined_and &lt;- condition1 & condition2 # FALSE\ncombined_or &lt;- condition1 | condition2 # TRUE\nnot_condition1 &lt;- !condition1 # FALSE\n\n\n\nControl Flow: Making Decisions (If/Else)\nControl flow statements allow your code to make decisions or repeat actions based on certain conditions. The most fundamental control flow structure is the if statement, often paired with else.\n\nAn if statement executes a block of code only if a specified condition is TRUE.\nAn else block provides an alternative action if the if condition is FALSE.\nCode blocks are typically enclosed in curly braces {}.\n\n\nscore &lt;- 75\n\nif (score &gt;= 60) {\n print(\"You passed!\")\n} else {\n print(\"You need to study more.\")\n}\n\n[1] \"You passed!\"\n\n# You can also have \"else if\" for multiple conditions\ngrade &lt;- \"B\"\n\nif (grade == \"A\") {\n print(\"Excellent!\")\n} else if (grade == \"B\") {\n print(\"Good job!\")\n} else {\n print(\"Keep practicing.\")\n}\n\n[1] \"Good job!\""
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#common-r-syntax-pitfalls-for-beginners",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#common-r-syntax-pitfalls-for-beginners",
+    "title": "R Basics: Syntax & Variables",
+    "section": "Common R Syntax Pitfalls for Beginners",
+    "text": "Common R Syntax Pitfalls for Beginners\nEven experienced programmers make syntax errors. Here are a few common ones to watch out for as you learn R code structure:\n\nCase Sensitivity: Remember, variable is not the same as Variable. This applies to function names too!\nMissing Parentheses or Brackets: A common oversight, especially with nested functions or vector indexing. R will often tell you it”s expecting something.\nIncorrect Assignment vs. Equality: Using = when you mean == (or vice versa) can lead to unexpected results or errors.\nQuotation Marks: For character strings, always use matching single or double quotes (e.g., \"text\" or 'text', not \"text').\nObject Not Found: This usually means you”ve misspelled a variable name, forgotten to assign a value, or haven”t loaded a necessary package."
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#what-are-variables-in-r",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#what-are-variables-in-r",
+    "title": "R Basics: Syntax & Variables",
+    "section": "What Are Variables in R?",
+    "text": "What Are Variables in R?\nAt its core, a variable in R is a symbolic name that refers to a value. This value could be a single number, a piece of text, a logical true/false statement, or even a complex data structure like a dataset. When you assign a value to a variable, R stores that value in memory and associates it with the name you”ve chosen.\nWhy are they so important? Variables allow you to reuse data without retyping it, make your code dynamic (data can change without changing the code itself), and greatly improve the readability of your scripts. Instead of a “magic number,” you can have a variable named \"tax_rate\"."
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#the-primary-assignment-operator--",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#the-primary-assignment-operator--",
+    "title": "R Basics: Syntax & Variables",
+    "section": "The Primary Assignment Operator: <-",
+    "text": "The Primary Assignment Operator: &lt;-\nIn R, the most common and recommended way to assign a value to a variable is by using the assignment operator &lt;-. This operator is often referred to as the “gets” operator because you can read it as “variable gets value.” The value on the right-hand side is “assigned to” or “gets” stored in the variable on the left-hand side.\n\nBasic Assignment with &lt;-\nLet”s start with a simple example. We”ll assign the number 10 to a variable named my_number.\n\nmy_number &lt;- 10\nprint(my_number)\n\n[1] 10\n\n\nWhen you run this code, R creates a variable called my_number and stores the value 10 inside it. The print() function then displays the value of that variable.\n\n\nAssigning Different Data Types\nR is a dynamically typed language, meaning you don”t need to declare the data type of a variable before assigning a value. R automatically infers the type based on the value you assign. You can assign various types of data to variables using &lt;-:\n\nNumeric: For numbers (integers, decimals).\nCharacter: For text (strings).\nLogical: For TRUE/FALSE values.\n\n\n# Assigning a numeric value (decimal)\nprice &lt;- 29.99\nprint(price)\n\n[1] 29.99\n\n# Assigning a character (string) value\nproduct_name &lt;- \"R Programming Guide\"\nprint(product_name)\n\n[1] \"R Programming Guide\"\n\n# Assigning a logical (boolean) value\nis_available &lt;- TRUE\nprint(is_available)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#naming-conventions-for-variables",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#naming-conventions-for-variables",
+    "title": "R Basics: Syntax & Variables",
+    "section": "Naming Conventions for Variables",
+    "text": "Naming Conventions for Variables\nChoosing good names for your variables is just as important as knowing how to assign them. Clear, descriptive names make your code much more understandable for yourself and others. Here are some key guidelines for naming variables in R:\n\nStart with a letter or a dot: Variable names cannot start with a number. If they start with a dot, the next character must be a letter.\nNo spaces: Use underscores (_) or periods (.) to separate words, or use camel case.\nNo special characters: Avoid symbols like @, #, $, %, ^, &, *, (, ), -, +, =, ~, !.\nBe descriptive: total_sales is much better than ts.\nBe consistent: If you use snake_case (e.g., my_variable), stick to it throughout your project. Other common styles include camelCase (e.g., myVariable) and dot.case (e.g., my.variable).\nAvoid reserved words: Don”t use names that R already uses, such as if, else, for, function, TRUE, FALSE, NA, NULL.\n\n\n# Good variable names\nuser_age &lt;- 30\nfirst.name &lt;- \"Alice\"\ntotalRevenue &lt;- 1500.75\n\n# Bad variable names (will cause errors or confusion)\n1st_quarter &lt;- 100 # Starts with a number\nmy variable &lt;- \"data\" # Contains a space\nsum &lt;- 5 # \"sum\" is a built-in function"
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#entering-data",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#entering-data",
+    "title": "R Basics: Syntax & Variables",
+    "section": "Entering Data",
+    "text": "Entering Data\nFor small data sets, you can enter data directly into vectors (also known as columns).\n\nheights &lt;- c(62, 70, 59, 65, 68)\nheights\n\n[1] 62 70 59 65 68\n\n## [1] 62 70 59 65 68\n\nThe first line of the syntax creates a new variable named heights with five data points.\nThe second line prints the contents of heights to the output window."
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#reading-data-from-files",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#reading-data-from-files",
+    "title": "R Basics: Syntax & Variables",
+    "section": "Reading Data from Files",
+    "text": "Reading Data from Files\nFor larger data sets, you can save the data into a separate text file, which can be comma- or tab-delimited. For example, the following command reads in a CSV file and stores the contents into a new R object called data:\n\ndata &lt;- read.csv(\"FILENAME\")\n\nIf you type:\n\ndata &lt;- read.csv(\"FILENAME\", header = TRUE)\n\nthe first row will be used as names for each column.\nOtherwise, if you use:\n\ndata &lt;- read.csv(\"FILENAME\")\n\nyou’ll need to manually add column names later using:\n\nnames(data) &lt;- c(\"VAR1\", \"VAR2\", \"VAR3\")\n\nHere, VAR1 corresponds to the first variable name, and so on.\nMake sure there are as many names as there are columns in the object data."
+  },
+  {
+    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#file-paths-and-working-directory",
+    "href": "R Support/R_Basics_Syntax_and_Variables.html#file-paths-and-working-directory",
+    "title": "R Basics: Syntax & Variables",
+    "section": "File Paths and Working Directory",
+    "text": "File Paths and Working Directory\nFILENAME is a file that resides in the current working directory.\nIf the file is located elsewhere, you need to specify the full file path so R can find it, for example:\n\nread.csv(\"C:\\\\working\\\\data\\\\FILENAME.csv\")\n\nOn Windows, you can use either double backslashes (\\\\) or single forward slashes (/), e.g.:\n\nread.csv(\"C:/rich/working/data/FILENAME.csv\")\n\nOn Mac and Linux, the forward slash (/) format is the only one that works:\n\nread.csv(\"/Users/username/Documents/data/FILENAME.csv\")\n\n\nSummary\n\nUse c() to enter small datasets directly into vectors.\nUse read.csv() to load larger datasets from files.\nAlways check your working directory and use correct file path formatting for your operating system.\nIf header = TRUE, the first row of your file will automatically become column names."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html",
+    "href": "Teacher_Guidelines.html",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "",
+    "text": "The MSDA course website is collaboratively developed by the teaching team using Quarto and GitHub Desktop.\nEach instructor is responsible for maintaining their own content section, while the course coordinator publishes the overall site to GitHub Pages.\nTeachers may freely edit and render locally, but only the coordinator handles the final public build."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#overview",
+    "href": "Teacher_Guidelines.html#overview",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "",
+    "text": "The MSDA course website is collaboratively developed by the teaching team using Quarto and GitHub Desktop.\nEach instructor is responsible for maintaining their own content section, while the course coordinator publishes the overall site to GitHub Pages.\nTeachers may freely edit and render locally, but only the coordinator handles the final public build."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#folder-structure",
+    "href": "Teacher_Guidelines.html#folder-structure",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "2 Folder Structure",
+    "text": "2 Folder Structure\nBelow is the structure of the shared repository:\nMSDA-course/ \n\n├── Content/ \n│     ├── Math/             ← Maths lectures (Josh) \n│     └── Stats/            ← Statistics lectures (Javiera) \n│\n├── Tutorials/ \n│     ├── Math/             ← Maths tutorials\n│     └── Stats/            ← Stats tutorials\n│\n├── assets/                 ← shared images, datasets, CSS \n├── docs/                   ← published site output (auto-generated) \n├── styles.css\n├── edtheme.scss \n└──_quarto.yml\n\nDo not edit the docs/ folder manually; it’s created by Quarto.\nShared styles (styles.css, edtheme.scss) live at the project root."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#working-locally",
+    "href": "Teacher_Guidelines.html#working-locally",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "3 Working Locally",
+    "text": "3 Working Locally\n\nClone the repository in GitHub Desktop → File → Clone Repository.\nOpen the project in RStudio by double-clicking the .Rproj file.\nEdit only your section:\n\nJosh → Content/Math/, Tutorials/Math/\nJaviera → Content/Stats/, Tutorials/Stats/\n\nPreview locally using:\n\nquarto preview\n…or press the Render button in RStudio. This builds a local preview only (not the live site)."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#keep-pages-hidden-with-draft",
+    "href": "Teacher_Guidelines.html#keep-pages-hidden-with-draft",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "4 Keep Pages Hidden with draft",
+    "text": "4 Keep Pages Hidden with draft\nWhen a page is in progress, add the YAML header below at the top of the .qmd:\n---\ntitle: \"Week X – Title\"\ndraft: true\n---\nDraft pages render locally but are not published.\n\nWhen ready to release, switch to:\n\n---\ntitle: \"Week X – Title\"\ndraft: false\n---\n\n(or remove draft: entirely)."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#weekly-release-workflow",
+    "href": "Teacher_Guidelines.html#weekly-release-workflow",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "5 Weekly Release Workflow",
+    "text": "5 Weekly Release Workflow\nWe publish one week at a time:\n\nFinalise the week’s .qmd files; remove draft: true.\nNotify the course coordinator (currently Javiera).\nCoordinator updates _quarto.yml if using selective rendering and runs:\n\n    quarto render\n\nCoordinator commits and pushes the updated docs/ folder so GitHub Pages updates."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#version-control-github-desktop",
+    "href": "Teacher_Guidelines.html#version-control-github-desktop",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "6 Version Control (GitHub Desktop)",
+    "text": "6 Version Control (GitHub Desktop)\n\nBefore editing: Fetch origin → Pull.\nAfter editing:\n\nReview changed files.\nWrite a clear message (e.g., Add Week 3 tutorial draft).\nCommit to main.\nPush origin."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#roles-permissions",
+    "href": "Teacher_Guidelines.html#roles-permissions",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "7 Roles & Permissions",
+    "text": "7 Roles & Permissions\n\nTeachers have write access and may edit and render locally only in their area.\nThe course coordinator performs the project-wide render and publishes the site (pushes docs/).\nAvoid editing others’ folders to reduce merge conflicts."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#selective-rendering-publish-only-chosen-weeks",
+    "href": "Teacher_Guidelines.html#selective-rendering-publish-only-chosen-weeks",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "8 Selective Rendering (publish only chosen weeks)",
+    "text": "8 Selective Rendering (publish only chosen weeks)\nCoordinator whitelists what gets built in _quarto.yml:\nproject:\n  type: website\n  output-dir: docs\n  render:\n    - index.qmd\n    - Content/Math/week-01.qmd\n    - Tutorials/Math/week-01.qmd\n    - Content/Stats/week-01.qmd\n    - Tutorials/Stats/week-01.qmd\n    # Add further weeks here as they are approved\nAnything not listed under render: is skipped, even if it is not a draft."
+  },
+  {
+    "objectID": "Teacher_Guidelines.html#section-styling-math-vs-stats",
+    "href": "Teacher_Guidelines.html#section-styling-math-vs-stats",
+    "title": "Teacher Guidelines – MSDA Course Website",
+    "section": "9 Section Styling (Math vs Stats)",
+    "text": "9 Section Styling (Math vs Stats)\nUse folder-level _metadata.yml files so each area can have its own CSS.\nContent/Math/_metadata.yml\nformat:\n  html:\n    css: [styles.css, edtheme.scss]   # site base + Maths overrides\nTutorials/Math/_metadata.yml\n\nformat:\n  html:\n    css: [styles.css, edtheme.scss]   # site base + Maths overrides\nContent/Stats/_metadata.yml\n\nformat:\n  html:\n    css: styles.css\nTutorials/Stats/_metadata.yml\n\nformat:\n  html:\n    css: styles.css\nKeep styles.css and edtheme.scss at the project root."
+  },
+  {
     "objectID": "Tutorials/Maths/workshop-02-exp-n-log.html",
     "href": "Tutorials/Maths/workshop-02-exp-n-log.html",
     "title": "Exponentials & Logs",
@@ -1442,80 +1589,10 @@
     "text": "Footnotes\n\n\nHint: use read_csv() from the readr package.↩︎\nHint: try View(DATA) or head(DATA).↩︎\nHint: nrow(DATA) or dim(DATA)[1].↩︎\nHint: ncol(DATA) or dim(DATA)[2].↩︎\nHint: glimpse(DATA) from the dplyr package or str(DATA).↩︎\nHint: summary(DATA$Variable) or min(), max(), mean().↩︎\nHint: summary(DATA) will show NAs per variable.↩︎"
   },
   {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html",
-    "title": "R Basics: Syntax & Variables",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "In programming, syntax refers to the set of rules that define the combinations of symbols considered correctly structured programs in a given language. In simpler terms, it’s the specific way you must write your instructions so that the R interpreter can understand and execute them.\nUnderstanding R syntax is absolutely crucial because even a tiny mistake—a missing comma, a misplaced parenthesis, or incorrect capitalisation—can lead to errors that prevent your code from running. Mastering these basics empowers you to write clean, efficient, and error-free scripts, laying a solid foundation for your data journey."
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#what-is-r-syntax-and-why-does-it-matter",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#what-is-r-syntax-and-why-does-it-matter",
-    "title": "R Basics: Syntax & Variables",
-    "section": "",
-    "text": "In programming, syntax refers to the set of rules that define the combinations of symbols considered correctly structured programs in a given language. In simpler terms, it’s the specific way you must write your instructions so that the R interpreter can understand and execute them.\nUnderstanding R syntax is absolutely crucial because even a tiny mistake—a missing comma, a misplaced parenthesis, or incorrect capitalisation—can lead to errors that prevent your code from running. Mastering these basics empowers you to write clean, efficient, and error-free scripts, laying a solid foundation for your data journey."
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#r-syntax-basics-your-first-steps-in-coding",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#r-syntax-basics-your-first-steps-in-coding",
-    "title": "R Basics: Syntax & Variables",
-    "section": "R Syntax Basics: Your First Steps in Coding",
-    "text": "R Syntax Basics: Your First Steps in Coding\nLet’s dive into the core elements of R syntax that you’ll encounter every day.\n\nComments: The Programmer’s Notes\nComments are lines in your code that R ignores. They are incredibly useful for you and others to understand what your code does, why you made certain choices, or to temporarily disable a line of code.\nIn R, you use the hash symbol # to indicate a comment.\n\nAnything after # on a line is treated as a comment.\n\nComments improve code readability and maintainability.\n\n\n# This is a single-line comment\nx &lt;- 10 # This comment explains what x is\n\n\n\nVariables and Assignment: Storing Your Data\nVariables are like named containers that hold values. You use them to store data (numbers, text, logical values) so you can refer to it and manipulate it later in your script. In R, the primary way to assign a value to a variable is using the assignment operator &lt;- (a less-than sign followed by a hyphen).\n\nYou can also use = for assignment, but &lt;- is generally preferred for clarity and consistency in R.\nVariable names should start with a letter and can contain letters, numbers, and underscores (_) or periods (.).\nR is case-sensitive! myVariable is different from myvariable.\n\n\n# Assigning a number to a variable\nmy_number &lt;- 42\n\n# Assigning text (a character string)\nmy_text &lt;- \"Hello, R!\"\n\n# Assigning a logical value\nis_active &lt;- TRUE\n\n\n\nData Types: What Kind of Information Are You Handling?\nEvery piece of data in R has a type, which tells R what kind of information it is and how it can be used. Understanding data types is fundamental for performing correct operations.\n\nNumeric: For numbers (integers like 5 or decimals like 3.14).\nCharacter: For text, enclosed in single or double quotes (\"hello\", 'world').\nLogical: For boolean values, either TRUE or FALSE.\n\n\n# Numeric examples\nage &lt;- 30\npi_value &lt;- 3.14159\n\n# Character examples\nname &lt;- \"Alice\"\nmessage &lt;- 'Welcome to R programming.'\n\n# Logical examples\nis_raining &lt;- FALSE\nhas_data &lt;- TRUE\n\n# You can check the type with the class() function\nclass(age)\n\n[1] \"numeric\"\n\nclass(name)\n\n[1] \"character\"\n\n\n\n\nVectors: The Building Blocks of R\nVectors are the most basic data structure in R. They are ordered collections of elements of the same data type. You create vectors using the c() function, which stands for “combine” or “concatenate”.\n\nAll elements in a vector must be of the same type (numeric, character, or logical).\nVectors can be of any length, from a single element to thousands.\n\n\n# A numeric vector\nages &lt;- c(25, 30, 35, 40)\n\n# A character vector\nnames &lt;- c(\"Alice\", \"Bob\", \"Charlie\")\n\n# A logical vector\nresults &lt;- c(TRUE, FALSE, TRUE, TRUE)\n\n# Accessing elements in a vector (R uses 1-based indexing!)\nages[1] # Returns 25\n\n[1] 25\n\nnames[3] # Returns \"Charlie\"\n\n[1] \"Charlie\""
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#r-code-structure-how-r-organizes-instructions",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#r-code-structure-how-r-organizes-instructions",
-    "title": "R Basics: Syntax & Variables",
-    "section": "R Code Structure: How R Organizes Instructions",
-    "text": "R Code Structure: How R Organizes Instructions\nBeyond individual syntax elements, understanding how R structures sequences of instructions is key to writing functional scripts.\n\nFunctions: Performing Actions\nFunctions are pre-defined blocks of code that perform a specific task. They take inputs (called arguments) and often return an output. You call a function by writing its name followed by parentheses, inside which you pass any required arguments.\n\nCommon functions include print(), sum(), mean(), sqrt().\nArguments are passed inside the parentheses, separated by commas.\n\n\n# Using the print() function to display output\nprint(\"Hello, world!\")\n\n[1] \"Hello, world!\"\n\n# Using the sum() function on a vector\nnumbers &lt;- c(1, 2, 3, 4, 5)\ntotal &lt;- sum(numbers)\nprint(total) # Output: 15\n\n[1] 15\n\n# Using the mean() function\naverage &lt;- mean(numbers)\nprint(average) # Output: 3\n\n[1] 3\n\n\n\n\nOperators: Doing Math and Comparisons\nOperators are special symbols that perform operations on values and variables. R has a rich set of operators for arithmetic, comparison, and logical operations.\n\nArithmetic: + (addition), - (subtraction), * (multiplication), / (division), ^ or ** (exponentiation), %% (modulo – remainder), %/% (integer division).\nRelational (Comparison): == (equal to), != (not equal to), &lt; (less than), &gt; (greater than), &lt;= (less than or equal to), &gt;= (greater than or equal to). These return logical (TRUE/FALSE) values.\nLogical: & (AND), | (OR), ! (NOT). Used to combine or negate logical conditions.\n\n\n# Arithmetic examples\nresult_add &lt;- 5 + 3\nresult_mult &lt;- 4 * 2\nresult_pow &lt;- 2^3 # 8\n\n# Relational examples\nis_equal &lt;- (10 == 10) # TRUE\nis_greater &lt;- (7 &gt; 12) # FALSE\n\n# Logical examples\ncondition1 &lt;- TRUE\ncondition2 &lt;- FALSE\ncombined_and &lt;- condition1 & condition2 # FALSE\ncombined_or &lt;- condition1 | condition2 # TRUE\nnot_condition1 &lt;- !condition1 # FALSE\n\n\n\nControl Flow: Making Decisions (If/Else)\nControl flow statements allow your code to make decisions or repeat actions based on certain conditions. The most fundamental control flow structure is the if statement, often paired with else.\n\nAn if statement executes a block of code only if a specified condition is TRUE.\nAn else block provides an alternative action if the if condition is FALSE.\nCode blocks are typically enclosed in curly braces {}.\n\n\nscore &lt;- 75\n\nif (score &gt;= 60) {\n print(\"You passed!\")\n} else {\n print(\"You need to study more.\")\n}\n\n[1] \"You passed!\"\n\n# You can also have \"else if\" for multiple conditions\ngrade &lt;- \"B\"\n\nif (grade == \"A\") {\n print(\"Excellent!\")\n} else if (grade == \"B\") {\n print(\"Good job!\")\n} else {\n print(\"Keep practicing.\")\n}\n\n[1] \"Good job!\""
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#common-r-syntax-pitfalls-for-beginners",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#common-r-syntax-pitfalls-for-beginners",
-    "title": "R Basics: Syntax & Variables",
-    "section": "Common R Syntax Pitfalls for Beginners",
-    "text": "Common R Syntax Pitfalls for Beginners\nEven experienced programmers make syntax errors. Here are a few common ones to watch out for as you learn R code structure:\n\nCase Sensitivity: Remember, variable is not the same as Variable. This applies to function names too!\nMissing Parentheses or Brackets: A common oversight, especially with nested functions or vector indexing. R will often tell you it”s expecting something.\nIncorrect Assignment vs. Equality: Using = when you mean == (or vice versa) can lead to unexpected results or errors.\nQuotation Marks: For character strings, always use matching single or double quotes (e.g., \"text\" or 'text', not \"text').\nObject Not Found: This usually means you”ve misspelled a variable name, forgotten to assign a value, or haven”t loaded a necessary package."
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#what-are-variables-in-r",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#what-are-variables-in-r",
-    "title": "R Basics: Syntax & Variables",
-    "section": "What Are Variables in R?",
-    "text": "What Are Variables in R?\nAt its core, a variable in R is a symbolic name that refers to a value. This value could be a single number, a piece of text, a logical true/false statement, or even a complex data structure like a dataset. When you assign a value to a variable, R stores that value in memory and associates it with the name you”ve chosen.\nWhy are they so important? Variables allow you to reuse data without retyping it, make your code dynamic (data can change without changing the code itself), and greatly improve the readability of your scripts. Instead of a “magic number,” you can have a variable named \"tax_rate\"."
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#the-primary-assignment-operator--",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#the-primary-assignment-operator--",
-    "title": "R Basics: Syntax & Variables",
-    "section": "The Primary Assignment Operator: <-",
-    "text": "The Primary Assignment Operator: &lt;-\nIn R, the most common and recommended way to assign a value to a variable is by using the assignment operator &lt;-. This operator is often referred to as the “gets” operator because you can read it as “variable gets value.” The value on the right-hand side is “assigned to” or “gets” stored in the variable on the left-hand side.\n\nBasic Assignment with &lt;-\nLet”s start with a simple example. We”ll assign the number 10 to a variable named my_number.\n\nmy_number &lt;- 10\nprint(my_number)\n\n[1] 10\n\n\nWhen you run this code, R creates a variable called my_number and stores the value 10 inside it. The print() function then displays the value of that variable.\n\n\nAssigning Different Data Types\nR is a dynamically typed language, meaning you don”t need to declare the data type of a variable before assigning a value. R automatically infers the type based on the value you assign. You can assign various types of data to variables using &lt;-:\n\nNumeric: For numbers (integers, decimals).\nCharacter: For text (strings).\nLogical: For TRUE/FALSE values.\n\n\n# Assigning a numeric value (decimal)\nprice &lt;- 29.99\nprint(price)\n\n[1] 29.99\n\n# Assigning a character (string) value\nproduct_name &lt;- \"R Programming Guide\"\nprint(product_name)\n\n[1] \"R Programming Guide\"\n\n# Assigning a logical (boolean) value\nis_available &lt;- TRUE\nprint(is_available)\n\n[1] TRUE"
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#naming-conventions-for-variables",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#naming-conventions-for-variables",
-    "title": "R Basics: Syntax & Variables",
-    "section": "Naming Conventions for Variables",
-    "text": "Naming Conventions for Variables\nChoosing good names for your variables is just as important as knowing how to assign them. Clear, descriptive names make your code much more understandable for yourself and others. Here are some key guidelines for naming variables in R:\n\nStart with a letter or a dot: Variable names cannot start with a number. If they start with a dot, the next character must be a letter.\nNo spaces: Use underscores (_) or periods (.) to separate words, or use camel case.\nNo special characters: Avoid symbols like @, #, $, %, ^, &, *, (, ), -, +, =, ~, !.\nBe descriptive: total_sales is much better than ts.\nBe consistent: If you use snake_case (e.g., my_variable), stick to it throughout your project. Other common styles include camelCase (e.g., myVariable) and dot.case (e.g., my.variable).\nAvoid reserved words: Don”t use names that R already uses, such as if, else, for, function, TRUE, FALSE, NA, NULL.\n\n\n# Good variable names\nuser_age &lt;- 30\nfirst.name &lt;- \"Alice\"\ntotalRevenue &lt;- 1500.75\n\n# Bad variable names (will cause errors or confusion)\n1st_quarter &lt;- 100 # Starts with a number\nmy variable &lt;- \"data\" # Contains a space\nsum &lt;- 5 # \"sum\" is a built-in function"
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#entering-data",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#entering-data",
-    "title": "R Basics: Syntax & Variables",
-    "section": "Entering Data",
-    "text": "Entering Data\nFor small data sets, you can enter data directly into vectors (also known as columns).\n\nheights &lt;- c(62, 70, 59, 65, 68)\nheights\n\n[1] 62 70 59 65 68\n\n## [1] 62 70 59 65 68\n\nThe first line of the syntax creates a new variable named heights with five data points.\nThe second line prints the contents of heights to the output window."
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#reading-data-from-files",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#reading-data-from-files",
-    "title": "R Basics: Syntax & Variables",
-    "section": "Reading Data from Files",
-    "text": "Reading Data from Files\nFor larger data sets, you can save the data into a separate text file, which can be comma- or tab-delimited. For example, the following command reads in a CSV file and stores the contents into a new R object called data:\n\ndata &lt;- read.csv(\"FILENAME\")\n\nIf you type:\n\ndata &lt;- read.csv(\"FILENAME\", header = TRUE)\n\nthe first row will be used as names for each column.\nOtherwise, if you use:\n\ndata &lt;- read.csv(\"FILENAME\")\n\nyou’ll need to manually add column names later using:\n\nnames(data) &lt;- c(\"VAR1\", \"VAR2\", \"VAR3\")\n\nHere, VAR1 corresponds to the first variable name, and so on.\nMake sure there are as many names as there are columns in the object data."
-  },
-  {
-    "objectID": "R Support/R_Basics_Syntax_and_Variables.html#file-paths-and-working-directory",
-    "href": "R Support/R_Basics_Syntax_and_Variables.html#file-paths-and-working-directory",
-    "title": "R Basics: Syntax & Variables",
-    "section": "File Paths and Working Directory",
-    "text": "File Paths and Working Directory\nFILENAME is a file that resides in the current working directory.\nIf the file is located elsewhere, you need to specify the full file path so R can find it, for example:\n\nread.csv(\"C:\\\\working\\\\data\\\\FILENAME.csv\")\n\nOn Windows, you can use either double backslashes (\\\\) or single forward slashes (/), e.g.:\n\nread.csv(\"C:/rich/working/data/FILENAME.csv\")\n\nOn Mac and Linux, the forward slash (/) format is the only one that works:\n\nread.csv(\"/Users/username/Documents/data/FILENAME.csv\")\n\n\nSummary\n\nUse c() to enter small datasets directly into vectors.\nUse read.csv() to load larger datasets from files.\nAlways check your working directory and use correct file path formatting for your operating system.\nIf header = TRUE, the first row of your file will automatically become column names."
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]

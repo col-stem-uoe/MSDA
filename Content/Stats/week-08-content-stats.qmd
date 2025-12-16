@@ -115,7 +115,7 @@ Variables can be classified in two ways:
 
 ::: {.narrow-table style="font-size: 0.95rem"}
 | **Role** | **What it does** | **Example from the dataset** |
-|------------------|---------------------|---------------------------------|
+|----|----|----|
 | **Independent variable (IV)** | Used to explain/predict something; sometimes manipulated | `Study_hours`, `Gender`, `Exercise` |
 | **Dependent variable (DV)** | The outcome being measured | `Overall_mark`, `Sleep_hours`, `Stress_level` |
 :::
@@ -293,7 +293,7 @@ In Lecture 01 you met four classic levels of measurement. Here we briefly reconn
 
 ::: {.narrow-table style="font-size: 0.9rem"}
 | **Level** | **Meaning** | **Examples (lecture dataset)** |
-|------------------|---------------------|----------------------------------|
+|----|----|----|
 | **Nominal** | Categories with no intrinsic order | `Gender`, `Degree`, `Exercise` |
 | **Ordinal** | Ordered categories, unequal gaps | `Stress_level`, `Satisfaction_Likert_value` |
 | **Interval** | Numeric, equal spacing, **no** true zero | IQ (treated as an approximate interval scale in psychology) |
@@ -332,7 +332,7 @@ Complete the table below by filling in the **Type**, **Level**, and **Possible R
 
 ::: {.narrow-table style="font-size: 0.9rem"}
 | **Variable** | **Type** (Categorical/Numeric) | **Level** | **Possible Role(s)** |
-|----------------|------------------------|----------------|-----------------|
+|----|----|----|----|
 | Gender |  |  |  |
 | Exercise |  |  |  |
 | Stress_level |  |  |  |

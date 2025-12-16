@@ -1,0 +1,2911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Research Design &amp; Data – MSDA IFP – MSDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-bc0c8e102d2d1764e4b903533790f518.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-6a00ee8b13758a0d4082ae5787a975b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-bc0c8e102d2d1764e4b903533790f518.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">MSDA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Course Overview</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Content</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-content">    
+        <li>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-01-functions.html">
+ <span class="dropdown-text">Week 01 – Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – exp(x) and log(x)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Sequences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Differentiation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-05-integration.html">
+ <span class="dropdown-text">Week 05 – Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Maths/lecture-06-probability.html">
+ <span class="dropdown-text">Week 06 – Probability</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-maths-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Maths Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-maths-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-01-functions.html">
+ <span class="dropdown-text">Week 01 – Tutorial: Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-02-exp-n-log.html">
+ <span class="dropdown-text">Week 02 – Tutorial: exp(x) and log(x)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-03-sequences.html">
+ <span class="dropdown-text">Week 03 – Tutorial: Sequences</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-04-differentiation.html">
+ <span class="dropdown-text">Week 04 – Tutorial: Differentiation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-05-integration.html">
+ <span class="dropdown-text">Week 05 – Tutorial: Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Maths/workshop-06-probability.html">
+ <span class="dropdown-text">Week 06 – Tutorial: Probability</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stats-content" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Stats Content</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-content">    
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/getting_ready_with_R_RStudio_IFP.html">
+ <span class="dropdown-text">Week 07 – Getting Ready with R and RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-08-content-stats.html">
+ <span class="dropdown-text">Week 08 – Research Questions, Variables, and Study Design</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-09-content-stats.html">
+ <span class="dropdown-text">Week 09 – Categorical variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/Plots_and_grammar.html">
+ <span class="dropdown-text">Plots – Grammar of Graphics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-10-content-stats.html">
+ <span class="dropdown-text">Week 10 – Continuous Varibales</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-11-content-stats.html">
+ <span class="dropdown-text">Week 11 –</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-12-content-stats.html">
+ <span class="dropdown-text">Week 12 –</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Content/Stats/week-13-content-stats.html">
+ <span class="dropdown-text">Week 13 –</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-stats-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Stats Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-stats-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-8/week-08-tutorial-stats.html">
+ <span class="dropdown-text">Week 08 – Tutorial 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-9/week-09-tutorial-stats.html">
+ <span class="dropdown-text">Week 09 – Tutorial 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-10/week-10-tutorial-stats.html">
+ <span class="dropdown-text">Week 10 – Tutorial 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-11/week-11-tutorial-stats.html">
+ <span class="dropdown-text">Week 11 – Tutorial 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-12/week-12-tutorial-stats.html">
+ <span class="dropdown-text">Week 12 – Tutorial 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-13/week-13-tutorial-stats.html">
+ <span class="dropdown-text">Week 13 – Tutorial 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-14/week-14-tutorial-stats.html">
+ <span class="dropdown-text">Week 14 – Tutorial 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-15/week-15-tutorial-stats.html">
+ <span class="dropdown-text">Week 15 – Tutorial 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../Tutorials/Stats/week-16/week-16-tutorial-stats.html">
+ <span class="dropdown-text">Week 16 – Tutorial 09</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-support" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R Support</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r-support">    
+        <li>
+    <a class="dropdown-item" href="../../../R Support/getting_ready_with_R_RStudio_IFP.html">
+ <span class="dropdown-text">Getting Ready with R and RStudio – IFP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../R Support/R_Basics_Syntax_and_Variables.html">
+ <span class="dropdown-text">R Basics: Syntax and Variables</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-1-your-first-r-markdown-file" id="toc-part-1-your-first-r-markdown-file" class="nav-link active" data-scroll-target="#part-1-your-first-r-markdown-file"><strong>Part 1: Your First R Markdown File</strong></a>
+  <ul class="collapse">
+  <li><a href="#creating-and-running-code-in-an-.rmd-file" id="toc-creating-and-running-code-in-an-.rmd-file" class="nav-link" data-scroll-target="#creating-and-running-code-in-an-.rmd-file">1 Creating and running code in an&nbsp;<code>.Rmd</code>&nbsp;file</a>
+  <ul class="collapse">
+  <li><a href="#adding-your-first-code-chunk" id="toc-adding-your-first-code-chunk" class="nav-link" data-scroll-target="#adding-your-first-code-chunk">Adding your first code chunk</a></li>
+  <li><a href="#comments-in-code" id="toc-comments-in-code" class="nav-link" data-scroll-target="#comments-in-code">Comments in code</a></li>
+  </ul></li>
+  <li><a href="#writing-text-in-an-.rmd-file" id="toc-writing-text-in-an-.rmd-file" class="nav-link" data-scroll-target="#writing-text-in-an-.rmd-file">2 Writing text in an&nbsp;<code>.Rmd</code>&nbsp;file</a>
+  <ul class="collapse">
+  <li><a href="#recall" id="toc-recall" class="nav-link" data-scroll-target="#recall">Recall</a></li>
+  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
+  </ul></li>
+  <li><a href="#storing-data-in-r" id="toc-storing-data-in-r" class="nav-link" data-scroll-target="#storing-data-in-r">Storing data in R</a></li>
+  </ul></li>
+  <li><a href="#part-2-instructions" id="toc-part-2-instructions" class="nav-link" data-scroll-target="#part-2-instructions"><strong>Part 2: Instructions</strong></a></li>
+  <li><a href="#formative-report" id="toc-formative-report" class="nav-link" data-scroll-target="#formative-report">1 Formative Report</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">1.1 Data</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">1.2 Tasks</a>
+  <ul class="collapse">
+  <li><a href="#task-1-sub-tasks" id="toc-task-1-sub-tasks" class="nav-link" data-scroll-target="#task-1-sub-tasks">1.3 Task 1, sub-tasks</a></li>
+  </ul></li>
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example">2 Worked example</a>
+  <ul class="collapse">
+  <li><a href="#inspecting-the-cleaned-variable" id="toc-inspecting-the-cleaned-variable" class="nav-link" data-scroll-target="#inspecting-the-cleaned-variable">Inspecting the cleaned variable</a></li>
+  </ul></li>
+  <li><a href="#student-glossary" id="toc-student-glossary" class="nav-link" data-scroll-target="#student-glossary">3. Student Glossary</a>
+  <ul class="collapse">
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Research Design &amp; Data – MSDA IFP</h1>
+<p class="subtitle lead">Week 08 – Tutorial 01</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="part-1-your-first-r-markdown-file" class="level1">
+<h1><strong>Part 1: Your First R Markdown File</strong></h1>
+<p>To produce short reports that combine code, output, and written explanation, we will use&nbsp;<strong>R Markdown</strong>.&nbsp;</p>
+<section id="creating-and-running-code-in-an-.rmd-file" class="level2">
+<h2 class="anchored" data-anchor-id="creating-and-running-code-in-an-.rmd-file">1 Creating and running code in an&nbsp;<code>.Rmd</code>&nbsp;file</h2>
+<p>Create a new R Markdown document via:</p>
+<p><strong>File &gt; New File &gt; R Markdown…</strong></p>
+<p>Give your document a title (e.g.&nbsp;<em>Intro Lab</em>) and enter your name. Leave&nbsp;<strong>HTML</strong>&nbsp;as the default output format, then click&nbsp;<strong>OK</strong>.</p>
+<p>RStudio creates a template file. Delete everything&nbsp;<strong>below the first code chunk</strong>&nbsp;so that you begin with a clean document.</p>
+<section id="adding-your-first-code-chunk" class="level3">
+<h3 class="anchored" data-anchor-id="adding-your-first-code-chunk">Adding your first code chunk</h3>
+<p>Insert a new R code chunk using either:</p>
+<ul>
+<li><p><strong>Insert &gt; R</strong>, or</p></li>
+<li><p><strong>Ctrl + Alt + I</strong>&nbsp;(Windows) /&nbsp;<strong>Option + Cmd + I</strong>&nbsp;(macOS)</p></li>
+</ul>
+<p>Inside the chunk, type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages used in this document</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>Running the chunk may produce several informational messages — this is normal.</p>
+</section>
+<section id="comments-in-code" class="level3">
+<h3 class="anchored" data-anchor-id="comments-in-code">Comments in code</h3>
+<p>Inside a code chunk,&nbsp;<code>#</code>&nbsp;creates a&nbsp;<em>comment</em>&nbsp;which R ignores. Use comments to explain what your code is doing.</p>
+</section>
+</section>
+<section id="writing-text-in-an-.rmd-file" class="level2">
+<h2 class="anchored" data-anchor-id="writing-text-in-an-.rmd-file">2 Writing text in an&nbsp;<code>.Rmd</code>&nbsp;file</h2>
+<p>Outside code chunks you can write ordinary text.</p>
+<p>Headings are created using&nbsp;<code>#</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># R code examples</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When the&nbsp;<code>.Rmd</code>&nbsp;file is rendered, this becomes a formatted heading.</p>
+<section id="recall" class="level3">
+<h3 class="anchored" data-anchor-id="recall">Recall</h3>
+<ul>
+<li><p><strong>Inside a code chunk:</strong>&nbsp;<code>#</code>&nbsp;creates a comment</p></li>
+<li><p><strong>Outside a code chunk:</strong>&nbsp;<code>#</code>&nbsp;creates a heading</p></li>
+</ul>
+</section>
+<section id="task" class="level3">
+<h3 class="anchored" data-anchor-id="task">Task</h3>
+<p>Choose a few of the symbols below and, in your&nbsp;<code>.Rmd</code>, write:</p>
+<ol type="1">
+<li><p>a short explanation of what each one does</p></li>
+<li><p>an example inside a code chunk</p></li>
+</ol>
+<p>Available symbols:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>+</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>-</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>*</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>/</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>^</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>&lt;-</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>&lt;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;=</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;=</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">==</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">!=</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You might structure it like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Addition</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="storing-data-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="storing-data-in-r">Storing data in R</h2>
+<p>So far we have stored single numbers using <code>&lt;-</code>, for example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To store a sequence of numbers, combine them using the <code>c()</code> function.<br>
+A sequence of elements of the same type is called a <strong>vector</strong>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>myfirstvector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">7</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>myfirstvector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R prints:</p>
+<pre><code>[1] 1 5 3 7</code></pre>
+<p>You can carry out arithmetic on every element of the vector:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>myfirstvector <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Returns:</p>
+<pre><code>[1] 6 10 8 12</code></pre>
+<p>Vectors can also contain words (“character” data):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>wordsvector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"parrot"</span>, <span class="st">"peppapig"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>wordsvector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R prints:</p>
+<pre><code>[1] "cat" "dog" "parrot" "peppapig"</code></pre>
+<p>You may use single or double quotation marks; both work.</p>
+<p>You can check the type of an object using <code>class()</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(wordsvector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Because addition only makes sense for numbers, R will give an error if you try an invalid operation:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>wordsvector <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, if you mix types inside <code>c()</code>, R converts everything to the most general type (usually characters):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mysecondvector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="st">"cat"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mysecondvector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Returns:</p>
+<pre><code>[1] "4" "cat"</code></pre>
+<p>Putting all of this together, you now know how R stores individual values, sequences of numbers, and sequences of text, and how R decides what type each vector should be. These tools form the foundation for reading, inspecting, and describing real datasets — skills you will now begin applying in your coursework.</p>
+</section>
+</section>
+<section id="part-2-instructions" class="level1">
+<h1><strong>Part 2: Instructions</strong></h1>
+<div class="callout callout-style-default callout-important callout-titled" title="Instructions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="tutorial-format" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-format">Tutorial Format</h2>
+<p>At the start of each teaching block, you will receive a dataset that you will use throughout the tutorials for that block. By the end of each block, your group will produce a written report analysing the dataset.</p>
+<p><strong>Report deadlines:</strong></p>
+<ul>
+<li><strong>Formative Report :</strong> 12 noon, <em>Friday 2025</em></li>
+</ul>
+<p>Reports must be submitted as <strong>PDF files</strong> (not <code>.qmd</code> or <code>.Rmd</code> source files). As these are <strong>group submissions</strong>, no extensions will be given.</p>
+<hr>
+</section>
+<section id="group-setup" class="level2">
+<h2 class="anchored" data-anchor-id="group-setup">Group Setup</h2>
+<p>Work through tutorial tasks in groups of <strong>up to 5 students</strong>.</p>
+<ul>
+<li>Each week, one person is the <strong>driver</strong> and the rest are <strong>navigators</strong>.<br>
+</li>
+<li>The <strong>driver</strong> types the code and edits the report template file.<br>
+</li>
+<li>The <strong>navigators</strong> read carefully, make suggestions, and help with debugging.<br>
+</li>
+<li>Rotate the driver each week so that everyone has a turn.</li>
+</ul>
+<p><strong>Driver:</strong><br>
+Download the template report file below, upload it to your RStudio, and work in that file. Save regularly via <em>File → Save</em>.</p>
+<p>👉 <a href="templates/formative_report_template.Rmd" download="formative_report_template.Rmd">Download the Formative Report template (.Rmd)</a></p>
+<p><strong>Navigators:</strong><br>
+Support the strategy, spot typos, and help troubleshoot.</p>
+<hr>
+</section>
+<section id="report-format" class="level2">
+<h2 class="anchored" data-anchor-id="report-format">Report Format</h2>
+<p>Each report must follow these rules:</p>
+<ul>
+<li>Submit a <strong>PDF</strong> no longer than <strong>6 sides of A4</strong> (excluding appendices).<br>
+</li>
+<li>Keep the default knitting settings (font, margins, spacing).<br>
+</li>
+<li>Appendices do <strong>not</strong> count towards the page limit.<br>
+</li>
+<li>You must include a <strong>compulsory appendix listing all R code used</strong>.</li>
+</ul>
+<p>This is added automatically by including the following section at the very end of your <code>.qmd</code> file (already present in the template):</p>
+<hr>
+</section>
+<section id="lab-help-and-support" class="level2">
+<h2 class="anchored" data-anchor-id="lab-help-and-support">Lab Help and Support</h2>
+<p>The tutorials are designed with multiple layers of support. If you are unsure or stuck: Raise your hand for help from a tutor. Hover over the superscript numbers to view quick hints for commands and functions. Scroll to the Worked Example section at the bottom of the tutorial to see a parallel worked solution in R. Even if you complete the task without the Worked Example, make sure you read it carefully during independent study — it is designed to reinforce the reasoning and R skills you will need for later weeks.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="formative-report" class="level1">
+<h1>1 Formative Report</h1>
+<p>In this block you will work in groups with a single dataset, which you will analyse in your <strong>Formative Report A</strong>.The report is written for a&nbsp;<strong>general reader with basic statistical knowledge</strong>, not for someone who knows R. This means:</p>
+<ul>
+<li><p>Do&nbsp;<strong>not</strong>&nbsp;show R code or console output in the report PDF.</p></li>
+<li><p>Focus on&nbsp;<strong>clear descriptions, well-labelled tables and figures</strong>, and short paragraphs in plain language.</p></li>
+</ul>
+<p>In this first tutorial we begin with&nbsp;<strong>Task 1</strong>, which is about getting to know the data and writing a concise description of it.</p>
+<div class="margin callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>💡 Keep the paragraph you write for Task A1: you will re-use it in your report.</p>
+</div>
+</div>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">1.1 Data</h2>
+<p><span class="data-title">CollegeScores Dataset</span></p>
+<p>You will work with the <em>CollegeScores</em> dataset in this tutorial.<br>
+At the link <strong>CollegeScores_teaching.csv</strong> you will find information about <strong>400 higher-education institutions in the United States</strong>.<br>
+The dataset includes variables describing each institution’s location, sector (public/private), tuition costs, enrolment, and the demographic composition of their student body.</p>
+<p>You will use this dataset throughout the Stats block for your formative report.<br>
+Below is a description of the variables included in the dataset.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="lsrqxixdyu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lsrqxixdyu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lsrqxixdyu thead, #lsrqxixdyu tbody, #lsrqxixdyu tfoot, #lsrqxixdyu tr, #lsrqxixdyu td, #lsrqxixdyu th {
+  border-style: none;
+}
+
+#lsrqxixdyu p {
+  margin: 0;
+  padding: 0;
+}
+
+#lsrqxixdyu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13.6px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lsrqxixdyu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lsrqxixdyu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lsrqxixdyu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lsrqxixdyu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lsrqxixdyu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lsrqxixdyu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lsrqxixdyu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lsrqxixdyu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lsrqxixdyu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lsrqxixdyu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lsrqxixdyu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lsrqxixdyu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lsrqxixdyu .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lsrqxixdyu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lsrqxixdyu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lsrqxixdyu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lsrqxixdyu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lsrqxixdyu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lsrqxixdyu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lsrqxixdyu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lsrqxixdyu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lsrqxixdyu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lsrqxixdyu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lsrqxixdyu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lsrqxixdyu .gt_left {
+  text-align: left;
+}
+
+#lsrqxixdyu .gt_center {
+  text-align: center;
+}
+
+#lsrqxixdyu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lsrqxixdyu .gt_font_normal {
+  font-weight: normal;
+}
+
+#lsrqxixdyu .gt_font_bold {
+  font-weight: bold;
+}
+
+#lsrqxixdyu .gt_font_italic {
+  font-style: italic;
+}
+
+#lsrqxixdyu .gt_super {
+  font-size: 65%;
+}
+
+#lsrqxixdyu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lsrqxixdyu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lsrqxixdyu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lsrqxixdyu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lsrqxixdyu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lsrqxixdyu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lsrqxixdyu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lsrqxixdyu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lsrqxixdyu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="white-space: nowrap; font-weight: bold" scope="col">Variable Name</th>
+<th id="Description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Name</td>
+<td class="gt_row gt_left" headers="Description">Name of the institution</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">State</td>
+<td class="gt_row gt_left gt_striped" headers="Description">U.S. state where the institution is located</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">ID</td>
+<td class="gt_row gt_left" headers="Description">Unique identifier for the institution</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Main</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Main campus indicator (1 = main campus, 0 = branch campus)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Control</td>
+<td class="gt_row gt_left" headers="Description">Type of institution (Public, Private, For-profit)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Region</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Geographical region in the U.S.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Locale</td>
+<td class="gt_row gt_left" headers="Description">Setting of the institution (City, Suburb, Town, Rural)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Enrollment</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Total undergraduate enrolment</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">PartTime</td>
+<td class="gt_row gt_left" headers="Description">Percent of undergraduates who are part-time students</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">TuitionIn</td>
+<td class="gt_row gt_left gt_striped" headers="Description">In-state tuition and fees (USD)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">TuitionOut</td>
+<td class="gt_row gt_left" headers="Description">Out-of-state tuition and fees (USD)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">White</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Percent of undergraduates who identify as White</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Black</td>
+<td class="gt_row gt_left" headers="Description">Percent of undergraduates who identify as Black</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Hispanic</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Percent of undergraduates who identify as Hispanic</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Asian</td>
+<td class="gt_row gt_left" headers="Description">Percent of undergraduates who identify as Asian</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">Other</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Percent of undergraduates who identify with another racial/ethnic group</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you write about the data in your report, you will describe variables in words, not as code. This table is your reference for names and meanings.</p>
+</div>
+</div>
+</section>
+<section id="tasks" class="level2">
+<h2 class="anchored" data-anchor-id="tasks">1.2 Tasks</h2>
+<p>For Formative Report you will eventually complete several tasks.<br>
+This week we focus only on Task 1.</p>
+<div class="task-block">
+<p class="task-main">
+</p><p><span style="color:#1a73e8;"><strong>1) Read the CollegeScores dataset into R, inspect it, and write a concise introduction to the data and its structure.</strong></span></p>
+<p></p>
+<p class="task-sub">
+</p><ol start="2" type="1">
+<li>Display and describe the categorical variables.</li>
+</ol>
+<p></p>
+<p class="task-sub">
+</p><ol start="3" type="1">
+<li>Display and describe a selection of numeric variables.</li>
+</ol>
+<p></p>
+<p class="task-sub">
+</p><ol start="4" type="1">
+<li>Display and describe at least one relationship between two or three variables.</li>
+</ol>
+<p></p>
+<p class="task-sub">
+</p><ol start="5" type="1">
+<li>Finish the report write-up, knit to PDF, and submit.</li>
+</ol>
+<p></p>
+</div>
+<p>This tutorial is designed to help you complete <strong>Task 1</strong>.</p>
+<section id="task-1-sub-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-sub-tasks">1.3 Task 1, sub-tasks</h3>
+<div class="margin callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Tip:</strong> Hover over the footnotes for hints showing useful R functions.</p>
+</div>
+</div>
+<p>This week you only need to complete Task 1. The steps below are suggestions to guide your work.</p>
+<ol type="1">
+<li><p>Read the data into R (from the provided CSV file in datasets/) and give the object a sensible name (for example <code>college</code>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>View the data in RStudio and check that it matches your expectations.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p></li>
+<li><p>How many <strong>rows</strong> (observations) are there in the dataset?<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p></li>
+<li><p>How many <strong>columns</strong> (variables) are there?<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p></li>
+<li><p>What <strong>type</strong> is each variable in R (character, numeric, factor, etc.)?<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p></li>
+<li><p>Pick at least four variables (a mix of categorical and numeric). For each one:</p>
+<ul>
+<li>State whether it is <strong>categorical</strong> or <strong>numeric</strong>.</li>
+<li>State its <strong>level of measurement</strong> (nominal, ordinal, interval, ratio).</li>
+<li>Give one example value from the data.</li>
+</ul></li>
+<li><p>For several numeric variables (e.g.&nbsp;<code>Enrollment</code>, <code>TuitionIn</code>, <code>TuitionOut</code>), find the <strong>minimum</strong>, <strong>maximum</strong>, and <strong>mean</strong> values.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p></li>
+<li><p>Identify which variables contain <strong>missing values</strong> (if any) and how many.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p></li>
+<li><p>Write a short <strong>description of the dataset</strong> (one paragraph) for a generic reader. You might include:</p>
+<ul>
+<li>What the data represent.</li>
+<li>How many institutions and variables are included.</li>
+<li>The kinds of information recorded (location, enrolment, costs, student characteristics).</li>
+<li>A brief comment on any clear missing data issues.</li>
+</ul></li>
+</ol>
+<hr>
+<p>You do <strong>not</strong> need to include R output in the report; you only need the <strong>written description</strong>. Keep this paragraph; you will re-use it in your report.</p>
+</section>
+</section>
+<section id="worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example">2 Worked example</h2>
+<p>Consider the dataset provided in <code>datasets/HollywoodMovies.csv</code>, containing <strong>1295 observations</strong> on the following <strong>15 variables</strong>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="rfqsqhpviy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rfqsqhpviy table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rfqsqhpviy thead, #rfqsqhpviy tbody, #rfqsqhpviy tfoot, #rfqsqhpviy tr, #rfqsqhpviy td, #rfqsqhpviy th {
+  border-style: none;
+}
+
+#rfqsqhpviy p {
+  margin: 0;
+  padding: 0;
+}
+
+#rfqsqhpviy .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13.6px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rfqsqhpviy .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rfqsqhpviy .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rfqsqhpviy .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rfqsqhpviy .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rfqsqhpviy .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rfqsqhpviy .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rfqsqhpviy .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rfqsqhpviy .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rfqsqhpviy .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rfqsqhpviy .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rfqsqhpviy .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rfqsqhpviy .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rfqsqhpviy .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rfqsqhpviy .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rfqsqhpviy .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rfqsqhpviy .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rfqsqhpviy .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rfqsqhpviy .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rfqsqhpviy .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rfqsqhpviy .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rfqsqhpviy .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rfqsqhpviy .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rfqsqhpviy .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rfqsqhpviy .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rfqsqhpviy .gt_left {
+  text-align: left;
+}
+
+#rfqsqhpviy .gt_center {
+  text-align: center;
+}
+
+#rfqsqhpviy .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rfqsqhpviy .gt_font_normal {
+  font-weight: normal;
+}
+
+#rfqsqhpviy .gt_font_bold {
+  font-weight: bold;
+}
+
+#rfqsqhpviy .gt_font_italic {
+  font-style: italic;
+}
+
+#rfqsqhpviy .gt_super {
+  font-size: 65%;
+}
+
+#rfqsqhpviy .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rfqsqhpviy .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rfqsqhpviy .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rfqsqhpviy .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rfqsqhpviy .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rfqsqhpviy .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rfqsqhpviy .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rfqsqhpviy .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rfqsqhpviy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="white-space: nowrap; font-weight: bold" scope="col">Variable Name</th>
+<th id="Description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="white-space: nowrap; font-weight: bold" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Movie</td>
+<td class="gt_row gt_left" headers="Description">Title of the movie</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">LeadStudio</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Primary U.S. distributor</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">RottenTomatoes</td>
+<td class="gt_row gt_left" headers="Description">Critics' rating (Rotten Tomatoes)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">AudienceScore</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Audience rating (Rotten Tomatoes)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Genre</td>
+<td class="gt_row gt_left" headers="Description">Film genre (e.g., Action Adventure, Comedy, Thriller)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">TheatersOpenWeek</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Number of screens on opening weekend</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">OpeningWeekend</td>
+<td class="gt_row gt_left" headers="Description">Opening weekend gross (in millions)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">BOAvgOpenWeekend</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Average box office income per theatre, opening weekend</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Budget</td>
+<td class="gt_row gt_left" headers="Description">Production budget (in millions)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">DomesticGross</td>
+<td class="gt_row gt_left gt_striped" headers="Description">U.S. gross income (in millions)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">ForeignGross</td>
+<td class="gt_row gt_left" headers="Description">Foreign gross income (in millions)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">WorldGross</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Worldwide gross income (in millions)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Profitability</td>
+<td class="gt_row gt_left" headers="Description">Worldwide gross as a percentage of budget</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">OpenProfit</td>
+<td class="gt_row gt_left gt_striped" headers="Description">Percentage of budget recovered on opening weekend</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Year</td>
+<td class="gt_row gt_left" headers="Description">Year of release</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>These data were compiled from Box Office Mojo, The Numbers, and Rotten Tomatoes.</p>
+<div class="margin">
+<p>We load the <code>tidyverse</code> package as we will use the functions<br>
+<code>read_csv()</code> and <code>glimpse()</code> from this package.</p>
+</div>
+<section id="load-tidyverse-and-import-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="load-tidyverse-and-import-the-data">Load tidyverse and import the data</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="margin">
+<p><code>read_csv()</code> reads CSV (comma-separated values) files.<br>
+The loaded data are stored in an object called <code>movies</code> using the arrow <code>&lt;-</code>.</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"HollywoodMovies.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="take-a-first-look-at-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="take-a-first-look-at-the-data">Take a first look at the data</h4>
+<div class="margin">
+<p><code>head()</code> shows by default the first <strong>six</strong> rows of the dataset.<br>
+Use <code>n = 10</code> to show more rows (e.g., <code>head(movies, n = 10)</code>).</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  Movie           LeadStudio RottenTomatoes AudienceScore Genre TheatersOpenWeek
+  &lt;chr&gt;           &lt;chr&gt;               &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;
+1 2016: Obama's … Rocky Mou…             26            73 Docu…                1
+2 21 Jump Street  Sony Pict…             85            82 Come…             3121
+3 A Late Quartet  Entertain…             76            71 Drama                9
+4 A Royal Affair  Magnolia …             90            82 Drama                7
+5 Abraham Lincol… Twentieth…             35            51 Horr…             3108
+6 Act of Valor    Relativit…             27            72 Acti…             3039
+# ℹ 9 more variables: OpeningWeekend &lt;dbl&gt;, BOAvgOpenWeekend &lt;dbl&gt;,
+#   Budget &lt;dbl&gt;, DomesticGross &lt;dbl&gt;, WorldGross &lt;dbl&gt;, ForeignGross &lt;dbl&gt;,
+#   Profitability &lt;dbl&gt;, OpenProfit &lt;dbl&gt;, Year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="margin">
+<p><code>dim()</code> returns the <strong>dimensions</strong> of the dataset:<br>
+- number of <strong>rows</strong> (observations)<br>
+- number of <strong>columns</strong> (variables)</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1295   15</code></pre>
+</div>
+</div>
+<div class="margin">
+<p><code>glimpse()</code> provides a compact summary of the entire dataset.<br>
+It shows:<br>
+- the number of <strong>rows</strong> and <strong>columns</strong><br>
+- each variable’s <strong>name</strong><br>
+- its <strong>type</strong> (e.g., <code>&lt;dbl&gt;</code>, <code>&lt;chr&gt;</code>)<br>
+- a preview of the <strong>first few values</strong></p>
+<p>Useful for checking that variables are read correctly and spotting problems such as missing values. Ideal for large datasets.</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,295
+Columns: 15
+$ Movie            &lt;chr&gt; "2016: Obama's America", "21 Jump Street", "A Late Qu…
+$ LeadStudio       &lt;chr&gt; "Rocky Mountain Pictures", "Sony Pictures Releasing",…
+$ RottenTomatoes   &lt;dbl&gt; 26, 85, 76, 90, 35, 27, 91, 56, 11, 44, 93, 63, 87, 9…
+$ AudienceScore    &lt;dbl&gt; 73, 82, 71, 82, 51, 72, 62, 47, 47, 63, 82, 51, 63, 9…
+$ Genre            &lt;chr&gt; "Documentary", "Comedy", "Drama", "Drama", "Horror", …
+$ TheatersOpenWeek &lt;dbl&gt; 1, 3121, 9, 7, 3108, 3039, 132, 245, 2539, 3192, 3, 1…
+$ OpeningWeekend   &lt;dbl&gt; 0.03, 36.30, 0.08, 0.04, 16.31, 24.48, 1.14, 0.70, 11…
+$ BOAvgOpenWeekend &lt;dbl&gt; 30000, 11631, 8889, 5714, 5248, 8055, 8636, 2857, 449…
+$ Budget           &lt;dbl&gt; 3.0, 42.0, NA, NA, 68.0, 12.0, NA, 7.5, 35.0, 50.0, 1…
+$ DomesticGross    &lt;dbl&gt; 33.35, 138.45, 1.56, 1.55, 37.52, 70.01, 1.99, 3.01, …
+$ WorldGross       &lt;dbl&gt; 33.35, 202.81, 6.30, 7.60, 137.49, 82.50, 3.59, 8.54,…
+$ ForeignGross     &lt;dbl&gt; 0.00, 64.36, 4.74, 6.05, 99.97, 12.49, 1.60, 5.53, 9.…
+$ Profitability    &lt;dbl&gt; 1334.00, 482.88, NA, NA, 202.19, 687.50, NA, 113.87, …
+$ OpenProfit       &lt;dbl&gt; 1.20, 86.43, NA, NA, 23.99, 204.00, NA, 9.33, 32.57, …
+$ Year             &lt;dbl&gt; 2012, 2012, 2012, 2012, 2012, 2012, 2012, 2012, 2012,…</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example writeup">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example writeup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A dataset containing records for 1295 Hollywood films released between 2012 and 2018 was obtained from public film industry sources including Box Office Mojo, The Numbers, and Rotten Tomatoes. The dataset includes 15 variables describing key financial and categorical features of each film. Four variables are numeric, providing information such as production budget (in millions of dollars), domestic and foreign box office revenue, and worldwide gross. The remaining variables are categorical and describe aspects such as film genre, lead studio, and release year. Initial inspection shows considerable variation in budgets and earnings across films, and several missing values in variables such as Budget, ForeignGross, and Profitability. These data offer a useful basis for examining factors associated with box office performance.</p>
+</div>
+</div>
+</section>
+<section id="summary-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h4>
+<div class="margin">
+<p><code>summary()</code> produces quick descriptive statistics for each variable.<br>
+For numeric variables, it shows the <strong>minimum</strong>, <strong>maximum</strong>, <strong>median</strong>, <strong>mean</strong>, and quartiles.<br>
+For categorical variables, it shows <strong>frequency counts</strong> for each category.<br>
+Useful for a fast overview of the dataset.</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Movie            LeadStudio        RottenTomatoes  AudienceScore  
+ Length:1295        Length:1295        Min.   : 0.00   Min.   :10.00  
+ Class :character   Class :character   1st Qu.:33.00   1st Qu.:49.00  
+ Mode  :character   Mode  :character   Median :61.00   Median :64.00  
+                                       Mean   :57.58   Mean   :62.18  
+                                       3rd Qu.:84.00   3rd Qu.:77.00  
+                                       Max.   :99.00   Max.   :99.00  
+                                       NA's   :6                      
+    Genre           TheatersOpenWeek OpeningWeekend    BOAvgOpenWeekend
+ Length:1295        Min.   :   1.0   Min.   :  0.020   Min.   :   204  
+ Class :character   1st Qu.: 152.5   1st Qu.:  0.845   1st Qu.:  3482  
+ Mode  :character   Median :2459.0   Median :  7.600   Median :  6586  
+                    Mean   :2008.0   Mean   : 17.541   Mean   : 13400  
+                    3rd Qu.:3213.5   3rd Qu.: 20.810   3rd Qu.: 14534  
+                    Max.   :4529.0   Max.   :257.700   Max.   :240000  
+                                                                       
+     Budget       DomesticGross      WorldGross       ForeignGross    
+ Min.   :  0.90   Min.   :  1.02   Min.   :   0.74   Min.   :  -0.76  
+ 1st Qu.: 12.00   1st Qu.:  6.40   1st Qu.:  13.09   1st Qu.:   3.91  
+ Median : 30.00   Median : 26.46   Median :  50.37   Median :  21.58  
+ Mean   : 51.38   Mean   : 58.16   Mean   : 147.01   Mean   :  88.84  
+ 3rd Qu.: 65.00   3rd Qu.: 66.44   3rd Qu.: 160.38   3rd Qu.:  89.75  
+ Max.   :365.00   Max.   :936.66   Max.   :2068.22   Max.   :1369.54  
+ NA's   :239                                                          
+ Profitability       OpenProfit           Year     
+ Min.   :    2.3   Min.   :   0.05   Min.   :2012  
+ 1st Qu.:  139.1   1st Qu.:  12.87   1st Qu.:2013  
+ Median :  268.9   Median :  31.77   Median :2015  
+ Mean   :  435.7   Mean   :  64.50   Mean   :2015  
+ 3rd Qu.:  483.0   3rd Qu.:  62.59   3rd Qu.:2017  
+ Max.   :10176.0   Max.   :3373.00   Max.   :2018  
+ NA's   :239       NA's   :239                     </code></pre>
+</div>
+</div>
+<p>You probably will not understand every part of the summary output yet, and that is completely fine. For now, focus on the minimum, maximum, mean, and the general spread of the numeric variables.</p>
+<p>For the categorical variables, the output is not very informative at the moment. These variables are stored as character data, but we can tell R to treat them as <em>factors</em>, which makes their behaviour clearer in later analysis.</p>
+</section>
+<section id="convert-selected-variables-to-factors" class="level4">
+<h4 class="anchored" data-anchor-id="convert-selected-variables-to-factors">Convert selected variables to factors</h4>
+<div class="margin">
+<p><strong>What does <code>factor()</code> do?</strong></p>
+<p><code>factor()</code> is a function in R that turns a variable into a <strong>factor</strong>, which is R’s way of storing <strong>categorical data</strong> (groups, labels, categories).</p>
+<p>Many datasets import text categories as <code>"character"</code> data.<br>
+Using <code>factor()</code> tells R that these values represent <strong>categories</strong>, not free-text.</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>Genre <span class="ot">&lt;-</span> <span class="fu">factor</span>(movies<span class="sc">$</span>Genre)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>LeadStudio <span class="ot">&lt;-</span> <span class="fu">factor</span>(movies<span class="sc">$</span>LeadStudio)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">factor</span>(movies<span class="sc">$</span>Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For example:</p>
+<ul>
+<li><code>movies$Genre</code> contains labels such as <code>"Comedy"</code>, <code>"Drama"</code>, <code>"Horror"</code>.<br>
+</li>
+<li><code>factor(movies$Genre)</code> converts these labels into a categorical variable.</li>
+</ul>
+<p>We use:</p>
+<p><code>movies$Genre &lt;- factor(movies$Genre)</code></p>
+<p>to <strong>replace</strong> the original column with a factor version of itself.</p>
+<p><strong>The <code>$</code> operator</strong><br>
+</p>
+<p>The <code>$</code> symbol is used to select a single column from a dataset.<br>
+For example,<br>
+<code>movies$Genre</code> means “the <em>Genre</em> column inside the <em>movies</em> dataset”.</p>
+</section>
+<section id="check-the-updated-structure" class="level4">
+<h4 class="anchored" data-anchor-id="check-the-updated-structure">Check the updated structure:</h4>
+<div class="margin">
+<p>After converting character variables into <strong>factors</strong>, the output of <code>summary()</code> becomes much more informative for categorical data.</p>
+<p>Instead of only showing <code>"Length"</code>, <code>"Class"</code>, and <code>"Mode"</code>, R now displays the <strong>number of observations in each category</strong> (for example, how many films belong to each genre or studio).</p>
+<p>This is why converting categorical variables to factors is useful: it allows R to treat them properly as categories and summarise them in a meaningful way.</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Movie                             LeadStudio  RottenTomatoes 
+ Length:1295        Warner Bros.           :136   Min.   : 0.00  
+ Class :character   Universal Pictures     :114   1st Qu.:33.00  
+ Mode  :character   Lionsgate              :106   Median :61.00  
+                    Twentieth Century Fox  :103   Mean   :57.58  
+                    Paramount Pictures     : 76   3rd Qu.:84.00  
+                    Sony Pictures Releasing: 72   Max.   :99.00  
+                    (Other)                :688   NA's   :6      
+ AudienceScore         Genre     TheatersOpenWeek OpeningWeekend   
+ Min.   :10.00   Drama    :386   Min.   :   1.0   Min.   :  0.020  
+ 1st Qu.:49.00   Comedy   :191   1st Qu.: 152.5   1st Qu.:  0.845  
+ Median :64.00   Action   :170   Median :2459.0   Median :  7.600  
+ Mean   :62.18   Adventure:164   Mean   :2008.0   Mean   : 17.541  
+ 3rd Qu.:77.00   Thriller :155   3rd Qu.:3213.5   3rd Qu.: 20.810  
+ Max.   :99.00   Horror   : 85   Max.   :4529.0   Max.   :257.700  
+                 (Other)  :144                                     
+ BOAvgOpenWeekend     Budget       DomesticGross      WorldGross     
+ Min.   :   204   Min.   :  0.90   Min.   :  1.02   Min.   :   0.74  
+ 1st Qu.:  3482   1st Qu.: 12.00   1st Qu.:  6.40   1st Qu.:  13.09  
+ Median :  6586   Median : 30.00   Median : 26.46   Median :  50.37  
+ Mean   : 13400   Mean   : 51.38   Mean   : 58.16   Mean   : 147.01  
+ 3rd Qu.: 14534   3rd Qu.: 65.00   3rd Qu.: 66.44   3rd Qu.: 160.38  
+ Max.   :240000   Max.   :365.00   Max.   :936.66   Max.   :2068.22  
+                  NA's   :239                                        
+  ForeignGross     Profitability       OpenProfit        Year    
+ Min.   :  -0.76   Min.   :    2.3   Min.   :   0.05   2012:169  
+ 1st Qu.:   3.91   1st Qu.:  139.1   1st Qu.:  12.87   2013:172  
+ Median :  21.58   Median :  268.9   Median :  31.77   2014:197  
+ Mean   :  88.84   Mean   :  435.7   Mean   :  64.50   2015:190  
+ 3rd Qu.:  89.75   3rd Qu.:  483.0   3rd Qu.:  62.59   2016:196  
+ Max.   :1369.54   Max.   :10176.0   Max.   :3373.00   2017:182  
+                   NA's   :239       NA's   :239       2018:189  </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="How to read the summary output">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to read the summary output
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>How to read the summary output</strong></p>
+<p>The&nbsp;<code>summary()</code>&nbsp;function gives a quick statistical overview of every variable in the dataset. For&nbsp;<strong>numeric variables</strong>, it shows:</p>
+<ul>
+<li><p><strong>Min.</strong>&nbsp;– the smallest value</p></li>
+<li><p><strong>1st Qu.</strong>&nbsp;– the value below which 25% of the data lie</p></li>
+<li><p><strong>Median</strong>&nbsp;– the middle value</p></li>
+<li><p><strong>Mean</strong>&nbsp;– the average</p></li>
+<li><p><strong>3rd Qu.</strong>&nbsp;– the value below which 75% of the data lie</p></li>
+<li><p><strong>Max.</strong>&nbsp;– the largest value</p></li>
+<li><p><strong>NA’s</strong>&nbsp;– how many values are missing</p></li>
+</ul>
+<p>These numbers help you understand the overall range and spread of each variable. For example,</p>
+<p>&nbsp;<code>Budget</code>&nbsp;ranges from&nbsp;<strong>0.9 to 365 million dollars</strong>, and</p>
+<p>&nbsp;<code>RottenTomatoes</code>&nbsp;scores run from&nbsp;<strong>0 to 99</strong>.</p>
+<p>For&nbsp;<strong>categorical variables</strong>—now stored as factors—such as&nbsp;<code>Genre</code>&nbsp;or&nbsp;<code>LeadStudio</code>, the summary shows the&nbsp;<strong>number of observations in each category</strong>. This lets us quickly see which genres or studios appear most often in the dataset.</p>
+<p>It is also helpful to check whether the&nbsp;<strong>minimum or maximum values look realistic</strong>. For instance, the&nbsp;<code>Profitability</code>&nbsp;variable has a&nbsp;<strong>maximum of 10176%</strong>, meaning a film supposedly earned more than one hundred times its budget. This is unusually high and suggests there may be some data entry errors that need to be investigated later.</p>
+<p>Overall,&nbsp;<code>summary()</code>&nbsp;provides a useful first look at the structure of the dataset and can help identify potential issues such as unrealistic values or many missing entries.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="detecting-unusual-values" class="level4">
+<h4 class="anchored" data-anchor-id="detecting-unusual-values"><strong>Detecting unusual values</strong></h4>
+<p>Sometimes it is helpful to look for values that seem unrealistic.<br>
+From the summary output, we noticed that&nbsp;<strong>Profitability</strong>&nbsp;has a maximum value of&nbsp;<strong>10,176%</strong>, which suggests a film supposedly earned more than&nbsp;<em>one hundred times</em>&nbsp;its budget. This is extremely unlikely and probably indicates a data entry error.</p>
+<p>To inspect these cases more closely, we can filter the rows where profitability is greater than 1000%:</p>
+<div class="margin">
+<p><code>a &gt; b</code> tests whether a is greater than b. <code>a &lt; b</code> tests whether a is smaller than b. <code>a == b</code> tests whether a is equal to b; notice the double equal sign! You can also use <code>&gt;=</code> or <code>&lt;=</code></p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>movies[movies<span class="sc">$</span>Profitability <span class="sc">&gt;</span> <span class="dv">1000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 319 × 15
+   Movie          LeadStudio RottenTomatoes AudienceScore Genre TheatersOpenWeek
+   &lt;chr&gt;          &lt;fct&gt;               &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt;            &lt;dbl&gt;
+ 1 2016: Obama's… Rocky Mou…             26            73 Docu…                1
+ 2 &lt;NA&gt;           &lt;NA&gt;                   NA            NA &lt;NA&gt;                NA
+ 3 &lt;NA&gt;           &lt;NA&gt;                   NA            NA &lt;NA&gt;                NA
+ 4 &lt;NA&gt;           &lt;NA&gt;                   NA            NA &lt;NA&gt;                NA
+ 5 Beasts of the… Fox Searc…             86            76 Drama                4
+ 6 Chernobyl Dia… Warner Br…             19            29 Horr…             2433
+ 7 Chronicle      Twentieth…             85            71 Thri…             2907
+ 8 &lt;NA&gt;           &lt;NA&gt;                   NA            NA &lt;NA&gt;                NA
+ 9 &lt;NA&gt;           &lt;NA&gt;                   NA            NA &lt;NA&gt;                NA
+10 &lt;NA&gt;           &lt;NA&gt;                   NA            NA &lt;NA&gt;                NA
+# ℹ 309 more rows
+# ℹ 9 more variables: OpeningWeekend &lt;dbl&gt;, BOAvgOpenWeekend &lt;dbl&gt;,
+#   Budget &lt;dbl&gt;, DomesticGross &lt;dbl&gt;, WorldGross &lt;dbl&gt;, ForeignGross &lt;dbl&gt;,
+#   Profitability &lt;dbl&gt;, OpenProfit &lt;dbl&gt;, Year &lt;fct&gt;</code></pre>
+</div>
+</div>
+<p>If we decide that these values are not plausible, we can replace them with&nbsp;<code>NA</code>&nbsp;so they do not distort later analyses:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>Profitability[movies<span class="sc">$</span>Profitability <span class="sc">&gt;</span> <span class="dv">1000</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspecting-the-cleaned-variable" class="level3">
+<h3 class="anchored" data-anchor-id="inspecting-the-cleaned-variable">Inspecting the cleaned variable</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(movies<span class="sc">$</span>Profitability)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.3   132.0   246.8   302.6   415.3   993.3     319 </code></pre>
+</div>
+</div>
+<p>This output now shows:</p>
+<ul>
+<li><p>a much lower and more realistic maximum (now around 993%)</p></li>
+<li><p>an updated <strong>mean</strong> and <strong>median</strong></p></li>
+<li><p>the number of NA values introduced (319), matching the number we replaced</p></li>
+</ul>
+<p>This check reassures us that the cleaning step worked as expected and reassures us that the values remaining in the dataset are plausible for later analysis.</p>
+<p>To check the range more directly, we can examine the minimum and maximum values while ignoring missing data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(movies<span class="sc">$</span>Profitability, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(movies<span class="sc">$</span>Profitability, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 993.33</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="What to do with NAs afterwards?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What to do with NAs afterwards?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>It is normal for real datasets to contain missing values.</p></li>
+<li><p>Many functions (e.g.,&nbsp;<code>min()</code>,&nbsp;<code>mean()</code>) require&nbsp;<code>na.rm = TRUE</code>&nbsp;to ignore them.</p></li>
+<li><p>More advanced handling (e.g., imputation) comes&nbsp;<em>much later</em>&nbsp;in the course.</p></li>
+</ul>
+<p>For now, the key idea is simply:<br>
+<strong>“We remove impossible values so that the dataset provides sensible summaries.”</strong></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="What else should we examine?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What else should we examine?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here are additional checks that match the psychology approach:</p>
+<section id="check-for-impossible-or-negative-values" class="level3">
+<h3 class="anchored" data-anchor-id="check-for-impossible-or-negative-values">2. Check for impossible or negative values</h3>
+<p>In your dataset, some variables show impossible values:</p>
+<ul>
+<li><p><strong>ForeignGross</strong>&nbsp;has a minimum of&nbsp;<strong>–0.76 million</strong>&nbsp;→ negative earnings are impossible</p></li>
+<li><p><strong>OpeningWeekend</strong>&nbsp;has a minimum close to zero (fine), but some extremely large values</p></li>
+<li><p><strong>BOAvgOpenWeekend</strong>&nbsp;has a maximum of&nbsp;<strong>240,000</strong>, which seems unusually high for average per-screen income</p></li>
+</ul>
+<p>We can inspect suspicious values:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>movies[movies<span class="sc">$</span>ForeignGross <span class="sc">&lt;</span> <span class="dv">0</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  Movie           LeadStudio RottenTomatoes AudienceScore Genre TheatersOpenWeek
+  &lt;chr&gt;           &lt;fct&gt;               &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt;            &lt;dbl&gt;
+1 The Christmas … EchoLight…             21            75 Adve…                5
+2 90 Minutes in … The Samue…             24            50 Drama              878
+3 Popstar: Never… Universal…             78            65 Come…             2311
+4 Lowriders       BH Tilt                57            61 Drama              295
+5 Sleight         BH Tilt                77            52 Acti…              565
+6 The Square      Magnolia …             85            70 Drama                4
+# ℹ 9 more variables: OpeningWeekend &lt;dbl&gt;, BOAvgOpenWeekend &lt;dbl&gt;,
+#   Budget &lt;dbl&gt;, DomesticGross &lt;dbl&gt;, WorldGross &lt;dbl&gt;, ForeignGross &lt;dbl&gt;,
+#   Profitability &lt;dbl&gt;, OpenProfit &lt;dbl&gt;, Year &lt;fct&gt;</code></pre>
+</div>
+</div>
+<p>Then correct:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>ForeignGross[movies<span class="sc">$</span>ForeignGross <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explore-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="explore-missing-values"><strong>3. Explore missing values</strong></h3>
+<p>The summary shows many variables with&nbsp;<strong>239 missing values</strong>&nbsp;(Budget, Profitability, OpenProfit).</p>
+<p>Add a short explanation:</p>
+<blockquote class="blockquote">
+<p>Some films have missing financial information—this is common in movie datasets.<br>
+We keep missing values as&nbsp;<code>NA</code>&nbsp;and handle them later during analysis using functions such as&nbsp;<code>mean(..., na.rm = TRUE)</code>.</p>
+</blockquote>
+<p>You can also look at a full missing-data overview:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(movies))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Movie       LeadStudio   RottenTomatoes    AudienceScore 
+               0                0                6                0 
+           Genre TheatersOpenWeek   OpeningWeekend BOAvgOpenWeekend 
+               0                0                0                0 
+          Budget    DomesticGross       WorldGross     ForeignGross 
+             239                0                0                6 
+   Profitability       OpenProfit             Year 
+             319              239                0 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Cleaning explaination paragraph">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cleaning explaination paragraph
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After inspecting the summary output, we noticed that some values were unrealistic, particularly in the&nbsp;<em>Profitability</em>variable, which included cases above 10,000%. Since such values imply a film earned more than one hundred times its budget, they are likely due to data entry errors. We therefore identified all films with&nbsp;<em>Profitability</em>&nbsp;greater than 1000% and replaced these values with&nbsp;<code>NA</code>&nbsp;so they would not distort later analyses. We also checked for other implausible values, such as negative&nbsp;<em>ForeignGross</em>, and handled these similarly. Missing values remain coded as&nbsp;<code>NA</code>, and functions such as&nbsp;<code>mean()</code>,&nbsp;<code>min()</code>, and&nbsp;<code>max()</code>&nbsp;will require the argument&nbsp;<code>na.rm = TRUE</code>&nbsp;to return a numeric result. Re-running&nbsp;<code>summary(movies)</code>&nbsp;now provides a more realistic overview of the dataset.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<p>After checking for impossible values, correcting clear errors, and converting categorical variables to factors, we now have a cleaner and more reliable dataset. At this stage, the aim is simply to&nbsp;<strong>ensure the data make sense</strong>&nbsp;before moving on to later analytical tasks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Movie                             LeadStudio  RottenTomatoes 
+ Length:1295        Warner Bros.           :136   Min.   : 0.00  
+ Class :character   Universal Pictures     :114   1st Qu.:33.00  
+ Mode  :character   Lionsgate              :106   Median :61.00  
+                    Twentieth Century Fox  :103   Mean   :57.58  
+                    Paramount Pictures     : 76   3rd Qu.:84.00  
+                    Sony Pictures Releasing: 72   Max.   :99.00  
+                    (Other)                :688   NA's   :6      
+ AudienceScore         Genre     TheatersOpenWeek OpeningWeekend   
+ Min.   :10.00   Drama    :386   Min.   :   1.0   Min.   :  0.020  
+ 1st Qu.:49.00   Comedy   :191   1st Qu.: 152.5   1st Qu.:  0.845  
+ Median :64.00   Action   :170   Median :2459.0   Median :  7.600  
+ Mean   :62.18   Adventure:164   Mean   :2008.0   Mean   : 17.541  
+ 3rd Qu.:77.00   Thriller :155   3rd Qu.:3213.5   3rd Qu.: 20.810  
+ Max.   :99.00   Horror   : 85   Max.   :4529.0   Max.   :257.700  
+                 (Other)  :144                                     
+ BOAvgOpenWeekend     Budget       DomesticGross      WorldGross     
+ Min.   :   204   Min.   :  0.90   Min.   :  1.02   Min.   :   0.74  
+ 1st Qu.:  3482   1st Qu.: 12.00   1st Qu.:  6.40   1st Qu.:  13.09  
+ Median :  6586   Median : 30.00   Median : 26.46   Median :  50.37  
+ Mean   : 13400   Mean   : 51.38   Mean   : 58.16   Mean   : 147.01  
+ 3rd Qu.: 14534   3rd Qu.: 65.00   3rd Qu.: 66.44   3rd Qu.: 160.38  
+ Max.   :240000   Max.   :365.00   Max.   :936.66   Max.   :2068.22  
+                  NA's   :239                                        
+  ForeignGross     Profitability     OpenProfit        Year    
+ Min.   :   0.00   Min.   :  2.3   Min.   :   0.05   2012:169  
+ 1st Qu.:   4.10   1st Qu.:132.0   1st Qu.:  12.87   2013:172  
+ Median :  21.74   Median :246.8   Median :  31.77   2014:197  
+ Mean   :  89.26   Mean   :302.6   Mean   :  64.50   2015:190  
+ 3rd Qu.:  90.19   3rd Qu.:415.3   3rd Qu.:  62.59   2016:196  
+ Max.   :1369.54   Max.   :993.3   Max.   :3373.00   2017:182  
+ NA's   :6         NA's   :319     NA's   :239       2018:189  </code></pre>
+</div>
+</div>
+<p>This allows you to confirm:</p>
+<ul>
+<li><p>the categorical variables now display meaningful counts for each category</p></li>
+<li><p>extremely large or impossible values have been removed</p></li>
+<li><p>missing values remain coded as NA (ready to be handled properly in later weeks)</p></li>
+<li><p>the numeric summaries (min, max, mean) now fall within sensible ranges</p></li>
+</ul>
+<p>At this point, the dataset is in a good condition for basic exploration.</p>
+<p>Now, we have enough information to write a clear introductory paragraph describing the dataset</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example writeup">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example writeup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A dataset containing records for 1295 Hollywood films released between 2012 and 2018 was analysed. The dataset includes financial information such as production budget, opening weekend gross, domestic revenue, and worldwide revenue, as well as critics’ and audience ratings. Additional variables include film genre, lead studio, and release year. Initial inspection indicated wide variability in budgets and earnings, and some missing values in foreign gross and profitability measures. These data provide a useful foundation for investigating predictors of film success.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="student-glossary" class="level2">
+<h2 class="anchored" data-anchor-id="student-glossary">3. Student Glossary</h2>
+<p>To conclude the lab, create a&nbsp;<strong>glossary of R functions</strong>.<br>
+Use Word, Excel, OneNote, or any tool you like, and make a simple table with two columns:</p>
+<ul>
+<li><p><strong>Function name</strong></p></li>
+<li><p><strong>Brief description of what the function does</strong></p></li>
+</ul>
+<p>This “do it yourself” glossary will help you revise the key ideas from today’s lab and will be extremely useful when completing the weekly quizzes.</p>
+<p>Below is a starter example you can expand:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use and package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>read_csv</code></td>
+<td>Reads comma-separated value files. Part of the&nbsp;<em>tidyverse</em>.</td>
+</tr>
+<tr class="even">
+<td><code>View</code></td>
+<td>Opens a spreadsheet-style view of a dataset.</td>
+</tr>
+<tr class="odd">
+<td><code>head</code></td>
+<td>Shows the first few rows (six by default).</td>
+</tr>
+<tr class="even">
+<td><code>nrow</code></td>
+<td>Returns the number of rows in a dataset.</td>
+</tr>
+<tr class="odd">
+<td><code>ncol</code></td>
+<td>Returns the number of columns in a dataset.</td>
+</tr>
+<tr class="even">
+<td><code>dim</code></td>
+<td>Returns both rows and columns (dimensions).</td>
+</tr>
+<tr class="odd">
+<td><code>glimpse</code></td>
+<td>Provides a compact overview of all variables (dplyr).</td>
+</tr>
+<tr class="even">
+<td><code>str</code></td>
+<td>Shows the internal structure of an object.</td>
+</tr>
+<tr class="odd">
+<td><code>summary</code></td>
+<td>Gives summary statistics for each variable.</td>
+</tr>
+<tr class="even">
+<td><code>factor</code></td>
+<td>Converts a variable into a categorical factor.</td>
+</tr>
+</tbody>
+</table>
+<p>Feel free to add more as you encounter additional functions during the course.</p>
+<hr>
+<section id="reference" class="level3">
+<h3 class="anchored" data-anchor-id="reference">Reference</h3>
+<p>Lock, Robin H, Patti Frazer Lock, Kari Lock Morgan, Eric F. Lock, and Dennis F. Lock. 2020.&nbsp;<em>Statistics: Unlocking the Power of Data</em>. John Wiley &amp; Sons.</p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Hint: use <code>read_csv()</code> from the <code>readr</code> package.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Hint: try <code>View(DATA)</code> or <code>head(DATA)</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Hint: <code>nrow(DATA)</code> or <code>dim(DATA)[1]</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Hint: <code>ncol(DATA)</code> or <code>dim(DATA)[2]</code>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Hint: <code>glimpse(DATA)</code> from the <strong>dplyr</strong> package or <code>str(DATA)</code>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Hint: <code>summary(DATA$Variable)</code> or <code>min()</code>, <code>max()</code>, <code>mean()</code>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Hint: <code>summary(DATA)</code> will show <code>NA</code>s per variable.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
