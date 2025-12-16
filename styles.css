@@ -76,22 +76,22 @@ h4 {
   font-weight: 700;
 }
 
-
-
-/* Navbar base */
+/* Navbar base — keep Bootstrap’s layout, only set colours */
 .navbar {
   background-color: #004F71 !important;  /* Muted Blue */
   color: white;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
+  padding: 0 !important;                /* let container handle spacing */
 }
 
-/* MSDA title (as a link/text element in navbar) */
+/* Add padding to Quarto's navbar container (safe with Bootstrap) */
+.navbar .navbar-container {
+  padding: 10px 20px;
+}
+
+/* MSDA title / brand */
 .navbar .navbar-brand,
-.navbar .navbar-logo,
-.navbar .menu-text {
-  font-size: 1rem !important;  /* ≈ 25.6px */
+.navbar .navbar-logo {
+  font-size: 1rem !important;
   font-weight: 700 !important;
   color: white !important;
   font-family: 'Source Sans Pro', sans-serif !important;
@@ -99,7 +99,7 @@ h4 {
   margin-right: 40px;
 }
 
-/* Logo styling (new logo: round_logo_blue.png) */
+/* Logo styling */
 .navbar .navbar-brand img {
   height: 48px !important;
   max-height: 48px !important;
@@ -108,47 +108,46 @@ h4 {
   padding-left: 8px;
 }
 
-/* Navbar menu items */
-.navbar-nav > li > a {
-  font-size: 1rem !important;  /* ≈ 18.4px */
+/* Navbar links (Bootstrap 5 / Quarto structure) */
+.navbar .navbar-nav .nav-link {
+  font-size: 1rem !important;
   font-weight: 600 !important;
   color: white !important;
 }
 
-.navbar-nav > li > a:hover {
-  color: #c5eff7 !important;  /* Bright hover */
+/* Hover + active */
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus {
+  color: #c5eff7 !important;
 }
 
-/* Regular links inside content */
-a {
-  color: #007288;
-}
-a:hover {
-  color: #c5eff7;
+.navbar .navbar-nav .nav-link.active {
+  color: #c5eff7 !important;
 }
 
 /* Dropdown menu container */
-.dropdown-menu {
+.navbar .dropdown-menu {
   background-color: #041E42 !important;  /* University Blue */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border: none;
 }
 
-/* Dropdown items */
-.dropdown-menu a,
-.dropdown-header {
+/* Dropdown items (Bootstrap uses .dropdown-item) */
+.navbar .dropdown-menu .dropdown-item,
+.navbar .dropdown-menu .dropdown-header {
   color: white !important;
   padding: 8px 20px;
   font-weight: 500;
 }
 
-.dropdown-menu a:hover {
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
   background-color: #004F71 !important;
   color: #c5eff7 !important;
 }
 
-/* Block headers inside dropdown (non-clickable) */
-.dropdown-menu li > a[href="#"] {
+/* Non-clickable “header” links (if you use href="#") */
+.navbar .dropdown-menu a[href="#"] {
   font-weight: 700;
   color: white !important;
   background-color: #041E42 !important;
@@ -159,8 +158,17 @@ a:hover {
   border-top: 1px solid #004F71;
 }
 
-.dropdown-menu li + li a[href="#"] {
-  margin-top: 10px;
+/* Navbar item spacing (Bootstrap 5: gap supported) */
+.navbar .navbar-nav {
+  gap: 20px;
+}
+
+/* Regular links inside page content */
+main.content a {
+  color: #007288;
+}
+main.content a:hover {
+  color: #c5eff7;
 }
 
 /* Section spacing */
@@ -168,10 +176,7 @@ section {
   margin-bottom: 2.5em;
 }
 
-/* Navbar item spacing */
-.navbar-nav {
-  gap: 20px;
-}
+
 
 
 /* ============================================================
