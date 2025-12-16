@@ -12,7 +12,6 @@ project:
 
 website:
   title: "MSDA"
-  site-url: https://col-stem-uoe.github.io/MSDA/
   navbar:
     background: "#003366"
     left:
