@@ -1,13 +1,6 @@
 project:
   type: website
   output-dir: docs
-  render:
-    - index.qmd
-    - Teacher_Guidelines.qmd
-    - "Content/**/*.qmd"
-    - "Tutorials/**/*.qmd"
-    - "R Support/**/*.qmd"
-    - "!Documentation/**"
 
 
 website:
