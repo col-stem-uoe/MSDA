@@ -1,0 +1,377 @@
+---
+title: "Week 08 – Research Questions, Variables, and Study Design"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    css: styles.css
+editor: visual
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+lecture <- read_csv("Lecture1_data.csv")
+```
+
+# 1. What Is Research?
+
+Research begins with curiosity — a question about how the world works.\
+In this course we work with existing datasets, but behind each dataset there is (or should be) a **research question**.
+
+This week connects your earlier work on **data types and levels of measurement** (Lecture 01) with:
+
+-   research questions and hypotheses\
+-   independent and dependent variables\
+-   study design\
+-   how variables are represented in data sets
+
+<br>
+
+By the end of this week you should be able to:
+
+-   turn an informal idea into a **research question** and a **testable hypothesis**\
+-   identify **independent** and **dependent** variables\
+-   classify variables by **type** and **level of measurement**\
+-   understand how design and variables shape statistical analysis
+
+------------------------------------------------------------------------
+
+# 2. The Research Cycle
+
+We can think of research as a simple cycle:
+
+::: callout-note
+### A simplified research cycle
+
+1.  **Observation**\
+    Something you notice about the world.\
+    *Example:* Some students study a lot but do not always achieve high marks.
+
+2.  **Research question**\
+    A focused, answerable question.\
+    *Example:* Is there an association between hours of study and overall mark?
+
+3.  **Hypothesis**\
+    A testable prediction.\
+    *Example:* Students who study more hours per week will achieve higher marks.
+
+4.  **Identify variables**\
+    Decide what you will measure.
+
+    -   **IV:** *Study_hours*\
+    -   **DV:** *Overall_mark*
+
+5.  **Collect data**\
+    Gather values for these variables in a sample.
+
+6.  **Analyse data**\
+    Summarise variables and test relationships.
+
+7.  **Interpret and conclude**\
+    Relate the results back to the research question.
+:::
+
+This week focuses on **Step 4** because everything else depends on identifying variables correctly.
+
+------------------------------------------------------------------------
+
+## 2.1 From Constructs to Variables (link to Lecture 01)
+
+In Lecture 01 we noted that before data collection, researchers must decide **what they intend to measure**. They begin with abstract ideas (*constructs*), such as *stress*, *learning*, or *academic success*. Constructs cannot be observed directly — we only see them through the **measures** we choose.
+
+![](images/concept_measurement.png){width="70%"}
+
+The logic is:
+
+-   **Constructs** are theoretical ideas.\
+-   **Measures** operationalise these ideas.\
+-   **Variables** are the recorded data.\
+-   All variables contain some **measurement error**.
+
+In this course we mainly work at the level of **variables**, but it is important to remember where they come from.
+
+------------------------------------------------------------------------
+
+# 3. Variables in Research
+
+A **variable** is any characteristic that varies between individuals.
+
+In *Lecture1_data.csv*, variables include:
+
+-   `Gender`, `Degree`, `Exercise`\
+-   `Study_hours`, `Sleep_hours`\
+-   `Stress_level`, `Satisfaction_Likert_item`\
+-   `Overall_mark`, `IQ`
+
+Variables can be classified in two ways:
+
+1.  **By role** — how they function in the research design\
+2.  **By type** — the kind of information they contain
+
+------------------------------------------------------------------------
+
+## 3.1 Variables by Role: Independent and Dependent
+
+::: {.narrow-table style="font-size: 0.95rem"}
+| **Role** | **What it does** | **Example from the dataset** |
+|------------------|---------------------|---------------------------------|
+| **Independent variable (IV)** | Used to explain/predict something; sometimes manipulated | `Study_hours`, `Gender`, `Exercise` |
+| **Dependent variable (DV)** | The outcome being measured | `Overall_mark`, `Sleep_hours`, `Stress_level` |
+:::
+
+A simple way to remember:
+
+> **IV → DV**\
+> “Does X influence / predict / relate to Y?”
+
+Examples using the lecture dataset:
+
+-   *Does **study time** predict **overall marks**?*
+    -   IV: `Study_hours`\
+    -   DV: `Overall_mark`
+-   *Do **students who exercisesleep more**?*
+    -   IV: `Exercise`\
+    -   DV: `Sleep_hours`
+-   *Is **stress level** related to **hours of study**?*
+    -   IV: `Study_hours`\
+    -   DV: `Stress_level`
+
+------------------------------------------------------------------------
+
+## 3.2 Manipulated vs Measured Variables
+
+-   **Manipulated variables**
+    -   Assigned by the researcher (e.g. an experiment).
+
+    -   Not present in this dataset.
+-   **Measured variables**
+    -   Naturally occurring characteristics recorded by the researcher.
+    -   All variables in *Lecture1_data.csv* are **measured**.
+
+------------------------------------------------------------------------
+
+# 4. Variables in the Lecture Dataset
+
+```{r}
+#| message: false
+#| warning: false
+library(readr)
+library(dplyr)
+
+lecture <- read_csv("Lecture1_data.csv")
+glimpse(lecture)
+
+```
+
+Below is a description of all variables in the Lecture1_data.csv dataset.
+
+```{r lecture-dataset, echo=FALSE, message=FALSE, warning=FALSE}
+library(tibble)
+library(gt)
+library(dplyr)
+
+lecture1_dict <- tribble(
+~Variable,                      ~Description,
+"ID",                           "Participant ID (unique identifier)",
+"Degree",                       "Degree programme the student is enrolled in",
+"Year",                         "Year of study (1, 2, 3 …)",
+"Gender",                       "Self-reported gender",
+"Study_hours",                  "Hours spent studying per day (continuous)",
+"Sleep_hours",                  "Hours of sleep per night (continuous)",
+"Stress_level",                 "Reported stress level (Low, Moderate, High)",
+"Satisfaction_Likert_item",     "Satisfaction rating (text: e.g. Satisfied)",
+"Satisfaction_Likert_value",    "Numerical coding of satisfaction (1–5)",
+"Coffee_per_day",               "Cups of coffee consumed per day (count)",
+"Social_media_hr",              "Time spent on social media per day (hours)",
+"Exercise",                     "Whether the student exercises (Yes/No)",
+"Overall_mark",                 "Overall module mark (%)",
+"IQ",                           "Estimated IQ score"
+)
+
+lecture1_dict |>
+gt() |>
+cols_label(
+Variable    = "Variable Name",
+Description = "Description"
+) |>
+tab_style(
+style = cell_text(whitespace = "nowrap"),
+locations = cells_column_labels(columns = Variable)
+) |>
+tab_style(
+style = cell_text(weight = "bold"),
+locations = cells_column_labels(everything())
+) |>
+cols_width(
+Variable    ~ px(200),
+Description ~ px(600)
+) |>
+opt_row_striping() |>
+tab_options(
+table.font.size  = px(13.6),
+data_row.padding = px(6)
+)
+
+```
+
+## 4.1 Variables by Type: Categorical and Numeric
+
+We also classify variables by the *kind* of information they contain. This affects:
+
+-   how we **summarise** them (counts, means, medians, etc.)\
+-   which **plots** we use (bar plots, histograms, boxplots, scatterplots)\
+-   which **statistical tests** are appropriate
+
+### **4.1.1 Categorical variables**
+
+> They group observations into labels.
+>
+> Example variables in the lecture dataset:
+
+-   `Gender`
+
+-   `Exercise`
+
+-   `Degree`
+
+-   `Stress_level`
+
+-   `Satisfaction_Likert_item`
+
+-   `Satisfaction_Likert_value` (ordinal coded)
+
+#### Subtypes
+
+-   **Nominal:** no natural order (e.g. Gender, Degree)
+
+-   **Ordinal:** meaningful order (e.g. Stress_level, Satisfaction ratings)
+
+We **summarise** categorical variables using:
+
+-   frequencies (counts)
+
+-   percentages / proportions
+
+-   bar plots
+
+### 4.1.2 Numeric variables
+
+Examples in the lecture dataset:
+
+-   `Study_hours`
+
+-   `Sleep_hours`
+
+-   `Overall_mark`
+
+-   `IQ`
+
+-   `Coffee_per_day`
+
+-   `Social_media_hr`
+
+#### Subtypes:
+
+-   **Discrete** (counts): `Coffee_per_day`
+
+-   **Continuous** (measurements): `Study_hours`, `IQ`, `Sleep_hours`
+
+We **summarise** numeric variables using:
+
+-   means, medians
+
+-   standard deviation, IQR
+
+-   histograms, boxplots, scatterplots
+
+------------------------------------------------------------------------
+
+# 5. Levels of Measurement
+
+In Lecture 01 you met four classic levels of measurement. Here we briefly reconnect them to research design, using variables from the *Lecture1_data.csv* dataset.
+
+::: {.narrow-table style="font-size: 0.9rem"}
+| **Level** | **Meaning** | **Examples (lecture dataset)** |
+|------------------|---------------------|----------------------------------|
+| **Nominal** | Categories with no intrinsic order | `Gender`, `Degree`, `Exercise` |
+| **Ordinal** | Ordered categories, unequal gaps | `Stress_level`, `Satisfaction_Likert_value` |
+| **Interval** | Numeric, equal spacing, **no** true zero | IQ (treated as an approximate interval scale in psychology) |
+| **Ratio** | Numeric, equal spacing, **true** zero | `Study_hours`, `Sleep_hours`, `Overall_mark`, `Coffee_per_day`, `Social_media_hr` |
+:::
+
+In practice we often talk simply about **categorical** vs **numeric** variables, but levels of measurement sit in the background and influence what is sensible:
+
+-   you would not normally compute a **mean** of nominal data\
+-   you should be cautious interpreting means of ordinal scales\
+-   most parametric tests (e.g. t-tests, correlation) assume **numeric (interval/ratio)** data
+
+------------------------------------------------------------------------
+
+# 6. Exercise: Classifying Variables in the Lecture Dataset
+
+Use the variables from *Lecture1_data.csv* to practise identifying:
+
+1.  whether each variable is **categorical** or **numeric**\
+2.  the **level of measurement**\
+3.  whether it could be an **IV**, a **DV**, or either
+
+Consider the following variables:
+
+-   `Gender`\
+-   `Exercise`\
+-   `Study_hours`\
+-   `Overall_mark`\
+-   `Stress_level`\
+-   `Coffee_per_day`\
+-   `Social_media_hr`
+
+### Your Task
+
+Complete the table below by filling in the **Type**, **Level**, and **Possible Role(s)** for each variable.
+
+::: {.narrow-table style="font-size: 0.9rem"}
+| **Variable** | **Type** (Categorical/Numeric) | **Level** | **Possible Role(s)** |
+|----------------|------------------------|----------------|-----------------|
+| Gender |  |  |  |
+| Exercise |  |  |  |
+| Stress_level |  |  |  |
+| Study_hours |  |  |  |
+| Overall_mark |  |  |  |
+| Coffee_per_day |  |  |  |
+| Social_media_hr |  |  |  |
+:::
+
+### Now write one possible research question using any two variables above.
+
+> Example format:
+
+> 1.  “Does \_\_\_ predict \_\_\_?”\
+> 2.  “Do \_\_\_ and \_\_\_ differ in \_\_\_?”\
+> 3.  “Is there an association between \_\_\_ and \_\_\_?”
+
+------------------------------------------------------------------------
+
+:::: {.callout-tip collapse="true" title="Suggested Answers"}
+### Classification Table
+
+::: {.narrow-table style="font-size: 0.9rem"}
+| **Variable**    | **Type**    | **Level** | **Possible Role(s)**    |
+|-----------------|-------------|-----------|-------------------------|
+| Gender          | Categorical | Nominal   | IV (grouping variable)  |
+| Exercise        | Categorical | Nominal   | IV or DV                |
+| Stress_level    | Categorical | Ordinal   | IV or DV                |
+| Study_hours     | Numeric     | Ratio     | IV or DV                |
+| Overall_mark    | Numeric     | Ratio     | DV (usually an outcome) |
+| Coffee_per_day  | Numeric     | Discrete  | IV                      |
+| Social_media_hr | Numeric     | Ratio     | IV or DV                |
+:::
+
+### Example research questions
+
+-   *Does study time predict overall marks?*\
+-   *Do students who exercise sleep more?*\
+-   *Are stress levels associated with time spent on social media?*\
+-   *Do male and female students differ in their study hours?*
+::::
+

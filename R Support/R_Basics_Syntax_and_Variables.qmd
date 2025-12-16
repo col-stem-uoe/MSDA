@@ -1,6 +1,6 @@
 ---
 title: "R Basics: Syntax & Variables"
-subtitle: ""
+author: ""
 format:
   html:
     layout: article

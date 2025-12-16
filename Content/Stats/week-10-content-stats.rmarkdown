@@ -1,0 +1,1088 @@
+---
+title: "Week 10 – Continuous Variables"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    css: styles.css
+editor: visual
+---
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
+# load packages
+library(tidyverse)
+
+# read in the data
+students <- read_csv("Lecture1_data.csv", show_col_types = FALSE)
+
+```
+
+In earlier weeks we focused on **categorical data** and on how to describe it using:
+
+-   tables and bar plots
+
+-   measures of **central tendency** such as the **mode** and the **median**
+
+-   simple measures of spread such as the **range** and **quartiles**
+
+This week, we slow down and revisit the same ideas, but now for **continuous (numeric) data**.\
+We will:
+
+1.  look at how to **visualise** continuous data with histograms
+
+2.  understand what the **mean** really is and how to calculate it
+
+3.  build up measures of spread: **deviations**, **variance**, and **standard deviation**
+
+4.  briefly describe the **shape** of a distribution (skew and kurtosis)
+
+# 2. Central tendency
+
+In the following examples, we are going to use data from 200 students on their IQ scores, study habits, sleep, stress, and related variables. These data are stored in the file Lecture1_data.csv, which we have already read in as students. Below is a quick numerical summary of some of the continuous variables:
+
+```{r}
+students |>
+select(IQ, Study_hours, Sleep_hours, Overall_mark) |>
+summary()
+
+```
+
+This summary shows basic information (minimum, quartiles, median, mean, and maximum) for some of the continuous variables we will use.
+
+## 2.1 Revisiting mode and median
+
+For central tendency we shall use:
+
+-   **Mode**: the most frequently occurring value.
+
+-   **Median**: the value for which 50% of observations are lower and 50% are higher (the middle value when data are ordered).
+
+-   **Mean**: the arithmetic average (sum of values divided by the number of values).
+
+We previously applied these ideas to categorical variables, but they can also be used for numeric variables. The table below summarises which measures are appropriate for different types of data.
+
+|                                 | Mode | Median | Mean                   |
+|---------------------------------|------|--------|------------------------|
+| Nominal (unordered categorical) | ✓    | ✗      | ✗                      |
+| Ordinal (ordered categorical)   | ✓    | ✓      | ? (depends on context) |
+| Numeric continuous              | ✓    | ✓      | ✓                      |
+
+For numeric variables there can be many different values, so the **mode** is not always very informative. However, we can still calculate it if we wish.
+
+Below we look at the most frequent value (the **mode**) of the `IQ` variable in the `students` data.
+
+```{r}
+students |>
+count(IQ, name = "n") |>
+arrange(desc(n))
+
+```
+
+The first row of this output gives the most common IQ score in the sample.
+
+## Median for the IQ scores
+
+Recall that the **median** is found by ordering the data from lowest to highest, and finding the mid-point.\
+In the `students` dataset we have IQ scores for `r nrow(students)` participants.\
+We find the median by ranking them from lowest to highest IQ and taking the mid-point between the two central scores.
+
+We can also use the `median()` function:
+
+```{r}
+median(students$IQ)
+```
+
+## Mean
+
+One of the most frequently used measures of central tendency for **numeric** data is the **mean**.
+
+#### Mean:
+
+The mean is calculated by **summing all of the observations** together and then **dividing by the total number of observations** (n).
+
+When we have sampled some data, we denote the mean of our sample with the symbol$\bar{x}$ (sometimes called “x-bar”).\
+The formula is:
+
+$$
+\bar{x} = \frac{\sum_{i = 1}^{n} x_i}{n}
+$$
+
+Where:
+
+-   $\bar{x}$ = estimate of the mean of the variable ${x}$
+
+-   $x_i$ = individual values of ${x}$
+
+-   $n$ = sample size
+
+::: {.callout-note title="Samples and Populations" collapse="true"}
+Statistics is about drawing conclusions about a population from a smaller set of sampled data.\
+A number we calculate from a sample is an estimate of the corresponding quantity in the population.
+
+|   | Sample | Population |
+|------------------|----------------------|--------------------------------|
+| Number of observations | $n$ | $N$ |
+| Mean | $\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$ | $\mu = \frac{\sum_{i=1}^{N} x_i}{N}$ |
+
+In practice we almost always have a sample, so we work with $\bar{x}$ and $n$.
+:::
+
+### Calculating the mean for IQ
+
+We can do the calculation by summing the IQ values and dividing by the number of students:
+
+We can also check this directly in R:
+
+-   Option 1:
+
+```{r}
+    sum(students$Overall_mark) / length(students$Overall_mark)
+
+    mean(students$Overall_mark)
+```
+
+-   Option 2
+
+```{r}
+students |>
+summarise(
+mean_Overall_mark = mean(Overall_mark)
+)
+
+```
+
+All approaches give the same value; the last one is the style we will normally use when working with data frames.
+
+### Summarising variables
+
+Functions such as `mean()`, `median()`, `min()` and `max()` can quickly summarise data.\
+We can combine them neatly using `summarise()` from **dplyr**.
+
+#### `summarise()`
+
+The `summarise()` function reduces variables down to one or more **summary values**.
+
+```         
+# example structure
+
+data |>
+summarise(
+summary_value1 = sum(variable1),
+summary_value2 = mean(variable2)
+)
+```
+
+So if we want to show the **mean IQ** and the **mean Overall course mark** of our students:
+
+```{r}
+students |>
+summarise(
+mean_IQ          = mean(IQ),
+mean_overall_mark = mean(Overall_mark)
+)
+
+```
+
+This produces a small table with one row and two columns: the average IQ score and the average overall mark in our sample.
+
+# 3 Measuring spread: variance, and standard deviation
+
+Knowing the mean is not enough. Two classes can have the same average mark but very different **spread**:
+
+-   in one class, everyone is close to the mean
+
+-   in the other, some students do extremely well and others very poorly
+
+We therefore need a way to describe how much values **vary around the mean**.
+
+For each observation we can look at how far it is from the mean. This difference is called a **deviation**:
+
+## **Interquartile range**
+
+If we are using the **median** as our measure of central tendency and we want to discuss how spread out the spread are around it, then we will want to use quartiles (recall that these are linked: the quartile = the median).
+
+We have already briefly introduced how for **ordinal** data, the 1st and 3rd quartiles give us information about how spread out the data are across the possible response categories. For numeric data, we can likewise find the 1st and 3rd quartiles in the same way - we rank-order all the data, and find the point at which 25% and 75% of the data falls below.
+
+The *difference* between the 1st and 3rd quartiles is known as the **interquartile range (IQR)**.\
+( **Note**, we couldn’t take the *difference* for ordinal data, because “difference” would not be quantifiable - the categories are ordered, but intervals are between categories are unknown)
+
+In R, we can find the IQR as follows:
+
+```{r}
+IQR(students$IQ)
+```
+
+```{r}
+# take the "students" dataframe |>
+# summarise() it, such that there is a value called "median_IQ", which
+# is the median() of the "IQ" variable, and a value called "iqr_age", which
+# is the IQR() of the "age" variable.
+students |> 
+  summarise(
+    median_IQ = median(IQ),
+    iqr_IQ = IQR(IQ)
+  )
+```
+
+### **Interpretation**
+
+-   The **median IQ** in this sample is **104**.\
+    This means that **half of the students have an IQ below 104** and **half have an IQ above 104**.\
+    The median is a measure of *central tendency* that is not affected by extreme values.
+
+-   The **interquartile range (IQR)** for IQ is **11.25**.\
+    This means that the **middle 50% of students** (those between the 25th and 75th percentiles) have IQ scores that differ by **11.25 points**.\
+    The IQR is a measure of *spread* that tells us how tightly or loosely clustered the central half of the scores are.
+
+### **In practical terms**
+
+-   An IQR of **11.25** suggests that IQ scores in this class are **moderately clustered** around the centre.
+
+-   There is some variation, but most students fall within a relatively narrow band around the median.
+
+## Variance
+
+If we are using the **mean** as our measure of central tendency, we can think about the spread of the data in terms of the **deviations** (the distance of each value from the mean).
+
+Recall that the mean is denoted by $\bar{x}$.\
+If we use $x_i$ to denote the $i^{\text{th}}$ value of $x$, then the deviation for that value is:
+
+$$
+x_i - \bar{x}
+$$
+
+::: {.callout-note title="The sum of deviations from the mean is always zero"}
+The deviations from the mean always add up to zero:
+
+$$
+\sum_{i = 1}^{n} (x_i - \bar{x}) = 0
+$$
+
+The mean acts like a **centre of gravity**:\
+positive deviations (where $x_i > \bar{x}$) are exactly balanced by negative deviations (where $x_i < \bar{x}$).
+:::
+
+Because deviations always sum to zero, they cannot be used directly as a measure of spread.\
+To solve this, we square them. Squaring makes all deviations positive, and larger deviations become disproportionately larger.\
+The **average squared deviation** is called the **variance**, written $s^2$.
+
+::: {.callout-note title="Variance: $s^2$"}
+The variance is defined as the **average of the squared deviations from the mean**:
+
+$$
+s^2 = \frac{\sum_{i = 1}^{n} (x_i - \bar{x})^2}{\,n - 1\,}
+$$ Here,
+
+-   $s^2$ = sample variance\
+-   $\bar{x}$ = sample mean\
+-   $n$ = sample size
+:::
+
+::: {.callout-note title="Why do we divide by $n - 1$?" collapse="true"}
+The numerator
+
+$$
+\sum_{i = 1}^{n} (x_i - \bar{x})^2
+$$
+
+contains (n) deviations, but once the mean $\bar{x}$ is calculated, the deviations are **not independent**.\
+They must sum to zero, meaning only (n - 1) of them contain unique information.
+
+### Example with two values
+
+Suppose we only have two observations, $x_1$ and $x_2$.\
+The sum of squared deviations is:
+
+$$
+\sum_{i = 1}^{2} (x_i - \bar{x})^2
+=
+(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2
+$$
+
+The mean for these two values is:
+
+$$
+\bar{x} = \frac{x_1 + x_2}{2}
+$$
+
+Substituting this into the deviations:
+
+$$
+(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 
+=
+\left( x_1 - \frac{x_1 + x_2}{2} \right)^2
++
+\left( x_2 - \frac{x_1 + x_2}{2} \right)^2
+$$
+
+This simplifies to:
+
+$$
+\left( \frac{x_1 - x_2}{\sqrt{2}} \right)^2
+$$
+
+Even though there are two points, there is effectively **one independent piece of information**, so we divide by $n - 1 = 1$.\
+More generally, with $n$ data points, we divide by $n - 1$.
+:::
+
+### Calculating the variance in R
+
+var() function:
+
+```{r}
+students |>
+  summarise(
+    variance_overall_mark = var(Overall_mark),
+    variance_IQ = var(IQ)
+  )
+```
+
+## Standard deviation
+
+One difficulty in interpreting variance as a measure of spread is that it is expressed in units of squared deviations. It reflects the typical squared distance from a value to the mean. To bring the measure back into the same units as the original variable, we take the square root of the variance. This gives the standard deviation.
+
+::: {.callout-note title="Standard Deviation: $s$"}
+The standard deviation, denoted by $s$, is an estimate of the typical distance of a value from the mean.\
+It is defined as the **square root of the variance**:
+
+$$
+s = \sqrt{ \frac{\sum_{i = 1}^{n} (x_i - \bar{x})^2}{\,n - 1\,} }
+$$
+:::
+
+We can ask R to calculate the standard deviation of a variable using the sd() function:
+
+```{r}
+students |>
+summarise(
+variance_IQ = var(IQ),
+sd_IQ       = sd(IQ)
+)
+
+```
+
+# 4 Visualizations
+
+### Boxplots
+
+A boxplot gives a quick picture of how the data are spread out.It provides a useful way of visualising the **interquartile range (IQR).** Here’s what each part of this plot shows:
+
+```{r, echo=FALSE}
+library(ggplot2)
+
+# --- compute boxplot statistics for IQ ---
+iq_stats  <- boxplot.stats(students$IQ)
+iq_q      <- quantile(students$IQ, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+iq_iqr    <- IQR(students$IQ, na.rm = TRUE)
+
+Q1 <- iq_q[1]
+Q2 <- iq_q[2]
+Q3 <- iq_q[3]
+
+lower_whisk <- iq_stats$stats[1]
+upper_whisk <- iq_stats$stats[5]
+
+# 1.5 × IQR “fences”
+lower_fence <- Q1 - 1.5 * iq_iqr
+upper_fence <- Q3 + 1.5 * iq_iqr
+
+# --- example outliers just outside the fences (for teaching only) ---
+fake_outliers <- data.frame(
+  IQ = c(lower_fence - 2, upper_fence + 2),
+  y  = c(0, 0)
+)
+
+# approximate y-position of top of the box
+y_box_top <- 0.07
+
+ggplot(students, aes(x = IQ, y = 0)) +
+  
+  # ---- thicker PINK boxplot ----
+  geom_boxplot(
+    width         = 0.14,
+    colour        = "deeppink3",
+    fill          = NA,
+    linewidth     = 1.1,
+    outlier.shape = NA          # hide any real data outliers
+  ) +
+  
+  # ---- example outliers (points) ----
+  geom_point(
+    data        = fake_outliers,
+    aes(x = IQ, y = y),
+    inherit.aes = FALSE,
+    colour      = "deeppink3",
+    size        = 3
+  ) +
+  
+  # guide lines up from example outliers
+  annotate("segment",
+           x = fake_outliers$IQ[1], xend = fake_outliers$IQ[1],
+           y = 0.16, yend = 0.02,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment",
+           x = fake_outliers$IQ[2], xend = fake_outliers$IQ[2],
+           y = 0.16, yend = 0.02,
+           linetype = "dashed", colour = "grey50") +
+  
+  # labels for example outliers (pulled slightly inwards)
+  annotate("text",
+           x = fake_outliers$IQ[1], y = 0.19,
+           label = "Example outlier\n< Q1 − 1.5 × IQR",
+           size = 3, hjust = 0) +
+  annotate("text",
+           x = fake_outliers$IQ[2], y = 0.19,
+           label = "Example outlier\n> Q3 + 1.5 × IQR",
+           size = 3, hjust = 1) +
+  
+  # ---- dashed lines up from Q1, Median, Q3 (from top of box) ----
+  annotate("segment", x = Q1, xend = Q1,
+           y = y_box_top, yend = 0.22,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment", x = Q2, xend = Q2,
+           y = y_box_top, yend = 0.22,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment", x = Q3, xend = Q3,
+           y = y_box_top, yend = 0.22,
+           linetype = "dashed", colour = "grey50") +
+  
+  # ---- labels Q1, Q2, Q3 above the box ----
+  annotate("text", x = Q1, y = 0.24, label = "Q1") +
+  annotate("text", x = Q2, y = 0.24, label = "Q2 (Median)") +
+  annotate("text", x = Q3, y = 0.24, label = "Q3") +
+  
+  # ---- IQR bracket ABOVE the Q1/Q2/Q3 labels ----
+  annotate("segment",
+           x = Q1, xend = Q3,
+           y = 0.32, yend = 0.32,
+           colour = "deeppink3", linewidth = 1) +
+  annotate("segment",
+           x = Q1, xend = Q1,
+           y = 0.32, yend = 0.30,
+           colour = "deeppink3", linewidth = 1) +
+  annotate("segment",
+           x = Q3, xend = Q3,
+           y = 0.32, yend = 0.30,
+           colour = "deeppink3", linewidth = 1) +
+  annotate("text",
+           x = mean(c(Q1, Q3)), y = 0.36,
+           label = "IQR", colour = "grey30") +
+  
+  # ---- dashed guide lines from minimum and maximum ----
+  annotate("segment",
+           x = lower_whisk, xend = lower_whisk,
+           y = -0.05, yend = 0.0,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment",
+           x = upper_whisk, xend = upper_whisk,
+           y = -0.05, yend = 0.0,
+           linetype = "dashed", colour = "grey50") +
+  
+  # ---- labels for minimum and maximum ----
+  annotate("text", x = lower_whisk, y = -0.12,
+           label = "Minimum\nvalue in data",
+           size = 3, hjust = 0.5) +
+  annotate("text", x = upper_whisk, y = -0.12,
+           label = "Maximum\nvalue in data",
+           size = 3, hjust = 0.5) +
+  
+  # axes
+  scale_y_continuous(limits = c(-0.40, 0.60),
+                     expand = expansion(mult = 0.02)) +
+  scale_x_continuous(expand = expansion(mult = 0.08)) +
+  theme_minimal() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y  = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  labs(x = "IQ")
+
+```
+
+#### Quartiles (Q1, Q2, Q3)
+
+-   **Q1**: 25% of the scores are below this value.
+
+-   **Q2 (Median)**: the middle score in the dataset.
+
+-   **Q3**: 75% of the scores are below this value.
+
+The dashed lines rise up from the box to show where each quartile sits.
+
+#### The IQR (Interquartile Range)
+
+-   **IQR = Q3 − Q1**
+
+-   It shows the spread of the *middle half* of the scores.
+
+-   The pink bracket at the top highlights this range.
+
+#### The Box
+
+-   The box stretches from **Q1** to **Q3**.
+
+-   The line inside the box marks the **median (Q2)**.\
+    This box tells you where most of the students’ IQ scores fall.
+
+#### Whiskers (minimum and maximum values)
+
+-   The whiskers show the **smallest** and **largest** values in the data\
+    *that are not considered outliers*.
+
+-   The labels underneath show where these values are.
+
+#### Possible outliers
+
+-   A value is considered an outlier if it is:
+
+    -   **below** Q1 − 1.5 × IQR, or
+
+    -   **above** Q3 + 1.5 × IQR.
+
+::: {.callout-note title= "Understanding the 1.5 × IQR Rule" collapse="true"}
+
+You may wonder where the “1.5” in the boxplot definition comes from.
+
+The **1.5 × IQR rule** was introduced by statistician **John Tukey**, the creator of the boxplot. He wanted a simple, distribution-free way to detect values that are *unusually far* from the rest of the data.
+
+**How the rule works:**
+
+-   Compute the **interquartile range (IQR)**, which is Q3 − Q1.\
+-   Define two cut-off points, called **fences**:
+    -   **Lower fence:** Q1 − 1.5 × IQR\
+    -   **Upper fence:** Q3 + 1.5 × IQR\
+-   Any value *below* the lower fence or *above* the upper fence is flagged as a **potential outlier**.
+
+**Why choose 1.5?**
+
+Tukey chose 1.5 because it works well across a wide variety of datasets:
+
+-   Using **1 × IQR** flags too many normal values as outliers.\
+-   Using **2 × IQR** misses points that are genuinely unusual.\
+-   **1.5 × IQR** gives a balanced threshold that reliably identifies values far from the central bulk of the data.
+
+This is why the 1.5 × IQR rule has become the standard in statistics and data science. :::
+
+-   Our dataset has **no real outliers**, so the two pink points on the plot are just **examples** to help us see where outliers *would* appear.
+
+:::
+
+::: {.callout-note title="The real dataset does not have outliers" collapse="true"}
+```{r,echo=FALSE}
+library(ggplot2)
+
+# --- compute boxplot statistics for IQ ---
+iq_stats  <- boxplot.stats(students$IQ)
+iq_q      <- quantile(students$IQ, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+iq_iqr    <- IQR(students$IQ, na.rm = TRUE)
+
+lower_whisk <- iq_stats$stats[1]
+upper_whisk <- iq_stats$stats[5]
+
+# approximate y-position of top of the box
+y_box_top <- 0.07
+
+ggplot(students, aes(x = IQ, y = 0)) +
+  
+  # ---- thicker PINK boxplot ----
+  geom_boxplot(
+    width = 0.14,
+    colour = "deeppink3",
+    fill   = NA,
+    linewidth = 1.1,          # <- use linewidth instead of size
+    outlier.colour = "deeppink3"
+  ) +
+  
+  # ---- dashed lines up from Q1, Median, Q3 (from top of box) ----
+  annotate("segment", x = iq_q[1], xend = iq_q[1],
+           y = y_box_top, yend = 0.22,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment", x = iq_q[2], xend = iq_q[2],
+           y = y_box_top, yend = 0.22,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment", x = iq_q[3], xend = iq_q[3],
+           y = y_box_top, yend = 0.22,
+           linetype = "dashed", colour = "grey50") +
+  
+  # ---- labels Q1, Q2, Q3 above the box ----
+  annotate("text", x = iq_q[1], y = 0.24, label = "Q1") +
+  annotate("text", x = iq_q[2], y = 0.24, label = "Q2 (Median)") +
+  annotate("text", x = iq_q[3], y = 0.24, label = "Q3") +
+
+  # ---- IQR bracket ABOVE the Q1/Q2/Q3 labels ----
+  annotate("segment",
+           x = iq_q[1], xend = iq_q[3],
+           y = 0.32, yend = 0.32,
+           colour = "deeppink3", linewidth = 1) +
+  annotate("text",
+           x = mean(iq_q[c(1,3)]), y = 0.36,
+           label = "IQR", colour = "grey30") +
+  
+  # ---- vertical ticks from IQR line to Q1 and Q3 ----
+  annotate("segment",
+           x = iq_q[1], xend = iq_q[1],
+           y = 0.32, yend = 0.30,
+           colour = "deeppink3", linewidth = 1) +
+  annotate("segment",
+           x = iq_q[3], xend = iq_q[3],
+           y = 0.32, yend = 0.30,
+           colour = "deeppink3", linewidth = 1) +
+  
+  # ---- dashed guide lines from minimum and maximum ----
+  annotate("segment",
+           x = lower_whisk, xend = lower_whisk,
+           y = -0.05, yend = 0.0,
+           linetype = "dashed", colour = "grey50") +
+  annotate("segment",
+           x = upper_whisk, xend = upper_whisk,
+           y = -0.05, yend = 0.0,
+           linetype = "dashed", colour = "grey50") +
+  
+  # ---- labels for minimum and maximum ----
+  annotate("text", x = lower_whisk, y = -0.12,
+           label = "Minimum\nvalue in data",
+           size = 3, hjust = 0.5) +
+  annotate("text", x = upper_whisk, y = -0.12,
+           label = "Maximum\nvalue in data",
+           size = 3, hjust = 0.5) +
+
+  # give extra room and stop clipping
+  scale_y_continuous(limits = c(-0.40, 0.60),
+                     expand = expansion(mult = 0.02)) +
+  scale_x_continuous(expand = expansion(mult = 0.10)) +
+  coord_cartesian(clip = "off") +                       # <- key line
+  theme_minimal(base_size = 14) +          # slightly larger text
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y  = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.margin  = margin(30, 60, 30, 60)               # extra side space
+  ) +
+  labs(x = "IQ")
+
+```
+:::
+
+#### Why this plot is helpful
+
+A boxplot lets you quickly understand:
+
+-   the middle of the data (median),
+
+-   how spread out the scores are (IQR),
+
+-   whether the distribution is balanced or skewed,
+
+-   and whether any scores stand out as unusual.
+
+## Histograms
+
+For categorical variables a bar plot works well because there are only a few distinct categories.\
+For a continuous variable such as `Overall_mark`, there may be many different values – sometimes every student has a slightly different mark.
+
+If we tried to draw a bar for every distinct mark the plot would be messy and unreadable. Instead we group values into **bins** (ranges) and count how many observations fall within each bin. This gives a **histogram**.
+
+```{r}
+ggplot(students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 20,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(
+x = "Overall course mark",
+y = "Count",
+title = "Histogram of Overall course mark"
+)
+```
+
+### Bins and their effect on shape
+
+The **bin width** (or, equivalently, the number of bins) can change the apparent shape of the histogram:
+
+-   Few wide bins
+
+```{r}
+# few wide bins
+
+ggplot(students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 5,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(x = "Height (cm)", y = "Count",
+title = "Heights with 5 wide bins")
+
+```
+
+-   Many narrow bins
+
+```{r}
+# many narrow bins
+
+ggplot(students, aes(x = Overall_mark)) +
+geom_histogram(
+bins  = 30,
+colour = "white",
+fill   = "steelblue4"
+) +
+labs(x = "Height (cm)", y = "Count",
+title = "Heights with 30 narrow bins")
+
+```
+
+The **data have not changed**, but the visual impression can. When interpreting a histogram, always keep in mind that the choice of bins is under the analyst’s control.
+
+### Understanding Histograms Using *Study_hours* and *Sleep_hours*
+
+We can use histograms to compare how *spread out* two continuous variables are. Below, we look at:
+
+-   **Study_hours** → wider spread
+
+-   **Sleep_hours** → narrower spread
+
+Even before plotting, we can quantify their variability using the **mean** and **standard deviation**:
+
+```{r}
+students |>
+  summarise(
+    mean_study = mean(Study_hours),
+    sd_study   = sd(Study_hours),
+    mean_sleep = mean(Sleep_hours),
+    sd_sleep   = sd(Sleep_hours)
+  )
+
+```
+
+The **standard deviation** tells us how much values typically vary around the mean.\
+Study hours vary *more* (SD ≈ 1.8), whereas sleep hours vary *less* (SD ≈ 1.0).
+
+```{r}
+library(ggplot2)
+library(patchwork)   # if not installed: install.packages("patchwork")
+
+p1 <- ggplot(students, aes(x = Study_hours)) +
+  geom_histogram(
+    bins  = 20,
+    colour = "white",
+    fill   = "steelblue4"
+  ) +
+  labs(
+    x = "Study hours per day",
+    y = "Count",
+    title = "Study_hours: Wider spread"
+  ) +
+  theme_minimal()
+
+p2 <- ggplot(students, aes(x = Sleep_hours)) +
+  geom_histogram(
+    bins  = 20,
+    colour = "white",
+    fill   = "steelblue4"
+  ) +
+  labs(
+    x = "Sleep hours per night",
+    y = "Count",
+    title = "Sleep_hours: Narrower spread"
+  ) +
+  theme_minimal()
+
+p1 + p2   # displays them side-by-side
+
+```
+
+#### Interpretation
+
+'Study_hours' and 'Sleep_hours' show very different spreads.\
+Even though the averages are not too far apart, Study_hours has a much larger **standard deviation**, meaning students differ widely in how long they study each day. This gives the histogram a **wider base**.
+
+In contrast, Sleep_hours has a **smaller standard deviation**, meaning most students sleep roughly similar amounts. The histogram is therefore **taller and narrower**, because many values cluster close together.
+
+Histograms are helpful because they let us *see* these differences in spread, not just calculate them.
+
+## Density Plot
+
+A density plot (or density curve) shows the shape of a distribution using a smooth curve instead of bars. The y-axis represents **density**, and the *total area under the curve equals 1*.
+
+```{r}
+p1 <- ggplot(students, aes(x = Study_hours)) +
+  geom_density(fill = "steelblue4", alpha = 0.4) +
+  labs(title = "Study_hours: Wider spread (SD ≈ 1.8)")
+
+p2 <- ggplot(students, aes(x = Sleep_hours)) +
+  geom_density(fill = "steelblue4", alpha = 0.4) +
+  labs(title = "Sleep_hours: Narrower spread (SD ≈ 1.0)")
+
+p1 + p2
+
+
+```
+
+| Histogram                                  | Density plot              |
+|--------------------------------------------|---------------------------|
+| Depends on bin width                       | No bins — smooth curve    |
+| Height = count                             | Height = density          |
+| Area is not 1                              | Area = 1                  |
+| Can look quite different depending on bins | Much more stable visually |
+
+::: callout-note
+**When should you use each plot?** <br>
+
+Use a histogram when you want to count how many observations fall in particular ranges. Use a density plot when you want to understand the overall shape of a distribution without worrying about bin choices. Using both together often gives the clearest picture.
+:::
+
+# 5 Skewness 
+
+The purpose of this figure is to illustrate **how the shape of a distribution affects the relationship between the mean, median, and mode**. These three measures of central tendency behave differently depending on whether a distribution is **positively skewed**, **symmetric**, or **negatively skewed**.
+
+### 1. What is skewness?
+
+Skewness is a measure of **asymmetry** in a distribution:
+
+-   **Positive skew (right-skewed)**\
+    The distribution has a long tail on the **right**.\
+    A few very large values pull the mean upward.
+
+-   **Symmetric distribution**\
+    Data are balanced around the centre.\
+    Mean = Median = Mode.
+
+-   **Negative skew (left-skewed)**\
+    The distribution has a long tail on the **left**.\
+    A few very small values pull the mean downward.
+
+Skewness is important because it affects which measure of central tendency best represents the “centre” of the data.
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(grid)   # for unit() in geom_label
+
+set.seed(123)
+
+# --- 1. Simulated distributions ---
+n <- 600
+x_pos <- rlnorm(n, meanlog = log(4), sdlog = 0.45)          # positive skew
+x_sym <- rnorm(n, mean = 10, sd = 1)                        # symmetric
+x_neg <- 18 - rlnorm(n, meanlog = log(4), sdlog = 0.45)     # negative skew
+
+dat <- rbind(
+  data.frame(x = x_pos, type = "Positive skew"),
+  data.frame(x = x_sym, type = "Symmetric"),
+  data.frame(x = x_neg, type = "Negative skew")
+)
+
+# ensure legend order
+dat$type <- factor(dat$type,
+                   levels = c("Positive skew", "Symmetric", "Negative skew"))
+
+# --- 2. Mean / Median / Mode taken from the actual data -------------------
+
+# helper to get empirical mode (location of density peak)
+get_mode <- function(x) {
+  d <- density(x)
+  d$x[which.max(d$y)]
+}
+
+# positive skew: Mode < Median < Mean
+pos_mode   <- get_mode(x_pos)
+pos_median <- median(x_pos)
+pos_mean   <- mean(x_pos)
+
+# symmetric: all ~ equal
+sym_centre <- mean(x_sym)   # mean ~ median ~ mode
+
+# negative skew: Mean < Median < Mode
+neg_mode   <- get_mode(x_neg)
+neg_median <- median(x_neg)
+neg_mean   <- mean(x_neg)
+
+# sanity check (optional)
+# pos_mode < pos_median & pos_median < pos_mean
+# neg_mean < neg_median & neg_median < neg_mode
+
+# --- 3. Data frame for vertical lines + labels ----------------------------
+
+lines_df <- data.frame(
+  type = factor(rep(c("Positive skew", "Symmetric", "Negative skew"), each = 3),
+                levels = c("Positive skew", "Symmetric", "Negative skew")),
+  stat = rep(c("Mode", "Median", "Mean"), times = 3),
+
+  # x positions for the vertical lines (Mode, Median, Mean)
+  x = c(
+    pos_mode, pos_median, pos_mean,
+    sym_centre, sym_centre, sym_centre,
+    neg_mode, neg_median, neg_mean
+  ),
+
+  # label x-positions: tiny horizontal nudges so they do not overlap the lines
+  x_label = c(
+    pos_mode - 0.15, pos_median,      pos_mean   + 0.15,
+    sym_centre - 0.15, sym_centre,    sym_centre + 0.15,
+    neg_mode + 0.15,  neg_median,     neg_mean   - 0.15
+  ),
+
+  # label y-positions (same pattern for all three)
+  y_label = rep(c(0.24, 0.27, 0.30), 3)
+)
+
+# --- 4. Colour palette ----------------------------------------------------
+
+cols <- c(
+  "Positive skew" = "#74c476",
+  "Symmetric"     = "#6baed6",
+  "Negative skew" = "#fb6a4a"
+)
+
+# --- 5. Plot --------------------------------------------------------------
+
+ggplot() +
+  geom_density(
+    data = dat,
+    aes(x = x, fill = type),
+    alpha = 0.25, colour = NA
+  ) +
+  # mode (solid)
+  geom_vline(
+    data = subset(lines_df, stat == "Mode"),
+    aes(xintercept = x, colour = type),
+    linewidth = 1
+  ) +
+  # median (dashed)
+  geom_vline(
+    data = subset(lines_df, stat == "Median"),
+    aes(xintercept = x, colour = type),
+    linetype = "dashed",
+    linewidth = 0.9
+  ) +
+  # mean (dotted)
+  geom_vline(
+    data = subset(lines_df, stat == "Mean"),
+    aes(xintercept = x, colour = type),
+    linetype = "dotted",
+    linewidth = 1
+  ) +
+  # labels with white background
+  geom_label(
+    data = lines_df,
+    aes(x = x_label, y = y_label, label = stat, colour = type),
+    fill = "white",
+    size = 4.2,
+    fontface = "bold",
+    label.size = 0.2,
+    label.r = unit(0.15, "lines"),
+    label.padding = unit(0.15, "lines"),
+    alpha = 0.9
+  ) +
+  scale_fill_manual(values = cols, name = "Skew type") +
+  scale_colour_manual(values = cols, guide = "none") +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 0.35)) +
+  labs(
+    title    = "Skewness and the Mean–Median–Mode Relationship",
+    subtitle = "Positive skew | Symmetric | Negative skew",
+    x = NULL,
+    y = "Density"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position  = "bottom",
+    legend.direction = "horizontal"
+  )
+
+
+```
+
+### 2. Why do the mean, median, and mode shift?
+
+The **mode** always occurs at the highest peak—where most observations are concentrated.\
+The **median** is the midpoint value when the data are ordered.\
+The **mean** is sensitive to extreme values (outliers).
+
+As a result:
+
+-   In **positive skew**:\
+    **Mode \< Median \< Mean**\
+    (the tail on the right pulls the mean to the right)
+
+-   In **symmetric** distributions:\
+    **Mode = Median = Mean**
+
+-   In **negative skew**:\
+    **Mean \< Median \< Mode**\
+    (the tail on the left pulls the mean to the left)
+
+The ordering of these three values tells us about the direction of skew.
+
+### 3. How to interpret the figure
+
+This visual helps you identify skew by looking at:
+
+-   **The direction of the tail**
+
+-   **Where the mean, median, and mode sit relative to each other**
+
+-   **The height of the density curve**, which shows where values are most common
+
+Being able to visually diagnose skew is essential in real data analysis because skew affects:
+
+-   Which summary statistics to use
+
+-   How reliable the mean is
+
+-   Which statistical models are valid
+
+-   How to correctly describe the data distribution
+
+# 6 Choosing appropriate summaries
+
+A quick guide for which measures to use:
+
+| Variable type | Centre (central tendency) | Spread (dispersion) |
+|------------------------|------------------------|------------------------|
+| Categorical (nominal) | Mode | Frequency table |
+| Categorical (ordered) | Mode / Median | Range / IQR |
+| Continuous (numeric) | Mean / Median | Variance & Standard deviation (plus IQR) |
+| Counts | Mode / Mean | Range, variance, standard deviation |
+
+
+# 7 Glossary
+
+- **Interquartile Range (IQR)**: The 3rd quartile minus the 1st quartile; the range of the middle 50% of the data.
+- **Mean**: The sum of all observations divided by the total number of observations; the arithmetic average.
+- **Median**: The middle value of an ordered dataset; 50% of observations lie below and 50% above.
+- **Mode**: The most frequently occurring value in a dataset.
+- **Deviation**: The distance from an observation to the mean value.
+- **Variance**: The average squared distance of observations from the mean value.
+- **Standard deviation**: The square root of the variance; the typical distance of observations from the mean.
+- **Quartiles (Q1, Q2, Q3)**: Values that split ordered data into four equal parts (25%, 50%, 75%).
+- **Interquartile fences**: The cut-offs Q1 − 1.5 × IQR and Q3 + 1.5 × IQR used to flag potential outliers.
+- **Outlier**: An observation that lies far from the bulk of the data, often beyond the 1.5 × IQR fences.
+- **Boxplot**: Displays the median, quartiles, the IQR, and any potential outliers.
+- **Histogram**: Shows the frequency of values that fall within bins of an equal width.
+- **Bin width**: The size of the intervals used to group values in a histogram.
+- **Density curve / density plot**: A smooth curve reflecting the distribution of a variable, where the total area under the curve is 1.
+- **Skew / Skewness**: A measure of asymmetry in a distribution (positive/right skew or negative/left skew).
+- **Positive skew**: A distribution with a long tail to the right; extreme high values pull the mean to the right of the median.
+- **Negative skew**: A distribution with a long tail to the left; extreme low values pull the mean to the left of the median.
+- **Spread / dispersion**: How much the values of a variable vary around a central value.
+- **Continuous variable**: A numeric variable that can take many possible values on a scale (e.g., IQ, hours of sleep).
+- **Categorical variable**: A variable that records group membership or labels (e.g., degree programme, gender).
+
+<br>
+
+- `summarise()` To summarise variables into one or more values according to whatever calculation we give it.
+- `mean()` To calculate the mean of a numeric variable.
+- `median()` To calculate the median of a numeric variable.
+- `IQR()` To calculate the interquartile range for a numeric variable.
+- `sd()` To calculate the standard deviation of a numeric variable.
+- `var()` To calculate the variance of a numeric variable.
+- `min()` / `max()` To obtain the smallest and largest values of a numeric variable.
+- `count()` To count how many times each value or category occurs.
+- `ggplot()` To start a plot using the *ggplot2* grammar of graphics.
+- `geom_histogram()` To add a histogram to a ggplot.
+- `geom_boxplot()` To add a boxplot to a ggplot.
+- `geom_density()` To add a density curve to a ggplot.
+- `geom_vline()` To add a vertical reference line (e.g., for a mean or median) to a ggplot.
+
