@@ -63,23 +63,23 @@ website:
       - text: "Stats Tutorials"
         menu:
           - text: "Week 08 – Tutorial 01"
-            href: Tutorials/Stats/week-8/week-08-tutorial-stats.qmd
+            href: Tutorials/Stats/week-8/week-08-tutorial-stats 2.qmd
           - text: "Week 09 – Tutorial 02"
-            href: Tutorials/Stats/week-9/week-09-tutorial-stats.qmd
+            href: Tutorials/Stats/week-9/week-09-tutorial-stats 2.qmd
           - text: "Week 10 – Tutorial 03"
-            href: Tutorials/Stats/week-10/week-10-tutorial-stats.qmd
+            href: Tutorials/Stats/week-10/week-10-tutorial-stats 2.qmd
           - text: "Week 11 – Tutorial 04"
-            href: Tutorials/Stats/week-11/week-11-tutorial-stats.qmd
+            href: Tutorials/Stats/week-11/week-11-tutorial-stats 2.qmd
           - text: "Week 12 – Tutorial 05"
-            href: Tutorials/Stats/week-12/week-12-tutorial-stats.qmd
+            href: Tutorials/Stats/week-12/week-12-tutorial-stats 2.qmd
           - text: "Week 13 – Tutorial 06"
-            href: Tutorials/Stats/week-13/week-13-tutorial-stats.qmd
+            href: Tutorials/Stats/week-13/week-13-tutorial-stats 2.qmd
           - text: "Week 14 – Tutorial 07"
-            href: Tutorials/Stats/week-14/week-14-tutorial-stats.qmd
+            href: Tutorials/Stats/week-14/week-14-tutorial-stats 2.qmd
           - text: "Week 15 – Tutorial 08"
-            href: Tutorials/Stats/week-15/week-15-tutorial-stats.qmd
+            href: Tutorials/Stats/week-15/week-15-tutorial-stats 2.qmd
           - text: "Week 16 – Tutorial 09"
-            href: Tutorials/Stats/week-16/week-16-tutorial-stats.qmd
+            href: Tutorials/Stats/week-16/week-16-tutorial-stats 2.qmd
 
       - text: "R Support"
         menu:
